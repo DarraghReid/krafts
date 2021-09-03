@@ -37,6 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Used along with SITE_ID setting by social account below to
+    # create proper call back urls when connecting via social media
+    'django.contrib.sites',
+    'allauth',
+    # Allows basic user account functionality like
+    # loggining in/out, user registration, password resets
+    'allauth.account',
+    # Handles logging in via social media providers
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +68,9 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                # Allow Django and Allauth to access http request object in templates
+                # (eg, access request.user in django templates)
+                # Required from Django by Allauth as Allauth templates use request object frequently
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -66,6 +78,36 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    # (Handles superusers logging into admin)
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    # (Allows users to log into store via email address)
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+# Log confirmation emails to console to get confirmation links
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Tell Allauth to allow authentication useing either username or email
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# Email required to register for site
+ACCOUNT_EMAIL_REQUIRED = True
+# Verifying email is mandatory (ensure email is real)
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# User must enter email twice for typo purposes
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+# Username must be at lest 4 characters
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+# Specify login url
+LOGIN_URL = '/accounts/login/'
+# Specify url to redirect back to after logging in
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'krafts.wsgi.application'
 
