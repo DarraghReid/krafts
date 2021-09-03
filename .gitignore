@@ -6,3 +6,8 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
+# Ignore development database fil
+*.sqlite3
+*.pyc
+# Ignore compiled python code
+__pycache__
