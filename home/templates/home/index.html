@@ -2,6 +2,35 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">It works!</h1>
+    <!-- Bootstrap grid -->
+    <div class="container">
+        <div class="row">
+            <!-- COL positioned to left of screen -->
+            <div class="col-7 col-md-6 my-auto">
+                <h1 class="display-4 logo-font text-black">
+                    Made by hand
+                </h1>
+                <h1 class="display-4 logo-font text-black">
+                    Delivered to your door
+                </h1>
+                <!-- Shop button -->
+                <div class="my-5">
+                    <h4>
+                        <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
+                            Find a gem!
+                        </a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
