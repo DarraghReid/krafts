@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Use accounts path to include all Allauth URLs
     path('accounts/', include('allauth.urls')),
+    # Empty path indicates it is root URL
+    path('', include('home.urls')),
 ]
