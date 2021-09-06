@@ -37,7 +37,97 @@
         <title>Kraft {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid fixed-top"></header>
+        <!-- Main page header -->
+        <header class="container-fluid fixed-top">
+            <div class="row">
+                <!-- COLs stacked virtically on sm screens, horizontally on lg screens, have padding on sm screens -->
+                <!-- COL 1: Logo centered on sm screens, left aligned on lg screens -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <!-- Logo with link to home URL -->
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                        <h2 class="logo-font text-black my-0">
+                            <strong>
+                                KRAFT
+                            </strong>
+                        </h2>
+                    </a>
+                </div>
+                <!-- COL 2: Search form -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <!-- Searches submitted as url parameters (GET) -->
+                    <form method="GET" action="">
+                        <!-- Input group containing search bar text input -->
+                        <div class="input-group w-100">
+                            <!-- Search bar text input, "q" name submitted to action URL -->
+                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for products">
+                            <!-- Btn attached to text input -->
+                            <div class="input-group append">
+                                <button class="form-control btn btn-black border border-black rounded-0">
+                                    <span class="icon">
+                                        <i class="fas fa-search"> </i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- COl 3: Account and shopping bag links, contained in unordered list -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <!-- List items aligned horizontally, centered on sm screens, right algigned on lg screens -->
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <!-- LI 1: Account link -->
+                        <li class="list-inline-item dropdown">
+                            <!-- Link triggers Bootstrap dropdown below, when clicked -->
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="flase">
+                                <div class="text-center">
+                                    <div>
+                                        <i class="fas fa-user fa-lg"></i>
+                                    </div>
+                                    <p class="my-0">
+                                        My Account
+                                    </p>
+                                </div>
+                            </a>
+                            <!-- Account menu dropdown, triggered by "My Account" link above -->
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <!-- Only show if user is both authenticated and a superuser -->
+                                        <a class="dropdown-item" href="">Product Management</a>
+                                    {% endif %}
+                                    <!-- Shown to all authenticated users -->
+                                    <a class="dropdown-item" href="">Profile</a>
+                                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                                {% else %}
+                                    <!-- Shown only to logged out/unauthenticated users -->
+                                    <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
+                                    <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <!-- If there is an item in the bag, font is bold -->
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %} text-black{% endif %} nav-link" href="">
+                                <div class="text-center">
+                                    <div>
+                                        <i class="fas fa-shopping-bag fa-lg"></i>
+                                    </div>
+                                    <p class="my-0">
+                                        <!-- If there is an item in the bag, display the grand_total variable to two decimal places -->
+                                        {% if grand_total %}
+                                            ${{ grand_total|floatformat:2 }}
+                                        <!-- Otherwise, display 0 -->
+                                        {% else %}
+                                            $0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
         <!-- Messages sent back from Django displayed here -->
         {% if messages %}
