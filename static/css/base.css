@@ -1,0 +1,14 @@
+html {
+    /* For h100 & vertical centering to work */
+    height: 100%;
+}
+
+body {
+     /* Change to carousel later */
+    background: url('/media/p5.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    /* 164 px is height of top header */
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato';
+}

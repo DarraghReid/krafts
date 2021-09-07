@@ -52,6 +52,7 @@
                         </h2>
                     </a>
                 </div>
+
                 <!-- COL 2: Search form -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <!-- Searches submitted as url parameters (GET) -->
@@ -61,16 +62,18 @@
                             <!-- Search bar text input, "q" name submitted to action URL -->
                             <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for products">
                             <!-- Btn attached to text input -->
-                            <div class="input-group append">
+                            <div class="input-group-append">
                                 <button class="form-control btn btn-black border border-black rounded-0">
                                     <span class="icon">
                                         <i class="fas fa-search"> </i>
                                     </span>
                                 </button>
                             </div>
+
                         </div>
                     </form>
                 </div>
+
                 <!-- COl 3: Account and shopping bag links, contained in unordered list -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <!-- List items aligned horizontally, centered on sm screens, right algigned on lg screens -->
@@ -105,6 +108,8 @@
                                 {% endif %}
                             </div>
                         </li>
+
+                        <!-- LI 2: Shopping bag link -->
                         <li class="list-inline-item">
                             <!-- If there is an item in the bag, font is bold -->
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %} text-black{% endif %} nav-link" href="">
@@ -126,6 +131,7 @@
                         </li>
                     </ul>
                 </div>
+                
             </div>
         </header>
 
