@@ -168,6 +168,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# Tuple telling Django where all static files are located (in the project level 'static' folder)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+# Use static function in urls.py to add media url to list of urls so Django can see it
+MEDIA_URL = '/media/'
+# All uploaded media files go here
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
