@@ -1,11 +1,16 @@
+<!-- Included in base.html nav element -->
+
 <ul>
+    <!-- Search Button -->
     <li class="list-inline-item">
+        <!-- When clicked, search bar below will appear -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div><i class="fas fa-search fa-lg"></i></div>
                 <p class="my-0">Search</p>
             </div>
         </a>
+        <!-- Search bar appears when above link is clicked -->
         <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
             <form class="form" method="GET" action="">
                 <div class="input-group w-100">
@@ -21,6 +26,8 @@
             </form>
         </div>
     </li>
+
+    <!-- My Account dropdown menu -->
     <li class="list-inline-item dropdown">
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -41,6 +48,8 @@
             {% endif %}
         </div>
     </li>
+
+    <!-- Shopping bag link -->
     <li class="list-inline-item">
         <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="">
             <div class="text-center">
