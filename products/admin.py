@@ -4,11 +4,9 @@ from .models import Product
 from .models import Category
 
 
-# Register models
 # ModelAdmin is built in
 class ProductAdmin(admin.ModelAdmin):
-    # list_display is tuple which tells admin which fields
-    # to display in the admin
+    # list_display tuple tells admin which fields to display in admin
     list_display = (
         'sku',
         'name',
