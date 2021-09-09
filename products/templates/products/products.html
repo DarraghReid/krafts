@@ -13,11 +13,77 @@
 {% endblock %}
 
 {% block content %}
+    <!-- White overlay to cover up cover image -->
+    <div class="overlay"></div>
     <!-- Bootstrap grid -->
-    <div class="container">
+    <div class="container-fluid">
+        <!-- ROW1: Page title and any selected categories -->
         <div class="row">
-            <div class="col">
-                {{ products }}
+            <!-- COl: Products heading -->
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">
+                    Products
+                </h2>
+                <hr class="w-50">
+            </div>
+        </div>
+        <!-- ROW2: Products -->
+        <div class="row">
+            <!-- COL: Product card container with 2 rows-->
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <!-- ROW 2: -->
+                <div class="row">
+                    {% for product in products %}
+                        <!-- Every products will have a column containing a card -->
+                        <div class="col-sm-4 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                <!-- Product image -->
+                                {% if product.image %}
+                                    <!-- If image present, render if with image field's url attribute -->
+                                    <div style="min-height: 255px; max-height: 255px;">
+                                        <a href="">
+                                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                        </a>
+                                    </div>
+                                {% else %}
+                                    <!-- Otherwise, display default image from media folder -->
+                                    <div style="min-height: 255px; max-height: 255px;"></div>
+                                        <a href="">
+                                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <!-- Card body displayed product name -->
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ product.name }}</p>
+                                </div>
+                                <!-- Card footer containing product price and rating -->
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <!-- ROW containing 1 column -->
+                                    <div class="row">
+                                        <!-- COL containing product price and rating -->
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                        </div>
+                                        <!-- If the product has a rating, display in following format -->
+                                        {% if product.rating %}
+                                            <small class="text-muted">
+                                                <i class="fas fa-star mr-1"></i>
+                                                {{ product.rating }} / 5
+                                            </small>
+                                        {% else %}
+                                        <!-- Otherwise, inform customer the product has no rating -->
+                                            <small class="text-muted">
+                                                No Rating
+                                            </small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
