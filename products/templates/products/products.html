@@ -41,14 +41,14 @@
                                 <!-- Product image -->
                                 {% if product.image %}
                                     <!-- If image present, render if with image field's url attribute -->
-                                    <div style="min-height: 255px; max-height: 255px;">
+                                    <div class="img-container">
                                         <a href="">
                                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                         </a>
                                     </div>
                                 {% else %}
                                     <!-- Otherwise, display default image from media folder -->
-                                    <div style="min-height: 255px; max-height: 255px;"></div>
+                                    <div class="img-container">
                                         <a href="">
                                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                         </a>
@@ -65,23 +65,45 @@
                                         <!-- COL containing product price and rating -->
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            <!-- If the product has a rating, display in following format -->
+                                            {% if product.rating %}
+                                                <small class="text-muted">
+                                                    <i class="fas fa-star mr-1"></i>
+                                                    {{ product.rating }} / 5
+                                                </small>
+                                            {% else %}
+                                            <!-- Otherwise, inform customer the product has no rating -->
+                                                <small class="text-muted">
+                                                    No Rating
+                                                </small>
+                                            {% endif %}
                                         </div>
-                                        <!-- If the product has a rating, display in following format -->
-                                        {% if product.rating %}
-                                            <small class="text-muted">
-                                                <i class="fas fa-star mr-1"></i>
-                                                {{ product.rating }} / 5
-                                            </small>
-                                        {% else %}
-                                        <!-- Otherwise, inform customer the product has no rating -->
-                                            <small class="text-muted">
-                                                No Rating
-                                            </small>
-                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Horizontal rule displayed based on number of products in each ROW -->
+                        {% if forloop.counter|divisibleby:1 %}
+                            <div class="col-12 d-sm-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:2 %}
+                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:3 %}
+                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:4 %}
+                            <div class="col-12 d-none d-xl-block mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

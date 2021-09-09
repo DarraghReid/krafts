@@ -73,6 +73,12 @@ body {
     z-index: -1;
 }
 
+.img-container {
+    min-height: 255px;
+    max-height: 255px;
+    overflow: hidden;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
