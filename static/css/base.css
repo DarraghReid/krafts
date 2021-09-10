@@ -4,11 +4,8 @@ html {
 }
 
 body {
-    /* Change to carousel later */
-    background: url('/media/p5.jpeg') no-repeat center center fixed;
-    background-size: cover;
-    /* 164 px is height of top header */
-    height: calc(100vh - 164px);
+    width: 100%;
+    height: 100%;
     color: #555;
     font-family: 'Lato';
 }
@@ -77,6 +74,14 @@ body {
     min-height: 255px;
     max-height: 255px;
     overflow: hidden;
+}
+
+.carousel-item {
+    max-height: 60vh;
+}
+
+.carousel-item img {
+    margin-top: -255px;
 }
 
 /* -------------------------------- Media Queries */
