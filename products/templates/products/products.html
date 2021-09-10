@@ -42,14 +42,14 @@
                                 {% if product.image %}
                                     <!-- If image present, render if with image field's url attribute -->
                                     <div class="img-container">
-                                        <a href="">
+                                        <a href="{% url 'product_detail' product.id %}">
                                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                         </a>
                                     </div>
                                 {% else %}
                                     <!-- Otherwise, display default image from media folder -->
                                     <div class="img-container">
-                                        <a href="">
+                                        <a href="{% url 'product_detail' product.id %}">
                                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                         </a>
                                     </div>

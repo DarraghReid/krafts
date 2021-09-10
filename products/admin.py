@@ -8,6 +8,7 @@ from .models import Category
 class ProductAdmin(admin.ModelAdmin):
     # list_display tuple tells admin which fields to display in admin
     list_display = (
+        'pk',
         'sku',
         'name',
         'description',
