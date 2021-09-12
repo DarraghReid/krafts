@@ -14,7 +14,8 @@
 
 {% block content %}
     <!-- Edited Bootstrap Slider -->
-    <div id="hero-slider" class="carousel slide" data-ride="carousel">
+    <div id="hero-slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <!-- Carousel navigation indicators -->
         <ol class="carousel-indicators">
             <li data-target="#hero-slider" data-slide-to="0" class="active"></li>
             <li data-target="#hero-slider" data-slide-to="1"></li>
@@ -22,34 +23,88 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/media/p2.jpeg" class="d-block w-100" alt="...">
+                <img src="/media/p2.jpeg" class="d-block" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Beautifully hand crafted products</h2>
-                    <p>Delivered to your door.</p>
+                    <h1>Beautifully hand crafted products</h1>
+                    <h3>Delivered to your door.</h3>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/media/b4.jpeg" class="d-block w-100" alt="...">
+                <img src="/media/b4.jpeg" class="d-block" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>First slide label</h2>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h1>Beautifully hand crafted products</h1>
+                    <h3>Delivered to your door.</h3>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/media/p4.jpeg" class="d-block w-100" alt="...">
+                <img src="/media/p4.jpeg" class="d-block" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Third slide label</h2>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <h1>Beautifully hand crafted products</h1>
+                    <h3>Delivered to your door.</h3>
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#hero-slider" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#hero-slider" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
     </div>
+
+    <!-- Navigation link images -->
+
+    <!-- Pottery link -->
+    <div class="col text-left my-3">
+        <h2 class="text-black">
+            POTTERY
+        </h2>
+    </div>
+
+    <a href="#">
+        <div class="image-link pottery col-10 offset-1">
+            <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase">
+                Shop pottery
+            </a>
+        </div>
+    </a>
+
+    <!-- Furniture link -->
+    <div class="col text-left my-3 mt-4">
+        <h2 class="text-black">
+            FURNITURE
+        </h2>
+    </div>
+
+    <a href="#">
+        <div class="image-link furniture col-10 offset-1">
+            <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase">
+                Shop furniture
+            </a>
+        </div>
+    </a>
+
+    <!-- Jewellery link -->
+    <div class="col text-left my-3 mt-4">
+        <h2 class="text-black">
+            JEWELLERY
+        </h2>
+    </div>
+
+    <a href="#">
+        <div class="image-link jewellery col-10 offset-1">
+            <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase">
+                Shop jewellery
+            </a>
+        </div>
+    </a>
+
+    <!-- Special offers link -->
+    <div class="col text-left my-3 mt-4">
+        <h2 class="text-black">
+            SPECIAL OFFERS
+        </h2>
+    </div>
+
+    <a href="#">
+        <div class="image-link special-offers col-10 offset-1">
+            <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase">
+                Shop special offers
+            </a>
+        </div>
+    </a>
 {% endblock %} 
