@@ -66,8 +66,8 @@
 
                 <!-- COL 2: Search form -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <!-- Searches submitted as url parameters (GET) -->
-                    <form method="GET" action="">
+                    <!-- Searches submitted as url parameters (GET) to all_products view -->
+                    <form method="GET" action="{% url 'products' %}">
                         <!-- Input group containing search bar text input -->
                         <div class="input-group w-100">
                             <!-- Search bar text input, "q" name submitted to action URL -->
