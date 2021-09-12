@@ -22,11 +22,13 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 POTTERY
             </a>
+            <!-- ? attaches category parameter to products url, accessed in get_products view -->
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">JUGS</a>
-                <a href="" class="dropdown-item">CUPS &amp; MUGS</a>
-                <a href="" class="dropdown-item">VASES</a>
-                <a href="" class="dropdown-item">All POTTERY</a>
+                <a href="{% url 'products' %}?category=jugs" class="dropdown-item">JUGS</a>
+                <!-- comma ensures comma-separated string in view -->
+                <a href="{% url 'products' %}?category=cups_mugs" class="dropdown-item">CUPS &amp; MUGS</a>
+                <a href="{% url 'products' %}?category=vases" class="dropdown-item">VASES</a>
+                <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="dropdown-item">All POTTERY</a>
             </div>
         </li>
 
@@ -36,10 +38,10 @@
                 FURNITURE
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">TABLES</a>
-                <a href="" class="dropdown-item">CHAIRS</a>
-                <a href="" class="dropdown-item">CABINETS</a>
-                <a href="" class="dropdown-item">All FURNITURE</a>
+                <a href="{% url 'products' %}?category=tables" class="dropdown-item">TABLES</a>
+                <a href="{% url 'products' %}?category=chairs" class="dropdown-item">CHAIRS</a>
+                <a href="{% url 'products' %}?category=cabinets" class="dropdown-item">CABINETS</a>
+                <a href="{% url 'products' %}?category=tables,chairs,cabinets" class="dropdown-item">All FURNITURE</a>
             </div>
         </li>
 
@@ -49,9 +51,9 @@
                 JEWELLERY
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">NECKLACES</a>
-                <a href="" class="dropdown-item">BRACELETS</a>
-                <a href="" class="dropdown-item">All JEWELLERY</a>
+                <a href="{% url 'products' %}?category=necklaces" class="dropdown-item">NECKLACES</a>
+                <a href="{% url 'products' %}?category=bracelets" class="dropdown-item">BRACELETS</a>
+                <a href="{% url 'products' %}?category=necklaces,bracelets" class="dropdown-item">All JEWELLERY</a>
             </div>
         </li>
 
@@ -61,10 +63,10 @@
                 SPECIAL OFFERS
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>

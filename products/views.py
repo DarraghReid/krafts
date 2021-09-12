@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product
+from .models import Product, Category
 
 # Create your views here.
 
@@ -14,10 +14,21 @@ def all_products(request):
 
     # Initialise as None to prevent errors
     query = None
+    categories = None
 
     # Check if request is GET
     if request.GET:
-        # Check if 'q' is in the request
+        # If 'category' is in the request
+        # ('catergory' name of url parameter in dropdown nav-links)
+        if 'category' in request.GET:
+            # Split it into list
+            categories = request.GET['category'].split(",")
+            # Use list to filter all products in the db with those categories
+            products = products.filter(category__name__in=categories)
+            # Get selected categories' objects for user confirmation
+            categories = Category.objects.filter(name__in=categories)
+
+        # If 'q' is in the request
         # ('q' name of text input of search bar)
         if 'q' in request.GET:
             # Assign value of 'q' to query
@@ -30,7 +41,8 @@ def all_products(request):
                 # redirect to product url
                 return redirect(reverse('products'))
             # If query not blank, contruct name/description queries using Q obj
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(
+                name__icontains=query) | Q(description__icontains=query)
             # Use queries to filter products in the database
             products = products.filter(queries)
 
@@ -38,6 +50,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'products/products.html', context)
