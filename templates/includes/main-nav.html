@@ -10,9 +10,11 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Category</a>
+                <!-- '?' attaches sort & direction parameters to products url, accessed in get_products view -->
+                <!-- Sort paramaters are fields on product model -->
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -22,12 +24,11 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 POTTERY
             </a>
-            <!-- ? attaches category parameter to products url, accessed in get_products view -->
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
                 <a href="{% url 'products' %}?category=jugs" class="dropdown-item">JUGS</a>
-                <!-- comma ensures comma-separated string in view -->
                 <a href="{% url 'products' %}?category=cups_mugs" class="dropdown-item">CUPS &amp; MUGS</a>
                 <a href="{% url 'products' %}?category=vases" class="dropdown-item">VASES</a>
+                <!-- comma ensures comma-separated string in view -->
                 <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="dropdown-item">All POTTERY</a>
             </div>
         </li>

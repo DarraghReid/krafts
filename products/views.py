@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product, Category
 
 # Create your views here.
@@ -12,12 +13,42 @@ def all_products(request):
     # Get all products from the db
     products = Product.objects.all()
 
-    # Initialise as None to prevent errors
+    # Initialise variables as None to prevent errors
     query = None
     categories = None
+    sort = None
+    direction = None
 
     # Check if request is GET
     if request.GET:
+        # If 'sort' is in the request
+        if 'sort' in request.GET:
+            # Assign 'sort' to sortkey
+            sortkey = request.GET['sort']
+            # Assign value of sortkey to sort variable to preserve "name" field
+            sort = sortkey
+
+            # Using annotation, create a temporary field (lower_name) to
+            # sort on (instead of "name") for case-insensitive sorting
+
+            # If the value of sortkey is "name"
+            if sortkey == "name":
+                # Reassign it to lower_name
+                sortkey = "lower_name"
+                # Create temp field of all products in lower case to sort on
+                products = products.annotate(lower_name=Lower('name'))
+
+            # If 'direction' is also in the request
+            if 'direction' in request.GET:
+                # Assign its value to direction variable
+                direction = request.GET['direction']
+                # If direction's value is descending
+                if direction == 'desc':
+                    # Reverse the order of sortkey
+                    sortkey = f'-{sortkey}'
+            # Sort products using order_by model method
+            products = products.order_by(sortkey)
+
         # If 'category' is in the request
         # ('catergory' name of url parameter in dropdown nav-links)
         if 'category' in request.GET:
@@ -46,11 +77,13 @@ def all_products(request):
             # Use queries to filter products in the database
             products = products.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
     # Context dictionary is passed into product.html for use
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
