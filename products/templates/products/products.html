@@ -24,6 +24,14 @@
                 <h2 class="logo-font">
                     Products
                 </h2>
+                <!-- Selected category display-->
+                {% for c in current_categories %}
+                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                        <span class="p-2 mt-2 badge bad-white text-black rounded-0 border border-dark">
+                            {{ c.friendly_name }}
+                        </span>
+                    </a>
+                {% endfor %}
                 <hr class="w-50">
             </div>
         </div>
@@ -32,7 +40,7 @@
             <!-- COL: Product card container with 2 rows-->
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
-                <!-- ROW 2: -->
+                <!-- ROW 2: card display -->
                 <div class="row">
                     {% for product in products %}
                         <!-- Every products will have a column containing a card -->
@@ -65,6 +73,15 @@
                                         <!-- COL containing product price and rating -->
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            <!-- If the product has a category, display category name as a link -->
+                                            {% if product.category %}
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                    <i class="fas fa-tag mr-1"></i>
+                                                    {{ product.category.friendly_name }}
+                                                </a>
+                                            </p>
+                                            {% endif %}
                                             <!-- If the product has a rating, display in following format -->
                                             {% if product.rating %}
                                                 <small class="text-muted">
