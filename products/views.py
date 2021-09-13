@@ -37,6 +37,10 @@ def all_products(request):
                 sortkey = "lower_name"
                 # Create temp field of all products in lower case to sort on
                 products = products.annotate(lower_name=Lower('name'))
+            # If the value of sortkey is "category"
+            if sortkey == "category":
+                # Specify that it is sorted by category name
+                sortkey == "category__name"
 
             # If 'direction' is also in the request
             if 'direction' in request.GET:
