@@ -162,9 +162,8 @@
             <div id="delivery-banner" class="row text-center bg-white">
                 <div class="col text-black">
                     <progress max="{{ free_delivery_threshold }}" value=".01"></progress>
-                    <span>€ more for free delivery!</span>
+                    <span>€{{ free_delivery_delta }} more for free delivery!</span>
                     <!-- free_delivery_threshold found in settings.py -->
-                    <!-- <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>                 -->
                 </div>            
             </div>
         </header>
