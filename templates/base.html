@@ -47,7 +47,7 @@
     </head>
     <body>
         <header class="container-fluid fixed-top">
-            <!-- Main page header with logo, search bar, account/bag links-->
+            <!-- Main page header with logo, search bar, account/cart links-->
             <!-- Only to be displayed on large screens -->
             <div class="row bg-white pt-lg-2 d-none d-lg-flex" id="topnav">
 
@@ -71,10 +71,10 @@
                         <!-- Input group containing search bar text input -->
                         <div class="input-group w-100">
                             <!-- Search bar text input, "q" name submitted to action URL -->
-                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for products">
+                            <input class="form-control border-right-0 border-black rounded-1" type="text" name="q" placeholder="Search for products">
                             <!-- Btn attached to text input -->
                             <div class="input-group-append">
-                                <button class="form-control btn btn-black border border-black rounded-0">
+                                <button class="form-control btn border-left-0 border-black rounded-1">
                                     <span class="icon">
                                         <i class="fas fa-search"> </i>
                                     </span>
@@ -85,7 +85,7 @@
                     </form>
                 </div>
 
-                <!-- COl 3: Account and shopping bag links, contained in unordered list -->
+                <!-- COl 3: Account and shopping cart links, contained in unordered list -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <!-- List items aligned horizontally, centered on sm screens, right algigned on lg screens -->
                     <ul class="list-inline list-unstyled text-center text-lg-right my-0">
@@ -120,21 +120,21 @@
                             </div>
                         </li>
 
-                        <!-- LI 2: Shopping bag link -->
+                        <!-- LI 2: Shopping cart link -->
                         <li class="list-inline-item">
-                            <!-- If there is an item in the bag, font is bold -->
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %} text-black{% endif %} nav-link" href="">
+                            <!-- If there is an item in the cart, font is bold -->
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %} text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
                                 <div class="text-center">
                                     <div>
-                                        <i class="fas fa-shopping-bag fa-lg"></i>
+                                        <i class="fas fa-shopping-cart fa-lg"></i>
                                     </div>
                                     <p class="my-0">
-                                        <!-- If there is an item in the bag, display the grand_total variable to two decimal places -->
+                                        <!-- If there is an item in the cart, display the grand_total variable to two decimal places -->
                                         {% if grand_total %}
-                                            ${{ grand_total|floatformat:2 }}
+                                            €{{ grand_total|floatformat:2 }}
                                         <!-- Otherwise, display 0 -->
                                         {% else %}
-                                            $0.00
+                                            €0.00
                                         {% endif %}
                                     </p>
                                 </div>
@@ -159,10 +159,12 @@
                 </nav>
             </div>
             <!-- Banner displayed under nav informing customers of free delivery requirements -->
-            <div id="delivery-banner" class="row text-center">
-                <div class="col bg-black text-white">
+            <div id="delivery-banner" class="row text-center bg-white">
+                <div class="col text-black">
+                    <progress max="{{ free_delivery_threshold }}" value=".01"></progress>
+                    <span>€ more for free delivery!</span>
                     <!-- free_delivery_threshold found in settings.py -->
-                    <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
+                    <!-- <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>                 -->
                 </div>            
             </div>
         </header>
