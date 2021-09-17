@@ -1,5 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from products.models import Product
 
 
 def cart_contents(request):
@@ -11,6 +13,27 @@ def cart_contents(request):
     # Initialise total and product count
     total = 0
     product_count = 0
+    cart = request.session.get('cart', {})
+
+    print(cart.items)
+
+    # For each item and quantity in session cart
+    for item_id, quantity in cart.items():
+        # Get the item from Product model using item id
+        product = get_object_or_404(Product, pk=item_id)
+
+        # Add item's quantity + price to total
+        total += quantity * product.price
+
+        # Increment product count by quantity
+        product_count += quantity
+
+        # Add dictionary to list of cart item details
+        cart_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        })
 
     # If the total price of cart contents is less than FDT
     if total < settings.FREE_DELIVERY_THRESHOLD:
@@ -26,7 +49,7 @@ def cart_contents(request):
         delivery = 0
         free_delivery_delta = 0
 
-    # grand_total is bag contents plus delivery charges (if any)
+    # grand_total is cart contents plus delivery charges (if any)
     grand_total = delivery + total
 
     # Context processor available to all templates across site by
@@ -39,6 +62,7 @@ def cart_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'cart': cart,
     }
 
     return contexts
