@@ -1,0 +1,73 @@
+<script type="text/javascript">
+    // Prevent value of input from exceeding min/max
+    function handleEnableDisable(itemId) {
+
+        // Get current value of input based on id attribute
+        let currentValue = parseInt($(`#id_qty_${itemId}`).val());
+
+        // Disable minus button if value is less than 2
+        minusDisabled = currentValue < 2;
+
+        // Disable plus button if value is greater than 98
+        plusDisabled = currentValue > 98;
+        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+    }
+
+    // Prevent 0 being selected on page load
+    // Get all quantity inputs on page
+    let allQtyInputs = $('.qty-input');
+    // Iterate through all qty inputs on page, call handleEnableDisable on each one when page loads
+    for (let i = 0; i < allQtyInputs.length; i++) {
+        let itemId = $(allQtyInputs[i]).data('item_id');
+        handleEnableDisable(itemId);
+    }
+
+    // Listen to change event on on qty input, call handleEnableDisable every time input changes
+    $('.qty_input').change(function() {
+        let itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    })
+
+    // Add click event to increment button to increment quantity
+    $('.increment-qty').click(function(e) {
+
+        // Prevent default button action
+        e.preventDefault();
+
+        // Find closest input box to button
+        // From btn ($(this)), find closest input group, then find first qty-input in that group
+        let closestInput = $(this).closest('.input-group').find('.qty-input')[0];
+
+        // Save value in qty-input in currentValue
+        currentValue = parseInt($(closestInput).val());
+
+        // Use currentValue to increment input box value by one
+        $(closestInput).val(currentValue + 1);
+
+        // Call handleEnableDisable() when button is clicked
+        let itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+
+    // Add click event to decrement button to decrement quantity
+    $('.decrement-qty').click(function(e) {
+
+        // Prevent default button action
+        e.preventDefault();
+
+        // Find closest input box to button
+        // From btn ($(this)), find closest input group, then find first qty-input in that group
+        let closestInput = $(this).closest('.input-group').find('.qty-input')[0];
+
+        // Save value in qty-input in currentValue
+        currentValue = parseInt($(closestInput).val());
+
+        // Use currentValue to increment input box value by one
+        $(closestInput).val(currentValue - 1);
+
+        // Call handleEnableDisable() when button is clicked
+        let itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+</script>

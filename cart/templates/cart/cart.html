@@ -73,7 +73,7 @@
                                             ${{ item.product.price }}
                                         </p>
                                     </td>
-                                    <!-- Form to increment/decrement number of items in bag -->
+                                    <!-- Form to increment/decrement/display number of items in bag -->
                                     <td class="py-3">
                                         <p class="my-0">
                                             <form class="form update-form" action="" method="POST">
@@ -123,46 +123,52 @@
                                     </td>
                                 </tr>
                             {% endfor %}
-                                <tr>
-                                    <td colspan="5" class="pt-5 text-right">
-                                        <h6>
-                                            <strong>
-                                                Cart Total: ${{ total|floatformat:2 }}
-                                            </strong>
-                                        </h6>
-                                        <h6>
-                                            Delivery: ${{ delivery|floatformat:2 }}
-                                        </h6>
-                                        <h4 class="mt-4">
-                                            <strong>
-                                                Grand Total: ${{ grand_total|floatformat:2 }}
-                                            </strong>
-                                        </h4>
-                                        {% if free_delivery_delta > 0 %}
-                                            <p class="mb-1 text-danger">
-                                                You could get free delivery by spending just <strong>$ {{ free_delivery_delta}}</strong> more!
-                                            </p>
-                                        {% endif %}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" class="text-right">
-                                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded btn-lg">
-                                            <span class="icon">
-                                                <i class="fas fa-chevron-left"></i>
-                                            </span>
-                                            <span class="text-uppercase">Keep Shopping</span>
-                                        </a>
-                                        <a href="" class="btn btn-black rounded-0 btn-lg">
-                                            <span class="text-uppercase">
-                                                Secure Checkout
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fas fa-lock"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td colspan="5" class="pt-5 text-right">
+                                    <!-- Total of all items in cart without delivery -->
+                                    <h6>
+                                        <strong>
+                                            Cart Total: ${{ total|floatformat:2 }}
+                                        </strong>
+                                    </h6>
+                                    <!-- Delivery costs -->
+                                    <h6>
+                                        Delivery: ${{ delivery|floatformat:2 }}
+                                    </h6>
+                                    <!-- Total of all items in cart with delivery -->
+                                    <h4 class="mt-4">
+                                        <strong>
+                                            Grand Total: ${{ grand_total|floatformat:2 }}
+                                        </strong>
+                                    </h4>
+                                    {% if free_delivery_delta > 0 %}
+                                        <!-- Inform user of amount extra they must spend to qualify for free delivery -->
+                                        <p class="mb-1 text-danger">
+                                            You could get free delivery by spending just <strong>$ {{ free_delivery_delta}}</strong> more!
+                                        </p>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <!-- Offer user option to keep shopping -->
+                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded btn-lg">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Keep Shopping</span>
+                                    </a>
+                                    <!-- Checkout button -->
+                                    <a href="" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">
+                                            Secure Checkout
+                                        </span>
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 {% else %}
