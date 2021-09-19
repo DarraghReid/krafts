@@ -186,5 +186,42 @@
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+    // Update qty on click
+    // Get click event on update link
+    $('.update-link').click(function(e) {
+        // Use previous method to find most recently seen update form in the DOM
+        let form = $(this).prev('.update-form');
+        // Call the form's submit method
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    // Post data to url, reload page upon response to display updated bag
+    $('.remove-item').click(function(e) {
+        // Store csrf token as string
+        let csrfToken = "{{ csrf_token }}";
+        // Get item id by splitting id fo update link being clickedat '_' and saving second half of it
+        let itemId = $(this).attr('id').split('remove_')[1];
+        // Get size
+        let size = $(this).data('size');
+        let url = `/bag/remove/${itemId}`;
+        // Create object to use to send this data to the server
+        // csrfmiddlewaretoken key will match the field django is expecting to see in request.POST when posted to server
+        let data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'size': size
+        };
+
+        // Post to server
+        $.post(url, data)
+        // When done, execute funciton to reload the page
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 
 {% endblock %}
