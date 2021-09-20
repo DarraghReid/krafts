@@ -2,6 +2,8 @@
 {% extends "base.html" %}
 <!-- Load static files -->
 {% load static %}
+<!-- Load cart_tools with calc_subtotal filer -->
+{% load cart_tools %}
 
 <!-- Page header pushes content to bottom of main navbar -->
 {% block page_header %}
@@ -115,10 +117,11 @@
                                             </a>
                                         </p>
                                     </td>
-                                    <!-- Item price -->
+                                    <!-- Subtotal -->
                                     <td class="py-3">
                                         <p class="my-0">
-                                            ${{ item.product.price }}
+                                            <!-- Use calc_subtotal in cart_tools.py to calculate subtotal -->
+                                            ${{ item.product.price | calc_subtotal:item.quantity }}
                                         </p>
                                     </td>
                                 </tr>
