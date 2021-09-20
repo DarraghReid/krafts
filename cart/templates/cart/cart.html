@@ -73,10 +73,10 @@
                                             ${{ item.product.price }}
                                         </p>
                                     </td>
-                                    <!-- Form to increment/decrement/display number of items in bag -->
+                                    <!-- Form to increment/decrement/display number of items in cart -->
                                     <td class="py-3">
                                         <p class="my-0">
-                                            <form class="form update-form" action="" method="POST">
+                                            <form class="form update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
                                                 {% csrf_token %}
                                                 <div class="form-group">
                                                     <div class="input-group">
@@ -105,12 +105,12 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            <!-- Update bag -->
+                                            <!-- Update cart -->
                                             <a class="update-link text-info">
                                                 <small>Update</small>
                                             </a>
                                             <!-- Remove item -->
-                                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}">
+                                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}">
                                                 <small>Remove</small>
                                             </a>
                                         </p>
@@ -199,20 +199,18 @@
     })
 
     // Remove item and reload on click
-    // Post data to url, reload page upon response to display updated bag
+    // Post data to url, reload page upon response to display updated cart
     $('.remove-item').click(function(e) {
         // Store csrf token as string
         let csrfToken = "{{ csrf_token }}";
-        // Get item id by splitting id fo update link being clickedat '_' and saving second half of it
+        // Get item id by splitting id fo update link being clicked at '_' and saving second half of it
         let itemId = $(this).attr('id').split('remove_')[1];
-        // Get size
-        let size = $(this).data('size');
-        let url = `/bag/remove/${itemId}`;
+        // Set url to be submitted
+        let url = `/cart/remove/${itemId}/`;
         // Create object to use to send this data to the server
         // csrfmiddlewaretoken key will match the field django is expecting to see in request.POST when posted to server
         let data = {
             'csrfmiddlewaretoken': csrfToken,
-            'size': size
         };
 
         // Post to server
