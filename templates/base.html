@@ -170,7 +170,25 @@
 
         <!-- Messages sent back from Django displayed here -->
         {% if messages %}
-            <div class="message-container"></div>
+            <div class="message-container">
+                {% for message in messages %}
+                    {% with message.level as level %}
+                        <!-- Message of level 40 is an error -->
+                        {% if level == 40 %}
+                            {% include 'includes/toasts/toast_error.html' %}
+                        <!-- Message of level 30 is a warning -->
+                        {% elif level == 30 %}
+                            {% include 'includes/toasts/toast_warning.html' %}
+                        <!-- Message of level 25 is success -->
+                        {% elif level == 25 %}
+                            {% include 'includes/toasts/toast_success.html' %}
+                        <!-- Use info for all other cases -->
+                        {% else %}
+                            {% include 'includes/toasts/toast_info.html' %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
         {% endif %}
 
         <!-- Additional header on pages that extend this base template -->
@@ -183,6 +201,11 @@
 
         <!-- Javascript to be loaded at end of the body -->
         {% block postloadjs %}
+            <!-- Ensure MESSAGE_STORAGE variable in settings.py is set -->
+            <script type="text/javascript">
+            // Call toast BS method with option of 'show' on elements with .toast class
+                $('.toast').toast('show');
+            </script>
         {% endblock %}
     </body>
 </html>
