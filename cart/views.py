@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
@@ -13,7 +13,7 @@ def add_to_cart(request, item_id):
     """ Add an item to cart """
 
     # Get product
-    product = Product.objects.get(pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
 
     # Get item quantity from quantity selector form input field
     quantity = int(request.POST.get('quantity'))
@@ -29,10 +29,13 @@ def add_to_cart(request, item_id):
     if item_id in list(cart.keys()):
         # Increment the item's quantity by new quantity from form
         cart[item_id] += quantity
+        # Inform user item has been updated
+        messages.success(
+            request, f'Added { quantity } more { product.name } to your cart')
     # Otherwise, add item along with quantity from form
     else:
         cart[item_id] = quantity
-        # Use 'messages' success function to add message to request object
+        # Inform user item has been added
         messages.success(request, f'Added { product.name } to your cart!')
 
     # Put cart variable into session
@@ -45,6 +48,9 @@ def add_to_cart(request, item_id):
 def adjust_cart(request, item_id):
     """ Adjust item quantity """
 
+    # Get product
+    product = get_object_or_404(Product, pk=item_id)
+
     # Get item quantity from quantity selector form input field
     quantity = int(request.POST.get('quantity'))
 
@@ -56,9 +62,17 @@ def adjust_cart(request, item_id):
     if quantity > 0:
         # Set the item's quantity to that number
         cart[item_id] = quantity
+
+        # Inform user item has been updated
+        messages.success(
+            request, f'Added { quantity } more { product.name } to your cart')
+
     # Otherwise, remove the item
     else:
         cart.pop(item_id)
+
+        # Inform user item has been removed
+        messages.success(request, f'Removed { product.name } from your cart!')
 
     # Put cart variable into session
     request.session['cart'] = cart
@@ -71,11 +85,17 @@ def remove_from_cart(request, item_id):
     """ Remove item from cart """
 
     try:
+        # Get product
+        product = get_object_or_404(Product, pk=item_id)
+
         # Get or create session dictionary to store cart contents
         cart = request.session.get('cart', {})
 
         # Remove item from cart
         cart.pop(item_id)
+
+        # Inform user item has been removed
+        messages.success(request, f'Removed { product.name } from your cart!')
 
         # Put cart variable into session
         request.session['cart'] = cart
@@ -84,5 +104,9 @@ def remove_from_cart(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
+        # Inform user if there has been an error removing the item
+        messages.error(
+            request, f'Error removing { product.name }: {e}')
+
         # Return any exception as 500 error
         return HttpResponse(status=500)

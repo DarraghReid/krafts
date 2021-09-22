@@ -2,8 +2,11 @@
 <!-- Set to not autohide, user must dismiss toast manually -->
 <!-- Included in base.html -->
 <div class="toast custom-toast rounded-0 border-top-0" data-autohide="false">
+    <!-- Arrow pointing to cart link in navbar -->
     <div class="arrow-up arrow-success"></div>
+    <!-- toast-capper-->
     <div class="w-100 toast-capper bg-success"></div>
+
     <!-- Toast header wither heading on left, close btn on right -->
     <div class="toast-header bg-white text-dark">
         <strong class="mr-auto">Success!</strong>
@@ -11,8 +14,69 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <!-- Toast body displays message template variable -->
+
+    <!-- Toast body -->
     <div class="toast-body bg-white">
-        {{ message }}
+
+        <!-- ROW displaying message template variable -->
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+        </div>
+
+        <!-- Preview of cart if there is a grand_total -->
+        {% if grand_total %}
+            <!-- Display number of products in cart -->
+            <p class="logo-font bg-white text-black py-1">Your cart ({{ product_count }})</p>
+            <div class="cart-notification-wrapper">
+
+                <!-- Each cart item will have a row displaying individual product details -->
+                {% for item in cart_items %}
+                    <div class="row">
+                        <!-- Product image -->
+                        <div class="col-3 my-1">
+                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        </div>
+
+                        <!-- Item name and quantity -->
+                        <div class="col-9">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 small text-muted">Quantity: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <!-- Delivery info and action options -->
+            <div class="row">
+                <div class="col">
+                    <strong>
+                        <!-- Cart total-->
+                        <p class="mt-3 mb-1 text-black">
+                            Total {% if free_delivery_delta > 0 %}(excluding delivery){% endif %}
+                            <span class="float-right">${{ total|floatformat:2 }}</span>
+                        </p>
+                    </strong>
+
+                    <!-- Inform user of how much more they need to spend for free delivery (if applicable)-->
+                    {% if free_delivery_delta > 0 %}
+                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                            Spend <strong>${{ free_delivery_delta}}</strong> more to get free delivery!
+                        </p>
+                    {% endif %}
+                    
+                    <!-- Go to cart -->
+                    <a class="btn btn-black btn-block rounded-0" href="{% url 'view_cart' %}">
+                        <span class="text-upprecase">Go To Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>
