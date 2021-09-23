@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
+
+    # Allows forms to be formatted using Bootstrap
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +69,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'krafts.urls'
+
+# Specify which Bootstrap template pack for crispy forms to use
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -87,6 +93,11 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'cart.contexts.cart_contents'
             ],
+            # All tags to be made available across all templates
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
