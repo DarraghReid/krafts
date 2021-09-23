@@ -36,7 +36,8 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added
+        Update grand total each time a line item is added, called each time
+        line item added to order
         """
         # Get sum of order's lineitem_total fields
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
