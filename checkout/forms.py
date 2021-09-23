@@ -37,7 +37,7 @@ class OrderForm(forms.ModelForm):
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             # If the form field is required
-            if self.fields[field].required:]
+            if self.fields[field].required:
             # Place a star next to it to indicate this
                 placeholder = f'{placeholders[field]} *'
             else:
@@ -49,3 +49,4 @@ class OrderForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             # Removing label from each field
             self.fields[field].label = False
+            

@@ -91,6 +91,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # To access noimage file in media folder for products with no image
+                'django.template.context_processors.media',
                 'cart.contexts.cart_contents'
             ],
             # All tags to be made available across all templates
