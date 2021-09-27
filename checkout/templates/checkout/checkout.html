@@ -131,7 +131,7 @@
                     <!-- Fieldset 3: Payment details -->
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                        <!-- A Stripe card element will go here -->
+                        <!-- Stripe card element inserted here from stripe_elements.js -->
                         <div class="mb-3" id="card-element"></div>
 
                         <!-- Used to display form errors -->
@@ -165,4 +165,14 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- Use json_script to render Django template variables as text in script elements -->
+    <!-- Values passed in from views.py context, accessed in stripe_elements.js -->
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <!-- Custom js -->
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
