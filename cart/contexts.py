@@ -10,12 +10,10 @@ def cart_contents(request):
     # List of cart items go here
     cart_items = []
 
-    # Initialise total and product count
+    # Initialise variables
     total = 0
     product_count = 0
     cart = request.session.get('cart', {})
-
-    print(cart.items)
 
     # For each item and quantity in session cart
     for item_id, quantity in cart.items():
