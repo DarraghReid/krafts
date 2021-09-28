@@ -1,0 +1,59 @@
+<!-- Checkout Page extends from base.html -->
+{% extends "base.html" %}
+<!-- Load static files -->
+{% load static %}
+
+<!-- CSS file for checkout app-->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+<!-- Page header pushes content to bottom of main navbar -->
+{% block page_header %}
+    <!-- Grid container containing single row -->
+    <div class="container header-container">
+        <!-- Row containing empty column -->
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- Container with 3 ROWs -->
+    <div class="container">
+        <!-- ROW 1: Confirmation -->
+        <div class="row">
+            <!-- COL for Thank You message -->
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb4">
+                    Thank You!
+                </h2>
+                <hr>
+                <!-- Confirmation message -->
+                <p class="text-black">
+                    Your order information is below. A confirmation email will be sent to 
+                    <strong>{{ order.email }}</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- ROW 2: Order summary & continue shopping link -->
+        <div class="row">
+            <div class="col-12 col-lg-7"></div>
+        </div>
+
+        <!-- ROW 3: Button for latest deals -->
+        <div class="row">
+			<div class="col-12 col-lg-7 text-right">
+				<a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
+					<span class="icon mr-2">
+						<i class="fas fa-gifts"></i>
+					</span>
+					<span class="text-uppercase">Now check out the latest deals!</span>
+				</a>
+			</div>
+		</div>
+    </div>
+{% endblock %}
