@@ -201,10 +201,12 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 
 # Set stripe currency to usd
 STRIPE_CURRENCY = 'usd'
-# Get STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY from environment, give them empty default values
+# Get STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY and STRIPE_WH_SECRET from environment,
+# give them empty default values
 # Getting them from Gitpod environment keeps secret key safe from exposure
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
