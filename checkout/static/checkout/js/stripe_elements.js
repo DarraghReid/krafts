@@ -77,6 +77,10 @@ form.addEventListener('submit', function(ev) {
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
 
+    // Trigger loading-overlay css
+    $('#payment-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
+
     // Use stripe.confirmCardPayment() to send card info securely to Stripe
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -97,6 +101,11 @@ form.addEventListener('submit', function(ev) {
                 <span>${result.error.message}</span>`;
             // Insert the html error into card-errors div
             $(errorDiv).html(html);
+
+            // Trigger loading-overlay css
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);
+
             // Re-enable card element & submit btn to allow user to fix error
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
