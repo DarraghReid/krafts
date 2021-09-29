@@ -12,8 +12,8 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
-    """ Add meta data key to payment intent
-        that confirmCardPayment doesn't support """
+    """ Add meta data key to payment intent that confirmCardPayment
+    doesn't support. Sent from stripe_elements.js """
     try:
         # Split client secret to get payment intent id
         pid = request.POST.get('client_secret').split('_secret')[0]

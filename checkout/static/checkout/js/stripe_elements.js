@@ -81,8 +81,24 @@ form.addEventListener('submit', function(ev) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    // Use stripe.confirmCardPayment() to send card info securely to Stripe
-    stripe.confirmCardPayment(clientSecret, {
+    // Get user's save info preference
+    let saveInfo = Boolean($('#id-save-info').attr('checked'));
+    // From using {% csrf_token %} in the form
+    let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    // Object to send data to cache_checkout_data() to update payment intent
+    let postData = {
+        'csrfmiddlewaretoken': csrfToken,
+        'client_secret': clientSecret,
+        'save_info': saveInfo,
+    };
+    // Create url to send data to cache_checkout_data() to update payment intent
+    let url = '/checkout/cache_checkout_data/';
+
+    // Post data to cache_checkout_data() to update payment intent
+    // .done() ensures payment intent updated before confirmCardPayment() called
+    $.post(url, postData).done( function() {
+        // Use stripe.confirmCardPayment() to send card info securely to Stripe
+        stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             // Provide card to Stripe
             card: card,
@@ -114,33 +130,38 @@ form.addEventListener('submit', function(ev) {
             }
         }
         // Execute the following function on the result of calling confirmCardPayment()
-    }).then(function(result) {
-        // If there is an error in payment
-        if (result.error) {
-            // Get card-errors div
-            let errorDiv = document.getElementById('card-errors');
-            // Create html to display error
-            let html = `
-                <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
-                </span>
-                <span>${result.error.message}</span>`;
-            // Insert the html error into card-errors div
-            $(errorDiv).html(html);
+        }).then(function(result) {
+            // If there is an error in payment
+            if (result.error) {
+                // Get card-errors div
+                let errorDiv = document.getElementById('card-errors');
+                // Create html to display error
+                let html = `
+                    <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                    </span>
+                    <span>${result.error.message}</span>`;
+                // Insert the html error into card-errors div
+                $(errorDiv).html(html);
 
-            // Trigger loading-overlay css
-            $('#payment-form').fadeToggle(100);
-            $('#loading-overlay').fadeToggle(100);
+                // Hide loading-overlay css
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
 
-            // Re-enable card element & submit btn to allow user to fix error
-            card.update({ 'disabled': false});
-            $('#submit-button').attr('disabled', false);
-        } else {
-            // If payment has succeeded
-            if (result.paymentIntent.status === 'succeeded') {
-                // Submit the form
-                form.submit();
+                // Re-enable card element & submit btn to allow user to fix error
+                card.update({ 'disabled': false});
+                $('#submit-button').attr('disabled', false);
+            } else {
+                // If payment has succeeded
+                if (result.paymentIntent.status === 'succeeded') {
+                    // Submit the form
+                    form.submit();
+                }
             }
-        }
-    });
+        });
+    }).fail(function () {  // In case view sends back 400 request response
+        // just reload the page, the error will be in django messages
+        // User will not be charged
+        location.reload();
+    })    
 });
