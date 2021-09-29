@@ -10,6 +10,34 @@ import stripe
 import json
 
 
+@require_POST
+def cache_checkout_data(request):
+    """ Add meta data key to payment intent
+        that confirmCardPayment doesn't support """
+    try:
+        # Split client secret to get payment intent id
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        # Set up Stripe with secret key to modify payment intent
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        # Modify PI: pass in pid, specify data to be modified
+        stripe.PaymentIntent.modify(pid, metadata={
+            # Json dump of cart
+            'cart': json.dumps(request.session.get('cart', {})),
+            # User's save info preference
+            'save_info': request.POST.get('save_info'),
+            # User submitting form
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    # In case of error
+    except Exception as e:
+        # Add error message
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        # Display error content & bad request status
+        return HttpResponse(content=e, status=400)
+
+
 def checkout(request):
     # Get public and secret keys from settings
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
