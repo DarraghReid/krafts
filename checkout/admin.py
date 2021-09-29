@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
+
 # Add/edit line items in admin from inside Order model
 class OrderLineItemAdminInline(admin.TabularInline):
     # Access OrderLineItem (see inlines var in OrderAdmin below)
@@ -17,14 +18,16 @@ class OrderAdmin(admin.ModelAdmin):
     # Fields caculated by model method, read only so they cannot be edited
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
-                       'grand_total',)
+                       'grand_total', 'original_cart',
+                       'stripe_pid',)
 
     # Specify order of fields in admin interface
     fields = ('order_number', 'date', 'full_name',
               'email', 'phone_number', 'country',
               'postcode', 'town_or_city', 'street_address1',
               'street_address2', 'county', 'delivery_cost',
-              'order_total', 'grand_total',)
+              'order_total', 'grand_total', 'original_cart',
+              'stripe_pid',)
 
     # Fields displayed in admin
     list_display = ('order_number', 'date', 'full_name',
@@ -33,6 +36,7 @@ class OrderAdmin(admin.ModelAdmin):
 
     # Fields order by date from newest to oldest
     ordering = ('-date',)
+
 
 # Register Order, OrderAdmin models (OrderLineItem through OrderAdmin)
 admin.site.register(Order, OrderAdmin)

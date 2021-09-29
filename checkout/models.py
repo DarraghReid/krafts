@@ -27,6 +27,11 @@ class Order(models.Model):
         max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
+    # Original cart that created order to allow duplicate orders to be added
+    original_cart = models.TextField(null=False, blank=False, default='')
+    # Unique cart payment id to allow duplicate orders to be added
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """

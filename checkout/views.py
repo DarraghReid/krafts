@@ -66,8 +66,17 @@ def checkout(request):
 
         # If the form is valid
         if order_form.is_valid():
-            # Save the order
-            order = order_form.save()
+            # Save the order, preventing multiple save events
+            order = order_form.save(commit=False)
+            # Split client secret to get payment intent id
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            # Set order's stripe_pid to pid
+            order.stripe_pid = pid
+            # Set order's orignal_cart to json string version of cart
+            order.original_cart = json.dumps(cart)
+            # Save order
+            order.save()
+
             # For each item in the cart
             for item_id, item_data in cart.items():
                 try:
@@ -79,6 +88,7 @@ def checkout(request):
                         product=product,
                         quantity=item_data,
                     )
+                    # Save order_line_item
                     order_line_item.save()
 
                 # If no product is found
