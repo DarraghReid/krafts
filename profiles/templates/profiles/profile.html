@@ -1,0 +1,37 @@
+<!-- Checkout Page extends from base.html -->
+{% extends "base.html" %}
+<!-- Load static files -->
+{% load static %}
+
+<!-- CSS file for checkout app-->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+<!-- Page header pushes content to bottom of main navbar -->
+{% block page_header %}
+    <!-- Grid container containing single row -->
+    <div class="container header-container">
+        <!-- Row containing empty column -->
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- Container with 2 ROWs -->
+    <div class="container">
+        <!-- ROW 1: Checkout heading -->
+        <div class="row">
+            <!-- COL for shopping cart heading -->
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb4">
+                    My Profile
+                </h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+{% endblock %}
