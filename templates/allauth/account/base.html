@@ -1,1 +1,16 @@
 {% extends "base.html" %}
+
+<!-- Replace main Allauth base template's content block -->
+{% block content %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="allauth-form-inner-content">
+                    <!-- Rename login's template block to inner_content -->
+                    {% block inner_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
