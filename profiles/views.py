@@ -3,6 +3,7 @@ from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
+from checkout.models import Order
 
 
 def profile(request):
@@ -36,6 +37,29 @@ def profile(request):
         'form': form,
         'orders': orders,
         'on_profile_page': True,
+    }
+
+    # Render template with context
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    # Retrieve order
+    order = get_object_or_404(Order, order_number=order_number)
+
+    # Inform user this is a historic transaction
+    messages.info(request, (
+        f'This is a past confirmation for order number {order_number}. '
+        'A confirmation email was sent on the order date.'
+    ))
+
+    # Use checkout_success.html template to render order history
+    template = 'checkout/checkout_success.html'
+    # Create context to access in template
+    context = {
+        'order': order,
+        # Determine if checkout_success.html accessed through order_history
+        'from_profile': True,
     }
 
     # Render template with context
