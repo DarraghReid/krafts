@@ -49,5 +49,5 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             # Add stripe-style-input CSS class to each field
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            # Removing label from each field
+            # Remove label from each field
             self.fields[field].label = False

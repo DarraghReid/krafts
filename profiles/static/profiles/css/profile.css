@@ -1,0 +1,20 @@
+/* Input text */
+#profile-update-form .form-control {
+    color: #000;
+}
+
+/* Profile form placeholder */
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+/* Country field & options */
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+/* Country field first option */
+#id_default_country option:first-child {
+    color: #aab7c4;
+}

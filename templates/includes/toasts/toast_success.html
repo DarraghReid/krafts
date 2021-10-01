@@ -27,7 +27,7 @@
         </div>
 
         <!-- Preview of cart if there is a grand_total -->
-        {% if grand_total %}
+        {% if grand_total and not on_profile_page %}
             <!-- Display number of products in cart -->
             <p class="logo-font bg-white text-black py-1">Your cart ({{ product_count }})</p>
             <div class="cart-notification-wrapper">
