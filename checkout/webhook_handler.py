@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import UserProfile
 import json
 import time
 
@@ -51,6 +52,28 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+        # Update profile information if save_info was checked
+        # Initialise profile to None to allow anon checkout
+        profile = None
+        # Get username from payment intent metadata
+        username = intent.metadata.username
+        # If user is not anonymous / is authenticated
+        if username != 'AnonymousUser':
+            # Get their profile
+            profile = UserProfile.objects.get(user__username=username)
+            # If save_info box is checked
+            if save_info:
+                # Set shipping details as default delivery info
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                # Save the profile
+                profile.save()
+
         # Initialise order_exists to False
         order_exists = False
         # Counter for webhook handler attept to find order
@@ -91,12 +114,15 @@ class StripeWH_Handler:
                 status=200)
         # If order doesn't exist, create the order
         else:
-            # Initialise order to None
+            # Initialise order to None for anon users
             order = None
+            # For authenticated users, try:
             try:
                 # Create order using data from payment intent
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    # Set user_profile to profile variable above
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
