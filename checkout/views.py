@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.conf import settings
 from .forms import Order, OrderForm
 from products.models import Product
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from .models import OrderLineItem
 from cart.contexts import cart_contents
 import stripe
@@ -147,8 +149,33 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY
         )
 
-        # Create instance of order form
-        order_form = OrderForm()
+        # If the user is authenticated
+        if request.user.is_authenticated:
+            try:
+                # Get their profile
+                profile = UserProfile.objects.get(user=request.user)
+                # Create instance of order form pre filled with user's info
+                order_form = OrderForm(initial={
+                    # Name and email retrieved from user account
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    # Other data retrieved from default profile info
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            # If user can't be found
+            except UserProfile.DoesNotExist:
+                # Create empty instance of order form
+                order_form = OrderForm()
+        # If user is not authenticated
+        else:
+            # Create empty instance of order form
+            order_form = OrderForm()
 
     # If stripe_public_key has not been set
     if not stripe_public_key:
@@ -181,6 +208,36 @@ def checkout_success(request, order_number):
 
     # Get order using order number to send to template
     order = get_object_or_404(Order, order_number=order_number)
+
+    # If the user is authenticated, profile created along w/ account
+    if request.user.is_authenticated:
+        # Get user's profile
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        # Save order
+        order.save()
+
+        ## Save the user's info:
+        # If save info box was checked, keys match user profile model
+        if save_info:
+            # Compile user's profile data from order
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_county': order.county,
+            }
+
+            # Create instance of user profile form w/ profile data
+            # to update profile
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            # Save form if valid
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     # Inform user that the order has been processed successfully,
     # provide them with their order number and a confrimation email
