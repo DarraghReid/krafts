@@ -17,15 +17,15 @@
 {% block content %}
     <!-- Container with 2 ROWs -->
     <div class="container">
-        <!-- ROW 1: Poduct Management/add product heading -->
+        <!-- ROW 1: Poduct Management/edit product heading -->
         <div class="row">
-            <!-- COL for PM/add heading heading -->
+            <!-- COL for PM/edit heading heading -->
             <div class="col-12 col-md-6">
                 <hr>
                 <h2 class="logo-font mb4">
                     Product Management
                 </h2>
-                <h5 class="text-muted">Add a Product</h5>
+                <h5 class="text-muted">Edit a Product</h5>
                 <hr>
             </div>
         </div>
@@ -34,13 +34,13 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <!-- Crispy form with encoding type attribute to accommodate for images -->
-                <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <!-- Cancel/submit buttons -->
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                        <button class="btn btn-black rounded-0" type="submit">Edit Product</button>
                     </div>
                 </form>
             </div>
