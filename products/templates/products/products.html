@@ -125,6 +125,15 @@
                                                     No Rating
                                                 </small>
                                             {% endif %}
+                                            <!-- If user is superuser, provide option to edit/delete product -->
+                                            {% if request.user.is_superuser %}
+                                                <small class="ml-3">
+                                                    <!-- Edit product -->
+                                                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                                    <!-- Delete product -->
+                                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                </small>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
