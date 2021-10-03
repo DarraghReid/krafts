@@ -1,0 +1,49 @@
+<!-- Checkout Page extends from base.html -->
+{% extends "base.html" %}
+<!-- Load static files -->
+{% load static %}
+
+<!-- Page header pushes content to bottom of main navbar -->
+{% block page_header %}
+    <!-- Grid container containing single row -->
+    <div class="container header-container">
+        <!-- Row containing empty column -->
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- Container with 2 ROWs -->
+    <div class="container">
+        <!-- ROW 1: Checkout heading -->
+        <div class="row">
+            <!-- COL for shopping cart heading -->
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb4">
+                    Product Management
+                </h2>
+                <h5 class="text-muted">Add a Product</h5>
+                <hr>
+            </div>
+        </div>
+
+        <!-- ROW 2: Product form -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <!-- Crispy form with encoding type attribute to accommodate for images -->
+                <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <!-- Cancel/submit buttons -->
+                    <div class="text-right">
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
