@@ -109,7 +109,7 @@
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <!-- Only show if user is both authenticated and a superuser -->
-                                        <a class="dropdown-item" href="">Product Management</a>
+                                        <a class="dropdown-item" href="{% url 'add_product' %}">Product Management</a>
                                     {% endif %}
                                     <!-- Shown to all authenticated users -->
                                     <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>

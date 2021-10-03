@@ -22,16 +22,26 @@ def profile(request):
         if form.is_valid():
             # Save it
             form.save()
+
             # Display success message
             messages.success(request, 'Profile updated successfully')
 
-    # Populate form with profile info to send to template
-    form = UserProfileForm(instance=profile)
+        # If form is not valid
+        else:
+            # Display error message to the user
+            messages.error(request, 'Update failed. Please ensure the form is valid.')
+
+    # Otherwise
+    else:
+        # Populate form with profile info to send to template
+        form = UserProfileForm(instance=profile)
+
     # Get user's orders to return to template
     orders = profile.orders.all()
 
     # Get template to render
     template = 'profiles/profile.html'
+
     # Create context to access in template
     context = {
         'form': form,
@@ -55,6 +65,7 @@ def order_history(request, order_number):
 
     # Use checkout_success.html template to render order history
     template = 'checkout/checkout_success.html'
+
     # Create context to access in template
     context = {
         'order': order,
