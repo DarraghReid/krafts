@@ -36,7 +36,18 @@
                 <!-- Crispy form with encoding type attribute to accommodate for images -->
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form | crispy }}
+                    <!-- Iterate through fields in form, ensuring crispy field only rendered if not custom image widget -->
+                    {% for field in form %}
+                        <!-- If the field is not custom image widget -->
+                        {% if field.name != 'image' %}
+                            <!-- Render crispy field-->
+                            {{ field | as_crispy_field }}
+                        <!-- Otherwise -->
+                        {% else %}
+                            <!-- Render the field -->
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
                     <!-- Cancel/submit buttons -->
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
@@ -46,4 +57,18 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- To notify user of image change -->
+    <script type="text/javascript">
+        // Listen to new image input change event
+        $('#new-image').change(function() {
+            // Get the file added
+            var file = $('#new-image')[0].files[0];
+            // Set the file name paragraph in widget template to file's name
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
 {% endblock %}
