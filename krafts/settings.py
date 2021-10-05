@@ -31,6 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['kraft-dreid.herokuapp.com', 'localhost']
 
+
 # Application definition
 
 INSTALLED_APPS = [
