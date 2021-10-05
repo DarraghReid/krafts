@@ -1,1 +1,1 @@
-web: gunicorn krafts.wsgi:application
+web: gunicorn kraft.wsgi:application
