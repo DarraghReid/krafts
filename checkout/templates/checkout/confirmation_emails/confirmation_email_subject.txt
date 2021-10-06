@@ -1,1 +1,1 @@
-Kraft Confirmation for Order Number {{ order.order_number }}
+Krafts Confirmation for Order Number {{ order.order_number }}
