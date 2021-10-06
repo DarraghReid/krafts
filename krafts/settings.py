@@ -208,6 +208,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Tell Django which S3 bucket to communicate with
 # Only to be done on Heroku
 if 'USE_AWS' in os.environ:
+    # Cache control
+    # Inform browser it can cache static files for long periods of time
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+# Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'krafts-dreid'
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
