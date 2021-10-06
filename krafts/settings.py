@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     # Allows forms to be formatted using Bootstrap
     'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -203,6 +204,29 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 # All uploaded media files go here
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Tell Django which S3 bucket to communicate with
+# Only to be done on Heroku
+if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = 'krafts-dreid'
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+# Static and media files
+    # Use storage class in custom_storages.py
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    # Set location to save static files to 'static' folder
+    STATICFILES_LOCATION = 'static'
+    # Use storage class in custom_storages.py
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    # Set location to save media files to 'media' folder
+    MEDIAFILES_LOCATION = 'media'
+
+# Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 # For use is cart views.py to calculate free delivery
 FREE_DELIVERY_THRESHOLD = 50
