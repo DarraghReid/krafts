@@ -1,1 +1,312 @@
-[{"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2021-09-03T14:05:14.201Z", "user": 1, "content_type": 7, "object_id": "1", "object_repr": "krafts.example.com", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Domain name\", \"Display name\"]}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2021-09-03T17:20:58.657Z", "user": 1, "content_type": 8, "object_id": "1", "object_repr": "darragh.reid@gmail.com", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Verified\", \"Primary\"]}}]"}}, {"model": "admin.logentry", "pk": 3, "fields": {"action_time": "2021-09-08T17:40:50.464Z", "user": 1, "content_type": 13, "object_id": "1", "object_repr": "bracelets", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 4, "fields": {"action_time": "2021-09-08T17:41:42.353Z", "user": 1, "content_type": 13, "object_id": "2", "object_repr": "cabinets", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 5, "fields": {"action_time": "2021-09-08T17:42:12.084Z", "user": 1, "content_type": 13, "object_id": "3", "object_repr": "chairs", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 6, "fields": {"action_time": "2021-09-08T17:42:28.440Z", "user": 1, "content_type": 13, "object_id": "4", "object_repr": "clearance", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 7, "fields": {"action_time": "2021-09-08T17:42:56.024Z", "user": 1, "content_type": 13, "object_id": "5", "object_repr": "cups_mugs", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 8, "fields": {"action_time": "2021-09-08T17:43:20.061Z", "user": 1, "content_type": 13, "object_id": "6", "object_repr": "deals", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 9, "fields": {"action_time": "2021-09-08T17:43:34.693Z", "user": 1, "content_type": 13, "object_id": "7", "object_repr": "jugs", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 10, "fields": {"action_time": "2021-09-08T17:43:49.547Z", "user": 1, "content_type": 13, "object_id": "8", "object_repr": "necklaces", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 11, "fields": {"action_time": "2021-09-08T17:44:20.558Z", "user": 1, "content_type": 13, "object_id": "9", "object_repr": "new_arrivals", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 12, "fields": {"action_time": "2021-09-08T17:44:30.242Z", "user": 1, "content_type": 13, "object_id": "10", "object_repr": "tables", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 13, "fields": {"action_time": "2021-09-08T17:44:38.651Z", "user": 1, "content_type": 13, "object_id": "11", "object_repr": "vases", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 14, "fields": {"action_time": "2021-09-08T18:22:54.701Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "Colourful String Bracelet", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 15, "fields": {"action_time": "2021-09-08T18:34:53.287Z", "user": 1, "content_type": 14, "object_id": "2", "object_repr": "Pink Floral Bracelet", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 16, "fields": {"action_time": "2021-09-08T18:35:22.624Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "Colourful String Bracelet", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 17, "fields": {"action_time": "2021-09-08T18:35:25.741Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "Colourful String Bracelet", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 18, "fields": {"action_time": "2021-09-08T18:40:29.617Z", "user": 1, "content_type": 14, "object_id": "3", "object_repr": "Matching Friendship Bracelets", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 19, "fields": {"action_time": "2021-09-08T18:40:53.340Z", "user": 1, "content_type": 14, "object_id": "3", "object_repr": "Matching Friendship Bracelets", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 20, "fields": {"action_time": "2021-09-08T18:44:45.990Z", "user": 1, "content_type": 14, "object_id": "4", "object_repr": "Stylish Soft Grey Chair", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 21, "fields": {"action_time": "2021-09-08T18:46:47.768Z", "user": 1, "content_type": 14, "object_id": "5", "object_repr": "Rocking Chair", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 22, "fields": {"action_time": "2021-09-08T18:50:41.464Z", "user": 1, "content_type": 14, "object_id": "6", "object_repr": "Large Grey Armchair", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 23, "fields": {"action_time": "2021-09-08T18:53:21.238Z", "user": 1, "content_type": 14, "object_id": "7", "object_repr": "Red Leather Armchair", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 24, "fields": {"action_time": "2021-09-08T18:56:03.016Z", "user": 1, "content_type": 14, "object_id": "8", "object_repr": "Dual Dining Room Chairs", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 25, "fields": {"action_time": "2021-09-08T18:59:30.553Z", "user": 1, "content_type": 14, "object_id": "9", "object_repr": "Wooden Bedroom Cabinet", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 26, "fields": {"action_time": "2021-09-08T19:01:45.855Z", "user": 1, "content_type": 14, "object_id": "10", "object_repr": "Vintage Cabinet", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 27, "fields": {"action_time": "2021-09-08T19:04:31.377Z", "user": 1, "content_type": 14, "object_id": "11", "object_repr": "Floral Necklace", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 28, "fields": {"action_time": "2021-09-08T19:06:32.367Z", "user": 1, "content_type": 14, "object_id": "12", "object_repr": "Gold Leaf Necklace", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 29, "fields": {"action_time": "2021-09-08T19:06:43.755Z", "user": 1, "content_type": 14, "object_id": "12", "object_repr": "Gold Leaf Necklace", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 30, "fields": {"action_time": "2021-09-08T19:09:41.465Z", "user": 1, "content_type": 14, "object_id": "13", "object_repr": "Red Ceramic Vase", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 31, "fields": {"action_time": "2021-09-08T19:12:20.626Z", "user": 1, "content_type": 14, "object_id": "14", "object_repr": "Brown Ceramic Vase", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 32, "fields": {"action_time": "2021-09-08T19:14:41.512Z", "user": 1, "content_type": 14, "object_id": "15", "object_repr": "Rustic Bowl Set", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 33, "fields": {"action_time": "2021-09-08T19:16:43.273Z", "user": 1, "content_type": 14, "object_id": "16", "object_repr": "Ceramic Bowl Set", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 34, "fields": {"action_time": "2021-09-08T19:19:07.062Z", "user": 1, "content_type": 14, "object_id": "17", "object_repr": "Wooden Nesting Tables", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 35, "fields": {"action_time": "2021-09-08T19:20:42.908Z", "user": 1, "content_type": 14, "object_id": "18", "object_repr": "Reclaimed Wood Table", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 36, "fields": {"action_time": "2021-09-09T09:19:57.084Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "Colourful String Bracelet", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Sku\"]}}]"}}, {"model": "admin.logentry", "pk": 37, "fields": {"action_time": "2021-09-10T18:35:34.778Z", "user": 1, "content_type": 14, "object_id": "16", "object_repr": "Ceramic Bowl Set", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Sku\"]}}]"}}, {"model": "admin.logentry", "pk": 38, "fields": {"action_time": "2021-09-10T18:37:20.648Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "Colourful String Bracelet", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 39, "fields": {"action_time": "2021-09-10T18:40:31.554Z", "user": 1, "content_type": 14, "object_id": "16", "object_repr": "Ceramic Bowl Set", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 40, "fields": {"action_time": "2021-09-10T18:40:57.584Z", "user": 1, "content_type": 14, "object_id": "13", "object_repr": "Red Ceramic Vase", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 41, "fields": {"action_time": "2021-09-10T18:41:10.974Z", "user": 1, "content_type": 14, "object_id": "17", "object_repr": "Wooden Nesting Tables", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 42, "fields": {"action_time": "2021-09-10T18:41:24.601Z", "user": 1, "content_type": 14, "object_id": "9", "object_repr": "Wooden Bedroom Cabinet", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 43, "fields": {"action_time": "2021-09-10T18:41:42.704Z", "user": 1, "content_type": 14, "object_id": "7", "object_repr": "Red Leather Armchair", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 44, "fields": {"action_time": "2021-09-10T18:41:54.757Z", "user": 1, "content_type": 14, "object_id": "4", "object_repr": "Stylish Soft Grey Chair", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 45, "fields": {"action_time": "2021-09-10T18:42:04.429Z", "user": 1, "content_type": 14, "object_id": "18", "object_repr": "Reclaimed Wood Table", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 46, "fields": {"action_time": "2021-09-10T18:42:18.364Z", "user": 1, "content_type": 14, "object_id": "12", "object_repr": "Gold Leaf Necklace", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 47, "fields": {"action_time": "2021-09-10T18:42:30.656Z", "user": 1, "content_type": 14, "object_id": "8", "object_repr": "Dual Dining Room Chairs", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 48, "fields": {"action_time": "2021-09-10T18:42:46.775Z", "user": 1, "content_type": 14, "object_id": "3", "object_repr": "Matching Friendship Bracelets", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 49, "fields": {"action_time": "2021-09-10T18:43:13.549Z", "user": 1, "content_type": 14, "object_id": "14", "object_repr": "Brown Ceramic Vase", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 50, "fields": {"action_time": "2021-09-10T18:43:46.488Z", "user": 1, "content_type": 14, "object_id": "2", "object_repr": "Pink Floral Bracelet", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 51, "fields": {"action_time": "2021-09-10T18:44:07.212Z", "user": 1, "content_type": 14, "object_id": "6", "object_repr": "Large Grey Armchair", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 52, "fields": {"action_time": "2021-09-10T18:44:22.296Z", "user": 1, "content_type": 14, "object_id": "6", "object_repr": "Large Grey Armchair", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 53, "fields": {"action_time": "2021-09-10T18:44:47.466Z", "user": 1, "content_type": 14, "object_id": "10", "object_repr": "Vintage Cabinet", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 54, "fields": {"action_time": "2021-09-10T18:45:15.429Z", "user": 1, "content_type": 14, "object_id": "5", "object_repr": "Rocking Chair", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 55, "fields": {"action_time": "2021-09-10T18:45:34.125Z", "user": 1, "content_type": 14, "object_id": "11", "object_repr": "Floral Necklace", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 56, "fields": {"action_time": "2021-09-10T18:45:44.958Z", "user": 1, "content_type": 14, "object_id": "15", "object_repr": "Rustic Bowl Set", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"}}, {"model": "admin.logentry", "pk": 57, "fields": {"action_time": "2021-09-12T20:21:13.713Z", "user": 1, "content_type": 14, "object_id": "18", "object_repr": "Reclaimed Wood Table", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"}}, {"model": "admin.logentry", "pk": 58, "fields": {"action_time": "2021-09-12T20:21:50.836Z", "user": 1, "content_type": 14, "object_id": "15", "object_repr": "Rustic Bowl Set", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"}}, {"model": "admin.logentry", "pk": 59, "fields": {"action_time": "2021-09-12T20:22:12.887Z", "user": 1, "content_type": 14, "object_id": "6", "object_repr": "Large Grey Armchair", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"}}, {"model": "admin.logentry", "pk": 60, "fields": {"action_time": "2021-09-12T20:22:35.960Z", "user": 1, "content_type": 14, "object_id": "3", "object_repr": "Matching Friendship Bracelets", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"}}, {"model": "admin.logentry", "pk": 61, "fields": {"action_time": "2021-09-28T09:00:15.443Z", "user": 1, "content_type": 16, "object_id": "1", "object_repr": "3D7ACAC0AA9A4AC99FBD1FF0959924A8", "action_flag": 2, "change_message": "[{\"deleted\": {\"name\": \"order line item\", \"object\": \"SKU 6729631856 on order 3D7ACAC0AA9A4AC99FBD1FF0959924A8\"}}]"}}, {"model": "admin.logentry", "pk": 62, "fields": {"action_time": "2021-09-28T09:01:26.571Z", "user": 1, "content_type": 16, "object_id": "1", "object_repr": "3D7ACAC0AA9A4AC99FBD1FF0959924A8", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 63, "fields": {"action_time": "2021-09-28T09:05:26.536Z", "user": 1, "content_type": 16, "object_id": "2", "object_repr": "5BD9F4C9895448C7B68EE0F9BD885DFA", "action_flag": 2, "change_message": "[{\"changed\": {\"name\": \"order line item\", \"object\": \"SKU 5776566750 on order 5BD9F4C9895448C7B68EE0F9BD885DFA\", \"fields\": [\"Quantity\"]}}]"}}, {"model": "admin.logentry", "pk": 64, "fields": {"action_time": "2021-09-28T09:06:07.694Z", "user": 1, "content_type": 16, "object_id": "2", "object_repr": "5BD9F4C9895448C7B68EE0F9BD885DFA", "action_flag": 2, "change_message": "[{\"deleted\": {\"name\": \"order line item\", \"object\": \"SKU 17212195154 on order 5BD9F4C9895448C7B68EE0F9BD885DFA\"}}, {\"deleted\": {\"name\": \"order line item\", \"object\": \"SKU 5776566750 on order 5BD9F4C9895448C7B68EE0F9BD885DFA\"}}, {\"deleted\": {\"name\": \"order line item\", \"object\": \"SKU 4613200257 on order 5BD9F4C9895448C7B68EE0F9BD885DFA\"}}]"}}, {"model": "admin.logentry", "pk": 65, "fields": {"action_time": "2021-10-03T08:46:07.863Z", "user": 1, "content_type": 4, "object_id": "2", "object_repr": "testytest", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\"]}}]"}}, {"model": "admin.logentry", "pk": 66, "fields": {"action_time": "2021-10-03T08:47:26.153Z", "user": 1, "content_type": 4, "object_id": "1", "object_repr": "darragh.reid@gmail.com", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"First name\", \"Last name\"]}}]"}}, {"model": "admin.logentry", "pk": 67, "fields": {"action_time": "2021-10-03T18:06:49.333Z", "user": 1, "content_type": 14, "object_id": "19", "object_repr": "test", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 68, "fields": {"action_time": "2021-10-03T18:06:49.445Z", "user": 1, "content_type": 14, "object_id": "20", "object_repr": "Test2", "action_flag": 3, "change_message": ""}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$260000$AjyaBnZ6rKSACFvPhQSi0p$6wg2cQNEUc+3JM+3s0TS2q5UbNMCLhYhuV5XJKeySpo=", "last_login": "2021-10-05T15:00:36.007Z", "is_superuser": true, "username": "darragh.reid@gmail.com", "first_name": "Darragh", "last_name": "Reid", "email": "darragh.reid@gmail.com", "is_staff": true, "is_active": true, "date_joined": "2021-09-03T12:28:37Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 2, "fields": {"password": "pbkdf2_sha256$260000$P5OmcFYIjjPO4pJElCWX1M$KsZXbGkPIOt1ccmTzU9CKNWqOQhitoa994rUM1rkBKA=", "last_login": "2021-10-04T10:23:45.342Z", "is_superuser": false, "username": "testytest", "first_name": "Testytest", "last_name": "", "email": "test@test.com", "is_staff": false, "is_active": true, "date_joined": "2021-09-30T16:27:02Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 3, "fields": {"password": "pbkdf2_sha256$260000$exJDZdh8F9Ug5bXKlBt6iY$qPemc6cCSly5i48mQrLLh6zWewl9S8d3rh+IW+vsRRE=", "last_login": null, "is_superuser": true, "username": "darraghreid", "first_name": "", "last_name": "", "email": "darragh.reid@gmail.com", "is_staff": true, "is_active": true, "date_joined": "2021-10-05T15:07:23.786Z", "groups": [], "user_permissions": []}}, {"model": "sessions.session", "pk": "083t7vcghzvuzo81j52nvjmfvxc1t330", "fields": {"session_data": "e30:1mVyRr:StLSgmBZei_Q-BhfJs_EWvmZPqhslLM9-qcwzQyUPzA", "expire_date": "2021-10-14T15:58:15.920Z"}}, {"model": "sessions.session", "pk": "0fazpmhj86divtswc2zecpd12yre8j7t", "fields": {"session_data": ".eJxVTksKgzAQvcusRfJPk129iIyTKUolgiYr8e7V4qJdvv_bocdaxr5uvPZTgggSml9uQHpzvgSc54tukWipubRfzy1v7fNEnMtEWKYld3fqr2rEbbwGrH4EkSyjTDZ4rVFQcpaEegnHPjljZULGwGiEV4p5MIGDcVYKRT6cpYRrgbiDgqga0BBlc_6O8jg-UxNCKw:1mT4WJ:H3gS26h7-bHfq3SEh7ljB5MqI1jio8JM74Y_Phgh_5Y", "expire_date": "2021-10-06T15:50:51.622Z"}}, {"model": "sessions.session", "pk": "18w8a3ebu797dazrtb14jg465j2hwcf8", "fields": {"session_data": ".eJxVjMsOwiAQAP-FsyEL5SEevfsNZMuuFjVgSptojP9uSHrQ68xk3iLiukxxbTzHTOIglNj9shHTjUsXdMVyqTLVssx5lD2Rm23yVInvx639G0zYpr61wz4AWUZFNvhhQEjkbAJ9BseenLGKkDEwGvBaM48mcDDOKtDJhz5t3FquJfLzkeeXOMDnC3I1Pqw:1mXlvo:t7kt5zyNgsxbma47fMoosnmyvfDvifnSxsilhJMXbOQ", "expire_date": "2021-10-19T15:00:36.384Z"}}, {"model": "sessions.session", "pk": "9ct4l4cy30u4l3aocxhlpde3skbtj5f7", "fields": {"session_data": ".eJxVjMsOwiAQAP-FsyEL5SEevfcbyMKuUjWQlPZk_HdD0oNeZybzFhH3rcS98xoXEhehxOmXJcxPrkPQA-u9ydzqti5JjkQetsu5Eb-uR_s3KNjL2NrpHIAsoyIb_DQhZHI2g76BY0_OWEXIGBgNeK2ZkwkcjLMKdPZBfL7TMzdv:1mTLJx:GaznEPoJRdDNqY7oxn0aUbr7KDxM25qcqAoKRarW_yQ", "expire_date": "2021-10-07T09:47:13.617Z"}}, {"model": "sessions.session", "pk": "w048j2jxfwpeyc6t94dvmx4i5ijxmk58", "fields": {"session_data": "e30:1mVyRF:-xRgFLPHWpf9hWu8-zKY0qEm_blbJkCyPQQpuqN2z6s", "expire_date": "2021-10-14T15:57:37.510Z"}}, {"model": "sites.site", "pk": 1, "fields": {"domain": "krafts.example.com", "name": "Krafts"}}, {"model": "account.emailaddress", "pk": 1, "fields": {"user": 1, "email": "darragh.reid@gmail.com", "verified": true, "primary": true}}, {"model": "account.emailaddress", "pk": 2, "fields": {"user": 2, "email": "test@test.com", "verified": true, "primary": true}}, {"model": "products.category", "pk": 1, "fields": {"name": "bracelets", "friendly_name": "Bracelets"}}, {"model": "products.category", "pk": 2, "fields": {"name": "cabinets", "friendly_name": "Cabinets"}}, {"model": "products.category", "pk": 3, "fields": {"name": "chairs", "friendly_name": "Chairs"}}, {"model": "products.category", "pk": 4, "fields": {"name": "clearance", "friendly_name": "Clearance"}}, {"model": "products.category", "pk": 5, "fields": {"name": "cups_mugs", "friendly_name": "Cups & Mugs"}}, {"model": "products.category", "pk": 6, "fields": {"name": "deals", "friendly_name": "Deals"}}, {"model": "products.category", "pk": 7, "fields": {"name": "jugs", "friendly_name": "Jugs"}}, {"model": "products.category", "pk": 8, "fields": {"name": "necklaces", "friendly_name": "Necklaces"}}, {"model": "products.category", "pk": 9, "fields": {"name": "new_arrivals", "friendly_name": "New Arrivals"}}, {"model": "products.category", "pk": 10, "fields": {"name": "tables", "friendly_name": "Tables"}}, {"model": "products.category", "pk": 11, "fields": {"name": "vases", "friendly_name": "Vases"}}, {"model": "products.product", "pk": 1, "fields": {"category": 1, "sku": "17212195154", "name": "Colourful String Bracelet", "description": "Beautifully made Bracelet, perfect for brightening up any outfit", "price": "10.99", "rating": null, "image_url": "https://unsplash.com/photos/cdXwe6nROs8", "image": "b5_xE9mKVY.jpeg"}}, {"model": "products.product", "pk": 2, "fields": {"category": 1, "sku": "5776566750", "name": "Pink Floral Bracelet", "description": "Slip-on bracelet with pink floral detail", "price": "11.50", "rating": null, "image_url": "https://unsplash.com/photos/GpTx2nzKN-4", "image": "b6.jpeg"}}, {"model": "products.product", "pk": 3, "fields": {"category": 1, "sku": "4613200257", "name": "Matching Friendship Bracelets", "description": "Matching woven bracelets with rastafarian-style detailing. Perfect gift for a friend!", "price": "8.20", "rating": null, "image_url": "https://unsplash.com/photos/CQ3xrqbV58s", "image": "b7.jpeg"}}, {"model": "products.product", "pk": 4, "fields": {"category": 3, "sku": "3305885457", "name": "Stylish Soft Grey Chair", "description": "Stylish and comfortable, this grey-upholstered armchair can enhance any setting", "price": "75.00", "rating": null, "image_url": "https://pixabay.com/photos/furniture-armchair-chair-768766/", "image": "c2.jpg"}}, {"model": "products.product", "pk": 5, "fields": {"category": 3, "sku": "7028464914", "name": "Rocking Chair", "description": "This stylish wooden rocking chair is both understated and intricate", "price": "80.00", "rating": null, "image_url": "https://pixabay.com/illustrations/wooden-rocking-chair-ottoman-chair-4321820/", "image": "c1.png"}}, {"model": "products.product", "pk": 6, "fields": {"category": 3, "sku": "6155816035", "name": "Large Grey Armchair", "description": "Large grey, mid-century-style armchair adds sophistication to your living room", "price": "95.99", "rating": null, "image_url": "https://pixabay.com/photos/design-interior-soft-furniture-1162241/", "image": "b4_q4JsOGb.jpeg"}}, {"model": "products.product", "pk": 7, "fields": {"category": 3, "sku": "3282564486", "name": "Red Leather Armchair", "description": "This large red leather armchair is the centrerpiece of any room", "price": "110.00", "rating": null, "image_url": "https://pixabay.com/photos/reside-furniture-chair-comfortable-3402501/", "image": "c4.png"}}, {"model": "products.product", "pk": 8, "fields": {"category": 3, "sku": "4238946608", "name": "Dual Dining Room Chairs", "description": "Complimenting each other well, this dining room chair set add a splash of colour your dining room", "price": "88.50", "rating": null, "image_url": "https://pixabay.com/photos/armchair-chair-furniture-seat-1498666/", "image": "c5.png"}}, {"model": "products.product", "pk": 9, "fields": {"category": 2, "sku": "2900883443", "name": "Wooden Bedroom Cabinet", "description": "This wooden bedroom cabinet provides plenty of room for your clothes", "price": "100.00", "rating": null, "image_url": "https://unsplash.com/photos/-peWKMDCyw4", "image": "cb2.jpeg"}}, {"model": "products.product", "pk": 10, "fields": {"category": 2, "sku": "6729631856", "name": "Vintage Cabinet", "description": "Oozing with charm, this vintage cabinet was reclaimed and given a new lease of life", "price": "115.00", "rating": null, "image_url": "https://unsplash.com/photos/MNPh2-xXl3Q", "image": "cb6.jpeg"}}, {"model": "products.product", "pk": 11, "fields": {"category": 8, "sku": "7229543405", "name": "Floral Necklace", "description": "Beautifully detailed metal necklace", "price": "15.00", "rating": null, "image_url": "https://unsplash.com/photos/x9ynI5Di62o", "image": "n2.jpeg"}}, {"model": "products.product", "pk": 12, "fields": {"category": 8, "sku": "3817490550", "name": "Gold Leaf Necklace", "description": "Simple and beautifully crafted gold leave necklace", "price": "55.00", "rating": null, "image_url": "https://unsplash.com/photos/GlLbvZGoCPQ", "image": "n7.jpeg"}}, {"model": "products.product", "pk": 13, "fields": {"category": 11, "sku": "2402259921", "name": "Red Ceramic Vase", "description": "This wonderfully crafted ceramic vase has been given a deep ruby red finish", "price": "44.00", "rating": null, "image_url": "https://unsplash.com/photos/maVIpNNtmlQ", "image": "p9.jpeg"}}, {"model": "products.product", "pk": 14, "fields": {"category": 11, "sku": "5612345386", "name": "Brown Ceramic Vase", "description": "With intricate detailing, this jug is the perfect centerpiece for your table", "price": "25.00", "rating": null, "image_url": "https://unsplash.com/photos/fkugMBhVf1c", "image": "t3.jpeg"}}, {"model": "products.product", "pk": 15, "fields": {"category": 5, "sku": "9437296951", "name": "Rustic Bowl Set", "description": "This ceramic bowl set is no-frills but beautifully simple", "price": "40.00", "rating": null, "image_url": "https://unsplash.com/photos/YA2E3d7a9Wo", "image": "p5.jpeg"}}, {"model": "products.product", "pk": 16, "fields": {"category": 5, "sku": "17212195156", "name": "Ceramic Bowl Set", "description": "Delicately crafted, this set of bowls are stylishly detailed", "price": "59.99", "rating": null, "image_url": "https://unsplash.com/photos/L0g_gTN8l_A", "image": "p12.jpeg"}}, {"model": "products.product", "pk": 17, "fields": {"category": 10, "sku": "2671816515", "name": "Wooden Nesting Tables", "description": "Simple in design, these nesting tables are a practical way to save space when needed", "price": "75.99", "rating": null, "image_url": "https://unsplash.com/photos/xej3GOtAQ-o", "image": "t2.jpeg"}}, {"model": "products.product", "pk": 18, "fields": {"category": 10, "sku": "3521909383", "name": "Reclaimed Wood Table", "description": "This beautifully crafted table was made with reclaimed wood", "price": "100.00", "rating": null, "image_url": "https://unsplash.com/photos/77cctx2YdM4", "image": "t1.jpeg"}}, {"model": "checkout.order", "pk": 2, "fields": {"order_number": "5BD9F4C9895448C7B68EE0F9BD885DFA", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "Testcountry", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": "Testcounty", "date": "2021-09-28T09:03:29.794Z", "delivery_cost": "0.00", "order_total": "0.00", "grand_total": "0.00", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 3, "fields": {"order_number": "01977DB347D04B81B762377CAE3A13AC", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "Testcountry", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": "Testcounty", "date": "2021-09-28T10:05:52.581Z", "delivery_cost": "1.92", "order_total": "19.19", "grand_total": "21.11", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 4, "fields": {"order_number": "3696F4AE03CA432591A12332094F88E1", "user_profile": null, "full_name": "testt", "email": "test@test.com", "phone_number": "1234567890", "country": "Testcountry", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-28T10:36:21.421Z", "delivery_cost": "1.92", "order_total": "19.19", "grand_total": "21.11", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 5, "fields": {"order_number": "098AE24C14FB4A3483DBCAFCD5543B1D", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T10:45:13.613Z", "delivery_cost": "4.55", "order_total": "45.49", "grand_total": "50.04", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 6, "fields": {"order_number": "1405E93F79FB4E728941A124E4A7EEF7", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T13:16:16.658Z", "delivery_cost": "4.45", "order_total": "44.47", "grand_total": "48.92", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 7, "fields": {"order_number": "025D9D3012834E269565AEADC3B6FFD4", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T13:24:31.000Z", "delivery_cost": "1.10", "order_total": "10.99", "grand_total": "12.09", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 8, "fields": {"order_number": "C0AFE1F722594701954A7B3A73C23124", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T13:48:53.803Z", "delivery_cost": "1.10", "order_total": "10.99", "grand_total": "12.09", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 9, "fields": {"order_number": "20863E97B6CB458A88044900EAD17B2E", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T13:58:03.452Z", "delivery_cost": "1.10", "order_total": "10.99", "grand_total": "12.09", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 10, "fields": {"order_number": "6BAC590128E54C5885C253297281CAD6", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T14:09:58.616Z", "delivery_cost": "2.20", "order_total": "21.98", "grand_total": "24.18", "original_cart": "", "stripe_pid": ""}}, {"model": "checkout.order", "pk": 11, "fields": {"order_number": "535907926DF24ECC84B7A9EA35A37060", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T18:31:16.103Z", "delivery_cost": "1.10", "order_total": "10.99", "grand_total": "12.09", "original_cart": "{\"1\": 1}", "stripe_pid": "pi_3Jf7Y6IG08sq5Pbn1RlNAvja"}}, {"model": "checkout.order", "pk": 12, "fields": {"order_number": "E5385A2FF8244836BA6066A8484204B9", "user_profile": null, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": "12345", "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-09-29T18:37:43.300Z", "delivery_cost": "1.15", "order_total": "11.50", "grand_total": "12.65", "original_cart": "{\"2\": 1}", "stripe_pid": "pi_3Jf7dfIG08sq5Pbn0SY9Y7cy"}}, {"model": "checkout.order", "pk": 13, "fields": {"order_number": "DA26559492F942188F219440D3082756", "user_profile": 1, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": null, "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-10-03T08:26:14.320Z", "delivery_cost": "1.10", "order_total": "10.99", "grand_total": "12.09", "original_cart": "{\"1\": 1}", "stripe_pid": "pi_3JgPyzIG08sq5Pbn1PVLTKwZ"}}, {"model": "checkout.order", "pk": 14, "fields": {"order_number": "F55481D41C1945639279735E5EAFC923", "user_profile": 1, "full_name": "test", "email": "test@test.com", "phone_number": "1234567890", "country": "US", "postcode": null, "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-10-03T08:28:19.252Z", "delivery_cost": "4.55", "order_total": "45.49", "grand_total": "50.04", "original_cart": "{\"1\": 1, \"2\": 3}", "stripe_pid": "pi_3JgQ2ZIG08sq5Pbn15OzCLMN"}}, {"model": "checkout.order", "pk": 15, "fields": {"order_number": "A13207896C164D9FBA446189DE2C63A2", "user_profile": 1, "full_name": "Darragh Reid", "email": "darragh.reid@gmail.com", "phone_number": "1234567890", "country": "US", "postcode": null, "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-10-03T09:14:41.286Z", "delivery_cost": "0.00", "order_total": "80.00", "grand_total": "80.00", "original_cart": "{\"5\": 1}", "stripe_pid": "pi_3JgQlLIG08sq5Pbn1VfFIpTI"}}, {"model": "checkout.order", "pk": 16, "fields": {"order_number": "BE301625ACEA43028A9416E7784AD52C", "user_profile": 1, "full_name": "Darragh Reid", "email": "darragh.reid@gmail.com", "phone_number": "1234567890", "country": "US", "postcode": null, "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-10-03T09:26:26.560Z", "delivery_cost": "1.15", "order_total": "11.50", "grand_total": "12.65", "original_cart": "{\"2\": 1}", "stripe_pid": "pi_3JgQxQIG08sq5Pbn0CVy4O00"}}, {"model": "checkout.order", "pk": 17, "fields": {"order_number": "E50125925E57475FB609E75673E8632B", "user_profile": 1, "full_name": "Testing Confirmation Email", "email": "darragh.reid@gmail.com", "phone_number": "1234567890", "country": "US", "postcode": null, "town_or_city": "Testcity", "street_address1": "Teststreet", "street_address2": null, "county": null, "date": "2021-10-03T14:41:00.803Z", "delivery_cost": "2.20", "order_total": "21.98", "grand_total": "24.18", "original_cart": "{\"1\": 2}", "stripe_pid": "pi_3JgVqtIG08sq5Pbn0QVJ0g42"}}, {"model": "checkout.orderlineitem", "pk": 8, "fields": {"order": 3, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 9, "fields": {"order": 3, "product": 3, "quantity": 1, "lineitem_total": "8.20"}}, {"model": "checkout.orderlineitem", "pk": 10, "fields": {"order": 4, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 11, "fields": {"order": 4, "product": 3, "quantity": 1, "lineitem_total": "8.20"}}, {"model": "checkout.orderlineitem", "pk": 12, "fields": {"order": 5, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 13, "fields": {"order": 5, "product": 2, "quantity": 3, "lineitem_total": "34.50"}}, {"model": "checkout.orderlineitem", "pk": 14, "fields": {"order": 6, "product": 2, "quantity": 1, "lineitem_total": "11.50"}}, {"model": "checkout.orderlineitem", "pk": 15, "fields": {"order": 6, "product": 1, "quantity": 3, "lineitem_total": "32.97"}}, {"model": "checkout.orderlineitem", "pk": 16, "fields": {"order": 7, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 17, "fields": {"order": 8, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 18, "fields": {"order": 9, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 19, "fields": {"order": 10, "product": 1, "quantity": 2, "lineitem_total": "21.98"}}, {"model": "checkout.orderlineitem", "pk": 20, "fields": {"order": 11, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 21, "fields": {"order": 12, "product": 2, "quantity": 1, "lineitem_total": "11.50"}}, {"model": "checkout.orderlineitem", "pk": 22, "fields": {"order": 13, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 23, "fields": {"order": 14, "product": 1, "quantity": 1, "lineitem_total": "10.99"}}, {"model": "checkout.orderlineitem", "pk": 24, "fields": {"order": 14, "product": 2, "quantity": 3, "lineitem_total": "34.50"}}, {"model": "checkout.orderlineitem", "pk": 25, "fields": {"order": 15, "product": 5, "quantity": 1, "lineitem_total": "80.00"}}, {"model": "checkout.orderlineitem", "pk": 26, "fields": {"order": 16, "product": 2, "quantity": 1, "lineitem_total": "11.50"}}, {"model": "checkout.orderlineitem", "pk": 27, "fields": {"order": 17, "product": 1, "quantity": 2, "lineitem_total": "21.98"}}, {"model": "profiles.userprofile", "pk": 1, "fields": {"user": 1, "default_phone_number": "1234567890", "default_street_address1": "Teststreet", "default_street_address2": null, "default_town_or_city": "Testcity", "default_county": null, "default_postcode": null, "default_country": "US"}}, {"model": "profiles.userprofile", "pk": 2, "fields": {"user": 2, "default_phone_number": "1234567890", "default_street_address1": "Teststreet", "default_street_address2": null, "default_town_or_city": "Testcity", "default_county": null, "default_postcode": null, "default_country": "IE"}}, {"model": "profiles.userprofile", "pk": 3, "fields": {"user": 3, "default_phone_number": null, "default_street_address1": null, "default_street_address2": null, "default_town_or_city": null, "default_county": null, "default_postcode": null, "default_country": null}}]
+[{
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+        "name": "bracelets",
+        "friendly_name": "Bracelets"
+    }
+}, {
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+        "name": "cabinets",
+        "friendly_name": "Cabinets"
+    }
+}, {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+        "name": "chairs",
+        "friendly_name": "Chairs"
+    }
+}, {
+    "model": "products.category",
+    "pk": 4,
+    "fields": {
+        "name": "clearance",
+        "friendly_name": "Clearance"
+    }
+}, {
+    "model": "products.category",
+    "pk": 5,
+    "fields": {
+        "name": "cups_mugs",
+        "friendly_name": "Cups & Mugs"
+    }
+}, {
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+        "name": "deals",
+        "friendly_name": "Deals"
+    }
+}, {
+    "model": "products.category",
+    "pk": 7,
+    "fields": {
+        "name": "jugs",
+        "friendly_name": "Jugs"
+    }
+}, {
+    "model": "products.category",
+    "pk": 8,
+    "fields": {
+        "name": "necklaces",
+        "friendly_name": "Necklaces"
+    }
+}, {
+    "model": "products.category",
+    "pk": 9,
+    "fields": {
+        "name": "new_arrivals",
+        "friendly_name": "New Arrivals"
+    }
+}, {
+    "model": "products.category",
+    "pk": 10,
+    "fields": {
+        "name": "tables",
+        "friendly_name": "Tables"
+    }
+}, {
+    "model": "products.category",
+    "pk": 11,
+    "fields": {
+        "name": "vases",
+        "friendly_name": "Vases"
+    }
+}, {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "category": 1,
+        "sku": "17212195154",
+        "name": "Colourful String Bracelet",
+        "description": "Beautifully made Bracelet, perfect for brightening up any outfit",
+        "price": "10.99",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/cdXwe6nROs8",
+        "image": "b5_xE9mKVY.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "category": 1,
+        "sku": "5776566750",
+        "name": "Pink Floral Bracelet",
+        "description": "Slip-on bracelet with pink floral detail",
+        "price": "11.50",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/GpTx2nzKN-4",
+        "image": "b6.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "category": 1,
+        "sku": "4613200257",
+        "name": "Matching Friendship Bracelets",
+        "description": "Matching woven bracelets with rastafarian-style detailing. Perfect gift for a friend!",
+        "price": "8.20",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/CQ3xrqbV58s",
+        "image": "b7.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "category": 3,
+        "sku": "3305885457",
+        "name": "Stylish Soft Grey Chair",
+        "description": "Stylish and comfortable, this grey-upholstered armchair can enhance any setting",
+        "price": "75.00",
+        "rating": null,
+        "image_url": "https://pixabay.com/photos/furniture-armchair-chair-768766/",
+        "image": "c2.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "category": 3,
+        "sku": "7028464914",
+        "name": "Rocking Chair",
+        "description": "This stylish wooden rocking chair is both understated and intricate",
+        "price": "80.00",
+        "rating": null,
+        "image_url": "https://pixabay.com/illustrations/wooden-rocking-chair-ottoman-chair-4321820/",
+        "image": "c1.png"
+    }
+}, {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "category": 3,
+        "sku": "6155816035",
+        "name": "Large Grey Armchair",
+        "description": "Large grey, mid-century-style armchair adds sophistication to your living room",
+        "price": "95.99",
+        "rating": null,
+        "image_url": "https://pixabay.com/photos/design-interior-soft-furniture-1162241/",
+        "image": "b4_q4JsOGb.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "category": 3,
+        "sku": "3282564486",
+        "name": "Red Leather Armchair",
+        "description": "This large red leather armchair is the centrerpiece of any room",
+        "price": "110.00",
+        "rating": null,
+        "image_url": "https://pixabay.com/photos/reside-furniture-chair-comfortable-3402501/",
+        "image": "c4.png"
+    }
+}, {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "category": 3,
+        "sku": "4238946608",
+        "name": "Dual Dining Room Chairs",
+        "description": "Complimenting each other well, this dining room chair set add a splash of colour your dining room",
+        "price": "88.50",
+        "rating": null,
+        "image_url": "https://pixabay.com/photos/armchair-chair-furniture-seat-1498666/",
+        "image": "c5.png"
+    }
+}, {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "category": 2,
+        "sku": "2900883443",
+        "name": "Wooden Bedroom Cabinet",
+        "description": "This wooden bedroom cabinet provides plenty of room for your clothes",
+        "price": "100.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/-peWKMDCyw4",
+        "image": "cb2.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "category": 2,
+        "sku": "6729631856",
+        "name": "Vintage Cabinet",
+        "description": "Oozing with charm, this vintage cabinet was reclaimed and given a new lease of life",
+        "price": "115.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/MNPh2-xXl3Q",
+        "image": "cb6.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "category": 8,
+        "sku": "7229543405",
+        "name": "Floral Necklace",
+        "description": "Beautifully detailed metal necklace",
+        "price": "15.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/x9ynI5Di62o",
+        "image": "n2.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+        "category": 8,
+        "sku": "3817490550",
+        "name": "Gold Leaf Necklace",
+        "description": "Simple and beautifully crafted gold leave necklace",
+        "price": "55.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/GlLbvZGoCPQ",
+        "image": "n7.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+        "category": 11,
+        "sku": "2402259921",
+        "name": "Red Ceramic Vase",
+        "description": "This wonderfully crafted ceramic vase has been given a deep ruby red finish",
+        "price": "44.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/maVIpNNtmlQ",
+        "image": "p9.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+        "category": 11,
+        "sku": "5612345386",
+        "name": "Brown Ceramic Vase",
+        "description": "With intricate detailing, this jug is the perfect centerpiece for your table",
+        "price": "25.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/fkugMBhVf1c",
+        "image": "t3.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+        "category": 5,
+        "sku": "9437296951",
+        "name": "Rustic Bowl Set",
+        "description": "This ceramic bowl set is no-frills but beautifully simple",
+        "price": "40.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/YA2E3d7a9Wo",
+        "image": "p5.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+        "category": 5,
+        "sku": "17212195156",
+        "name": "Ceramic Bowl Set",
+        "description": "Delicately crafted, this set of bowls are stylishly detailed",
+        "price": "59.99",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/L0g_gTN8l_A",
+        "image": "p12.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+        "category": 10,
+        "sku": "2671816515",
+        "name": "Wooden Nesting Tables",
+        "description": "Simple in design, these nesting tables are a practical way to save space when needed",
+        "price": "75.99",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/xej3GOtAQ-o",
+        "image": "t2.jpeg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 18,
+    "fields": {
+        "category": 10,
+        "sku": "3521909383",
+        "name": "Reclaimed Wood Table",
+        "description": "This beautifully crafted table was made with reclaimed wood",
+        "price": "100.00",
+        "rating": null,
+        "image_url": "https://unsplash.com/photos/77cctx2YdM4",
+        "image": "t1.jpeg"
+    }
+}]
