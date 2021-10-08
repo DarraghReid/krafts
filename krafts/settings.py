@@ -121,7 +121,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# Tell Allauth to allow authentication useing either username or email
+# Tell Allauth to allow authentication using either username or email
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 # Email required to register for site
 ACCOUNT_EMAIL_REQUIRED = True
@@ -247,7 +247,7 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 # If DEVELOPMENT variable is set in environment
-if 'DEVELOPMENT' in os.environ:   
+if 'DEVELOPMENT' in os.environ:
     # Log confirmation emails to console to get confirmation links
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     # Email address from which emails will be sent to customers
