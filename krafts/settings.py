@@ -250,9 +250,9 @@ STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 if 'DEVELOPMENT' in os.environ:
     # Log confirmation emails to console to get confirmation links
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    # Email address from which emails will be sent to customers
+    # Set email address from which emails will be sent to customers
     DEFAULT_FROM_EMAIL = 'krafts@example.com'
-# Otherwise, set the following variables
+# Otherwise, send confirmation emails
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
