@@ -121,9 +121,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# Log confirmation emails to console to get confirmation links
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # Tell Allauth to allow authentication useing either username or email
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 # Email required to register for site
@@ -248,8 +245,22 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-# Email address from which emails will be sent to customers
-DEFAULT_FROM_EMAIL = 'krafts@example.com'
+
+# If DEVELOPMENT variable is set in environment
+if 'DEVELOPMENT' in os.environ:   
+    # Log confirmation emails to console to get confirmation links
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    # Email address from which emails will be sent to customers
+    DEFAULT_FROM_EMAIL = 'krafts@example.com'
+# Otherwise, set the following variables
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
