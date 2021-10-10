@@ -1,0 +1,39 @@
+<!-- Form to increment/decrement/display number of items in cart -->
+<form class="form update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="input-group">
+            <!-- Deccrement button -->
+            <div class="input-group-prepend">
+                <button class="decrement-qty decrement-qty_{{ item.item_id }} btn btn-sm btn-black rounded-0" 
+                data-item_id="{{ item.item_id }}">
+                    <span>
+                        <i class="fas fa-minus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+            <!-- Quantity selector -->
+            <input type="number" class="form-control form-control-sm qty-input" 
+                name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+            <!-- Increment button -->
+            <div class="input-group-append">
+                <button class="increment-qty increment-qty_{{ item.item_id }} btn btn-sm btn-black rounded-0" 
+                data-item_id="{{ item.item_id }}">
+                    <span>
+                        <i class="fas fa-plus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- Update cart -->
+<a class="update-link text-info">
+    <small>Update</small>
+</a>
+
+<!-- Remove item -->
+<a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}">
+    <small>Remove</small>
+</a>

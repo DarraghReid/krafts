@@ -10,8 +10,8 @@
 
         // Disable plus button if value is greater than 98
         plusDisabled = currentValue > 98;
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+        $(`.increment-qty_${itemId}`).prop('disabled', plusDisabled);
+        $(`.decrement-qty_${itemId}`).prop('disabled', minusDisabled);
     }
 
     // Prevent 0 being selected on page load
@@ -23,7 +23,7 @@
         handleEnableDisable(itemId);
     }
 
-    // Listen to change event on on qty input, call handleEnableDisable every time input changes
+    // Listen to change event on qty input, call handleEnableDisable every time input changes
     $('.qty_input').change(function() {
         let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);

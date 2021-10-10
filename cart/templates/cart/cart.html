@@ -31,13 +31,66 @@
             </div>
         </div>
 
-        <!-- ROW 2: Table of cart contents -->
+        <!-- ROW 2: Cart -->
         <div class="row">
-            <!-- COL for table of cart contents-->
             <div class="col">
-                <!-- Only render table if contents present in cart -->
+                <!-- Only render if contents present in cart -->
                 {% if cart_items %}
-                    <div class="table-responsive rounded">
+                    <!-- Cart: Mobile version -->
+                    <div class="d-block d-md-none">
+                        <!-- Cart total inc & excl devlivery -->
+                        <div class="row">
+                            <div class="col">
+                                {% include "cart/cart-total.html" %}
+                            </div>
+                        </div>
+                        <!-- Keep shopping/checkout buttons-->
+                        <div class="row">
+                            <div class="col">
+                                {% include "cart/checkout-buttons.html" %}
+                                <p class="text-muted mb-5">A summary of your cart contents is below</p>
+                            </div>
+                        </div>
+                        <!-- Summery of cart contents -->
+                        {% for item in cart_items %}
+                            <div class="row">
+                                <!-- Product image -->
+                                <div class="col-12 col-sm-6 mb-2">
+                                    {% include "cart/product-image.html" %}
+                                </div>
+                                <!-- Product info: Name, SKU -->
+                                <div class="col-12 col-sm-6 mb-2">
+                                    {% include "cart/product-info.html" %}
+                                </div>
+                                <!-- Price -->
+                                <div class="col-12 col-sm-6 order-sm-last">
+                                    <!-- Individual price -->
+                                    <p class="my-0">Price Each: ${{ item.product.price }}</p>
+                                    <!-- Use calc_subtotal in cart_tools.py to calculate subtotal -->
+                                    <p><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                </div>
+                                <!-- Form to increment/decrement/display number of items in cart -->
+                                <div class="col-12 col-sm-6">
+                                    {% include "cart/quantity-form.html" %}
+                                </div>
+                            </div>
+                            <!-- hr after each product -->
+                            <div class="row">
+                                <div class="col">
+                                    <hr>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <!-- Back to top button -->
+                        <div class="btt-button shadow-sm rounded-0 border border-black">
+                            <a class="btt-link d-flex h-100">
+                                <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                            </a>	
+                        </div>
+                    </div>
+
+                    <!-- Cart: Larger screen version -->
+                    <div class="table-responsive rounded d-none d-md-block">
                         <!-- Table -->
                         <table class="table-sm table-borderless">
                             <!-- Table header row -->
@@ -56,25 +109,11 @@
                                 <tr>
                                     <!-- Product image -->
                                     <td class="p-3 w-25">
-                                        <!-- Product image -->
-                                        <div class="col-3 my-1">
-                                            {% if item.product.image %}
-                                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                                            {% else %}
-                                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                                            {% endif %}
-                                        </div>
+                                        {% include "cart/product-image.html" %}
                                     </td>
-                                    <!-- Name, SKU -->
+                                    <!-- Product Info: Name, SKU -->
                                     <td class="py-3">
-                                        <p class="my-0">
-                                            <strong>
-                                                {{ item.product.name }}
-                                            </strong>
-                                        </p>
-                                        <p class="my-0 small text-muted">
-                                            SKU: {{ item.product.sku|upper }}
-                                        </p>
+                                        {% include "cart/product-info.html" %}
                                     </td>
                                     <!-- Price -->
                                     <td class="py-3">
@@ -83,46 +122,8 @@
                                         </p>
                                     </td>
                                     <!-- Form to increment/decrement/display number of items in cart -->
-                                    <td class="py-3">
-                                        <p class="my-0">
-                                            <form class="form update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
-                                                {% csrf_token %}
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <!-- Deccrement button -->
-                                                        <div class="input-group-prepend">
-                                                            <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                                <span>
-                                                                    <i class="fas fa-minus fa-sm"></i>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        <!-- Quantity selector -->
-                                                        <input type="number" class="form-control form-control-sm qty-input" 
-                                                            name="quantity" value="{{ item.quantity }}" min="1" max="99" 
-                                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                                        <!-- Increment button -->
-                                                        <div class="input-group-append">
-                                                            <button class="increment-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                                <span>
-                                                                    <i class="fas fa-plus fa-sm"></i>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- Update cart -->
-                                            <a class="update-link text-info">
-                                                <small>Update</small>
-                                            </a>
-                                            <!-- Remove item -->
-                                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}">
-                                                <small>Remove</small>
-                                            </a>
-                                        </p>
+                                    <td class="py-3 w-25">
+                                        {% include "cart/quantity-form.html" %}
                                     </td>
                                     <!-- Subtotal -->
                                     <td class="py-3">
@@ -134,54 +135,21 @@
                                 </tr>
                             {% endfor %}
                             <tr>
+                                <!-- Cart total inc & exl delivery -->
                                 <td colspan="5" class="pt-5 text-right">
-                                    <!-- Total of all items in cart without delivery -->
-                                    <h6>
-                                        <strong>
-                                            Cart Total: ${{ total|floatformat:2 }}
-                                        </strong>
-                                    </h6>
-                                    <!-- Delivery costs -->
-                                    <h6>
-                                        Delivery: ${{ delivery|floatformat:2 }}
-                                    </h6>
-                                    <!-- Total of all items in cart with delivery -->
-                                    <h4 class="mt-4">
-                                        <strong>
-                                            Grand Total: ${{ grand_total|floatformat:2 }}
-                                        </strong>
-                                    </h4>
-                                    {% if free_delivery_delta > 0 %}
-                                        <!-- Inform user of amount extra they must spend to qualify for free delivery -->
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>$ {{ free_delivery_delta}}</strong> more!
-                                        </p>
-                                    {% endif %}
+                                    {% include "cart/cart-total.html" %}
                                 </td>
                             </tr>
                             <tr>
+                                <!-- Keep shopping/checkout buttons -->
                                 <td colspan="5" class="text-right">
-                                    <!-- Offer user option to keep shopping -->
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <!-- Checkout button -->
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">
-                                            Secure Checkout
-                                        </span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
+                                    {% include "cart/checkout-buttons.html" %}
                                 </td>
                             </tr>
                         </table>
                     </div>
                 {% else %}
+                    <!-- If cart is empty, allow users to continue shopping -->
                     <p class="lead mb-5">Your Cart is empty</p>
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                         <span class="icon">
@@ -197,6 +165,13 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<!-- Back to top button functionality -->
+<script type="text/javascript">
+    $('.btt-link').click(function(e){
+        window.scrollTo(0,0);
+    })
+</script>
+
 {% include 'products/includes/quantity_input_script.html' %}
 <script type="text/javascript">
     // Update qty on click
