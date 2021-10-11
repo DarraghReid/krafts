@@ -6,7 +6,6 @@ from .forms import ContactForm
 def contact(request):
     """ Add a product to the store """
 
-
     # If request method is POST
     if request.method == 'POST':
         # Create instance of contact form, capture image file

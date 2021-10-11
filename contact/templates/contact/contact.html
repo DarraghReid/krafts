@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <!-- Crispy form -->
-                <form method="POST" action="{% url 'add_product' %}" class="form mb-2">
+                <form method="POST" action="{% url 'contact' %}" class="form mb-2">
                     {% csrf_token %}
                     <!-- Render each field as a crispy field -->
                     {% for field in form %}
