@@ -1,0 +1,53 @@
+<!-- Contact Page extends from base.html -->
+{% extends "base.html" %}
+<!-- Load static files -->
+{% load static %}
+
+<!-- Page header pushes content to bottom of main navbar -->
+{% block page_header %}
+    <!-- Grid container containing single row -->
+    <div class="container header-container">
+        <!-- Row containing empty column -->
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- Container with 2 ROWs -->
+    <div class="container">
+        <!-- ROW 1: Contact heading -->
+        <div class="row">
+            <!-- COL for Contact heading -->
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb4">
+                    Contact Us
+                </h2>
+                <hr>
+            </div>
+        </div>
+
+        <!-- ROW 2: Contact form -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <!-- Crispy form -->
+                <form method="POST" action="{% url 'add_product' %}" class="form mb-2">
+                    {% csrf_token %}
+                    <!-- Render each field as a crispy field -->
+                    {% for field in form %}
+                        {{ field | as_crispy_field }}
+                    {% endfor %}
+                    <!-- Cancel/submit buttons -->
+                    <div class="text-right">
+                        <!-- Direct user back to products page in event of change of mind -->
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <!-- Submit message -->
+                        <button class="btn btn-black rounded-0" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -6,7 +6,7 @@ class OrderForm(forms.ModelForm):
     class Meta:
         # Model that form is assossiated with
         model = Order
-        # Fields to be rendered (not automatically calculated)
+        # Fields to be rendered
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
                   'town_or_city', 'postcode', 'country',
