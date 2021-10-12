@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse
+from django.core.mail import send_mail
+from django.conf import settings
 from django.contrib import messages
 from .forms import ContactForm
 
@@ -8,20 +10,45 @@ def contact(request):
 
     # If request method is POST
     if request.method == 'POST':
-        # Create instance of contact form, capture image file
+        # Create instance of contact form
         form = ContactForm(request.POST)
 
         # If form is valid
         if form.is_valid():
             # Save it
-            # See add_product view for reference on how to redirect user to their messages.
             form.save()
 
             # Display success message to user
             messages.success(request, 'Message sent successfully!')
 
+            # Store user's information for confirmation email
+            sender = request.POST['full_name']
+            sender_email = request.POST['email']
+            message = request.POST['message']
+
+            # Subject of confirmation email
+            subject = 'Message Received'
+
+            # Confirmation of receipt of message
+            confirmation_message = f"""Dear {sender},
+            Thank you for contacting us!
+            One of our team will be in contact with you shortly shortly.
+            Your message:
+            '{message}'
+            Kind Regards,
+            Krafts.
+            """
+
+            # Send email to user informing them that their message has been sent
+            send_mail(
+                subject,
+                confirmation_message,
+                sender_email,
+                [settings.DEFAULT_FROM_EMAIL],
+                fail_silently=False,
+            )
+
             # Redirect to new user's profile
-            # See add_product view for reference on how to redirect user to their messages.
             return redirect(reverse('profile'))
 
         # If form is not valid
