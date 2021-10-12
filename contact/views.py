@@ -45,7 +45,6 @@ def contact(request):
                 confirmation_message,
                 sender_email,
                 [settings.DEFAULT_FROM_EMAIL],
-                fail_silently=False,
             )
 
             # Redirect to new user's profile
