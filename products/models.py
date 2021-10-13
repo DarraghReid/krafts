@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from .utils import generate_sku
 
 
@@ -51,11 +52,12 @@ class Comment(models.Model):
     # If a product is deleted, associated comments will also be deleted
     product = models.ForeignKey(
         "Product", related_name="comments", on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
+    name = models.ForeignKey(
+        User, related_name="user", on_delete=models.CASCADE)
     comment = models.TextField(max_length=500)
     # Automatically add date to comment
     date = models.DateTimeField(auto_now_add=True)
 
     # String method takes in Comment model, returns model name
     def __str__(self):
-        return '%s - %s' % (self.product.name, self.name)
+        return '%s - %s' % (self.product.name, self.name.username)

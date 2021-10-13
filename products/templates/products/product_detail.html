@@ -134,20 +134,25 @@
         <!-- ROW with 2 columns for comments display and comment form -->
         <div class="row">
             <!-- Comments section heading-->
-            <h2 class="col-10 offset-lg-1">Comments</h2>
+            <h2 class="col-10 offset-lg-1">Comments ahh {{ request.user.username }}</h2>
             <!-- COL1: Comment form -->
             {% if request.user.is_authenticated %}
                 <div class="col-10 offset-lg-1">
-                    <div class="">
-                        <span class="icon">
-                            <i class="fas fa-user"></i>
-                        </span>
-                        <span class="">
-                        <input type="text" placeholder="Add a comment" name="add-comment">
-                        <button type="submit" class="">Comment</button>
-                        <button type="cancel" class="">Cancel</button>
-                        </span>
-                    </div>
+                    <!-- Crispy form -->
+                    <form method="POST" action="{% url 'product_detail' product.id %}" class="form mb-2">
+                        {% csrf_token %}
+                        <!-- Render each field as a crispy field -->
+                        {% for field in form %}
+                            {{ field | as_crispy_field }}
+                        {% endfor %}
+                        <!-- Cancel/post buttons -->
+                        <div class="text-right">
+                            <!-- Reload page in event of change of mind -->
+                            <a class="btn btn-outline-black rounded-0" href="#">Cancel</a>
+                            <!-- Submit message -->
+                            <button class="btn btn-black rounded-0" type="submit">Post</button>
+                        </div>
+                    </form>
                 </div>
             {% else %}
             <a href="{% url 'account_login' %}" class="col-10 offset-lg-1">Sign in to add a comment</a>

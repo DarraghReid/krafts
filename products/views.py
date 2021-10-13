@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, Comment
+from .forms import ProductForm, CommentForm
 
 
 def all_products(request):
@@ -98,13 +98,42 @@ def all_products(request):
 def product_detail(request, product_id):
     """ Show individual product details """
 
-    # Get product from db using the product's id
-    product = get_object_or_404(Product, pk=product_id)
+    # If request method is POST
+    if request.method == 'POST':
+        # Get product from db using the product's id
+        product = get_object_or_404(Product, pk=product_id)
 
-    # Context dictionary is passed into product_detail.html for use
-    context = {
-        'product': product,
-    }
+        # Get the from
+        form = CommentForm(request.POST)
+
+        # If form is valid
+        if form.is_valid():
+            # Save it
+            form.save()
+
+            # Display success message to user
+            messages.success(request, 'Comment successfully posted!')
+
+            # Redirect to new product's detail page using product's id
+            return redirect(reverse('product_detail', args=[product.id]))
+
+        # If form is not valid
+        else:
+            # Display error message to the user
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+
+    else:
+        # Create instance of product form
+        form = CommentForm()
+
+        # Get product from db using the product's id
+        product = get_object_or_404(Product, pk=product_id)
+
+        # Context dictionary is passed into product_detail.html for use
+        context = {
+            'product': product,
+            'form': form,
+        }
 
     return render(request, 'products/product_detail.html', context)
 
@@ -122,7 +151,7 @@ def add_product(request):
 
     # If request method is POST
     if request.method == 'POST':
-        # Create instance of product form, capture image file
+        # Get form, capture image file
         form = ProductForm(request.POST, request.FILES)
 
         # If form is valid
