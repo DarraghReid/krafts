@@ -172,7 +172,16 @@
                 {% else %}
                     <!-- Otherwise, display all comments in the following format -->
                     {% for comment in product.comments.all reversed %}
-                        <h6 class="mt-2"><strong><i class="fas fa-user"></i> {{ comment.name }}</strong> <small class="text-muted">(Posted: {{ comment.date }})</small></h6>
+                        <h6 class="mt-2">
+                            <strong><i class="fas fa-user"></i> {{ comment.name }}</strong>
+                            <small class="text-muted"> (Posted: {{ comment.date }})</small>
+                            <small class="text-muted"> ({{ comment.product.id }})</small>
+                            {% if comment.name == request.user %}
+                                <a class="text-danger float-right" href="{% url 'delete_comment' comment.id %}">
+                                    <small>Remove</small>
+                                </a>
+                            {% endif %}
+                        </h6>
                         <p><small>{{ comment.comment }}</small></p>
                         <hr>
                     {% endfor %}

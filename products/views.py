@@ -273,3 +273,23 @@ def delete_product(request, product_id):
 
     # Return user to Products page
     return redirect(reverse('products'))
+
+
+@login_required
+def delete_comment(request, comment_id):
+    """ Delete a comment from the store """
+
+    # Get comment to be deleted
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    # Get comment's related product (to redirect to its detail page)
+    product = comment.product
+
+    # Remove comment from db
+    comment.delete()
+
+    # Inform user comment has been deleted
+    messages.success(request, 'Comment deleted!')
+
+    # Redirect to new product's detail page using product's id
+    return redirect(reverse('product_detail', args=[product.id]))
