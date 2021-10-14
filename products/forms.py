@@ -38,7 +38,7 @@ class CommentForm(forms.ModelForm):
     """ Create Comment form using Django instead of directly in the HTML.
     ProductForm to be imported and rendered in views.py """
 
-    # Only comment field rendered
+    # Style comment field
     comment = forms.CharField(widget=forms.Textarea(attrs={
         'rows': '4',
     }))
@@ -61,20 +61,14 @@ class CommentForm(forms.ModelForm):
         # Dictionary of placeholder displayed in form
         placeholders = {
             'comment': 'Comment...',
-            'name': 'username...',
-            'date': 'username...',
-            'product': 'username...',
         }
 
+        # Add stripe-style-input CSS class field
+        self.fields['comment'].widget.attrs['class'] = 'stripe-style-input'
+        # Remove label from field
+        self.fields['comment'].label = False
+        # Set form placeholder attributes to respective
+        # value in placeholder dict above
+        self.fields['comment'].widget.attrs['placeholder'] = placeholders['comment']
         # comment autofocus attribute set to true, so cursor starts here
         self.fields['comment'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            # Place a star next to placeholder to indicate field is required
-            placeholder = f'{placeholders[field]} *'
-            # Set form placeholder attributes to respective
-            # value in placeholder dict above
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-        # Add stripe-style-input CSS class field
-        self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-        # Remove label from field
-        self.fields[field].label = False

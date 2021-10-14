@@ -96,7 +96,7 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ Show individual product details """
+    """ Show/comment on individual products """
 
     # If request method is POST
     if request.method == 'POST':
@@ -120,14 +120,20 @@ def product_detail(request, product_id):
         # If form is not valid
         else:
             # Display error message to the user
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
 
     else:
-        # Create instance of product form
-        form = CommentForm()
-
         # Get product from db using the product's id
         product = get_object_or_404(Product, pk=product_id)
+        print(f'annnnnnn{request.user}')
+        # Set initial data to prefill form
+        initial_data = {
+            'product': product,
+            'name': request.user.username,
+        }
+
+        # Create instance of product form
+        form = CommentForm(initial=initial_data)
 
         # Context dictionary is passed into product_detail.html for use
         context = {
