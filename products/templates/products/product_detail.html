@@ -141,9 +141,15 @@
                     <!-- Crispy form -->
                     <form method="POST" action="{% url 'product_detail' product.id %}" class="form mb-2">
                         {% csrf_token %}
-                        <!-- Render each field as a crispy field -->
+                        <!-- Render each field -->
                         {% for field in form %}
-                            {{ field | as_crispy_field }}
+                            <!-- The comment field should be the only visible field -->
+                            {% if field.name == "comment" %}
+                                {{ field | as_crispy_field }}
+                            {% else %}
+                                <!-- The other fields should be hidden -->
+                                {{ field.as_hidden }}
+                            {% endif %}
                         {% endfor %}
                         <!-- Cancel/post buttons -->
                         <div class="text-right">
@@ -159,10 +165,13 @@
             {% endif %}
             <!-- COL2: Comments -->
             <div class="col-10 offset-lg-1">
+                <!-- If there are no comments in the db -->
                 {% if not product.comments.all %}
+                    <!-- Inform the user nobody has commmented on this product -->
                     <p>Nobody has commented on this product, yet. Be the first!</p>
                 {% else %}
-                    {% for comment in product.comments.all %}
+                    <!-- Otherwise, display all comments in the following format -->
+                    {% for comment in product.comments.all reversed %}
                         <h6 class="mt-2"><strong><i class="fas fa-user"></i> {{ comment.name }}</strong> <small class="text-muted">(Posted: {{ comment.date }})</small></h6>
                         <p><small>{{ comment.comment }}</small></p>
                         <hr>

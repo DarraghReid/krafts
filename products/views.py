@@ -123,16 +123,19 @@ def product_detail(request, product_id):
             messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
 
     else:
+        # Get user for initial data
+        user = request.user
+
         # Get product from db using the product's id
         product = get_object_or_404(Product, pk=product_id)
-        print(f'annnnnnn{request.user}')
+
         # Set initial data to prefill form
         initial_data = {
             'product': product,
-            'name': request.user.username,
+            'name': user,
         }
 
-        # Create instance of product form
+        # Create instance of product form, set initial data
         form = CommentForm(initial=initial_data)
 
         # Context dictionary is passed into product_detail.html for use
