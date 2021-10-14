@@ -135,7 +135,7 @@
         <div class="row">
             <!-- Comments section heading-->
             <h2 class="col-10 offset-lg-1">Comments</h2>
-            <!-- COL1: Comment form -->
+            <!-- COL1: Comment form available only to authenticated users -->
             {% if request.user.is_authenticated %}
                 <div class="col-10 offset-lg-1">
                     <!-- Crispy form -->
@@ -160,6 +160,7 @@
                         </div>
                     </form>
                 </div>
+            <!-- If user is not authenticated, offer option to sign in to add a comment -->
             {% else %}
             <a href="{% url 'account_login' %}" class="col-10 offset-lg-1">Sign in to add a comment</a>
             {% endif %}
@@ -173,15 +174,18 @@
                     <!-- Otherwise, display all comments in the following format -->
                     {% for comment in product.comments.all reversed %}
                         <h6 class="mt-2">
+                            <!-- Author's name -->
                             <strong><i class="fas fa-user"></i> {{ comment.name }}</strong>
+                            <!-- Date posted -->
                             <small class="text-muted"> (Posted: {{ comment.date }})</small>
-                            <small class="text-muted"> ({{ comment.product.id }})</small>
+                            <!-- Only display remove button to authors of comment-->
                             {% if comment.name == request.user %}
                                 <a class="text-danger float-right" href="{% url 'delete_comment' comment.id %}">
                                     <small>Remove</small>
                                 </a>
                             {% endif %}
                         </h6>
+                        <!-- Comment -->
                         <p><small>{{ comment.comment }}</small></p>
                         <hr>
                     {% endfor %}

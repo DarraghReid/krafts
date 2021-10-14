@@ -40,7 +40,7 @@ class CommentForm(forms.ModelForm):
 
     # Style comment field
     comment = forms.CharField(widget=forms.Textarea(attrs={
-        'rows': '4',
+        'rows': '3',
     }))
 
     # Meta class defines model and fields
