@@ -39,10 +39,6 @@ class CommentForm(forms.ModelForm):
     ProductForm to be imported and rendered in views.py """
 
     # Style comment field
-    product = forms.CharField(widget=forms.Textarea(attrs={
-        'rows': '3',
-    }))
-
     comment = forms.CharField(widget=forms.Textarea(attrs={
         'rows': '3',
     }))
