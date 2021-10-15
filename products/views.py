@@ -96,7 +96,8 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ Show/comment on individual products """
+    """ Show / allow users to comment
+        on individual products """
 
     # If request method is POST
     if request.method == 'POST':
@@ -110,8 +111,6 @@ def product_detail(request, product_id):
         if form.is_valid():
             # Save it
             form.save()
-
-            print(form)
 
             # Display success message to user
             messages.success(request, 'Comment successfully posted!')
@@ -135,7 +134,63 @@ def product_detail(request, product_id):
         initial_data = {
             'product': product,
             'name': user,
-            'parent': comment_id,
+        }
+
+        # Create instance of product form, set initial data
+        form = CommentForm(initial=initial_data)
+
+        # Context dictionary is passed into product_detail.html for use
+        context = {
+            'product': product,
+            'form': form,
+        }
+
+    return render(request, 'products/product_detail.html', context)
+
+
+def reply_comment(request, product_id, comment_id):
+    """ Allow admin to reply
+        to product comments """
+
+    # If request method is POST
+    if request.method == 'POST':
+        # Get product from db using the product's id
+        product = get_object_or_404(Product, pk=product_id)
+
+        # Get the from
+        form = CommentForm(request.POST)
+
+        # If form is valid
+        if form.is_valid():
+            # Save it
+            form.save()
+
+            # Display success message to user
+            messages.success(request, 'Reply successfully posted!')
+
+            # Redirect to new product's detail page using product's id
+            return redirect(reverse('product_detail', args=[product.id]))
+
+        # If form is not valid
+        else:
+            # Display error message to the user
+            messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
+
+    else:
+        # Get user for initial data
+        user = request.user
+
+        # Get product from db using the product's id
+        product = get_object_or_404(Product, pk=product_id)
+
+        # Get comment from db using the comment's id
+        parent_comment = get_object_or_404(Product, pk=comment_id)
+
+        # Set initial data to prefill form
+        initial_data = {
+            'product': product,
+            'name': user,
+            'parent': parent_comment,
         }
 
         # Create instance of product form, set initial data

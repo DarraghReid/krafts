@@ -144,12 +144,12 @@
                         <!-- Render each field -->
                         {% for field in form %}
                             <!-- The comment field should be the only visible field -->
-                            {% if field.name == "comment" %}
+                            <!-- {% if field.name == "comment" %} -->
                                 {{ field | as_crispy_field }}
-                            {% else %}
+                            <!-- {% else %} -->
                                 <!-- The other fields should be hidden -->
-                                {{ field.as_hidden }}
-                            {% endif %}
+                                <!-- {{ field.as_hidden }} -->
+                            <!-- {% endif %} -->
                         {% endfor %}
                         <!-- Cancel/post buttons -->
                         <div class="text-right">
@@ -196,7 +196,7 @@
                         <!-- Reply comment form toggles when above reply link is clicked -->
                         <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
                             <!-- Crispy form -->
-                            <form method="POST" action="{% url 'product_detail' product.id %}" class="form mb-2">
+                            <form method="POST" action="{% url 'reply_comment' product.id comment.id %}" class="form mb-2">
                                 {% csrf_token %}
                                 <!-- Render each field -->
                                 {% for field in form %}
