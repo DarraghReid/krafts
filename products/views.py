@@ -111,6 +111,8 @@ def product_detail(request, product_id):
             # Save it
             form.save()
 
+            print(form)
+
             # Display success message to user
             messages.success(request, 'Comment successfully posted!')
 
@@ -133,6 +135,7 @@ def product_detail(request, product_id):
         initial_data = {
             'product': product,
             'name': user,
+            'parent': comment_id,
         }
 
         # Create instance of product form, set initial data

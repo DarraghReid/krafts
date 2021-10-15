@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    // Toggle the reply comment form when reply link is clicked
+    function replyFormToggle(parent_id) {
+        // Get the reply comment form
+        let toggleForm = document.getElementById(parent_id);
+
+        // If the form is currently displaying, hide it
+        if (toggleForm.classList.contains('d-none')) {
+            toggleForm.classList.remove('d-none');
+        }
+        // If the form is not currently displaying, display it
+        else {
+            toggleForm.classList.add('d-none');
+        }
+    }
+</script>

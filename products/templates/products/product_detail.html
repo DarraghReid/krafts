@@ -166,6 +166,7 @@
             {% endif %}
             <!-- COL2: Comments -->
             <div class="col-10 offset-lg-1">
+                <hr>
                 <!-- If there are no comments in the db -->
                 {% if not product.comments.all %}
                     <!-- Inform the user nobody has commmented on this product -->
@@ -187,6 +188,35 @@
                         </h6>
                         <!-- Comment -->
                         <p><small>{{ comment.comment }}</small></p>
+                        <!-- Only admins can reply to comments -->
+                        {% if request.user.is_superuser %}
+                            <!-- Reply link toggles reply comment form below using Javascript -->
+                            <a class="text-black remove-default-btn" onclick="replyFormToggle('{{ comment.id }}')"><small>Reply</small></a>
+                        {% endif %}
+                        <!-- Reply comment form toggles when above reply link is clicked -->
+                        <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
+                            <!-- Crispy form -->
+                            <form method="POST" action="{% url 'product_detail' product.id %}" class="form mb-2">
+                                {% csrf_token %}
+                                <!-- Render each field -->
+                                {% for field in form %}
+                                    <!-- The comment field should be the only visible field -->
+                                    <!-- {% if field.name == "comment" %} -->
+                                        {{ field | as_crispy_field }}
+                                    <!-- {% else %} -->
+                                        <!-- The other fields should be hidden -->
+                                        <!-- {{ field.as_hidden }} -->
+                                    <!-- {% endif %} -->
+                                {% endfor %}
+                                <!-- Cancel/post buttons -->
+                                <div class="text-right">
+                                    <!-- Reload page in event of change of mind -->
+                                    <a class="btn btn-outline-black rounded-0" onclick="replyFormToggle('{{ comment.id }}')">Cancel</a>
+                                    <!-- Submit message -->
+                                    <button class="btn btn-black rounded-0" type="submit">Reply</button>
+                                </div>
+                            </form>
+                        </div>
                         <hr>
                     {% endfor %}
                 {% endif %}
@@ -198,4 +228,5 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+{% include 'products/includes/reply_form_toggle.html' %}
 {% endblock %}

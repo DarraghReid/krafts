@@ -78,6 +78,6 @@ class Comment(models.Model):
         else:
             return False
 
-    # String method takes in Comment model, returns model name
+    # String method takes in Comment model, returns related product & user names
     def __str__(self):
         return '%s - %s' % (self.product.name, self.name.username)
