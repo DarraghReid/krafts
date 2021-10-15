@@ -96,58 +96,58 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ Show / allow users to comment
-        on individual products """
+    """ Show individual products / render comments form """
 
-    # If request method is POST
-    if request.method == 'POST':
-        # Get product from db using the product's id
-        product = get_object_or_404(Product, pk=product_id)
+    # Get user for initial data
+    user = request.user
 
-        # Get the from
-        form = CommentForm(request.POST)
+    # Get product from db using the product's id
+    product = get_object_or_404(Product, pk=product_id)
 
-        # If form is valid
-        if form.is_valid():
-            # Save it
-            form.save()
+    # Set initial data to prefill form
+    initial_data = {
+        'product': product,
+        'name': user,
+    }
 
-            # Display success message to user
-            messages.success(request, 'Comment successfully posted!')
+    # Create instance of product form, insert initial data
+    form = CommentForm(initial=initial_data)
 
-            # Redirect to new product's detail page using product's id
-            return redirect(reverse('product_detail', args=[product.id]))
+    # Context dictionary is passed into product_detail.html for use
+    context = {
+        'product': product,
+        'form': form,
+    }
 
-        # If form is not valid
-        else:
-            # Display error message to the user
-            messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
-
-    else:
-        # Get user for initial data
-        user = request.user
-
-        # Get product from db using the product's id
-        product = get_object_or_404(Product, pk=product_id)
-
-        # Set initial data to prefill form
-        initial_data = {
-            'product': product,
-            'name': user,
-        }
-
-        # Create instance of product form, insert initial data
-        form = CommentForm(initial=initial_data)
-
-        # Context dictionary is passed into product_detail.html for use
-        context = {
-            'product': product,
-            'form': form,
-        }
-
-        print(context)
+    print(form)
 
     return render(request, 'products/product_detail.html', context)
+
+
+def add_comment(request, product_id):
+    """ Add comments to individual products """
+
+    # Get product from db using the product's id
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Get the from
+    form = CommentForm(request.POST)
+
+    # If form is valid
+    if form.is_valid():
+        # Save it
+        form.save()
+
+        # Display success message to user
+        messages.success(request, 'Comment successfully posted!')
+
+    # If form is not valid
+    else:
+        # Display error message to the user
+        messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
+
+    # Redirect to new product's detail page using product's id
+    return redirect(reverse('product_detail', args=[product.id]))
 
 
 # def reply_comment(request, product_id, comment_id):
@@ -205,8 +205,6 @@ def product_detail(request, product_id):
 #         }
 
 #     return render(request, 'products/product_detail.html', context)
-
-
 @login_required
 def add_product(request):
     """ Add a product to the store """
