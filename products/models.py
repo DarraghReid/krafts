@@ -57,26 +57,26 @@ class Comment(models.Model):
     comment = models.TextField(max_length=500)
     # Automatically add date to comment
     date = models.DateTimeField(auto_now_add=True)
-    # # Parent field indicates if comment is being replied to, or is in reply to
-    # parent = models.ForeignKey(
-    #     "self", related_name="+", on_delete=models.CASCADE, blank=True, null=True)
+    # Parent field indicates if comment is being replied to, or is in reply to
+    parent = models.ForeignKey(
+        "self", related_name="+", on_delete=models.CASCADE, blank=True, null=True)
 
-    # @property
-    # def children(self):
-    #     """ Return list of child comments of a parent comment
-    #         to be accessed in the template """
-    #     return Comment.objects.filter(parent=self).order_by('-date').all()
+    @property
+    def children(self):
+        """ Return list of child comments of a parent comment
+            to be accessed in the template """
+        return Comment.objects.filter(parent=self).order_by('-date').all()
 
-    # @property
-    # def is_parent(self):
-    #     """ Determine if comment is parent or child comment """
-    #     # If there is nothing in the parent field/has no parent
-    #     if self.parent is None:
-    #         # the comment is a parent comment
-    #         return True
-    #     # Otherwise, the comment has a parent/is a child comment
-    #     else:
-    #         return False
+    @property
+    def is_parent(self):
+        """ Determine if comment is parent or child comment """
+        # If there is nothing in the parent field/has no parent
+        if self.parent is None:
+            # the comment is a parent comment
+            return True
+        # Otherwise, the comment has a parent/is a child comment
+        else:
+            return False
 
     # String method takes in Comment model, returns related product & user names
     def __str__(self):

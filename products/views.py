@@ -154,8 +154,6 @@ def add_comment(request, product_id):
 #     """ Allow admin to reply
 #         to product comments """
 
-#     # If request method is POST
-#     if request.method == 'POST':
 #         # Get product from db using the product's id
 #         product = get_object_or_404(Product, pk=product_id)
 
@@ -177,32 +175,6 @@ def add_comment(request, product_id):
 #         else:
 #             # Display error message to the user
 #             messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
-
-#     else:
-#         # Get user for initial data
-#         user = request.user
-
-#         # Get product from db using the product's id
-#         product = get_object_or_404(Product, pk=product_id)
-
-#         # Get comment from db using the comment's id
-#         parent_comment = get_object_or_404(Product, pk=comment_id)
-
-#         # Set initial data to prefill form
-#         initial_data = {
-#             'product': product,
-#             'name': user,
-#             'parent': parent_comment,
-#         }
-
-#         # Create instance of product form, set initial data
-#         form = CommentForm(initial=initial_data)
-
-#         # Context dictionary is passed into product_detail.html for use
-#         context = {
-#             'product': product,
-#             'form': form,
-#         }
 
 #     return render(request, 'products/product_detail.html', context)
 @login_required

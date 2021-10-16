@@ -143,13 +143,7 @@
                         {% csrf_token %}
                         <!-- Render each field -->
                         {% for field in form %}
-                            <!-- The comment field should be the only visible field -->
-                            {% if field.name == "comment" %}
-                                {{ field | as_crispy_field }}
-                            {% else %}
-                                <!-- The other fields should be hidden -->
-                                {{ field.as_hidden }}
-                            {% endif %}
+                            {{ field | as_crispy_field }}
                         {% endfor %}
                         <!-- Cancel/post buttons -->
                         <div class="text-right">
