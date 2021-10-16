@@ -80,4 +80,4 @@ class Comment(models.Model):
 
     # String method takes in Comment model, returns related product & user names
     def __str__(self):
-        return '%s - %s' % (self.product.name, self.name.username)
+        return '%s' % (self.pk)

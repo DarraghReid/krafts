@@ -32,6 +32,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     """ Tell admin which fields to display in admin """
     list_display = (
+        'pk',
         'name',
         'date',
         'product',
