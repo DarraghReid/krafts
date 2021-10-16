@@ -130,7 +130,7 @@ def add_comment(request, product_id):
     # Get product from db using the product's id
     product = get_object_or_404(Product, pk=product_id)
 
-    # Get the from
+    # Get the contents of form
     form = CommentForm(request.POST)
 
     # If form is valid
@@ -144,39 +144,48 @@ def add_comment(request, product_id):
     # If form is not valid
     else:
         # Display error message to the user
-        messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
+        messages.error(request, 'Failed to add comment. Please ensure the form is valid.')
 
     # Redirect to new product's detail page using product's id
     return redirect(reverse('product_detail', args=[product.id]))
 
 
-# def reply_comment(request, product_id, comment_id):
-#     """ Allow admin to reply
-#         to product comments """
+def reply_comment(request, product_id, comment_id):
+    """ Allow admin to reply
+        to product comments """
 
-#         # Get product from db using the product's id
-#         product = get_object_or_404(Product, pk=product_id)
+    # Get product from db using the product's id
+    product = get_object_or_404(Product, pk=product_id)
 
-#         # Get the from
-#         form = CommentForm(request.POST)
+    # Get parent comment from db using the comment's id
+    comment = get_object_or_404(Comment, pk=comment_id)
 
-#         # If form is valid
-#         if form.is_valid():
-#             # Save it
-#             form.save()
+    # Get the contents of form
+    form = CommentForm(request.POST)
 
-#             # Display success message to user
-#             messages.success(request, 'Reply successfully posted!')
+    # If form is valid
+    if form.is_valid():
+        # Save it
+        new_comment = form.save(commit=False)
+        new_comment.name = request.user
+        new_comment.product = product
+        new_comment.parent = comment
+        new_comment.save()
 
-#             # Redirect to new product's detail page using product's id
-#             return redirect(reverse('product_detail', args=[product.id]))
+        # Display success message to user
+        messages.success(request, 'Reply successfully posted!')
 
-#         # If form is not valid
-#         else:
-#             # Display error message to the user
-#             messages.error(request, 'Failed to add Comment. Please ensure the form is valid.')
+        # Redirect to new product's detail page using product's id
+        return redirect(reverse('product_detail', args=[product.id]))
 
-#     return render(request, 'products/product_detail.html', context)
+    # If form is not valid
+    else:
+        # Display error message to the user
+        messages.error(request, 'Failed to add reply. Please ensure the form is valid.')
+
+    return render(request, 'products/product_detail.html', context)
+
+
 @login_required
 def add_product(request):
     """ Add a product to the store """

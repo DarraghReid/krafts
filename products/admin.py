@@ -36,6 +36,7 @@ class CommentAdmin(admin.ModelAdmin):
         'date',
         'product',
         'comment',
+        'parent',
     )
 
 

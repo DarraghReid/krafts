@@ -160,52 +160,76 @@
             {% endif %}
             <!-- COL2: Comments -->
             <div class="col-10 offset-lg-1">
-                <hr>
                 <!-- If there are no comments in the db -->
                 {% if not product.comments.all %}
                     <!-- Inform the user nobody has commmented on this product -->
                     <p>Nobody has commented on this product, yet. Be the first!</p>
                 {% else %}
-                    <!-- Otherwise, display all comments in the following format -->
+                    <!-- Otherwise, display comments in the following format -->
                     {% for comment in product.comments.all reversed %}
-                        <h6 class="mt-2">
-                            <!-- Author's name -->
-                            <strong><i class="fas fa-user"></i> {{ comment.name }}</strong>
-                            <!-- Date posted -->
-                            <small class="text-muted"> (Posted: {{ comment.date }})</small>
-                            <!-- Only display remove button to authors of comment-->
-                            {% if comment.name == request.user %}
-                                <a class="text-danger float-right" href="{% url 'delete_comment' comment.id %}">
-                                    <small>Remove</small>
-                                </a>
+                        <!-- Display all parent comments here -->
+                        {% if comment.is_parent %}
+                            <hr class="mt-4">
+                            <h6 class="mt-2">
+                                <!-- Author's name -->
+                                <strong><i class="fas fa-user"></i> {{ comment.name }}</strong>
+                                <!-- Date posted -->
+                                <small class="text-muted"> (Posted: {{ comment.date }})</small>
+                                <!-- Only display remove button to authors of comment-->
+                                {% if comment.name == request.user %}
+                                    <a class="text-danger float-right" href="{% url 'delete_comment' comment.id %}">
+                                        <small>Remove</small>
+                                    </a>
+                                {% endif %}
+                            </h6>
+                            <!-- Comment -->
+                            <p><small>{{ comment.comment }}</small></p>
+                            <!-- Only admins can reply to comments -->
+                            {% if request.user.is_superuser %}
+                                <!-- Reply link toggles reply comment form below using Javascript -->
+                                <a class="text-black remove-default-btn" onclick="replyFormToggle('{{ comment.id }}')"><small>Reply</small></a>
                             {% endif %}
-                        </h6>
-                        <!-- Comment -->
-                        <p><small>{{ comment.comment }}</small></p>
-                        <!-- Only admins can reply to comments -->
-                        {% if request.user.is_superuser %}
-                            <!-- Reply link toggles reply comment form below using Javascript -->
-                            <a class="text-black remove-default-btn" onclick="replyFormToggle('{{ comment.id }}')"><small>Reply</small></a>
+                            <!-- Reply comment form toggles when above reply link is clicked -->
+                            <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
+                                <!-- Crispy form -->
+                                <form method="POST" action="{% url 'reply_comment' product.id comment.id %}" class="form mb-2">
+                                    {% csrf_token %}
+                                    <!-- Render each field -->
+                                    {% for field in form %}
+                                        {{ field | as_crispy_field }}
+                                    {% endfor %}
+                                    <!-- Cancel/post buttons -->
+                                    <div class="text-right">
+                                        <!-- Reload page in event of change of mind -->
+                                        <a class="btn btn-outline-black rounded-0" onclick="replyFormToggle('{{ comment.id }}')">Cancel</a>
+                                        <!-- Submit message -->
+                                        <button class="btn btn-black rounded-0" type="submit">Reply</button>
+                                    </div>
+                                </form>
+                            </div>
                         {% endif %}
-                        <!-- Reply comment form toggles when above reply link is clicked -->
-                        <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
-                            <!-- Crispy form -->
-                            <form method="POST" action="" class="form mb-2">
-                                {% csrf_token %}
-                                <!-- Render each field -->
-                                {% for field in form %}
-                                    {{ field | as_crispy_field }}
-                                {% endfor %}
-                                <!-- Cancel/post buttons -->
-                                <div class="text-right">
-                                    <!-- Reload page in event of change of mind -->
-                                    <a class="btn btn-outline-black rounded-0" onclick="replyFormToggle('{{ comment.id }}')">Cancel</a>
-                                    <!-- Submit message -->
-                                    <button class="btn btn-black rounded-0" type="submit">Reply</button>
+                        <!-- Loop through parent comment's child comments -->
+                        {% for child_comment in comment.children %}
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-11 border-top">
+                                    <h6 class="mt-2">
+                                        <!-- Author's name -->
+                                        <strong><i class="fas fa-user"></i> {{ child_comment.name }}</strong>
+                                        <!-- Date posted -->
+                                        <small class="text-muted"> (Posted: {{ child_comment.date }})</small>
+                                        <!-- Only display remove button to authors of comment-->
+                                        {% if child_comment.name == request.user %}
+                                            <a class="text-danger float-right" href="{% url 'delete_comment' child_comment.id %}">
+                                                <small>Remove</small>
+                                            </a>
+                                        {% endif %}
+                                    </h6>
+                                    <!-- Comment -->
+                                    <p><small>{{ child_comment.comment }}</small></p>
                                 </div>
-                            </form>
-                        </div>
-                        <hr>
+                            </div>
+                        {% endfor %}
                     {% endfor %}
                 {% endif %}
             </div>
