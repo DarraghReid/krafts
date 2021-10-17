@@ -13,4 +13,19 @@
             toggleForm.classList.add('d-none');
         }
     }
+
+    // Toggle the rate form when rate button is clicked
+    function rateFormToggle() {
+        // Get the rate form
+        let rateForm = document.getElementById("rate-form")
+
+        // If the form is currently displaying, hide it
+        if (rateForm.classList.contains('d-none')) {
+            rateForm.classList.remove('d-none');
+        }
+        // If the form is not currently displaying, display it
+        else {
+            rateForm.classList.add('d-none');
+        }
+    }
 </script>

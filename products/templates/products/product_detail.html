@@ -60,14 +60,18 @@
                     {% else %}
                         <!-- Otherwise, inform customer the product has no rating -->
                         <small class="text-muted">
-                            No Rating
+                            No Rating | 
+                            <a href="#" onclick="rateFormToggle()">Rate this product</a>
                         </small>
                     {% endif %}
-                    <!-- Provide means to rate product -->
+                    <!-- Provide means to rate product only to those who have not yet rated the product -->
                     {% if request.user in product.rates.all %}
-                        <small class="text-muted">You have already rated this product.</small>
+                        <p>
+                            <small class="text-muted">You have already rated this product.</small>
+                        </p>
                     {% else %}
-                        <form action="{% url 'rate_product' product.id %}" method="POST">
+                        <!-- Rating form displaying rating field only -->
+                        <form class="d-none mt-3 mb-2" id="rate-form" action="{% url 'rate_product' product.id %}" method="POST">
                             {% csrf_token %}
                             {% for field in product_form %}
                                 {% if field.name == 'rating' %}
@@ -76,19 +80,19 @@
                                     {{ field.as_hidden}}
                                 {% endif %}
                             {% endfor %}
-                            {{ product.rates }}
-                            {{ product.name }}
-                            <button type="submit">Rate</button>
+                            <button class="btn btn-black rounded-0" type="submit">Rate</button>
                         </form>
                     {% endif %}
                     <!-- If user is superuser, provide option to edit/delete product -->
                     {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <!-- Edit product -->
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                        <!-- Delete product -->
-                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                    </small>
+                    <p>
+                        <small>
+                            <!-- Edit product -->
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <!-- Delete product -->
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
+                    </p>
                     {% endif %}
                     <p class="mt-3">{{ product.description }}</p>
                     <!-- Form to add product to shopping cart -->
@@ -270,5 +274,5 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-{% include 'products/includes/reply_form_toggle.html' %}
+{% include 'products/includes/form_toggle.html' %}
 {% endblock %}

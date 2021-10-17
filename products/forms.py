@@ -19,6 +19,9 @@ class ProductForm(forms.ModelForm):
     image = forms.ImageField(
         label="Image", required=False, widget=CustomClearableFileInput)
 
+    # Set min and max values for rating field
+    rating = forms.IntegerField(min_value=0, max_value=5)
+
     # Override __intit__ method to customize category spelling
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -29,10 +32,13 @@ class ProductForm(forms.ModelForm):
 
         # Use friendly names in form instead of name field
         self.fields['category'].choices = friendly_names
+
+        # Remove rating label from rating field
+        self.fields['rating'].label = False
+        
         # Add 'border-black rounded-0' classes to match site styles
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
-
 
 class CommentForm(forms.ModelForm):
     """ Create Comment form using Django instead of directly in the HTML.
@@ -70,5 +76,3 @@ class CommentForm(forms.ModelForm):
         # Set form placeholder attributes to respective
         # value in placeholder dict above
         self.fields['comment'].widget.attrs['placeholder'] = placeholders['comment']
-        # comment autofocus attribute set to true, so cursor starts here
-        self.fields['comment'].widget.attrs['autofocus'] = True
