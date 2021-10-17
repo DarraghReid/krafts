@@ -36,17 +36,12 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
+        max_digits=6, decimal_places=2, default=0, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    rates = models.ManyToManyField(User, related_name="products")
-
-    @property
-    def rating_average(self):
-        """ Return list of child comments of a parent comment
-            to be accessed in the template """
-        average = self.rating / self.rates
-        return average
+    rates = models.ManyToManyField(User, blank=True, related_name="products")
+    rating_average = models.DecimalField(
+        max_digits=3, decimal_places=2, default=0, null=True, blank=True)
 
     # String method takes in Product model, returns model name
     def __str__(self):

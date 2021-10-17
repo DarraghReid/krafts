@@ -36,7 +36,7 @@ class ProductForm(forms.ModelForm):
 
 class CommentForm(forms.ModelForm):
     """ Create Comment form using Django instead of directly in the HTML.
-    ProductForm to be imported and rendered in views.py """
+    CommentForm to be imported and rendered in views.py """
 
     # Style comment field
     comment = forms.CharField(widget=forms.Textarea(attrs={

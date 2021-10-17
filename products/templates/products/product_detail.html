@@ -52,16 +52,34 @@
                     </p>
                     {% endif %}
                     <!-- If the product has a rating, display in following format -->
-                    {% if product.rating %}
-                    <small class="text-muted">
-                        <i class="fas fa-star mr-1"></i>
-                        {{ product.rating }} / 5
-                    </small>
+                    {% if product.rating_average %}
+                        <small class="text-muted">
+                            <i class="fas fa-star mr-1"></i>
+                            {{ product.rating_average }} / 5
+                        </small>
                     {% else %}
-                    <!-- Otherwise, inform customer the product has no rating -->
+                        <!-- Otherwise, inform customer the product has no rating -->
                         <small class="text-muted">
                             No Rating
                         </small>
+                    {% endif %}
+                    <!-- Provide means to rate product -->
+                    {% if request.user in product.rates.all %}
+                        <small class="text-muted">You have already rated this product.</small>
+                    {% else %}
+                        <form action="{% url 'rate_product' product.id %}" method="POST">
+                            {% csrf_token %}
+                            {% for field in product_form %}
+                                {% if field.name == 'rating' %}
+                                    {{ field | as_crispy_field }}
+                                {% else %}
+                                    {{ field.as_hidden}}
+                                {% endif %}
+                            {% endfor %}
+                            {{ product.rates }}
+                            {{ product.name }}
+                            <button type="submit">Rate</button>
+                        </form>
                     {% endif %}
                     <!-- If user is superuser, provide option to edit/delete product -->
                     {% if request.user.is_superuser %}

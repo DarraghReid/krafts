@@ -114,10 +114,10 @@
                                             </p>
                                             {% endif %}
                                             <!-- If the product has a rating, display in following format -->
-                                            {% if product.rating %}
+                                            {% if product.rating_average %}
                                                 <small class="text-muted">
                                                     <i class="fas fa-star mr-1"></i>
-                                                    {{ product.rating }} / 5
+                                                    {{ product.rating_average }} / 5
                                                 </small>
                                             {% else %}
                                             <!-- Otherwise, inform customer the product has no rating -->

@@ -113,13 +113,15 @@ def product_detail(request, product_id):
     # Create instance of product form, insert initial data
     form = CommentForm(initial=initial_data)
 
+    # Create instance of Product Form for rating
+    product_form = ProductForm(instance=product)
+
     # Context dictionary is passed into product_detail.html for use
     context = {
         'product': product,
         'form': form,
+        'product_form': product_form,
     }
-
-    print(form)
 
     return render(request, 'products/product_detail.html', context)
 
@@ -329,6 +331,70 @@ def delete_comment(request, comment_id):
 
     # Inform user comment has been deleted
     messages.success(request, 'Comment deleted!')
+
+    # Redirect to new product's detail page using product's id
+    return redirect(reverse('product_detail', args=[product.id]))
+
+
+@login_required
+def rate_product(request, product_id):
+    """ Add rating to product """
+
+    # Get product
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Get user
+    user = request.user
+
+    # Add user to rates list
+    product.rates.add(user)
+
+    # Get the contents of form
+    form = ProductForm(request.POST, instance=product)
+
+    # Get product's current rating
+    current_rating = product.rating
+
+    # If the form is valid
+    if form.is_valid():
+        # Get user's rating
+        user_rating = form.cleaned_data['rating']
+
+        # Get number of users who have rated product
+        user_count = product.rates.count()
+
+        # Calculate sum total of user ratings
+        total_rating = user_rating + current_rating
+
+        # Check if product has any rates to prevent division error
+        if user_count > 0:
+            # Average rating is total_rating divided by user_count
+            average_rating = total_rating / user_count
+        else:
+            average_rating = 0
+
+        # Save form to variable (difficulty accessing product.rating)
+        new_rating = form.save(commit=False)
+
+        # Update product's rating
+        new_rating.rating = user_rating + current_rating
+
+        # Update product's average rating
+        new_rating.rating_average = average_rating
+
+        # Save the form
+        new_rating.save()
+
+        # Display success message to user
+        messages.success(request, 'You rated this product!')
+
+        # Redirect user to the inividual product's details page
+        return redirect(reverse('product_detail', args=[product.id]))
+
+    # If the form is not valid
+    else:
+        # Display error message to user
+        messages.error(request, 'Failed to update product. Please ensure the form is valid.')
 
     # Redirect to new product's detail page using product's id
     return redirect(reverse('product_detail', args=[product.id]))
