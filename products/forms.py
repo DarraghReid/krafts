@@ -34,8 +34,8 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
 
         # Remove rating label from rating field
-        self.fields['rating'].label = False
-        
+        self.fields['rating'].label = "Rate out of 5 : "
+
         # Add 'border-black rounded-0' classes to match site styles
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'

@@ -61,9 +61,9 @@
                         <!-- Otherwise, inform customer the product has no rating -->
                         <small class="text-muted">
                             No Rating | 
-                            <a href="#" onclick="rateFormToggle()">Rate this product</a>
                         </small>
                     {% endif %}
+                    <small> | <a href="#" onclick="rateFormToggle()">Rate this product</a></small>
                     <!-- Provide means to rate product only to those who have not yet rated the product -->
                     {% if request.user in product.rates.all %}
                         <p>
@@ -80,6 +80,7 @@
                                     {{ field.as_hidden}}
                                 {% endif %}
                             {% endfor %}
+                            <a class="btn btn-outline-black rounded-0" onclick="rateFormToggle()">Cancel</a>
                             <button class="btn btn-black rounded-0" type="submit">Rate</button>
                         </form>
                     {% endif %}
