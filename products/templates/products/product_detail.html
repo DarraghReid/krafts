@@ -60,16 +60,17 @@
                     {% else %}
                         <!-- Otherwise, inform customer the product has no rating -->
                         <small class="text-muted">
-                            No Rating | 
+                            No Rating  
                         </small>
                     {% endif %}
-                    <small> | <a href="#" onclick="rateFormToggle()">Rate this product</a></small>
                     <!-- Provide means to rate product only to those who have not yet rated the product -->
                     {% if request.user in product.rates.all %}
                         <p>
                             <small class="text-muted">You have already rated this product.</small>
                         </p>
                     {% else %}
+                        <!-- Link to toggle rating form -->
+                        <small> | <a href="#" onclick="rateFormToggle()">Rate this product</a></small>
                         <!-- Rating form displaying rating field only -->
                         <form class="d-none mt-3 mb-2" id="rate-form" action="{% url 'rate_product' product.id %}" method="POST">
                             {% csrf_token %}

@@ -51,13 +51,13 @@
         <header class="container-fluid fixed-top">
             <!-- Main page header with logo, search bar, account/cart links-->
             <!-- Only to be displayed on large screens -->
-            <div class="row bg-white pt-lg-2 d-md-none" id="topnav">
+            <div class="row bg-white pt-lg-2" id="topnav">
 
                 <!-- COLs stacked virtically on sm screens, horizontally on lg screens, have padding on sm screens -->
                 <!-- COL 1: Logo centered on sm screens, left aligned on lg screens -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                     <!-- Logo with link to home URL -->
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link text-center text-lg-left mx-auto">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
                         <h2 class="logo-font text-black my-0">
                             <strong>
                                 KRAFTS
@@ -66,9 +66,15 @@
                     </a>
                 </div>
 
-                <!-- COL 2: Menu -->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-md-block">
+                <!-- COL 2: Search form -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <ul class="navbar-nav w-auto mx-auto">
+                        <!-- Link to home page only visible on mobile screens -->
+                        <li class="nav-item d-block d-md-none">
+                            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
+                                Home
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <!-- Link triggers dropdown of sorting links -->
                             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,14 +147,14 @@
                 <!-- COl 3: Account and shopping cart links, contained in unordered list -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <!-- List items aligned horizontally, centered on sm screens, right algigned on lg screens -->
-                    <ul class="list-inline list-unstyled text-center small text-lg-right my-0">
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                         <!-- LI 1: Search Button -->
                         <li class="list-inline-item">
                             <!-- When clicked, search bar below will appear -->
                             <a class="text-black nav-link d-block" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <div><i class="fas fa-search fa-lg"></i></div>
-                                    <p class="my-0 d-none d-sm-block">Search</p>
+                                    <p class="my-0">Search</p>
                                 </div>
                             </a>
                             <!-- Search bar appears when above link is clicked -->
@@ -169,22 +175,7 @@
                             </div>
                         </li>
 
-                        <!-- LI 2: Contact -->
-                        <li class="list-inline-item dropdown">
-                            <!-- Link leads to contact page -->
-                            <a class="text-black nav-link" href="{% url 'contact' %}" id="user-options">
-                                <div class="text-center">
-                                    <div>
-                                        <i class="fas fa-phone-alt"></i>
-                                    </div>
-                                    <p class="my-0 d-none d-sm-block">
-                                        Contact us
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-
-                        <!-- LI 3: Account link -->
+                        <!-- LI 2: Account link -->
                         <li class="list-inline-item dropdown">
                             <!-- Link triggers Bootstrap dropdown below, when clicked -->
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="flase">
@@ -192,7 +183,7 @@
                                     <div>
                                         <i class="fas fa-user fa-lg"></i>
                                     </div>
-                                    <p class="my-0 d-none d-sm-block">
+                                    <p class="my-0">
                                         My Account
                                     </p>
                                 </div>
@@ -215,7 +206,7 @@
                             </div>
                         </li>
 
-                        <!-- LI 4: Shopping cart link -->
+                        <!-- LI 3: Shopping cart link -->
                         <li class="list-inline-item">
                             <!-- If there is an item in the cart, font is bold -->
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %} text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
@@ -223,7 +214,7 @@
                                     <div>
                                         <i class="fas fa-shopping-cart fa-lg"></i>
                                     </div>
-                                    <p class="my-0 d-none d-sm-block">
+                                    <p class="my-0">
                                         <!-- If there is an item in the cart, display the grand_total variable to two decimal places -->
                                         {% if grand_total %}
                                             €{{ grand_total|floatformat:2 }}
