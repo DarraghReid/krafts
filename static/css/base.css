@@ -117,11 +117,12 @@ body {
 } 
 
 .image-link {
-    height: 200px;
+    height: 180px;
     background: maroon;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .pottery {
@@ -419,7 +420,7 @@ input[name='q']::placeholder {
     }
 }
 
-/* Pad the top a bit when navbar is collapsed on mobile */
+/* Pad the top a bit on smaller screens */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
