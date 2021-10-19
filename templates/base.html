@@ -48,10 +48,12 @@
         <title>Krafts {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid fixed-top">
+        <header class="container-fluid bg-white fixed-top">
+            <!-- Header seen on medium screens up-->
             {% include 'includes/md-top-header.html' %}
+            <!-- Header seen on smaller devices-->
             {% include 'includes/mobile-top-header.html' %}
-            <!-- Banner displayed under nav informing customers of free delivery requirements -->
+            <!-- Progress bar displayed under nav informing customers of free delivery requirements -->
             <div id="delivery-banner" class="row text-center bg-white">
                 <div class="col text-black">
                     <progress max="{{ free_delivery_threshold }}" value=".01"></progress>
