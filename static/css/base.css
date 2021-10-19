@@ -87,7 +87,7 @@ body {
 }
 
 .carousel-item-2 {
-    background: url('/media/b3.jpeg') no-repeat center center;
+    background: url('/media/cb2.jpeg') no-repeat center center;
     background-size: cover;
 }
 
@@ -97,8 +97,9 @@ body {
 }
 
 .carousel-caption {
-    color: #000;
-}
+    color: white;
+    font-weight: 100;
+} 
 
 .image-link {
     height: 200px;
@@ -373,6 +374,58 @@ input[name='q']::placeholder {
 
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
+    }
+}
+
+@media (max-width: 704px) {
+    .carousel-caption h2 {
+        font-size: 30px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 662px) {
+    .carousel-caption h2 {
+        font-size: 25px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 554px) {
+    .carousel-caption h2 {
+        font-size: 20px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 442px) {
+    .carousel-caption h2 {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 378px) {
+    .carousel-caption h2 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 332px) {
+    .carousel-caption h2 {
+        font-size: 13px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 13px;
     }
 }
 
