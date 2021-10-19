@@ -54,12 +54,17 @@
             <!-- Header seen on smaller devices-->
             {% include 'includes/mobile-top-header.html' %}
             <!-- Progress bar displayed under nav informing customers of free delivery requirements -->
-            <div id="delivery-banner" class="row text-center bg-white">
-                <div class="col text-black">
-                    <progress max="{{ free_delivery_threshold }}" value=".01"></progress>
+            <div id="delivery-banner" class="row bg-white">
+                <!-- Progress bar-->
+                <div class="col-6 col-md 7">
+                    <div class="w-75 float-right" id="progress-bar" data-total="{{ grand_total|floatformat:2 }}">
+                        <div id="percentage"></div>
+                    </div>
+                </div>
+                <!-- free_delivery_threshold/free_delivery_delta found in settings.py -->
+                <div class="col-6 col-md-5 text-black float-left" id="free-delivery">
                     <span>€{{ free_delivery_delta }} more for free delivery!</span>
-                    <!-- free_delivery_threshold found in settings.py -->
-                </div>            
+                </div>
             </div>
         </header>
 
@@ -98,9 +103,11 @@
         {% block postloadjs %}
             <!-- Ensure MESSAGE_STORAGE variable in settings.py is set -->
             <script type="text/javascript">
-            // Call toast BS method with option of 'show' on elements with .toast class
+                // Call toast BS method with option of 'show' on elements with .toast class
                 $('.toast').toast('show');
             </script>
+            <!-- Custom base.js file -->
+            <script src="{% static 'js/base.js' %}"></script>
         {% endblock %}
     </body>
 </html>
