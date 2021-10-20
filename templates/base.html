@@ -99,6 +99,51 @@
         {% block content %}
         {% endblock %}
 
+        <!-- Footer -->
+        <footer class="row" id="footer">
+            <!-- Logo with link to home URL -->
+            <div class="col-2 py-3">
+                <a href="{% url 'home' %}" class="main-logo-link text-center">
+                    <h2 class="logo-font text-black my-0">
+                        <strong>
+                            KRAFTS
+                        </strong>
+                    </h2>
+                </a>
+            </div>
+            <!-- Social links -->
+            <div class="col-8">
+                <ul class="list-inline list-unstyled mx-auto mb-2 d-flex align-items-center justify-content-center" id="social-links">
+                    <!-- Twitter -->
+                    <li class="list-inline-item mx-3">
+                        <a class="text-black" href="https://twitter.com/" target="_blank">
+                            <span class="icon">
+                                <i class="fab fa-twitter fa-lg"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Instagram -->
+                    <li class="list-inline-item mx-3">
+                        <a class="text-black" href="https://www.instagram.com/" target="_blank">
+                            <span class="icon">
+                                <i class="fab fa-instagram fa-lg"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <!-- Facebook -->
+                    <li class="list-inline-item mx-3">
+                        <a class="text-black" href="https://www.facebook.com/" target="_blank">
+                            <span class="icon">
+                                <i class="fab fa-facebook-f fa-lg"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-2"></div>
+            
+        </footer>
+
         <!-- Javascript to be loaded at end of the body -->
         {% block postloadjs %}
             <!-- Ensure MESSAGE_STORAGE variable in settings.py is set -->

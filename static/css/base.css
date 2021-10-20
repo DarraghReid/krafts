@@ -145,6 +145,16 @@ body {
     background-size: cover;
 }
 
+/* -------------------------------- Footer */
+
+footer {
+    border-top: 1px solid black;
+}
+
+#social-links {
+    height: 100%;
+}
+
 a.category-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
