@@ -15,21 +15,21 @@
                 <ul class="list-unstyled">
                     <li class="nav-item">
                         <!-- All products menu item/link -->
-                        <a href="{% url 'products' %}" class="logo-font font-weight-bold nav-link {% if not current_categories %}bg-black text-white{% else %} text-black{% endif %}" id="specials-link" aria-haspopup="true" aria-expanded="false">
+                        <a href="{% url 'products' %}" class="abc logo-font font-weight-bold nav-link {% if not current_categories %}bg-black text-white{% else %} text-black{% endif %}" id="specials-link" aria-haspopup="true" aria-expanded="false">
                             All Products
                         </a>
                     </li>
             
                     <li class="nav-item ">
                         <!-- Pottery header -->
-                        <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
+                        <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="abc logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
                             POTTERY
                         </a>
                         <!-- Pottery links -->
                         <div class="border-0" aria-labelledby="clothing-link">
-                            <a href="{% url 'products' %}?category=jugs" class="dropdown-item {% for c in current_categories %}{% if c.name == 'jugs' %}bg-black text-white{% endif %}{% endfor %}">JUGS</a>
-                            <a href="{% url 'products' %}?category=cups_mugs" class="dropdown-item {% for c in current_categories %}{% if c.name == 'cups_mugs' %}bg-black text-white{% endif %}{% endfor %}">CUPS &amp; MUGS</a>
-                            <a href="{% url 'products' %}?category=vases" class="dropdown-item {% for c in current_categories %}{% if c.name == 'vases' %}bg-black text-white{% endif %}{% endfor %}">VASES</a>
+                            <a href="{% url 'products' %}?category=jugs" class="abc dropdown-item {% for c in current_categories %}{% if c.name == 'jugs' %}bg-black text-white{% endif %}{% endfor %}">JUGS</a>
+                            <a href="{% url 'products' %}?category=cups_mugs" class="abc dropdown-item {% for c in current_categories %}{% if c.name == 'cups_mugs' %}bg-black text-white{% endif %}{% endfor %}">CUPS &amp; MUGS</a>
+                            <a href="{% url 'products' %}?category=vases" class="abc dropdown-item {% for c in current_categories %}{% if c.name == 'vases' %}bg-black text-white{% endif %}{% endfor %}">VASES</a>
                         </div>
                     </li>
             
