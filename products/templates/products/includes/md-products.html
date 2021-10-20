@@ -10,80 +10,72 @@
     </div>
     <div class="row">
         <!-- COL2: Products menu -->
-        <div class="col-2">
-            <div class="">
-                <ul class="list-unstyled mb-1 w-auto mx-auto">
-                    <li class="nav-item dropdown">
-                        <!-- Link triggers dropdown of sorting links -->
-                        <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="col-3 col-lg-2" id="products-menu">
+            <div id="list">
+                <ul class="list-unstyled">
+                    <li class="nav-item">
+                        <!-- All products menu item/link -->
+                        <a href="{% url 'products' %}" class="logo-font font-weight-bold nav-link {% if not current_categories %}bg-black text-white{% else %} text-black{% endif %}" id="specials-link" aria-haspopup="true" aria-expanded="false">
                             All Products
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                            <!-- '?' attaches sort & direction parameters to products url, accessed in get_products view -->
-                            <!-- Sort paramaters are fields on product model -->
-                            <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                            <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
-                            <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                            <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
-                        </div>
                     </li>
             
-                    <li class="nav-item dropdown">
-                        <!-- Link triggers dropdown of pottery options -->
-                        <a class="logo-font font-weight-bold nav-link text-black " href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item ">
+                        <!-- Pottery header -->
+                        <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
                             POTTERY
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                            <a href="{% url 'products' %}?category=jugs" class="dropdown-item">JUGS</a>
-                            <a href="{% url 'products' %}?category=cups_mugs" class="dropdown-item">CUPS &amp; MUGS</a>
-                            <a href="{% url 'products' %}?category=vases" class="dropdown-item">VASES</a>
-                            <!-- comma ensures comma-separated string in view -->
-                            <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="dropdown-item">All POTTERY</a>
+                        <!-- Pottery links -->
+                        <div class="border-0" aria-labelledby="clothing-link">
+                            <a href="{% url 'products' %}?category=jugs" class="dropdown-item {% for c in current_categories %}{% if c.name == 'jugs' %}bg-black text-white{% endif %}{% endfor %}">JUGS</a>
+                            <a href="{% url 'products' %}?category=cups_mugs" class="dropdown-item {% for c in current_categories %}{% if c.name == 'cups_mugs' %}bg-black text-white{% endif %}{% endfor %}">CUPS &amp; MUGS</a>
+                            <a href="{% url 'products' %}?category=vases" class="dropdown-item {% for c in current_categories %}{% if c.name == 'vases' %}bg-black text-white{% endif %}{% endfor %}">VASES</a>
                         </div>
                     </li>
             
-                    <li class="nav-item dropdown">
-                        <!-- Link triggers dropdown of furniture options -->
-                        <a class="logo-font font-weight-bold nav-link text-black" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item">
+                        <!-- Furniture header -->
+                        <a href="{% url 'products' %}?category=tables,chairs,cabinets" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
                             FURNITURE
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                            <a href="{% url 'products' %}?category=tables" class="dropdown-item">TABLES</a>
-                            <a href="{% url 'products' %}?category=chairs" class="dropdown-item">CHAIRS</a>
-                            <a href="{% url 'products' %}?category=cabinets" class="dropdown-item">CABINETS</a>
-                            <a href="{% url 'products' %}?category=tables,chairs,cabinets" class="dropdown-item">All FURNITURE</a>
+                        <!-- Furniture links -->
+                        <div class="border-0" aria-labelledby="homeware-link">
+                            <a href="{% url 'products' %}?category=tables" class="dropdown-item {% for c in current_categories %}{% if c.name == 'tables' %}bg-black text-white{% endif %}{% endfor %}">TABLES</a>
+                            <a href="{% url 'products' %}?category=chairs" class="dropdown-item {% for c in current_categories %}{% if c.name == 'chairs' %}bg-black text-white{% endif %}{% endfor %}">CHAIRS</a>
+                            <a href="{% url 'products' %}?category=cabinets" class="dropdown-item {% for c in current_categories %}{% if c.name == 'cabinets' %}bg-black text-white{% endif %}{% endfor %}">CABINETS</a>
                         </div>
                     </li>
             
-                    <li class="nav-item dropdown">
-                        <!-- Link triggers dropdown of jewellery options -->
-                        <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item">
+                        <!-- Jewellery header -->
+                        <a href="{% url 'products' %}?category=necklaces,bracelets" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
                             JEWELLERY
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <a href="{% url 'products' %}?category=necklaces" class="dropdown-item">NECKLACES</a>
-                            <a href="{% url 'products' %}?category=bracelets" class="dropdown-item">BRACELETS</a>
-                            <a href="{% url 'products' %}?category=necklaces,bracelets" class="dropdown-item">All JEWELLERY</a>
+                        <!-- Jewellary links -->
+                        <div class="border-0" aria-labelledby="specials-link">
+                            <a href="{% url 'products' %}?category=necklaces" class="dropdown-item {% for c in current_categories %}{% if c.name == 'necklaces' %}bg-black text-white{% endif %}{% endfor %}">NECKLACES</a>
+                            <a href="{% url 'products' %}?category=bracelets" class="dropdown-item {% for c in current_categories %}{% if c.name == 'bracelets' %}bg-black text-white{% endif %}{% endfor %}">BRACELETS</a>
                         </div>
                     </li>
             
-                    <li class="nav-item dropdown">
-                        <!-- Link triggers dropdown of special offer options options -->
-                        <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item ">
+                        <!-- Special offers header -->
+                        <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
                             SPECIAL OFFERS
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
-                            <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
-                            <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
-                            <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
+                        <!-- Specieal offers links -->
+                        <div class="border-0" aria-labelledby="specials-link">
+                            <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item {% for c in current_categories %}{% if c.name == 'new_arrivals' %}bg-black text-white{% endif %}{% endfor %}">NEW ARRIVALS</a>
+                            <a href="{% url 'products' %}?category=deals" class="dropdown-item {% for c in current_categories %}{% if c.name == 'deals' %}bg-black text-white{% endif %}{% endfor %}">DEALS</a>
+                            <a href="{% url 'products' %}?category=clearance" class="dropdown-item {% for c in current_categories %}{% if c.name == 'clearance' %}bg-black text-white{% endif %}{% endfor %}">CLEARANCE</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
+
         <!-- COL:3 Products display -->
-        <div class="col-10">
+        <div class="col-9 col-lg-10">
             <!-- ROW2: Products -->
             <div class="row">
                 <!-- COL: Product card container with 2 rows-->
