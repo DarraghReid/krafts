@@ -13,10 +13,10 @@
 {% endblock %}
 
 {% block content %}
-    <!-- White overlay to cover up cover image -->
-    <div class="overlay"></div>
-    <!-- Bootstrap grid -->
-    <div class="container-fluid">
+    <!-- Products page seen on screens medium and up -->
+    {% include 'products/includes/md-products.html' %}
+    <!-- Bootstrap grid seen on smaller screens-->
+    <div class="container-fluid d-md-none">
         <!-- ROW1: Page title and any selected categories -->
         <div class="row">
             <!-- COl: Products heading -->
