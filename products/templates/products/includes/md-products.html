@@ -170,7 +170,7 @@
                                         </div>
                                         <!-- If user is superuser, provide option to edit/delete product -->
                                         {% if request.user.is_superuser %}
-                                            <div class="row">
+                                            <div class="row delete-edit">
                                                 <!-- Edit product -->
                                                 <a class="col-6 btn rounded-0 w-100 text-primary border-right-black p-0 m-0" href="{% url 'edit_product' product.id %}"><small>Edit</small></a> 
                                                 <!-- Delete product -->

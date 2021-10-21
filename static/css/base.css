@@ -64,8 +64,13 @@ body {
     border: 1px solid black !important;
 }
 
-.border-right-black {
+.delete-edit a {
+    border-top: 1px solid black !important;
+}
+
+.delete-edit a:first-child {
     border-right: 1px solid black !important;
+
 }
 
 .bg-black {
@@ -152,6 +157,10 @@ body {
 }
 
 /* -------------------------------- cards */
+.card {
+    overflow: hidden;
+}
+
 .img-container {
     height: 200px;
     overflow: hidden;

@@ -52,40 +52,18 @@
                     </p>
                     {% endif %}
                     <!-- If the product has a rating, display in following format -->
-                    {% if product.rating_average %}
-                        <small class="text-muted">
-                            <i class="fas fa-star mr-1"></i>
-                            {{ product.rating_average }} / 5
-                        </small>
+                    {% if product.rating %}
+                    <small class="text-muted">
+                        <i class="fas fa-star mr-1"></i>
+                        {{ product.rating }} / 5
+                    </small>
                     {% else %}
-                        <!-- Otherwise, inform customer the product has no rating -->
+                    <!-- Otherwise, inform customer the product has no rating -->
                         <small class="text-muted">
-                            No Rating  
+                            No Rating
                         </small>
                     {% endif %}
-                    <!-- Provide means to rate product only to those who have not yet rated the product -->
-                    {% if request.user in product.rates.all %}
-                        <p>
-                            <small class="text-muted">You have already rated this product.</small>
-                        </p>
-                    {% else %}
-                        <!-- Link to toggle rating form -->
-                        <small> | <a href="#" onclick="rateFormToggle()">Rate this product</a></small>
-                        <!-- Rating form displaying rating field only -->
-                        <form class="d-none mt-3 mb-2" id="rate-form" action="{% url 'rate_product' product.id %}" method="POST">
-                            {% csrf_token %}
-                            {% for field in product_form %}
-                                {% if field.name == 'rating' %}
-                                    {{ field | as_crispy_field }}
-                                {% else %}
-                                    {{ field.as_hidden}}
-                                {% endif %}
-                            {% endfor %}
-                            <a class="btn btn-outline-black rounded-0" onclick="rateFormToggle()">Cancel</a>
-                            <button class="btn btn-black rounded-0" type="submit">Rate</button>
-                        </form>
-                    {% endif %}
-                    <p class="mt-3">{{ product.description }}</p>
+                    <!-- If user is superuser, provide option to edit/delete product -->
                     <!-- If user is superuser, provide option to edit/delete product -->
                     {% if request.user.is_superuser %}
                         <div class="row">
@@ -117,6 +95,7 @@
                             </div>
                         </div>
                     {% endif %}
+                    <p class="mt-3">{{ product.description }}</p>
                     <!-- Form to add product to shopping cart -->
                     <form method="POST" action="{% url 'add_to_cart' product.id %}" class="form">
                         <!-- POST method requires csrf token for Django's cross site request forgery protection -->
@@ -178,22 +157,16 @@
         <!-- ROW with 2 columns for comments display and comment form -->
         <div class="row">
             <!-- Comments section heading-->
-            <h2 class="col-10 offset-lg-1">Comments</h2>
-            <!-- COL1: Comment form available only to authenticated users -->
+            <h2 class="col-10 offset-lg-1">Comments {{ request.user.username }}</h2>
+            <!-- COL1: Comment form -->
             {% if request.user.is_authenticated %}
                 <div class="col-10 offset-lg-1">
                     <!-- Crispy form -->
-                    <form method="POST" action="{% url 'add_comment' product.id %}" class="form mb-2">
+                    <form method="POST" action="{% url 'product_detail' product.id %}" class="form mb-2">
                         {% csrf_token %}
-                        <!-- Render each field -->
+                        <!-- Render each field as a crispy field -->
                         {% for field in form %}
-                            <!-- The comment field should be the only visible field -->
-                            {% if field.name == "comment" %}
-                                {{ field | as_crispy_field }}
-                            {% else %}
-                                <!-- The other fields should be hidden -->
-                                {{ field.as_hidden }}
-                            {% endif %}
+                            {{ field | as_crispy_field }}
                         {% endfor %}
                         <!-- Cancel/post buttons -->
                         <div class="text-right">
@@ -204,88 +177,18 @@
                         </div>
                     </form>
                 </div>
-            <!-- If user is not authenticated, offer option to sign in to add a comment -->
             {% else %}
             <a href="{% url 'account_login' %}" class="col-10 offset-lg-1">Sign in to add a comment</a>
             {% endif %}
             <!-- COL2: Comments -->
             <div class="col-10 offset-lg-1">
-                <!-- If there are no comments in the db -->
                 {% if not product.comments.all %}
-                    <!-- Inform the user nobody has commmented on this product -->
                     <p>Nobody has commented on this product, yet. Be the first!</p>
                 {% else %}
-                    <!-- Otherwise, display comments in the following format -->
-                    {% for comment in product.comments.all reversed %}
-                        <!-- Display all parent comments here -->
-                        {% if comment.is_parent %}
-                            <hr class="mt-4">
-                            <h6 class="mt-2">
-                                <!-- Author's name -->
-                                <strong><i class="fas fa-user"></i> {{ comment.name }}</strong>
-                                <!-- Date posted -->
-                                <small class="text-muted"> (Posted: {{ comment.date }})</small>
-                                <!-- Only display remove button to authors of comment-->
-                                {% if comment.name == request.user %}
-                                    <a class="text-danger float-right" href="{% url 'delete_comment' comment.id %}">
-                                        <small>Remove</small>
-                                    </a>
-                                {% endif %}
-                            </h6>
-                            <!-- Comment -->
-                            <p><small>{{ comment.comment }}</small></p>
-                            <!-- Only admins can reply to comments -->
-                            {% if request.user.is_superuser %}
-                                <!-- Reply link toggles reply comment form below using Javascript -->
-                                <a class="text-black remove-default-btn" onclick="replyFormToggle('{{ comment.id }}')"><small>Reply</small></a>
-                            {% endif %}
-                            <!-- Reply comment form toggles when above reply link is clicked -->
-                            <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
-                                <!-- Crispy form -->
-                                <form method="POST" action="{% url 'reply_comment' product.id comment.id %}" class="form mb-2">
-                                    {% csrf_token %}
-                                    <!-- Render each field -->
-                                    {% for field in form %}
-                                        <!-- The comment field should be the only visible field -->
-                                        {% if field.name == "comment" %}
-                                            {{ field | as_crispy_field }}
-                                        {% else %}
-                                            <!-- The other fields should be hidden -->
-                                            {{ field.as_hidden }}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <!-- Cancel/post buttons -->
-                                    <div class="text-right">
-                                        <!-- Reload page in event of change of mind -->
-                                        <a class="btn btn-outline-black rounded-0" onclick="replyFormToggle('{{ comment.id }}')">Cancel</a>
-                                        <!-- Submit message -->
-                                        <button class="btn btn-black rounded-0" type="submit">Reply</button>
-                                    </div>
-                                </form>
-                            </div>
-                        {% endif %}
-                        <!-- Loop through parent comment's child comments -->
-                        {% for child_comment in comment.children %}
-                            <div class="row">
-                                <div class="col-1"></div>
-                                <div class="col-11 border-top">
-                                    <h6 class="mt-2">
-                                        <!-- Author's name -->
-                                        <strong><i class="fas fa-user"></i> {{ child_comment.name }}</strong>
-                                        <!-- Date posted -->
-                                        <small class="text-muted"> (Posted: {{ child_comment.date }})</small>
-                                        <!-- Only display remove button to authors of comment-->
-                                        {% if child_comment.name == request.user %}
-                                            <a class="text-danger float-right" href="{% url 'delete_comment' child_comment.id %}">
-                                                <small>Remove</small>
-                                            </a>
-                                        {% endif %}
-                                    </h6>
-                                    <!-- Comment -->
-                                    <p><small>{{ child_comment.comment }}</small></p>
-                                </div>
-                            </div>
-                        {% endfor %}
+                    {% for comment in product.comments.all %}
+                        <h6 class="mt-2"><strong><i class="fas fa-user"></i> {{ comment.name }}</strong> <small class="text-muted">(Posted: {{ comment.date }})</small></h6>
+                        <p><small>{{ comment.comment }}</small></p>
+                        <hr>
                     {% endfor %}
                 {% endif %}
             </div>
@@ -296,5 +199,4 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-{% include 'products/includes/form_toggle.html' %}
 {% endblock %}
