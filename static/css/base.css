@@ -146,8 +146,19 @@ body {
     background-size: cover;
 }
 
-/* -------------------------------- Footer */
+/* -------------------------------- cards */
+.img-container {
+    height: 200px;
+    overflow: hidden;
+}
+.img-container a img {
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
 
+/* -------------------------------- Footer */
+/* Ensure footer sticks to bottom */
 footer {
     position: absolute;
     right: 0;
