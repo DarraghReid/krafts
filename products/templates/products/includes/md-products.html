@@ -117,7 +117,7 @@
                         {% for product in products %}
                             <!-- Every product will have a column containing a card -->
                             <div class="col-sm-4 col-md-6 col-lg-4 col-xl-3">
-                                <div class="card h-100 border-0">
+                                <div class="card h-100 border-black">
                                     <!-- Product image -->
                                     {% if product.image %}
                                         <!-- If image present, render if with image field's url attribute -->
@@ -139,11 +139,11 @@
                                         <p class="mb-0">{{ product.name }}</p>
                                     </div>
                                     <!-- Card footer containing product price and rating -->
-                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="card-footer bg-white p-0 border-0 text-left">
                                         <!-- ROW containing 1 column -->
                                         <div class="row">
                                             <!-- COL containing product price and rating -->
-                                            <div class="col">
+                                            <div class="col-10 offset-1">
                                                 <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
                                                 <!-- If the product has a category, display category name as a link -->
                                                 {% if product.category %}
@@ -166,17 +166,60 @@
                                                         No Rating
                                                     </small>
                                                 {% endif %}
-                                                <!-- If user is superuser, provide option to edit/delete product -->
-                                                {% if request.user.is_superuser %}
-                                                    <small class="ml-3">
-                                                        <!-- Edit product -->
-                                                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                        <!-- Delete product -->
-                                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                                                    </small>
-                                                {% endif %}
                                             </div>
                                         </div>
+                                        <!-- If user is superuser, provide option to edit/delete product -->
+                                        {% if request.user.is_superuser %}
+                                            <div class="row">
+                                                <!-- Edit product -->
+                                                <a class="col-6 btn rounded-0 w-100 text-primary border-right-black p-0 m-0" href="{% url 'edit_product' product.id %}"><small>Edit</small></a> 
+                                                <!-- Delete product -->
+                                                <a class="col-6 btn rounded-0 w-100 text-danger p-0 m-0" data-toggle="modal" data-target="#product-{{ product.pk }}"><small>Delete</small></a>
+                                                <!-- Modal -->
+                                                <div class="modal fade rounded-0" id="product-{{ product.pk }}" tabindex="-1" role="dialog" aria-labelledby="product-{{ product.pk }}Label" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header bg-black text-white">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this product?</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h4 class="text-black text-center"><strong>{{ product.name }}</strong></h4>
+                                                                <br>
+                                                                <p class="text-black text-center">"{{ product.description }}"</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <a href="{% url 'delete_product' product.id %}" type="button" class="btn btn-black rounded-0 text-uppercase">Delete</a>
+                                                                <button type="button" class="btn bg-white border-black rounded-0 text-uppercase" data-dismiss="modal">Cancel</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <!-- Form to add product to cart -->
+                                        <form method="POST" action="{% url 'add_to_cart' product.id %}" class="form">
+                                            <!-- POST method requires csrf token for Django's cross site request forgery protection -->
+                                            {% csrf_token %}
+                                            <!-- ROW containing two columns-->
+                                            <div class="form-row">
+                                                <!-- COL1: Hidden input group with default value of 1 -->
+                                                <div class="col-12 d-none">
+                                                    <input type="number" class="form-control qty-input" 
+                                                        name="quantity" value="1" min="1" max="99" 
+                                                        data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                                </div>
+
+                                                <!-- COL2: Submit button -->
+                                                <div class="col-12">
+                                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase w-100" value="Add to cart">
+                                                </div>
+                                                <!-- Send current url to view to redirect user back to original page -->
+                                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
