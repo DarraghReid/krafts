@@ -1,0 +1,52 @@
+<script type="text/javascript">
+    /* Set rating using star links */
+
+    // Get the stars from the document
+    stars = document.querySelectorAll(".stars a");
+    console.log(stars);
+
+    // Loop through stars to get index of each star
+    stars.forEach((star, index) => {
+        // When star is clicked, set its index to value of rating input
+        star.addEventListener('click', () => {
+            // Get rating form
+            form = document.getElementById("rate-form");
+            // Get rating input of form
+            rating_input = form[6];
+            // Get value of rating input
+            value = rating_input.value;
+            // Increment value by 1 to correspond with star ratings
+            value = index + 1;
+            // Update rating input value with star rating
+            rating_input.value = value
+            // Submit form
+            form.submit()
+        });
+    });
+
+    /* Display star rating based on rating value */
+
+    // Get the div in which to display star rating, make iterable
+    const starRating = document.querySelectorAll('.star-rating');
+    console.log(starRating)
+
+    starRating.forEach(rating => {
+        // Get the value from the star-rating's data-value attribute
+        const val = parseInt(rating.dataset.value);
+        // Initiate stars variable to empty
+        let stars = '';
+
+        for (let i = 1; i < 6; i++) {
+            if (i <= val) {
+                // A whole star is added to stars if i is less than ratings value
+                stars += `<i class="fas fa-star" style="color:rgb(255, 196, 0)"></i>`;
+            } else {
+                // Otherwise, an empty star is added to stars
+                stars += `<i class="far fa-star" style="color:rgb(255, 196, 0)"></i>`;
+            }
+        }
+        // Add the stars to the
+        rating.innerHTML = stars;
+    });
+
+</script>

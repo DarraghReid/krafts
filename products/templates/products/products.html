@@ -37,7 +37,7 @@
         </div>
         <!-- ROW2: Products -->
         <div class="row">
-            <!-- COL: Product card container with 2 rows-->
+            <!-- COL: Product bcontainer with 2 rows-->
             <div class="product-container col-10 offset-1">
                 <!-- ROW for sort options and search result count -->
                 <div class="row mt-1 mb-2">
@@ -116,8 +116,7 @@
                                             <!-- If the product has a rating, display in following format -->
                                             {% if product.rating_average %}
                                                 <small class="text-muted">
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    {{ product.rating_average }} / 5
+                                                    <div class="star-rating" data-value="{{ product.rating_average }}"></div>
                                                 </small>
                                             {% else %}
                                             <!-- Otherwise, inform customer the product has no rating -->
@@ -221,6 +220,7 @@
 {% block postloadjs %}
     <!-- Append code to code that is already in block -->
     {{ block.super }}
+    {% include 'products/includes/rating.html' %}
 
     <!-- Back to top button functionality -->
     <script type="text/javascript">

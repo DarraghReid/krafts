@@ -20,7 +20,7 @@ class ProductForm(forms.ModelForm):
         label="Image", required=False, widget=CustomClearableFileInput)
 
     # Set min and max values for rating field
-    rating = forms.IntegerField(required=False, min_value=0, max_value=5)
+    rating = forms.IntegerField(initial=0, required=False, min_value=0, max_value=5)
 
     # Override __intit__ method to customize category spelling
     def __init__(self, *args, **kwargs):

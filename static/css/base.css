@@ -21,6 +21,10 @@ body {
     width: 1.5rem;
 }
 
+#qty-input {
+    max-width: 20px;
+}
+
 .logo-font {
     text-transform: uppercase;
 }
@@ -169,6 +173,39 @@ body {
     min-height: 100%;
     max-height: 100%;
     object-fit: cover;
+}
+
+/* -------------------------------- Product Detail */
+
+/* Rating form */
+.stars {
+    display: flex;
+    justify-content: center;
+}
+.stars a {
+    opacity: 50%;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.stars:hover a {
+    opacity: 100%;
+}
+
+.stars a:hover {
+    opacity: 100%;
+}
+
+.stars a:hover ~ a {
+    opacity: 50%;
+}
+
+.stars a:active {
+    opacity: 100%;
+}
+
+.reply {
+    cursor: pointer;
 }
 
 /* -------------------------------- Footer */
