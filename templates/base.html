@@ -48,22 +48,20 @@
         <title>Krafts {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid bg-white fixed-top">
+        <header class="container-fluid bg-white fixed-top pb-1">
             <!-- Header seen on medium screens up-->
             {% include 'includes/md-top-header.html' %}
             <!-- Header seen on smaller devices-->
             {% include 'includes/mobile-top-header.html' %}
             <!-- Progress bar displayed under nav informing customers of free delivery requirements -->
-            <div id="delivery-banner mt-0 pt-0" class="row bg-white">
+            <div id="row delivery-banner mt-0 pt-0" class="row bg-white">
                 <!-- Progress bar-->
-                <div class="col-6 col-md 7">
-                    <div class="w-75 float-right" id="progress-bar" data-total="{{ grand_total|floatformat:2 }}">
-                        <div id="percentage"></div>
+                <div class="col-10 offset-1">
+                    <div class="w-100 h-100" id="progress-bar" data-total="{{ grand_total|floatformat:2 }}">
+                        <div id="percentage"><span class="float-right pr-2">{% if free_delivery_delta <= 25 %} €{{ free_delivery_delta }} more for free delivery! {% endif %}</span></div>
+                        <!-- free_delivery_threshold/free_delivery_delta found in settings.py -->
+                        <span id="free-delivery">{% if free_delivery_delta > 25 %} €{{ free_delivery_delta }} more for free delivery! {% endif %}</span>
                     </div>
-                </div>
-                <!-- free_delivery_threshold/free_delivery_delta found in settings.py -->
-                <div class="col-6 col-md-5 text-black float-left" id="free-delivery">
-                    <span>€{{ free_delivery_delta }} more for free delivery!</span>
                 </div>
             </div>
         </header>
