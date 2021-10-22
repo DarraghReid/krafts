@@ -79,7 +79,7 @@
             <!-- ROW2: Products -->
             <div class="row">
                 <!-- COL: Product card container with 2 rows-->
-                <div class="product-container col-10 offset-1">
+                <div class="product-container col-10 offset-1 bg-white">
                     <!-- ROW for sort options and search result count -->
                     <div class="row mt-1 mb-2">
                         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
@@ -117,7 +117,7 @@
                         {% for product in products %}
                             <!-- Every product will have a column containing a card -->
                             <div class="col-sm-4 col-md-6 col-lg-4 col-xl-3">
-                                <div class="card h-100 border-black">
+                                <div class="card h-100">
                                     <!-- Product image -->
                                     {% if product.image %}
                                         <!-- If image present, render if with image field's url attribute -->
@@ -144,7 +144,7 @@
                                         <div class="row">
                                             <!-- COL containing product price and rating -->
                                             <div class="col-10 offset-1">
-                                                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                                <p class="lead my-2 text-left font-weight-bold">${{ product.price }}</p>
                                                 <!-- If the product has a category, display category name as a link -->
                                                 {% if product.category %}
                                                 <p class="small mt-1 mb-0">
@@ -157,7 +157,7 @@
                                                 <!-- If the product has a rating, display in following format -->
                                                 {% if product.rating_average %}
                                                     <small class="text-muted">
-                                                        <div class="star-rating" data-value="{{ product.rating_average }}"></div>
+                                                        <div class="star-rating m-2" data-value="{{ product.rating_average }}"></div>
                                                     </small>
                                                 {% else %}
                                                 <!-- Otherwise, inform customer the product has no rating -->
@@ -169,11 +169,11 @@
                                         </div>
                                         <!-- If user is superuser, provide option to edit/delete product -->
                                         {% if request.user.is_superuser %}
-                                            <div class="row delete-edit">
+                                            <div class="row">
                                                 <!-- Edit product -->
-                                                <a class="col-6 btn rounded-0 w-100 text-primary border-right-black p-0 m-0" href="{% url 'edit_product' product.id %}"><small>Edit</small></a> 
+                                                <a class="col-6 btn rounded-0 w-100 text-primary p-0 m-0" href="{% url 'edit_product' product.id %}"><small><i class="fas fa-edit"></i></small></a> 
                                                 <!-- Delete product -->
-                                                <a class="col-6 btn rounded-0 w-100 text-danger p-0 m-0" data-toggle="modal" data-target="#product-{{ product.pk }}"><small>Delete</small></a>
+                                                <a class="col-6 btn rounded-0 w-100 text-danger p-0 m-0" data-toggle="modal" data-target="#product-{{ product.pk }}"><small><i class="far fa-trash-alt"></i></small></a>
                                                 <!-- Modal -->
                                                 <div class="modal fade rounded-0" id="product-{{ product.pk }}" tabindex="-1" role="dialog" aria-labelledby="product-{{ product.pk }}Label" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">

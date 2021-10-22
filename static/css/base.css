@@ -1,6 +1,7 @@
 html {
     /* For h100 & vertical centering to work */
     height: 120vh;
+    overflow-x: hidden;
 }
 
 body {
@@ -66,10 +67,6 @@ body {
 
 .border-black {
     border: 1px solid black !important;
-}
-
-.delete-edit a {
-    border-top: 1px solid black !important;
 }
 
 .delete-edit a:first-child {
@@ -163,6 +160,13 @@ body {
 /* -------------------------------- cards */
 .card {
     overflow: hidden;
+    border: none;
+    box-shadow: 2px 2px 13px;
+    transition: .3s;
+}
+
+.card:hover {
+    margin-top: -5px;
 }
 
 .img-container {
@@ -208,6 +212,23 @@ body {
     cursor: pointer;
 }
 
+.edit-delete-product {
+    border: 1px solid black;
+    border-top: none;
+}
+
+.edit-product {
+    border-right: none;
+}
+
+.shopping-submit {
+    font-size: 11px;
+}
+
+.atc-input {
+    padding: 10px !important;
+}
+
 /* -------------------------------- Footer */
 /* Ensure footer sticks to bottom */
 footer {
@@ -244,7 +265,6 @@ a.category-badge > span.badge:hover {
     height: 200vh;
     position: fixed;
     overflow: hidden;
-    z-index: -1;
 }
 
 .btt-link,
