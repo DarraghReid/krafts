@@ -41,7 +41,11 @@
                         <!-- If the field is not custom image widget -->
                         {% if field.name != 'image' %}
                             <!-- Render crispy field-->
-                            {{ field | as_crispy_field }}
+                            {% if field.name == 'rating' or field.name == 'rates' or field.name == 'rating_average' %}
+                                {{ field.as_hidden }}
+                            {% else %}
+                                {{ field | as_crispy_field }}
+                            {% endif %}
                         <!-- Otherwise -->
                         {% else %}
                             <!-- Render the field -->
