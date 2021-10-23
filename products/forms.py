@@ -77,3 +77,6 @@ class CommentForm(forms.ModelForm):
         # Set form placeholder attributes to respective
         # value in placeholder dict above
         self.fields['comment'].widget.attrs['placeholder'] = placeholders['comment']
+        # Add 'border-black rounded-0' classes to match site styles
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'

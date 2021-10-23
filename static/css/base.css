@@ -239,6 +239,11 @@ body {
     padding: 10px !important;
 }
 
+/* -------------------------------- Contact */
+.maps {
+    height: 365px;
+}
+
 /* -------------------------------- Footer */
 /* Ensure footer sticks to bottom */
 footer {

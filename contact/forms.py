@@ -36,3 +36,6 @@ class ContactForm(forms.ModelForm):
         self.fields[field].widget.attrs['class'] = 'stripe-style-input'
         # Remove label from each field
         self.fields[field].label = False
+        # Add 'border-black rounded-0' classes to match site styles
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'
