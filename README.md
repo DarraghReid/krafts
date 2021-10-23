@@ -98,16 +98,10 @@ More on what each page does and how it functions will be discussed in the [Featu
 
 
 * Typography
-    * The dominant font I chose for Krafts was Noto Sans. I feel it gave the typography of the site a distinctive, but not distracting, look.
-
-        The font was sourced from [Google Fonts](https://fonts.google.com/)
+    * Raleway is used throughout the site. It's a simple font that doesn't distract. It was sourced from [Google Fonts](https://fonts.google.com/)
 
 * Imagery
-    * the only images displayed on the site are uploaded by users themselves and are displayed alongside the uploaded joke in a card format.
-
-    * Images are uploaded to the site via url, using the image url input in the "Add Joke" form. Having users add images to their jokes adds an extra fun element. It makes the user experience more enjoyable and makes the site more interesting. Memes are also very popular in other social media websites.
-
-        The images are chosen at the discretion of the user. The user is, however, instructed to ensure that the image is somewhat related to the joke. This can be moderated by the admin, who can remove jokes at their discretion.
+    * Images were sourced from site that provide images for free. The images displayed on the Home page and for the individual products were carefully chosen to reflect the handmade ethos of the site. The images are stored in the database in both url and file format.
 
 ## Wireframes
 * Wireframe of Home Page
@@ -170,15 +164,82 @@ The number of fields in the jokes collection as grown since its inception at the
 Although no longer in user, this is how the user-favourites collection functioned. Each time a user added a joke to their favourites, information about the joke was passed to the add_fav() function, and inserted into the collection along with the name of the user who favourited it.
 
 ## Features
-Different features are available to users based on their age and the type of account they have, ie; a general user, or an admin. I will discuss these features in relation to these criteria.
+Different features are available to users based on their on their status as registered, unregistered. or admin. I will discuss these features in relation to these criteria.
 
-#### Admin
+### Admin
 ![Admin Featuers](static/images/admin-features.png)
 ![Admin Featuers](static/images/admin-features1.png)
 
-* All features are available to the admin. The Home, Profile, Users, Add Jokes, and Sign Out pages are visible on the admin's navbar.
+* All features are available to the admin. The admin can perform all CRUD functionality related to all products, as well as their own comments.
 
-* On the Home page, the admin can see all jokes that are stored in the jokes collection in mongo db. The jokes are displayed on Bootstrap cards that display detail of the joke including the image, title, description, who posted the joke, and the number of likes it has.
+    * The Header.
+
+        The header is fixed to the top of all site pages. It features:
+
+        * The Krafts logo which links to the Home Page.
+
+        * The search bar from which all users can enter key words to find specific products. The search bar appears as a regular search bar on larger screen, whereas on medium and smaller screens, it is toggled using a fontawsome search icon.
+
+        * The contact link which leads to the Contact page.
+
+        * The My Account dropdown which contains links to Product Management for the Admin, Profile Page, as well as Sign Up/Log In/Sign Out links (depending on the status of the user at the time).
+
+        * The cart link which leads users to their Cart. Information regarding user actions as well as cart information, and success/error messages are displayed in a toast that appears to drop down from the cart link. The toast is colour coded based on the information that is being displayed. For example, green for success messages, red for error messages, aqua #17a2b8 for informative messages.
+
+            The cart icon will also appear aqua #17a2b8 if there is an item present in the cart.
+
+        * The main navigation menu which divides all products into categories and subcategories. All products can be accessed through the main navigation links. On smaller screens, these navigation links are accessed by a toggle dropdown button.
+
+        * The free delivery bar which informs users how close they are to qualifying for free delivery. The progress bar uses JavaScript to determine what percentage of the free delivery threshold the cart contents amounts to. The JavaScript code then sets the percentage width of the inner div of the progress bar to that percentage.
+
+            The span that displays the free_delivery_delta is padded and located differently inside the progress bar depending on the width of the inner div using a combination of JavaScript and Jinja.
+    
+    * The Home Page
+
+        The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's perpose. It includes:
+
+        * The hero carousel which is comprosed of three images despicting various crafts to give an indication of the sites purpose. This Bootstrap carousel was surprisingly troublesome and time consuming and was difficult to make responsive. Eventually, the images were removed from the slider and were replaced with background images using CSS.
+
+        * The category links which are image-based links that lead to the different product categories. The images were carefully chosed to refect their respective category. Again, the images were implemented as background images using css and have a parallex effect.
+
+    * The Footer
+
+        The footer acts as a simple navigation tool and displays contact and social media links. It includes:
+
+        * The Krafts logo which leads to the Home page.
+
+        * The company address which doubles as a link to the Contact page.
+
+        * Social media links which lead to Facebook, Instagram and Twitter.
+
+    * The Products Page
+
+        The products page is where all products are displayed based on search results, filters and sorting. It features:
+
+        * The side nav with which users can filter products by different categories and subcategories. The side nav is absent on smaller screens. The main nav is the only navigation on smaller screens, with current categories indicated at the top of the page by links.
+
+        * The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD actions. Clicking the card's image will lead to the respective product's Product Detail page.
+
+        * The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
+
+    * The Product Detail Page
+
+        The Product Detail page allows user to view additional information about individual products and perform some actions. It features:
+
+        * The same product information as displayed on the card with the addition of the "details" field of the Product model.
+
+        * A form to add the product to the cart that allows the user to select the quantity of the product either by typing or using increment and decrement buttons.
+
+        * A Keep Shopping button that leads users back to the products page to continue shopping.
+
+        * A rating form that allows users to give the product a rating out of 5. The form is hidden and is represented by 5 stars. Upon clicking a star, rating input of the Product form is updated and submitted using JavaScript. After the user has rated the product, the form is no longer accessible and is replaced with a message informing the user that they have already rated that product.
+
+        * A comments form which allows users to make comments about the this particular product. The comments form is prefilled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
+
+        * The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a perent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
+
+
+
 
     They can like, unlike, add to favourites, remove from favourites, edit, and delete any joke they choose, without restriction. Liking the joke will add 1 to the "likes" field of the joke and add the user's name to the list of other users who liked the array, which is the joke's "liked_by" array field in the database. Unliking the joke will reverse this action
 
