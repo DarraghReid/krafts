@@ -189,6 +189,36 @@ def reply_comment(request, product_id, comment_id):
 
 
 @login_required
+def edit_comment(request, comment_id, product_id):
+    """ Edit a comment in the store """
+
+    # Get product
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Get comment
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    # Instantiate, pre-fill form, specifying comment to be edited
+    form = CommentForm(request.POST, instance=comment)
+
+    # If the form is valid
+    if form.is_valid():
+        # Save it
+        form.save()
+
+        # Display success message to user
+        messages.success(request, 'Successfully edited comment!')
+
+        # Redirect user to the inividual comment's details page
+        return redirect(reverse('product_detail', args=[product.id]))
+
+    # If the form is not valid
+    else:
+        # Display error message to user
+        messages.error(request, 'Failed to update comment. Please ensure the form is valid.')
+
+
+@login_required
 def add_product(request):
     """ Add a product to the store """
 

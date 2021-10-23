@@ -40,6 +40,7 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
 
+
 class CommentForm(forms.ModelForm):
     """ Create Comment form using Django instead of directly in the HTML.
     CommentForm to be imported and rendered in views.py """

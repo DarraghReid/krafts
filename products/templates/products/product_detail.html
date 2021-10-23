@@ -233,9 +233,15 @@
                                 <small class="text-muted"> (Posted: {{ comment.date }})</small>
                                 <!-- Only display remove button to authors of comment-->
                                 {% if comment.name == request.user %}
-                                    <a class="text-danger float-right" href="{% url 'delete_comment' comment.id %}">
-                                        <small>Remove</small>
-                                    </a>
+                                    <div class="float-right">
+                                        <!-- Edit link toggles Edit comment form below using Javascript -->
+                                        <a class="text-primary remove-default-btn edit" onclick="editFormToggle('{{ comment.id }}')">
+                                            <small>Edit <span class="text-black"> | </span></small>
+                                        </a>
+                                        <a class="text-danger" href="{% url 'delete_comment' comment.id %}">
+                                            <small>Remove</small>
+                                        </a>
+                                    </div>
                                 {% endif %}
                             </h6>
                             <!-- Comment -->
@@ -245,6 +251,30 @@
                                 <!-- Reply link toggles reply comment form below using Javascript -->
                                 <a class="text-primary remove-default-btn reply" onclick="replyFormToggle('{{ comment.id }}')"><small>Reply</small></a>
                             {% endif %}
+                            <!-- Edit comment form toggles when above edit link is clicked -->
+                            <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
+                                <!-- Crispy form -->
+                                <form method="POST" action="{% url 'edit_comment' comment.id product.id %}" class="form mb-2">
+                                    {% csrf_token %}
+                                    <!-- Render each field -->
+                                    {% for field in form %}
+                                        <!-- The comment field should be the only visible field -->
+                                        {% if field.name == "comment" %}
+                                            {{ field | as_crispy_field }}
+                                        {% else %}
+                                            <!-- The other fields should be hidden -->
+                                            {{ field.as_hidden }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    <!-- Cancel/post buttons -->
+                                    <div class="text-right">
+                                        <!-- Reload page in event of change of mind -->
+                                        <a class="btn btn-outline-black rounded-0" onclick="editFormToggle('{{ comment.id }}')">Cancel</a>
+                                        <!-- Submit message -->
+                                        <button class="btn btn-black rounded-0" type="submit">Edit</button>
+                                    </div>
+                                </form>
+                            </div>
                             <!-- Reply comment form toggles when above reply link is clicked -->
                             <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
                                 <!-- Crispy form -->
