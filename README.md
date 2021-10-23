@@ -1,5 +1,5 @@
 ## Contents
-* [Introduction](#JustJokes)
+* [Introduction](#Krafts)
 * [UX](#UX)
     * [User Stories](#User-Stories)
         * [First Time User Goals](#First-Time-User-Goals)
@@ -32,16 +32,18 @@
     * [Media](#Media)
     * [Acknowledgements](#Acknowledgements)
 
-# JustJokes
+# Krafts
 
-![JustJokes](static/images/amiresponsive.png)
+![Krafts](static/images/amiresponsive.png)
 
-View the live project [here](http://just-jokes.herokuapp.com/get_jokes)
+View the live project [here](https://krafts-dreid.herokuapp.com/)
 
-This website was created for Code Institute's Milestone 3 Project as part of the Diploma in Full Stack Web Development. The purpose of this project is to demonstrate the student's knowledge and skills acquired thus far in the course. This includes skills in HTML, CSS, JavaScript, Python, Flask as well as other technologies as outlined in the [Technologies Used](#Technologies-Used) section. The focus of this project is to demonstrate the student's ability to carry out CRUD functionality
-This project marks the developer's first time writing Python and working with databases.
+This website was created for Code Institute's Milestone 4 Project as part of the Diploma in Full Stack Web Development. The purpose of this project is to demonstrate the student's knowledge and skills acquired throughout the course. This includes skills in languages such as HTML, CSS, JavaScript and Python as well as other technologies as outlined in the [Technologies Used](#Technologies-Used) section. The focus of this project is to demonstrate the student's ability incorporate these front and back end skills into a Full Stack project.
+This project marks the developer's first time using the Django framework.
 
-The purpose of this site is to provide users with a platform on which they create, read, update, and delete jokes. These features, as well as other features. such as liking jokes and adding jokes to favourites will be discussed in the [Features](#Features) section of this README.md. I decided that using jokes was fun way to explore CRUD functionality. With myself in mind as the site owner/admin, I began creating user stories.
+The purpose of this site is to provide users with a means to purchase hand crafted products. The original idea for the site was for artists to create their own store on the site, with users being able to browse products and also browse individual stores.
+
+Due to time contraints, the site is currently a single store ecommerce site offering handmade products of different categories which facilitates the shopping experience from start to finish. Shelved features as well as potential other features can be found in the [Potential Future Features](#Potential-Future-Features) section.
 
 ## UX
 ### User Stories
@@ -50,6 +52,7 @@ The purpose of this site is to provide users with a platform on which they creat
 |:-----|:-----|:-----|
 |Potential customer|Immediately understand the purpose of the site|Decide if the site is for me|
 ||Easily browse products|Decide if I'm interested in them base on look, price, description and rating|
+||Easily browse the site|Instinctively find what site services I am looking for|
 ||Easily create an account|Purchase, rate, and comment on products|
 ||Add items to my shopping cart prior to registration|Purchase products without committing to registering an account|
 ||Easily access product detail|Learn more about the product before purchase|
@@ -65,41 +68,13 @@ The purpose of this site is to provide users with a platform on which they creat
 ||View my cart prior to checkout|review my order|
 ||Receive confirmation of purchases|Keep account of my purchases|
 ||Easily know free delivery threshold|Know how much I need to spend to qualify for free delivery|
-|Site owner|View, add, edit and delete products|Rotate stock and keep stock up to date|
+|Site owner|View, add, edit and delete all products|Rotate stock and keep stock up to date|
+||Have an easy user experience|Manage my site without need for advanced computer skills|
 ||Facilitate the needs of customers|Retain custom and engage with customers when needed|
-||Have a simple payment structure|Easily make price changes for all products|
 
-#### First Time User Goals 
-1. As a first time user, I want to immediately understand the purpose of the site.
-2. As a first time user, I want to be able to easily navigate through the site to find what I'm looking for.
-3. As a first time user, I want to instinctively know what to do in order to get started creating and interacting with jokes
-4. As a first time user, I want to be able to read jokes.
-5. As a first time user, I want to be able upload jokes.
-6. As a first time user, I want to be able to edit my jokes.
-7. As a first time user, I want to be able to delete my jokes.
-8. As a first time user, I want to be able to "like" jokes.
-9. As a first time user, I want to be able to add jokes to a list of my favourites.
-10. As a first time user, I want to be able to search for specific jokes.
-
-#### Returning User Goals
-1. As a returning user, I want to be immediately familiar with the layout of the site.
-2. As a returning user, I want to be able to upload new jokes.
-3. As a returning user, I want to be able to access the jokes I have uploaded.
-5. As a returning user, I want to be able to access the jokes in my list of favourites.
-6. As a returning user, I want to be able to remove jokes from my list of favourites.
-7. As a returning user, I want to be able to "unlike" jokes.
-
-#### Site Owner Goals
-1. As the site owner/admin, I want to be able to have additional features available to me.
-2. As the site owner/admin, I want to be able to see all jokes that have been uploaded by users.
-3. As the site owner/admin, I want to be able to delete any joke on the platform that I see fit.
-4. As the site owner/admin, I want to be able to edit any joke on the platform that I see fit.
-5. As the site owner/admin, I want to be able to access the information of all users of the site.
-6. As the site owner/admin, I want to be able to remove any user I see fit from the site.
-7. As the site owner/admin, I want to be able to search for specific users.
 
 ## Structure
-JustJokes includes 10 web pages, with some pages being more versatile and able to show a variety of information depending on the user's age, account type, and preferences. All web pages inherit html, head, and body elements from a base.html template using jinja. They also inherit the navbar and footer from base.html.
+Krafts includes 10 web pages, with some pages being more versatile and able to show a variety of information depending on the user's age, account type, and preferences. All web pages inherit html, head, and body elements from a base.html template using jinja. They also inherit the navbar and footer from base.html.
 
 A fixed navbar and a footer ensure that all pages available to the specific user are never more than a click away. This also assists users on smaller devices to avoid excessive scrolling when navigating the site. Pagination has also been implemented to reduce scrolling for users. More on what each page does and how it functions will be discussed in the [Features](#Features) of the README.md.
 
@@ -109,7 +84,7 @@ A fixed navbar and a footer ensure that all pages available to the specific user
 
         The colours used in the site were black, white, and variables of rgb(245, 180, 60), rgb(245, 188, 31), and rgb(245, 180, 60). 
         
-        I found this orang/yellow colour suited the fun concept of JustJokes The background of each web page of this site in a linear gradient of these three RGB colours. I felt the linear gradient gave the site a bit more depth, making it slightly easier on the eye.
+        I found this orang/yellow colour suited the fun concept of Krafts The background of each web page of this site in a linear gradient of these three RGB colours. I felt the linear gradient gave the site a bit more depth, making it slightly easier on the eye.
 
         Black is the main contrasting colour throughout the site. It tames the vibrancy of the orange/yellow and makes a good colour for headings and navigations elements.
 
@@ -120,7 +95,7 @@ A fixed navbar and a footer ensure that all pages available to the specific user
     ![colour palette](static/images/coolers.png)
 
 * Typography
-    * The dominant font I chose for JustJokes was Noto Sans. I feel it gave the typography of the site a distinctive, but not distracting, look.
+    * The dominant font I chose for Krafts was Noto Sans. I feel it gave the typography of the site a distinctive, but not distracting, look.
 
         The font was sourced from [Google Fonts](https://fonts.google.com/)
 
