@@ -218,7 +218,7 @@ Different features are available to users based on their on their status as regi
 
         * The side nav with which users can filter products by different categories and subcategories. The side nav is absent on smaller screens. The main nav is the only navigation on smaller screens, with current categories indicated at the top of the page by links.
 
-        * The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD actions. Clicking the card's image will lead to the respective product's Product Detail page.
+        * The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD opperations. Clicking the card's image will lead to the respective product's Product Detail page.
 
         * The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
 
@@ -232,24 +232,63 @@ Different features are available to users based on their on their status as regi
 
         * A Keep Shopping button that leads users back to the products page to continue shopping.
 
+        * Additional Edit and Delete buttons for admins to perform these CRUD opperations.
+
         * A rating form that allows users to give the product a rating out of 5. The form is hidden and is represented by 5 stars. Upon clicking a star, rating input of the Product form is updated and submitted using JavaScript. After the user has rated the product, the form is no longer accessible and is replaced with a message informing the user that they have already rated that product.
 
         * A comments form which allows users to make comments about the this particular product. The comments form is prefilled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
 
         * The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a perent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
 
+            Users can also edit their own comments by clicking the Edit button which toggles the edit comment form. The reply form is also toggled when the reply button is clicked.
+    
+    * The Cart
 
+        The cart displays all of the products the user has added to the cart and provides links to secure checkout. It features:
 
+        * A table which organises all of the products in the cart into rows with colums separating the products by relevent fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall prive calculation of the quantity of a particular product.
 
-    They can like, unlike, add to favourites, remove from favourites, edit, and delete any joke they choose, without restriction. Liking the joke will add 1 to the "likes" field of the joke and add the user's name to the list of other users who liked the array, which is the joke's "liked_by" array field in the database. Unliking the joke will reverse this action
+        * Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in settings.py). Otherwise, delivery will be set at 10% of the sum total of their items.
 
-    Adding a joke to the user's favourites will result in the user's name being added to a list of other users who added the joke to their favourites, which is the joke's "liked_by" array field in the database. The joke will then be displayed in the "Your Favourites" section of their profile. Removing the joke from their favourites will reverse this action.
+        * A Keep Shopping button that leads users back to the products page to continue shopping.
 
-    A user can tell if they have liked or removed a joke from their favourites by the colour change in their respective icon. Yellow means the joked has been liked or favourited, while black means it has not be liked or favourited.
+        * A Secure Checkout button which leads users to the Checkout page where they can checkout securely using Stripe.
 
-    The admin can also click the "Expand" button on the joke card, which will trigger a modal that will display the full joke. The joke on the card is capped at 50 characters.
+    * The Product Management Page
 
-    The admin can also search all jokes from the Home page using the search bar at the top of the page.
+        The Product Management page is accessible only to admins. It features:
+
+        * The Add Product form which admins can use to add products to the database. The form displays all fields of the Product Model apart from any fields related to the products rating. Products can only be rated by users on the Product Detail page.
+
+    * The Profile Page
+
+        The Profile page is where information about the user is stored. It features:
+
+        * A form in which the user's default delivery information is stored. This form is prefilled with the delivery information provided by the user during checkout and is stored in the database via the UserProfile model. It can be updated by the user on the Profile page.
+
+        * A table which displays the user's order history, including the Order Number, Date, Items purchased, and the Oder Total. The Order number is a link which leads to a separate Order History page. 
+
+    * The Checkout Page
+
+        The Checkout page is where users can checkout securely using Stripe. It features:
+
+        * An OrderForm where users fill out delivery details which added to the database using the Order model.
+
+            Included in this from is a payment field which is handled by Stripe.
+
+        * A summary of the order in a table format which displays the item image, item name and quantity, subtotal and calculated Grand Total.
+
+    * The Checkout Success Page
+
+        Users are sent a confirmation email and are led to the Checkout Success page upon successful completion of an order. It features:
+
+        * A thank you message as well a message informing the user that a confirmation email has been sent to the email they input in the OrderForm. 
+
+        * A detailed summary of the order including the product details, delivery details as well as billing information.
+
+    * Order History Page
+
+        The Order History page is accessed via the Profile page by clicked on an Order Number. It displays a detailed summary of the respective order including the product details, delivery details as well as billing information.
 
 ![Search Bar/Add Button](static/images/jj-add.png)
 * Beside the search bar, there is an "add" icon which will lead them to the Add Joke page, where they can upload a joke to the site. This page can also be accessed from the sticky navbar at any time.

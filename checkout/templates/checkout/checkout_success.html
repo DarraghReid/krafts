@@ -225,7 +225,7 @@
             </div>
         </div>
 
-        <!-- ROW 3: Button for latest deals/back to Profile -->
+        <!-- ROW 3: Button back to products page/back to Profile -->
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
                 <!-- If template accessed through profile -->
@@ -237,13 +237,10 @@
                         </span>
                         <span class="text-uppercase">Back to Profile</span>
                     </a>
-                <!-- Otherwise, provide link to latest deals -->
+                <!-- Otherwise, provide link back to products page -->
                 {% else %}
-                    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
-                        <span class="icon mr-2">
-                            <i class="fas fa-gifts"></i>
-                        </span>
-                        <span class="text-uppercase">Now check out the latest deals!</span>
+                    <a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
+                        <span class="text-uppercase">Back to Shop!</span>
                     </a>
                 {% endif %}
 			</div>
