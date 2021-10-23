@@ -74,25 +74,28 @@ Due to time contraints, the site is currently a single store ecommerce site offe
 
 
 ## Structure
-Krafts includes 10 web pages, with some pages being more versatile and able to show a variety of information depending on the user's age, account type, and preferences. All web pages inherit html, head, and body elements from a base.html template using jinja. They also inherit the navbar and footer from base.html.
+Krafts is a standard ecommerce store where users can browse a variety of products using an array or sorting, searching, and filtering methods. Users are met with a home screen from which they can get their particular user experience started easily. All areas of the site that are available to shoppers can be accessed via the fixed responsive navbar at the top of the page
 
-A fixed navbar and a footer ensure that all pages available to the specific user are never more than a click away. This also assists users on smaller devices to avoid excessive scrolling when navigating the site. Pagination has also been implemented to reduce scrolling for users. More on what each page does and how it functions will be discussed in the [Features](#Features) of the README.md.
+Potential shoppers can access products filtered how they please in a single products page. They can further explore individual products in a product detail page, on which they can also rate and comment on the products.
+
+Shoppers are also provided with a cart in which they can store items for purchase as well as adjust quantities of certain products. They are also provided with a Profile page wherecan also review and update their shipping as well as view their order history.
+
+Shoppers can also easily access the sites contact information, as well as send emails directly from the Contact page
+
+The site owner has access to additional features including a Product Management page where they can add products to the site. As well as this, the site owner can edit and any product on the site via an additional edit and delete buttons displayed wherever a product is displayed.
+
+More on what each page does and how it functions will be discussed in the [Features](#Features) of this README.md file.
 
 ## Design
 * Colour Scheme
-    * The colour scheme of the site was kept relatively simple. Because most pages were going to be data-focused, I didn't want the colour scheme to distract the user or cause further clutter.
+    * The colour scheme of this site was kept very simple so as to keep emphasis on the primary purpose of the store; to browse and purchase products.
 
-        The colours used in the site were black, white, and variables of rgb(245, 180, 60), rgb(245, 188, 31), and rgb(245, 180, 60). 
+        The primary colours used are black and white for a simple contrast that does not distract from the prominance of the product images. An aqua colour #17a2b8 was used to indicate information about the purchase to users. It is used on the cart icon in the header to indicate the presence of item in the cart, as well as in the progress bar to indicate to users how close they are to the free delivery threshold.
+
+        For admins, simple blue and red text is used to indicate their additional features, such as editing and deleting products and comments. Editing and deleting comments is also available to registered users. 
         
-        I found this orang/yellow colour suited the fun concept of Krafts The background of each web page of this site in a linear gradient of these three RGB colours. I felt the linear gradient gave the site a bit more depth, making it slightly easier on the eye.
+        A dull grey is used for headings and placeholders, while default Boostrap colours are used for the custom toasts feature in the message container
 
-        Black is the main contrasting colour throughout the site. It tames the vibrancy of the orange/yellow and makes a good colour for headings and navigations elements.
-
-        A slightly dulled white was used for the card elements, input elements and in buttons.
-
-        I used [coolers.co](https://coolors.co/) as a starting off point for choosing the colours
-
-    ![colour palette](static/images/coolers.png)
 
 * Typography
     * The dominant font I chose for Krafts was Noto Sans. I feel it gave the typography of the site a distinctive, but not distracting, look.
