@@ -249,56 +249,56 @@
                             <!-- Only admins can reply to comments -->
                             {% if request.user.is_superuser %}
                                 <!-- Reply link toggles reply comment form below using Javascript -->
-                                <a class="text-primary remove-default-btn reply" onclick="replyFormToggle('{{ comment.id }}')"><small>Reply</small></a>
+                                <a class="text-primary remove-default-btn reply" onclick="replyFormToggle('{{ comment.id }}1')"><small>Reply</small></a>
                             {% endif %}
-                            <!-- Edit comment form toggles when above edit link is clicked -->
-                            <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
-                                <!-- Crispy form -->
-                                <form method="POST" action="{% url 'edit_comment' comment.id product.id %}" class="form mb-2">
-                                    {% csrf_token %}
-                                    <!-- Render each field -->
-                                    {% for field in form %}
-                                        <!-- The comment field should be the only visible field -->
-                                        {% if field.name == "comment" %}
-                                            {{ field | as_crispy_field }}
-                                        {% else %}
-                                            <!-- The other fields should be hidden -->
-                                            {{ field.as_hidden }}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <!-- Cancel/post buttons -->
-                                    <div class="text-right">
-                                        <!-- Reload page in event of change of mind -->
-                                        <a class="btn btn-outline-black rounded-0" onclick="editFormToggle('{{ comment.id }}')">Cancel</a>
-                                        <!-- Submit message -->
-                                        <button class="btn btn-black rounded-0" type="submit">Edit</button>
+                                    <!-- Edit comment form toggles when above edit link is clicked -->
+                                    <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
+                                        <!-- Crispy form -->
+                                        <form method="POST" action="{% url 'edit_comment' comment.id product.id %}" class="form mb-2">
+                                            {% csrf_token %}
+                                            <!-- Render each field -->
+                                            {% for field in form %}
+                                                <!-- The comment field should be the only visible field -->
+                                                {% if field.name == "comment" %}
+                                                    {{ field | as_crispy_field }}
+                                                {% else %}
+                                                    <!-- The other fields should be hidden -->
+                                                    {{ field.as_hidden }}
+                                                {% endif %}
+                                            {% endfor %}
+                                            <!-- Cancel/post buttons -->
+                                            <div class="text-right">
+                                                <!-- Reload page in event of change of mind -->
+                                                <a class="btn btn-outline-black rounded-0" onclick="editFormToggle('{{ comment.id }}')">Cancel</a>
+                                                <!-- Submit message -->
+                                                <button class="btn btn-black rounded-0" type="submit">Edit</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
-                            </div>
-                            <!-- Reply comment form toggles when above reply link is clicked -->
-                            <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}">
-                                <!-- Crispy form -->
-                                <form method="POST" action="{% url 'reply_comment' product.id comment.id %}" class="form mb-2">
-                                    {% csrf_token %}
-                                    <!-- Render each field -->
-                                    {% for field in form %}
-                                        <!-- The comment field should be the only visible field -->
-                                        {% if field.name == "comment" %}
-                                            {{ field | as_crispy_field }}
-                                        {% else %}
-                                            <!-- The other fields should be hidden -->
-                                            {{ field.as_hidden }}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <!-- Cancel/post buttons -->
-                                    <div class="text-right">
-                                        <!-- Reload page in event of change of mind -->
-                                        <a class="btn btn-outline-black rounded-0" onclick="replyFormToggle('{{ comment.id }}')">Cancel</a>
-                                        <!-- Submit message -->
-                                        <button class="btn btn-black rounded-0" type="submit">Reply</button>
+                                    <!-- Reply comment form toggles when above reply link is clicked -->
+                                    <div class="col-10 offset-lg-1 d-none" id="{{ comment.id }}1">
+                                        <!-- Crispy form -->
+                                        <form method="POST" action="{% url 'reply_comment' product.id comment.id %}" class="form mb-2">
+                                            {% csrf_token %}
+                                            <!-- Render each field -->
+                                            {% for field in form %}
+                                                <!-- The comment field should be the only visible field -->
+                                                {% if field.name == "comment" %}
+                                                    {{ field | as_crispy_field }}
+                                                {% else %}
+                                                    <!-- The other fields should be hidden -->
+                                                    {{ field.as_hidden }}
+                                                {% endif %}
+                                            {% endfor %}
+                                            <!-- Cancel/post buttons -->
+                                            <div class="text-right">
+                                                <!-- Reload page in event of change of mind -->
+                                                <a class="btn btn-outline-black rounded-0" onclick="replyFormToggle('{{ comment.id }}')">Cancel</a>
+                                                <!-- Submit message -->
+                                                <button class="btn btn-black rounded-0" type="submit">Reply</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
-                            </div>
                         {% endif %}
                         <!-- Loop through parent comment's child comments -->
                         {% for child_comment in comment.children %}
