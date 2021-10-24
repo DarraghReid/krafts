@@ -32,10 +32,10 @@ class ContactForm(forms.ModelForm):
             # Set form placeholder attributes to respective
             # values in placeholder dict above
             self.fields[field].widget.attrs['placeholder'] = placeholder
-        # Add stripe-style-input CSS class to each field
-        self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-        # Remove label from each field
-        self.fields[field].label = False
-        # Add 'border-black rounded-0' classes to match site styles
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            # Add stripe-style-input CSS class to each field
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            # Remove label from each field
+            self.fields[field].label = False
+            # Add 'border-black rounded-0' classes to match site styles
+            for field_name, field in self.fields.items():
+                field.widget.attrs['class'] = 'border-black rounded-0'
