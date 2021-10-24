@@ -180,26 +180,13 @@
 
         <li class="inline list-inline-item nav-item dropdown">
             <!-- Link triggers dropdown of jewellery options -->
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="jewellery-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 JEWELLERY
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+            <div class="dropdown-menu border-0" aria-labelledby="jewellery-link">
                 <a href="{% url 'products' %}?category=necklaces" class="dropdown-item">NECKLACES</a>
                 <a href="{% url 'products' %}?category=bracelets" class="dropdown-item">BRACELETS</a>
                 <a href="{% url 'products' %}?category=necklaces,bracelets" class="dropdown-item">All JEWELLERY</a>
-            </div>
-        </li>
-
-        <li class="inline list-inline-item nav-item dropdown">
-            <!-- Link triggers dropdown of special offer options options -->
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                SPECIAL OFFERS
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
-                <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
-                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
-                <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>

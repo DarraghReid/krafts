@@ -251,7 +251,8 @@ footer {
     right: 0;
     margin-bottom: 0;
     left: 0;
-    margin-top: 250px;
+    padding: 0;
+    margin-top: 275px;
 }
 
 #social-links {
@@ -267,7 +268,7 @@ a.category-badge > span.badge:hover {
     height: 42px;
     width: 42px;
     position: fixed;
-    bottom: 110px;
+    bottom: 125px;
     right: 10px;
 }
 
@@ -478,6 +479,12 @@ input[name='q']::placeholder {
     }
 }
 
+@media (max-width: 940px) {
+    .product-container {
+        right: -50px;
+    }
+}
+
 /* Make carousel text responsive on all screen sizes*/
 @media (max-width: 704px) {
     .carousel-caption h2 {
@@ -602,6 +609,30 @@ input[name='q']::placeholder {
 /* Prevent footer from covering side nav */
 @media (max-height: 1300px) {
     #list ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-height: 728px) {
+    #list ul li a {
+        font-size: 15px;
+    }
+}
+
+@media (max-height: 698px) {
+    #list ul li a {
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 668px) {
+    #list ul li a {
+        font-size: 13px;
+    }
+}
+
+@media (max-height: 638px) {
+    #list ul li a {
         font-size: 12px;
     }
 }
@@ -609,5 +640,11 @@ input[name='q']::placeholder {
 @media (max-height: 626px) {
     #list ul li a {
         font-size: 11px;
+    }
+}
+
+@media (max-height: 600px) {
+    #list ul li a {
+        font-size: 10px;
     }
 }

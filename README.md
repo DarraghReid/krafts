@@ -164,186 +164,147 @@ The number of fields in the jokes collection as grown since its inception at the
 Although no longer in user, this is how the user-favourites collection functioned. Each time a user added a joke to their favourites, information about the joke was passed to the add_fav() function, and inserted into the collection along with the name of the user who favourited it.
 
 ## Features
-Different features are available to users based on their on their status as registered, unregistered. or admin. I will discuss these features in relation to these criteria.
 
-### Admin
-![Admin Featuers](static/images/admin-features.png)
-![Admin Featuers](static/images/admin-features1.png)
+* The Header.
 
-* All features are available to the admin. The admin can perform all CRUD functionality related to all products, as well as their own comments.
+    The header is fixed to the top of all site pages. It features:
 
-    * The Header.
+    * The Krafts logo which links to the Home Page.
 
-        The header is fixed to the top of all site pages. It features:
+    * The search bar from which all users can enter key words to find specific products. The search bar appears as a regular search bar on larger screen, whereas on medium and smaller screens, it is toggled using a fontawsome search icon.
 
-        * The Krafts logo which links to the Home Page.
+    * The contact link which leads to the Contact page.
 
-        * The search bar from which all users can enter key words to find specific products. The search bar appears as a regular search bar on larger screen, whereas on medium and smaller screens, it is toggled using a fontawsome search icon.
+    * The My Account dropdown which contains links to Product Management for the Admin, Profile Page, as well as Sign Up/Log In/Sign Out links (depending on the status of the user at the time).
 
-        * The contact link which leads to the Contact page.
+    * The cart link which leads users to their Cart. Information regarding user actions as well as cart information, and success/error messages are displayed in a toast that appears to drop down from the cart link. The toast is colour coded based on the information that is being displayed. For example, green for success messages, red for error messages, aqua #17a2b8 for informative messages.
 
-        * The My Account dropdown which contains links to Product Management for the Admin, Profile Page, as well as Sign Up/Log In/Sign Out links (depending on the status of the user at the time).
+        The cart icon will also appear aqua #17a2b8 if there is an item present in the cart.
 
-        * The cart link which leads users to their Cart. Information regarding user actions as well as cart information, and success/error messages are displayed in a toast that appears to drop down from the cart link. The toast is colour coded based on the information that is being displayed. For example, green for success messages, red for error messages, aqua #17a2b8 for informative messages.
+    * The main navigation menu which divides all products into categories and subcategories. All products can be accessed through the main navigation links. On smaller screens, these navigation links are accessed by a toggle dropdown button.
 
-            The cart icon will also appear aqua #17a2b8 if there is an item present in the cart.
+    * The free delivery bar which informs users how close they are to qualifying for free delivery. The progress bar uses JavaScript to determine what percentage of the free delivery threshold the cart contents amounts to. The JavaScript code then sets the percentage width of the inner div of the progress bar to that percentage.
 
-        * The main navigation menu which divides all products into categories and subcategories. All products can be accessed through the main navigation links. On smaller screens, these navigation links are accessed by a toggle dropdown button.
+        The span that displays the free_delivery_delta is padded and located differently inside the progress bar depending on the width of the inner div using a combination of JavaScript and Jinja.
 
-        * The free delivery bar which informs users how close they are to qualifying for free delivery. The progress bar uses JavaScript to determine what percentage of the free delivery threshold the cart contents amounts to. The JavaScript code then sets the percentage width of the inner div of the progress bar to that percentage.
+* The Home Page
 
-            The span that displays the free_delivery_delta is padded and located differently inside the progress bar depending on the width of the inner div using a combination of JavaScript and Jinja.
-    
-    * The Home Page
+    The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's perpose. It includes:
 
-        The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's perpose. It includes:
+    * The hero carousel which is comprosed of three images despicting various crafts to give an indication of the sites purpose. This Bootstrap carousel was surprisingly troublesome and time consuming and was difficult to make responsive. Eventually, the images were removed from the slider and were replaced with background images using CSS.
 
-        * The hero carousel which is comprosed of three images despicting various crafts to give an indication of the sites purpose. This Bootstrap carousel was surprisingly troublesome and time consuming and was difficult to make responsive. Eventually, the images were removed from the slider and were replaced with background images using CSS.
+    * The category links which are image-based links that lead to the different product categories. The images were carefully chosed to refect their respective category. Again, the images were implemented as background images using css and have a parallex effect.
 
-        * The category links which are image-based links that lead to the different product categories. The images were carefully chosed to refect their respective category. Again, the images were implemented as background images using css and have a parallex effect.
+* The Footer
 
-    * The Footer
+    The footer acts as a simple navigation tool and displays contact and social media links. It includes:
 
-        The footer acts as a simple navigation tool and displays contact and social media links. It includes:
+    * The Krafts logo which leads to the Home page.
 
-        * The Krafts logo which leads to the Home page.
+    * The company address which doubles as a link to the Contact page.
 
-        * The company address which doubles as a link to the Contact page.
+    * Social media links which lead to Facebook, Instagram and Twitter.
 
-        * Social media links which lead to Facebook, Instagram and Twitter.
+* The Products Page
 
-    * The Products Page
+    The products page is where all products are displayed based on search results, filters and sorting. It features:
 
-        The products page is where all products are displayed based on search results, filters and sorting. It features:
+    * The side nav with which users can filter products by different categories and subcategories. The side nav is absent on smaller screens. The main nav is the only navigation on smaller screens, with current categories indicated at the top of the page by links.
 
-        * The side nav with which users can filter products by different categories and subcategories. The side nav is absent on smaller screens. The main nav is the only navigation on smaller screens, with current categories indicated at the top of the page by links.
+    * The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD opperations. Clicking the card's image will lead to the respective product's Product Detail page.
 
-        * The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD opperations. Clicking the card's image will lead to the respective product's Product Detail page.
+    * The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
 
-        * The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
+* The Product Detail Page
 
-    * The Product Detail Page
+    The Product Detail page allows user to view additional information about individual products and perform some actions. It features:
 
-        The Product Detail page allows user to view additional information about individual products and perform some actions. It features:
+    * The same product information as displayed on the card with the addition of the "details" field of the Product model.
 
-        * The same product information as displayed on the card with the addition of the "details" field of the Product model.
+    * A form to add the product to the cart that allows the user to select the quantity of the product either by typing or using increment and decrement buttons.
 
-        * A form to add the product to the cart that allows the user to select the quantity of the product either by typing or using increment and decrement buttons.
+    * A Keep Shopping button that leads users back to the products page to continue shopping.
 
-        * A Keep Shopping button that leads users back to the products page to continue shopping.
+    * Additional Edit and Delete buttons for admins to perform these CRUD opperations.
 
-        * Additional Edit and Delete buttons for admins to perform these CRUD opperations.
+    * A rating form that allows users to give the product a rating out of 5. The form is hidden and is represented by 5 stars. Upon clicking a star, rating input of the Product form is updated and submitted using JavaScript. After the user has rated the product, the form is no longer accessible and is replaced with a message informing the user that they have already rated that product.
 
-        * A rating form that allows users to give the product a rating out of 5. The form is hidden and is represented by 5 stars. Upon clicking a star, rating input of the Product form is updated and submitted using JavaScript. After the user has rated the product, the form is no longer accessible and is replaced with a message informing the user that they have already rated that product.
+    * A comments form which allows users to make comments about the this particular product. The comments form is prefilled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
 
-        * A comments form which allows users to make comments about the this particular product. The comments form is prefilled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
+    * The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a perent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
 
-        * The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a perent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
+        Users can also edit their own comments by clicking the Edit button which toggles the edit comment form. The reply form is also toggled when the reply button is clicked.
 
-            Users can also edit their own comments by clicking the Edit button which toggles the edit comment form. The reply form is also toggled when the reply button is clicked.
-    
-    * The Cart
+* The Cart
 
-        The cart displays all of the products the user has added to the cart and provides links to secure checkout. It features:
+    The cart displays all of the products the user has added to the cart and provides links to secure checkout. It features:
 
-        * A table which organises all of the products in the cart into rows with colums separating the products by relevent fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall prive calculation of the quantity of a particular product.
+    * A table which organises all of the products in the cart into rows with colums separating the products by relevent fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall prive calculation of the quantity of a particular product.
 
-        * Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in settings.py). Otherwise, delivery will be set at 10% of the sum total of their items.
+    * Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in settings.py). Otherwise, delivery will be set at 10% of the sum total of their items.
 
-        * A Keep Shopping button that leads users back to the products page to continue shopping.
+    * A Keep Shopping button that leads users back to the products page to continue shopping.
 
-        * A Secure Checkout button which leads users to the Checkout page where they can checkout securely using Stripe.
+    * A Secure Checkout button which leads users to the Checkout page where they can checkout securely using Stripe.
 
-    * The Product Management Page
+* The Product Management Page
 
-        The Product Management page is accessible only to admins. It features:
+    The Product Management page is accessible only to admins. It features:
 
-        * The Add Product form which admins can use to add products to the database. The form displays all fields of the Product Model apart from any fields related to the products rating. Products can only be rated by users on the Product Detail page.
+    * The Add Product form which admins can use to add products to the database. The form displays all fields of the Product Model apart from any fields related to the products rating. Products can only be rated by users on the Product Detail page.
 
-    * The Profile Page
+* The Profile Page
 
-        The Profile page is where information about the user is stored. It features:
+    The Profile page is where information about the user is stored. It features:
 
-        * A form in which the user's default delivery information is stored. This form is prefilled with the delivery information provided by the user during checkout and is stored in the database via the UserProfile model. It can be updated by the user on the Profile page.
+    * A form in which the user's default delivery information is stored. This form is prefilled with the delivery information provided by the user during checkout and is stored in the database via the UserProfile model. It can be updated by the user on the Profile page.
 
-        * A table which displays the user's order history, including the Order Number, Date, Items purchased, and the Oder Total. The Order number is a link which leads to a separate Order History page. 
+    * A table which displays the user's order history, including the Order Number, Date, Items purchased, and the Oder Total. The Order number is a link which leads to a separate Order History page. 
 
-    * The Checkout Page
+* The Checkout Page
 
-        The Checkout page is where users can checkout securely using Stripe. It features:
+    The Checkout page is where users can checkout securely using Stripe. It features:
 
-        * An OrderForm where users fill out delivery details which added to the database using the Order model.
+    * An OrderForm where users fill out delivery details which added to the database using the Order model.
 
-            Included in this from is a payment field which is handled by Stripe.
+        Included in this from is a payment field which is handled by Stripe.
 
-        * A summary of the order in a table format which displays the item image, item name and quantity, subtotal and calculated Grand Total.
+    * A summary of the order in a table format which displays the item image, item name and quantity, subtotal and calculated Grand Total.
 
-    * The Checkout Success Page
+* The Checkout Success Page
 
-        Users are sent a confirmation email and are led to the Checkout Success page upon successful completion of an order. It features:
+    Users are sent a confirmation email and are led to the Checkout Success page upon successful completion of an order. It features:
 
-        * A thank you message as well a message informing the user that a confirmation email has been sent to the email they input in the OrderForm. 
+    * A thank you message as well a message informing the user that a confirmation email has been sent to the email they input in the OrderForm. 
 
-        * A detailed summary of the order including the product details, delivery details as well as billing information.
+    * A detailed summary of the order including the product details, delivery details as well as billing information.
 
-    * Order History Page
+* Order History Page
 
         The Order History page is accessed via the Profile page by clicked on an Order Number. It displays a detailed summary of the respective order including the product details, delivery details as well as billing information.
 
-![Search Bar/Add Button](static/images/jj-add.png)
-* Beside the search bar, there is an "add" icon which will lead them to the Add Joke page, where they can upload a joke to the site. This page can also be accessed from the sticky navbar at any time.
-
-    As seen in the [Wireframes](#Wireframes) section, the Add Joke page is comprised of a form that takes information about the joke. This information includes the jokes, title, description, an images, related to the joke, and whether or not it is suitable for under 18s. 
-    
-    This information, along with additional information is then inserted into the jokes collection in MongoDB. The additional fields include the user who uploaded the joke, and the "likes", "liked_by", and "favouriter" fields discussed above.
-
-![Your Jokes](static/images/jj-your-jokes.png)
-![Your Jokes](static/images/jj-favourites.png)
-* In their profile, the admin can access the jokes that they have uploaded themselves, as well as the jokes that they have added to their favourites via a dropdown menu. The dropdown menu also allows users to sign out.
-
-![Users](static/images/jj-profile-test.png)
-* The Admin user also has access to a Users page, where they can view all users who have signed up to the site. They can see all available information about the user, including their ID, username, and date of birth. Here, the admin can also chose to delete a user at their own discretion.
-
-#### General User
-
-* The general user has a more restricted version of the site available to them. They can access all the pages available to the admin user, except for the Users page
-
-![Delete Joke](static/images/jj-delete-joke.png)
-* All other pages are identical to the admin's version, except for the actions available to them. They can only edit or deleted a joke that they have uploaded themselves. 
-
-    If the joke as been uploaded by another user, the only options available to them is the ability to like a joke or add a joke to their favourites.
-
-    If they have uploaded the joke themselves, the only available options are to edit or delete the joke
-
-#### Under 18 User
-* Users under 18 years of age have an almost identical account as a general user. The only difference between the accounts is that users that are under 18 years of age may only see jokes that were marked "Suitable for children" in the Add Joke form.
-
-#### Signed Out User
-![Your Jokes](static/images/jj-signed-out.png)
-* A user who has not signed up or has not signed in, can access the most restricted version of the site. They have the Home, Sign up and Sign in pages available to them.
-
-* Their access to the Home page is similar to the Under 18 user's. Like users under 18 years of age, they may only see jokes suitable for children. However, unlike other users, if they try to take any action, such as trying to see the full joke, liking, or adding the joke to their favourites, the will be presented with a modal providing them with the option of signing in. They can agree or decline.
-
-* If the agree, they are led to the Sign Up page, where they enter their username, password and date of birth. Upon completing this action, they are uploaded to the users collection in the database. They are then considered a general user and redirected to their Profile page. Thanks to [Werkzeug](https://palletsprojects.com/p/werkzeug/), their password are securely stored and.
-
-[Werkzeug's](https://palletsprojects.com/p/werkzeug/) check_password_hash() allows all users to securely sign in again.
-
 ## Potential Future Features
-#### Categories
-* There are many types of categories that jokes could be grouped into. This features would allow users to search for their favourite jokes based on a category. Possible categories might include: Dad Jokes, One-liners, Blonde jokes, and even memes!
+* Set Up Shop
 
-#### Sort By
-* I had originally planned to include this features, but chose to omit it, as discussed above. Users could use this feature to filter jokes based on their popularity, length, upload date, etc. It would allow users more control over what they see.
+    As mentioned previously, the original idea of the site was to allow artists to set up their own virtual store to sell their products. Future versions of this site would allow sellers to have a distint user status where tabs to access and upload their own products are available to them.
 
-#### Shuffle
-* An interesting future feature would allow users to shuffle through jokes. The users would press the shuffle button and one random joke would appear on their screen at a time.
+* Rating System
 
-#### Originals
-* Another option would be to be allow users specify whether the joke they are uploading is original or not. They could possibly gain a following of users who enjoy their jokes.
+    Upon completion of the rating system, I realised I had designed it in such a way that users cannot modify their ratings. This is becasue, upon submition of a rating, the rating gets added to the rating field in the Product model, which is then divided by the number of times the product has been rated to get the average rating.
 
-#### Possibly Offensive Content
-* Some jokes may be tagged with a warning that it might include content that some may find offensive.
+    Future versions of the site would have a separate Review model, with the Products model as foreign key, where users can create, edit and delete a review/rating of a product. Future versions of the site would also ensure that only users who have purchased the product can review it.
 
+* Messages Tab
+
+    Due to time contraints, plans to implement a messages tab in the user's profile were shelved. In future versions of the site, users will be able to access and track all of their previous correspondance with the site owner.
+
+* Save For Later
+
+    Also shelved was a "Save For Later" function. In future versions of the site, users will be able to save products that they are not yet ready to purchase to a "Saved" list that they can revisit.
+
+* Pagination
+
+    Pagination is another feature that didn't make the cut for this project. In future versions of the site, users will have access to pagination links at the bottom of the Products page which will reduce scrolling on larger search results.
 
 ## Technologies Used 
 
@@ -353,6 +314,7 @@ Different features are available to users based on their on their status as regi
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
     * [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine))
+    * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
 
 ### Frameworks, Libraries & Programs Used
 * [Balsamiq](https://balsamiq.com/)

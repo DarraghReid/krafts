@@ -57,19 +57,6 @@
                             <a href="{% url 'products' %}?category=bracelets" class="dropdown-item {% for c in current_categories %}{% if c.name == 'bracelets' %}bg-black text-white{% endif %}{% endfor %}">BRACELETS</a>
                         </div>
                     </li>
-            
-                    <li class="nav-item ">
-                        <!-- Special offers header -->
-                        <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
-                            SPECIAL OFFERS
-                        </a>
-                        <!-- Specieal offers links -->
-                        <div class="border-0" aria-labelledby="specials-link">
-                            <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item {% for c in current_categories %}{% if c.name == 'new_arrivals' %}bg-black text-white{% endif %}{% endfor %}">NEW ARRIVALS</a>
-                            <a href="{% url 'products' %}?category=deals" class="dropdown-item {% for c in current_categories %}{% if c.name == 'deals' %}bg-black text-white{% endif %}{% endfor %}">DEALS</a>
-                            <a href="{% url 'products' %}?category=clearance" class="dropdown-item {% for c in current_categories %}{% if c.name == 'clearance' %}bg-black text-white{% endif %}{% endfor %}">CLEARANCE</a>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
