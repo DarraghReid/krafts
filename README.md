@@ -128,7 +128,7 @@ This site was created using a relational database to store its data. SQLite was 
         The Product model is the most integral model in this project. It defines how each product featured on the site is stored in the database.
          * The Product model is related to the Category model by a Foreign key. This ensures that each product is places in a related category.
 
-         * The 'sku' field is a CharField which is automatically generated each time a product is added to the database
+         * The 'sku' field is a CharField which is automatically generated each time a product is added to the database.
 
          * The 'name', 'description', and 'price' fields (CharField, TextField, DecimalField) are all input by the admin while adding a product.
 
@@ -140,35 +140,75 @@ This site was created using a relational database to store its data. SQLite was 
 
          * That 'rating_average' is a DecimalField which is calculated by dividing the rating field by the rates field.
 
-            This caculation is done in the rate_product() view in the products app's views.py. In future versions of the site, I would opt to carry out this calculation in models.py.
+            This caculation is done in the rate_product() view in the products app's views.py. In future versions of the site, I would opt to carry out this calculation using model methods.
         
     * Category Model
         The Category model has the important job of sorting products into their respective categories. It as two fields.
-        * The 'name' field is a CharField representing the programmatic name of the category
+        * The 'name' field is a CharField representing the programmatic name of the category.
 
-        * The 'friendly_name' is a CharField used for front end representation of the categories
+        * The 'friendly_name' is a CharField used for front end representation of the categories.
 
     * Comments Model
-        The Comments model is used to stores comments made by users under particular products
+        The Comments model is used to stores comments made by users under particular products.
         * The 'product' is a ForeignKey which relates the comment to its repective product.
 
         * The 'name' field is a ForeignKey which relates the comment to the user who wrote the comment.
 
         * The 'comment' field is a TextField which records the contents of the comment.
 
-        * The 'date' fields is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the comment was made is automatically added.
+        * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the comment was made is automatically added.
 
         * Finally, the 'parent' fields is a ForeignKey which relates the model to itself. By recording whether or not a comment is in reply to another comment, comments can be nested inside other comments in the comments section of the Product Detail page.
 
             Two @property functions are defined below the Comments model in the products app's models.py which determine whether a particular comment is a child or parent comment.
     
     * Message Model
-        The Message model stores messages sent by users to the site owner
+        The Message model stores messages sent by users to the site owner.
         * The 'full_name' field is a CharField which records the full name of the sender. Any site user, including those who are not registered, can contact the site owner.
 
         * The 'email' field is an EmailField and records the email address of the sender.
 
         * The 'message' field is a TextField and stores the contents of the sender's message.
+
+    * Order Model
+        The Order model records each order made by a user.
+        * The 'order_number' CharField is automatically generated using the _generate_order_number() model method when an order is made.
+
+        * The 'user_profile' ForeignKey relates the order to the user making the order. It is not a required field, which allows for non-registered users to make orders.
+
+        * CharFields 'full_name', 'phone_number', 'postcode', 'town_or_city', 'street_address1', 'street_address1', and 'county' are input by the user when making an order.
+
+        * The 'email' (EmailField) and 'country' (CountryField) fields are also input by the user when making an order.
+
+        * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the order was made is automatically added.
+
+        * The 'delivery_cost', 'order_total', and 'grand_total' CharFields are calculated using the update_total() model method when order is saved.
+
+        * The 'original_cart' TextField records the original cart that created order to allow duplicate orders to be added.
+
+        * The 'stripe_pid' CharField is a unique payment id that allows for duplicate orders to be added.
+    
+    * OrderLineItem Model
+        The OrderLineItem model creates an order line item for each cart item and is then then attached to the order.
+        * The 'order' ForeignKey relates the order line item to its respective order.
+
+        * The 'product' ForeignKey records the specific product the line item is being created for via the Product model.
+
+        * The 'quantity' IntegerField records the quantity of a particular order product.
+
+        * The 'lineitem_total' DecimalField is automatically calculated when the line item is saved using the save() model method.
+
+    * UserProfile Model
+        The UseerProfile model records the default delivery information and order history of each user.
+        * The 'user' OneToOneField relates the user profile to the user.
+
+        * The 'default_phone_number', 'default_street_address1', 'default_street_address2', 'defaul_town_or_city', 'county', and 'postcode' are optional CharFields.
+
+        * The 'default_country' CountryField is also optional.
+
+        The create_or_update_user_profile() method in the profiles app's models.py either creates or updates a user's profile each time a user object is saved or updated.
+
+        
 
 ### Database structure
 ![Database Design](static/images/db-structure.png)
