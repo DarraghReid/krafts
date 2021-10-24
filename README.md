@@ -28,7 +28,6 @@
     * [Run Locally](#Run-Locally)
 * [Credits](#Credits)
     * [Code](#Code)
-    * [Content](#Content)
     * [Media](#Media)
     * [Acknowledgements](#Acknowledgements)
 
@@ -101,7 +100,7 @@ More on what each page does and how it functions will be discussed in the [Featu
     * Raleway is used throughout the site. It's a simple font that doesn't distract. It was sourced from [Google Fonts](https://fonts.google.com/)
 
 * Imagery
-    * Images were sourced from site that provide images for free. The images displayed on the Home page and for the individual products were carefully chosen to reflect the handmade ethos of the site. The images are stored in the database in both url and file format.
+    * Images were sourced from sites that provide images for free. The images displayed on the Home page and for the individual products were carefully chosen to reflect the handmade ethos of the site. The images are stored in the database in both url and file format.
 
 ## Wireframes
 * Wireframe of Home Page
@@ -315,6 +314,27 @@ Although no longer in user, this is how the user-favourites collection functione
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
     * [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine))
     * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+    * The following Python modules were used in the creation of this site:
+        * asgiref==3.4.1
+        * boto3==1.18.56
+        * botocore==1.21.56
+        * dj-database-url==0.5.0
+        * Django==3.2.7
+        * django-allauth==0.41.0
+        * django-countries==7.2.1
+        * django-crispy-forms==1.12.0
+        * django-storages==1.11.1
+        * gunicorn==20.1.0
+        * jmespath==0.10.0
+        * oauthlib==3.1.1
+        * Pillow==8.3.2
+        * psycopg2-binary==2.9.1
+        * python3-openid==3.2.0
+        * pytz==2021.1
+        * requests-oauthlib==1.3.0
+        * s3transfer==0.5.0
+        * sqlparse==0.4.1
+        * stripe==2.60.0
 
 ### Frameworks, Libraries & Programs Used
 * [Balsamiq](https://balsamiq.com/)
@@ -322,17 +342,19 @@ Although no longer in user, this is how the user-favourites collection functione
 
 * [Bootstrap 5.0.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
     * Bootstrap was used in conjunction with [jQuery](https://jquery.com/) extensively throughout the site.
-    
-        It was used on the Navbar to make it responsive and to collapse the menu items into a single button at smaller screen sizes.
 
-        Initialized with [jQuery](https://jquery.com/), the tooltips on all icons throughout the site are Bootstrap features 
+        The site is very much a Bootstrap based site, with most major elements edited from Bootstrap templates.
 
-        More prominently it was used to create the card elements that the jokes were displayed on. Bootstrap is also responsible for all modals seen throughout the site. Bootstrap classes were often used instead of CSS on other elements to assist with centering and positioning.
+        The Bootstrap grid system of rows and columns were most heavily relied upon to divide up the sites pages in order to ensure uniform layout.
 
-        Of course, extensive editing had to be carried out on all Bootstrap elements throughout the site to get it functioning a looking the way it currently is. 
+        More prominently it was used to create the card elements that the products were displayed on. Bootstrap is also responsible for all modals seen throughout the site. Bootstrap classes were often used instead of CSS on other elements to assist with centering and positioning.
+
+        Initialized with [jQuery](https://jquery.com/), the tooltips on all icons throughout the site are Bootstrap features.
+
+        Of course, extensive editing had to be carried out on all Bootstrap elements throughout the site to get it functioning a looking the way it currently does. 
 
 * [Fontawesome](https://fontawesome.com/)
-    * All icons seen throughout the site were sourced from Fontawesome, including the dropdown menu button in the navbar.
+    * All icons seen throughout the site were sourced from Fontawesome.
     
 * [Git](https://git-scm.com/)
     * The Gitpod terminal was used to commit to Git and push to Github.
@@ -344,32 +366,37 @@ Although no longer in user, this is how the user-favourites collection functione
     * Google Dev Tools was extensively used throughout the project, especially for testing code, and addressing bugs.
 
 * [Google Fonts](https://fonts.google.com/)
-    * Noto Sans, the font used throughout the site, was sourced from Google Fonts.
+    * Raleway, the font used throughout the site, was sourced from Google Fonts.
 
 * [jQuery](https://jquery.com/)
     * jQuery was used in conjunction with Bootstrap on various elements throughout the site.
 
-* [MongoDB](https://www.mongodb.com/)
-    * MongoDB was used to creates collections within a database to store data about the sites registered users and jokes uploaded by them.
+* [SQLite](https://www.sqlite.org/index.html)
+    * SQLite was used to store the site's data during the creation and development of this project.
 
-* [Flask Paginate](https://pythonhosted.org/Flask-paginate/)
-    * Flask paginate was used for pagination in the Home and Profile pages.
+* [Heroku Postgres](https://www.heroku.com/postgres)
+    * Heroku Postgres is an SQL database and was used to store the site's data in separate models post deployment.
 
-* [Coolers.co](https://coolors.co/)
-    * Coolers was used to help choose the colour palette seen throughout the site.
+* [Stripe](https://stripe.com/ie)
+    * Stripe payments were used to build the site's card payment.
+
+* [AWS-Amazon Web Services](https://aws.amazon.com/)
+    * AWS was used to store all the site's media and static files in production mode.
+
+* [Heroku](https://id.heroku.com/login)
+    * Heroku was used to deploy this site.
+
+* [Github](https://github.com/)
+    * Github was used for version control as well as storing files and documents.
+
+* [Gitpod](https://gitpod.io/)
+    * The Gitpod IDE was used to build this project.
 
 * [Am I Responsive](http://ami.responsivedesign.is/)
     * Am I Responsive was used to produce the image displaying the website on different screen sizes at the beginning of this document.
 
 ## Testing
 Information on testing can be found in a separate [TESTING.md](/TESTING.md) file.
-
-## Security
-All sensitive information is stored in an env.py file. This file is referenced in a .gitignore file, and is therefore never pushed to GitHub. 
-
-Any user that registers an account will have their password undergo password hashing as an extra security measure. Various measures are in place to ensure that only the admin and users themselves can access user information. 
-
-These measures, which include function decorators and if statements, also ensure that users that are under 18 years of age cannot access adult content. As well as this, users that aren't signed in are restricted from accessing certain features
 
 ## Deployment
 
@@ -394,6 +421,11 @@ This project was deployed to Deployment to Heroku using the following steps:
 1. Set up a requirements.txt file and a Procfile to tell Heroku which applications and dependencies are required.
     * Type "pip3 freeze --local > requirements.txt" to create a requirements.txt file.
     * Type "echo web: python app.py > Procfile" to creat a Procfile.
+    * Push these files to Github using the CLI command outlined above
+    * Install`psycopg2` and `dj_datatbase_url` to allow Postgres to be used on the Deployed site using the following CLI commands:
+
+        pip3 install dj_database_url
+        pip3 install psycopg2
 
 2. Create Heroku App
     * Log into [Heroku](https://id.heroku.com/login).
@@ -405,18 +437,123 @@ This project was deployed to Deployment to Heroku using the following steps:
     * When a prompt appears to find a github repository to connect to, enter the repo name created on Github ("just_jokes" in this case)
     * Click search, and click the connect button if the correct repository has been found.
 
-4. Set environment variables
+5. Add Heroku Postgres Database
+    * Navigate to your new Heroku app
+    * Click the Resources tab.
+    * Under Add-ons enter "Heroku Postgres".
+    * Selct Heroku Postgres. 
+    * Under "Plan Name," select the Hobby Dev-Free option. 
+    * Click "Submit Order Form".
+    * In the CLI
+        * Create a Superuser by entering this command and following the prompts
+            "python manage.py createsuperuser"
+        * use the following commands to migrate your database to Postgres
+            "heroku login -i"
+            "heroku run python manage.py migrate"
+    * Temporarily disable Heroku's static file collection with the following command
+        "heroku config:set DISABLE_COLLECTSTATIC=1 --app [app name]
+    * Add the hostname of your Heroku app to settings.py:
+        ALLOWED_HOSTS = ['[app name]herokuapp.com', ';ocalhost']
+
+5. Set environment variables
     * Click on the "Settings" tab, then "Reveal Config Vars", and add the following information:
-        * key: IP, value: 0.0.0.0
-        * key: MONGO_DBNAME, value: database name(just_jokes, in this case)
-        * key: MONGO_URI, value: (This value is found in Mongo DB by accessing "clusters" then "connect" then "connect to your application". You will also have to add in your own database name and password.)
-        * key: PORT, value: 5000
-        * key: SECRET_KEY, value: (Custom secret key set up for configuration to keep client-side sessions secure)
+        * AWS_ACCESS_KEY_ID
+        * AWS_SECRET_ACCESS_KEY
+        * DATABASE_URL
+        * EMAIL_HOST_PASS
+        * EMAIL_HOST_USER
+        * SECRET_KEY
+        * STRIPE_PUBLIC_KEY
+        * STRIPE_SECRET_KEY
+        * STRIPE_WH_SECRET
+        * USE_AWS
 
-5. Enable automatic deployment
+6. Enable automatic deployment
     * Click the "Deploy" tab.
-    * Choose the branch you wish to deploy and" click Enable Automation Deploys".
+    * Choose the branch you wish to deploy and click "Enable Automation Deploys".
 
+7. Setting up the AWS s3 bucket
+    * Create an Amazon AWS account
+    * Search for S3 and create a new bucket
+        - Allow public access
+    * Under Properties > Static website hosting
+        - Enable
+        - index.html as index.html
+        - save
+    * Under Permissions > CORS use the following:
+    ```
+    [
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+    ]
+    ```
+    * Under Permissions > Bucket Policy:
+        - Generate Bucket Policy and take note of Bucket ARN
+        - Chose S3 Bucket Policy as Type of Policy
+        - For Principal, enter *
+        - Enter ARN noted above
+        - Add Statement
+        - Generate Policy
+        - Copy Policy JSON Document
+        - Paste policy into Edit Bucket policy on the previous tab
+        - Save changes
+    * Under Access Control List (ACL):
+        - For Everyone (public access), tick List
+        - Accept that everyone in the world may access the Bucket
+        - Save changes
+
+8. Setting up AWS IAM (Identity and Access Management)
+    * From the IAM dashboard within AWS, select User Groups:
+        - Create new group e.g. `[name]-juice`
+        - Click through without adding a policy
+        - Create Group
+    * Select Policies:
+        - Create policy
+        - Under JSON tab, click Import managed policy
+        - Choose AmazongS3FullAccess
+        - Edit the resource to include the Bucket ARN noted earlier when creating the Bucket Policy:
+        ```
+                    "Resource": [
+                                    "arn:aws:s3:::[name]",
+                                    "arn:aws:s3:::[name]/*"
+                    ]
+        ```
+        - Click next step and go to Review policy
+        - Give the policy a name e.g. `[name]` and description
+        - Create policy
+    * Go back to User Groups and choose the group created earlier
+        - Under Permissions > Add permissions, choose Attach Policies and select the one just created
+        - Add permissions
+    * Under Users:
+        - Choose a user name e.g. `[name]-staticfiles-user`
+        - Select Programmatic access as the Access type
+        - Click Next
+        - Add the user to the Group just created
+        - Click Next and Create User
+    * Download the `.csv` containing the access key and secret access key. 
+        NOTE: This will NOT be available to download again.
+
+9. connecting Heroku to AWS S3
+    * Install boto3 and django-storages
+    ```
+    pip3 install boto3
+    pip3 install django-storages
+    pip3 freeze > requirements.txt
+    ```
+    * Add the values from the `.csv` you downloaded to your Heroku Config Vars under Settings:
+    * Delete the `DISABLE_COLLECTSTATIC` variable from your Cvars and deploy your Heroku app
+    * With your S3 bucket now set up, you can create a new folder called media (at the same level as the newly added static folder) and upload any required media files to it.
+        ENSURE `media` AND `static` FILES ARE PUBLICLY ACCESSIBLE UNDER PERMISSIONS
 
 ### Forking the GitHub Repository
 
@@ -437,26 +574,33 @@ To do this, follow these steps:
 5. Open your development editor and a terminal window in your chosen directory.
 6. In the terminal, type "git clone " followed by the URL you copied in step 4 and press enter.
 7. A clone of the project should have been created.
+    Ensure the necessary requirements are installed by using the following command.
+
+    -pip install -r requirements.txt
 
 ## Credits
 
-### Code 
-* [Ed Bradley's](https://github.com/Edb83) pagination code was a great template for learning how to implement my own. His code can be found [here](https://github.com/Edb83/self-isolution/blob/master/app.py).
+### Code
 
-* I learned how to make the 404 and 500 error pages from [this resource](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/).
+A variety of online material was consulted in the making of this product, from posts on forums to YouTube videos. All of the content was extensively edited to suit this particular site and is referenced below.
 
-* [This](https://www.youtube.com/watch?v=RjMbCUpvIgw) video from [Socratica](https://www.youtube.com/user/SocraticaStudios) and [this](https://www.youtube.com/watch?v=NWDQDLzqMt8) video from [Irfan Khan](https://www.youtube.com/channel/UCK5QUBOwyE9cAaO0SV1etyQ) were very helpful in understanding how to calculate the user's age.
+* [Code Institute's](https://codeinstitute.net/) Boutique Ado walkthrough project by Chris Zielinski was instrumental in the creation of this project. From implementing the Products, Categories, and Orders models, to setting up Stripe Payments and AWS, his knowledge proved invaluable. Some design elements in Krafts were also borrowed from Boutique ado such as form design, headings, and some buttons.
 
-* [This](https://codeconvey.com/footer-at-bottom-of-page-but-not-fixed/) post helped me to keep my footer stuck to the bottom of the page when there was no information displayed on the screen.
+* [This Stackoverflow Post](https://stackoverflow.com/questions/59147127/django-how-to-auto-generate-a-unique-number-string-for-a-model-attribute/59148235#59148235) was helpful in figuring out how to generate the product Sku upon adding a product.
 
-Further details of the bugs encountered in the project can be found in the Known Bugs Section of the [TESTING.md](/TESTING.md).
+* [This Codemy.com video](https://www.youtube.com/watch?v=xNqnHmXIuzU) was a good source of information for sending email congirmation when I was building the Contact app.
 
-### Content 
-* The site was created solely by the developer. All jokes are uploaded by different users.
+* The comments section, model and functionality was built after consulting information provided in the following videos by [Codemy.com](https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw) and [Legion Script](https://www.youtube.com/channel/UCF7k5gX55WvJ-SFXGsPsLTg) :
+    * [Build A Blog Comments Section](https://www.youtube.com/watch?v=hZrlh4qU4eQ)
+    * [Building a Social Media App With Python 3 and Django](https://www.youtube.com/watch?v=zcAp-O4q_Vk)
+
+* [This](https://www.youtube.com/watch?v=dsRJTxieD4U) video by [Web Dev Junkie](https://www.youtube.com/channel/UCsrVDPJBYeXItETFHG0qzyw) was a great reference for the creation of the site's star rating form.
+
+* The rating display was heavily influenced by [Edb83's](https://github.com/Edb83) similar display which can be found [here](https://github.com/Edb83/moose-juice/blob/master/products/static/products/js/star-display.js).
 
 ### Media
-* All images seen on the site are uploaded by users as urls as part of the process of adding a joke. The site does not own the copyright to these images.
+* Details about the media files used in the site can be found in a separate [MEDIA.md](/MEDIA.md) file.
 
 ### Acknowledgements
 
-I would like to thank the slack community for their assistance, particularly Daisy Mc Girr who is always willing to share her wisdom and advice. Igor Busaga's hands-off assistance and patience was also very much appreciated.
+I would like to thank the slack community for their assistance, tutor support for their patience and extensive knowledge, as well as my mentor Aaron Sinnott for his sound advice and insights.

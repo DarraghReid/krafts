@@ -130,9 +130,9 @@
                                     {% if request.user.is_superuser %}
                                         <div class="row">
                                             <!-- Edit product -->
-                                            <a class="col-6 btn rounded-0 w-100 text-primary p-0 m-0" href="{% url 'edit_product' product.id %}"><small><i class="fas fa-edit"></i></small></a> 
+                                            <a class="col-6 btn rounded-0 w-100 text-primary p-0 m-0" href="{% url 'edit_product' product.id %}" data-bs-toggle="tooltip" title="Edit product"><small><i class="fas fa-edit"></i></small></a> 
                                             <!-- Delete product -->
-                                            <a class="col-6 btn rounded-0 w-100 text-danger p-0 m-0" data-toggle="modal" data-target="#product-{{ product.pk }}"><small><i class="far fa-trash-alt"></i></small></a>
+                                            <a class="col-6 btn rounded-0 w-100 text-danger p-0 m-0" data-toggle="modal" data-target="#product-{{ product.pk }}" data-bs-toggle="tooltip" title="Delete product"><small><i class="far fa-trash-alt"></i></small></a>
                                             <!-- Modal -->
                                             <div class="modal fade rounded-0" id="product-{{ product.pk }}" tabindex="-1" role="dialog" aria-labelledby="product-{{ product.pk }}Label" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -265,5 +265,11 @@
                 window.location.replace(currentUrl);
             }
         })
+
+        // initialise Bootstrap tooltip functionality
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
     </script>
 {% endblock %}

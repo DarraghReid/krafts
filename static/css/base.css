@@ -479,6 +479,7 @@ input[name='q']::placeholder {
     }
 }
 
+/* prevent product container from covering side nav on tablet devices */
 @media (max-width: 940px) {
     .product-container {
         right: -50px;
