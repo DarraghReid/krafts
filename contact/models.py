@@ -1,8 +1,6 @@
 from django.db import models
 
 
-# Remember urls.py and project level urls.py
-
 # Each message will be added according to this model
 class Message(models.Model):
     # Name of user sending message

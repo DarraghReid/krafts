@@ -122,131 +122,109 @@ More on what each page does and how it functions will be discussed in the [Featu
 * The 404 and 500 error pages were created towards the end of the project. They were not included in the initial planning of the project.
 
 ## Database Design
+
+![Database Design](/media/readme-imgs/dbdiagram.png)
+
 This site was created using a relational database to store its data. SQLite was used during the project's development, with the files being migrated to Postgress during deployment. The site's database models are discussed below.
 
-    * Product Model
-        The Product model is the most integral model in this project. It defines how each product featured on the site is stored in the database.
-         * The Product model is related to the Category model by a Foreign key. This ensures that each product is places in a related category.
+* Product Model
 
-         * The 'sku' field is a CharField which is automatically generated each time a product is added to the database.
+    The Product model is the most integral model in this project. It defines how each product featured on the site is stored in the database.
 
-         * The 'name', 'description', and 'price' fields (CharField, TextField, DecimalField) are all input by the admin while adding a product.
+    * The Product model is related to the Category model by a Foreign key. This ensures that each product is places in a related category.
 
-         * Images are uploaded in two formats; a URLField and ImageField ('image_url', 'image' fields) by the admin while adding a product.
+    * The 'sku' field is a CharField which is automatically generated each time a product is added to the database.
 
-         * The 'rating' field is an IntegerField that is updated each time a user rates a particular product. It is the sum total of every rate the product has received.
+    * The 'name', 'description', and 'price' fields (CharField, TextField, DecimalField) are all input by the admin while adding a product.
 
-         * The 'rates' field is a ManyToManyField and is related to the User model and records all of the users (amount of rates) a product has received.
+    * Images are uploaded in two formats; a URLField and ImageField ('image_url', 'image' fields) by the admin while adding a product.
 
-         * That 'rating_average' is a DecimalField which is calculated by dividing the rating field by the rates field.
+    * The 'rating' field is an IntegerField that is updated each time a user rates a particular product. It is the sum total of every rate the product has received.
 
-            This caculation is done in the rate_product() view in the products app's views.py. In future versions of the site, I would opt to carry out this calculation using model methods.
+    * The 'rates' field is a ManyToManyField and is related to the User model and records all of the users (amount of rates) a product has received.
+
+    * That 'rating_average' is a DecimalField which is calculated by dividing the rating field by the rates field.
+
+    This caculation is done in the rate_product() view in the products app's views file. In future versions of the site, I would opt to carry out this calculation using model methods.
         
-    * Category Model
-        The Category model has the important job of sorting products into their respective categories. It as two fields.
-        * The 'name' field is a CharField representing the programmatic name of the category.
+* Category Model
 
-        * The 'friendly_name' is a CharField used for front end representation of the categories.
+    The Category model has the important job of sorting products into their respective categories. It as two fields.
 
-    * Comments Model
-        The Comments model is used to stores comments made by users under particular products.
-        * The 'product' is a ForeignKey which relates the comment to its repective product.
+    * The 'name' field is a CharField representing the programmatic name of the category.
 
-        * The 'name' field is a ForeignKey which relates the comment to the user who wrote the comment.
+    * The 'friendly_name' is a CharField used for front end representation of the categories.
 
-        * The 'comment' field is a TextField which records the contents of the comment.
+* Comments Model
 
-        * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the comment was made is automatically added.
+    The Comments model is used to stores comments made by users under particular products.
 
-        * Finally, the 'parent' fields is a ForeignKey which relates the model to itself. By recording whether or not a comment is in reply to another comment, comments can be nested inside other comments in the comments section of the Product Detail page.
+    * The 'product' is a ForeignKey which relates the comment to its repective product.
 
-            Two @property functions are defined below the Comments model in the products app's models.py which determine whether a particular comment is a child or parent comment.
-    
-    * Message Model
-        The Message model stores messages sent by users to the site owner.
-        * The 'full_name' field is a CharField which records the full name of the sender. Any site user, including those who are not registered, can contact the site owner.
+    * The 'name' field is a ForeignKey which relates the comment to the user who wrote the comment.
 
-        * The 'email' field is an EmailField and records the email address of the sender.
+    * The 'comment' field is a TextField which records the contents of the comment.
 
-        * The 'message' field is a TextField and stores the contents of the sender's message.
+    * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the comment was made is automatically added.
 
-    * Order Model
-        The Order model records each order made by a user.
-        * The 'order_number' CharField is automatically generated using the _generate_order_number() model method when an order is made.
+    * Finally, the 'parent' fields is a ForeignKey which relates the model to itself. By recording whether or not a comment is in reply to another comment, comments can be nested inside other comments in the comments section of the Product Detail page.
 
-        * The 'user_profile' ForeignKey relates the order to the user making the order. It is not a required field, which allows for non-registered users to make orders.
+        Two @property functions are defined below the Comments model in the products app's models file which determine whether a particular comment is a child or parent comment.
 
-        * CharFields 'full_name', 'phone_number', 'postcode', 'town_or_city', 'street_address1', 'street_address1', and 'county' are input by the user when making an order.
+* Message Model
 
-        * The 'email' (EmailField) and 'country' (CountryField) fields are also input by the user when making an order.
+    The Message model stores messages sent by users to the site owner.
 
-        * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the order was made is automatically added.
+    * The 'full_name' field is a CharField which records the full name of the sender. Any site user, including those who are not registered, can contact the site owner.
 
-        * The 'delivery_cost', 'order_total', and 'grand_total' CharFields are calculated using the update_total() model method when order is saved.
+    * The 'email' field is an EmailField and records the email address of the sender.
 
-        * The 'original_cart' TextField records the original cart that created order to allow duplicate orders to be added.
+    * The 'message' field is a TextField and stores the contents of the sender's message.
 
-        * The 'stripe_pid' CharField is a unique payment id that allows for duplicate orders to be added.
-    
-    * OrderLineItem Model
-        The OrderLineItem model creates an order line item for each cart item and is then then attached to the order.
-        * The 'order' ForeignKey relates the order line item to its respective order.
+* Order Model
 
-        * The 'product' ForeignKey records the specific product the line item is being created for via the Product model.
+    The Order model records each order made by a user.
 
-        * The 'quantity' IntegerField records the quantity of a particular order product.
+    * The 'order_number' CharField is automatically generated using the _generate_order_number() model method when an order is made.
 
-        * The 'lineitem_total' DecimalField is automatically calculated when the line item is saved using the save() model method.
+    * The 'user_profile' ForeignKey relates the order to the user making the order. It is not a required field, which allows for non-registered users to make orders.
 
-    * UserProfile Model
-        The UseerProfile model records the default delivery information and order history of each user.
-        * The 'user' OneToOneField relates the user profile to the user.
+    * CharFields 'full_name', 'phone_number', 'postcode', 'town_or_city', 'street_address1', 'street_address1', and 'county' are input by the user when making an order.
 
-        * The 'default_phone_number', 'default_street_address1', 'default_street_address2', 'defaul_town_or_city', 'county', and 'postcode' are optional CharFields.
+    * The 'email' (EmailField) and 'country' (CountryField) fields are also input by the user when making an order.
 
-        * The 'default_country' CountryField is also optional.
+    * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the order was made is automatically added.
 
-        The create_or_update_user_profile() method in the profiles app's models.py either creates or updates a user's profile each time a user object is saved or updated.
+    * The 'delivery_cost', 'order_total', and 'grand_total' CharFields are calculated using the update_total() model method when order is saved.
 
-        
+    * The 'original_cart' TextField records the original cart that created order to allow duplicate orders to be added.
 
-### Database structure
-![Database Design](static/images/db-structure.png)
+    * The 'stripe_pid' CharField is a unique payment id that allows for duplicate orders to be added.
 
-There are currently two collections in use; jokes and users. A third, user_favourites, had been used for a period of time, but is now redundant. As will be discussed in the Bugs section in [TESTING.md](/TESTING.md), a more efficient means of adding jokes to user's list of favourites was found.
+* OrderLineItem Model
 
-#### Users Collection
-![Users Collection](static/images/users-collection.png)
+    The OrderLineItem model creates an order line item for each cart item and is then then attached to the order.
 
-The Users collection is comprised of three fields, excluding "_id". "username", "password" and "date_of_birth" are all pulled from the sign up form after being entered by the user. 
+    * The 'order' ForeignKey relates the order line item to its respective order.
 
-"username" is the most widely used of the field in the site. It is used to identify if a user has liked a joke or added a joke to their list of favourites. It is also displayed on card of the jokes they have uploaded.
+    * The 'product' ForeignKey records the specific product the line item is being created for via the Product model.
 
-"date_of_birth" is an important field. It is used in the get_age() function in app.py to determine the user's age and, therefore, what content they will be able to see.
+    * The 'quantity' IntegerField records the quantity of a particular order product.
 
-As you can see, the user's password is securely stored, hashed and salted for security.
+    * The 'lineitem_total' DecimalField is automatically calculated when the line item is saved using the save() model method.
 
-#### Jokes Collection
-![Jokes Collection](static/images/jokes-collection.png)
+* UserProfile Model
 
-The number of fields in the jokes collection as grown since its inception at the beginning of the project. Not only does it hold information about the joke, but it also stores information about the popularity of the jokes and the users who have interacted with the joke.
+    The UseerProfile model records the default delivery information and order history of each user.
 
-"joke_title", "joke_description", "img_url" and "for_children" are all input by the user via the Add Joke form and add_joke() function in app.py. 
+    * The 'user' OneToOneField relates the user profile to the user.
 
-"for_children" is an important field. It is set to "on" or "off" via a switch in the Add Joke form. If it is set to "on", all users will be able to see the joke. If it is set to "off", only adult users will be able to see the joke.
+    * The 'default_phone_number', 'default_street_address1', 'default_street_address2', 'defaul_town_or_city', 'county', and 'postcode' are optional CharFields.
 
-"likes", "liked_by" and "favouriter" are automatically added alongside the other fields upon upload. They will be continuously updates as users interact with the joke.
+    * The 'default_country' CountryField is also optional.
 
-"likes" is an integer and is initialised with 0. This will increase when a user "likes" the joke and will decrease when a user "unlikes" a joke.
+    The create_or_update_user_profile() method in the profiles app's models file either creates or updates a user's profile each time a user object is saved or updated.
 
-"liked_by" is a MongoDB array, and stores the names of users who have liked its respective joke. Usernames will be removed from the array upon the user unliking the joke.
-
-"favouriter" is also a MongoDB array, and stores the names of users who have added its respective joke to their list of favourites. Usernames will be removed from the array upon the user removing the joke from their favourites.
-
-#### User Favourites Collection
-![User Favourites Collection](static/images/user-favourites-collection.png)
-
-Although no longer in user, this is how the user-favourites collection functioned. Each time a user added a joke to their favourites, information about the joke was passed to the add_fav() function, and inserted into the collection along with the name of the user who favourited it.
 
 ## Features
 
@@ -326,7 +304,7 @@ Although no longer in user, this is how the user-favourites collection functione
 
     * A table which organises all of the products in the cart into rows with colums separating the products by relevent fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall prive calculation of the quantity of a particular product.
 
-    * Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in settings.py). Otherwise, delivery will be set at 10% of the sum total of their items.
+    * Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in the settings file). Otherwise, delivery will be set at 10% of the sum total of their items.
 
     * A Keep Shopping button that leads users back to the products page to continue shopping.
 
