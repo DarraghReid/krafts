@@ -131,7 +131,7 @@ This site was created using a relational database to store its data. SQLite was 
 
     The Product model is the most integral model in this project. It defines how each product featured on the site is stored in the database.
 
-    * The Product model is related to the Category model by a Foreign key. This ensures that each product is places in a related category.
+    * The Product model is related to the Category model via a Foreign key. This ensures that each product is placed in a related category.
 
     * The 'sku' field is a CharField which is automatically generated each time a product is added to the database.
 
@@ -157,7 +157,7 @@ This site was created using a relational database to store its data. SQLite was 
 
 * Comments Model
 
-    The Comments model is used to stores comments made by users under particular products.
+    The Comments model is used to store comments made by users under particular products.
 
     * The 'product' is a ForeignKey which relates the comment to its repective product.
 
@@ -173,9 +173,9 @@ This site was created using a relational database to store its data. SQLite was 
 
 * Message Model
 
-    The Message model stores messages sent by users to the site owner.
+    The Message model stores messages sent by users to the site owner. Any site user, including those who are not registered, can contact the site owner. Therefore, there is no ForeignKey attaching it to the User model.
 
-    * The 'full_name' field is a CharField which records the full name of the sender. Any site user, including those who are not registered, can contact the site owner.
+    * The 'full_name' field is a CharField which records the full name of the sender.
 
     * The 'email' field is an EmailField and records the email address of the sender.
 
@@ -215,7 +215,7 @@ This site was created using a relational database to store its data. SQLite was 
 
 * UserProfile Model
 
-    The UseerProfile model records the default delivery information and order history of each user.
+    The UserProfile model records the default delivery information and order history of each user.
 
     * The 'user' OneToOneField relates the user profile to the user.
 
