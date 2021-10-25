@@ -111,7 +111,52 @@ The results were as follows:
 ||Facilitate the needs of customers|Retain custom and engage with customers when needed||The ease of navigation is sure to provide a positive user experient to all customers. Customers are easily accommodated to explore, view and purchase products. They can also easily interact with products via rating and commenting, and can readily contact the site owner via the contact form.|
 
 ## Testing Features
+
 ### Features Available To All Users
+||Test here||image|PASS||
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|HEADER|Toggle all dropdown menu items|All dropdown items should toggle their respective menu items|image|PASS||
+||Click all links to to navigate to their correct respective destinations|All links lead to their correct destinations|image|PASS||
+||Add a product to the cart|1. The cart icon should change colour||PASS||
+|||2. The cart total should update by the price of the item||PASS||
+|||3. The success toast should pop down from cart icon displaying a success message and cart summary||PASS||
+|||4. The progress bar and free delivery delta should update in proportion to the price of the item||PASS|The progress bar occasionally collapses. If this happens, hard reload the page and it should reappear|
+||Enter a key word into the search bar|Products with the key word in their description and/or name should be displayed on the Products page|image|PASS||
+|HOME PAGE|Observer the carousel|1. The carousel should auto slide||PASS||
+|||2. The carousel can be controled by clicking the navigation bars at the bottom||PASS||
+|||3. The correct text and images are displayed||PASS||
+||Click each image-based category link to navigate to their respective destinations|The category links should lead to their correct destinations||PASS||
+||Scroll to the bottom of the page|The category links should have a parallex effect||PASS||
+|FOOTER|Click all links in the footer to navigate to their respective destinations|All links lead to their correct destinations||PASS|Depending on screen size, footer may appear to float. This is documented in the Remaining Bugs section of this file.|
+|PRODUCTS PAGE|Observe the page on larger screens|1. The product cards should be displayed in rows of 4||PASS||
+|||2. The side nav should be visible and fixed||PASS||
+|||3. The filter selector box should appear in the correct location||PASS||
+||Toggle the filter selector box|The selector box should drop down the correct sorting options||PASS||
+||Click each sorting option in the selector box|Appropriately filtered products in the correct order should be displayed in the products container||PASS||
+||Click each category in the side nav|1. All subcategories of clicked category should be highlighted in the side nav||PASS||
+|||2. All products in the clicked category should be displayed in the products container||PASS||
+||Click each subcategory in the side nav|1. The subcategory should be highlighted in the side nav||PASS||
+|||2. All products in the subcategory should appear in the products container||PASS||
+||Observer the product cards|1. Each card should display an its own image/default image, name, price, category, and star rating||PASS||
+|||2. Each card should contain an "Add To Cart" button||PASS||
+|||3. Each card should contain "Edit" and "Delete" icons for admin users only||PASS||
+||Click the "Add To Cart" button of any product.|The product should be added to the cart||PASS||
+||Click the "Edit" icon of any product to navigate to the Edit Product Page.|The "Edit" icon should lead to the Edit Product page||PASS||
+||Click the "Delete" icon of any product.|A modal requesting confirmation of deletion should appear||PASS||
+||Click the "Delete" button of the modal.|The product should be deleted and a success confirmation toast should be displayed under the cart icon||PASS||
+||Observe the page on medium screen|||PASS||
+|PRODUCT DETAIL PAGE||||||
+|CART|||||||
+|PRODUCT MANAGEMENT PAGE||||||
+|PROFILE PAGE||||||
+|CHECKOUT PAGE||||||
+|CHECKOUT SUCCESS PAGE||||||
+|ORDER HISTORY PAGE||||||
+|SMALLER SCREEN FEATURES||||||
+
+
+After doing this, go back over and determine that certain features are available to certain user types
 
 
 ### Features Specific to Smaller Screens
