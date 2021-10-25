@@ -280,7 +280,13 @@ The header is fixed to the top of all site pages. It features:
 
     The span that displays the free_delivery_delta is padded and located differently inside the progress bar depending on the width of the inner div using a combination of JavaScript and Jinja.
 
+[^ Back To Top ^](#Contents)
+
 ### The Home Page
+
+![Carousel](media/readme-imgs/hero-slider.png)
+
+![Category Links](media/readme-imgs/category-links.png)
 
 The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's perpose. It includes:
 
@@ -288,7 +294,11 @@ The home page is designed to be an intuitive introduction to the site where the 
 
 * The category links which are image-based links that lead to the different product categories. The images were carefully chosed to refect their respective category. Again, the images were implemented as background images using css and have a parallex effect.
 
+[^ Back To Top ^](#Contents)
+
 ### The Footer
+
+![Footer](media/readme-imgs/footer.png)
 
 The footer acts as a simple navigation tool and displays contact and social media links. It includes:
 
@@ -298,7 +308,11 @@ The footer acts as a simple navigation tool and displays contact and social medi
 
 * Social media links which lead to Facebook, Instagram and Twitter.
 
+[^ Back To Top ^](#Contents)
+
 ### The Products Page
+
+![Products Page](media/readme-imgs/products.png)
 
 The products page is where all products are displayed based on search results, filters and sorting. It features:
 
@@ -308,7 +322,12 @@ The products page is where all products are displayed based on search results, f
 
 * The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
 
+[^ Back To Top ^](#Contents)
+
 ### The Product Detail Page
+
+![Product Detail Page](media/readme-imgs/detail1.png)
+![Product Detail Page](media/readme-imgs/detail2.png)
 
 The Product Detail page allows user to view additional information about individual products and perform some actions. It features:
 
@@ -328,7 +347,11 @@ The Product Detail page allows user to view additional information about individ
 
     Users can also edit their own comments by clicking the Edit button which toggles the edit comment form. The reply form is also toggled when the reply button is clicked.
 
+[^ Back To Top ^](#Contents)
+
 ### The Cart
+
+![Cart](media/readme-imgs/cart.png)
 
 The cart displays all of the products the user has added to the cart and provides links to secure checkout. It features:
 
@@ -340,13 +363,21 @@ The cart displays all of the products the user has added to the cart and provide
 
 * A Secure Checkout button which leads users to the Checkout page where they can checkout securely using Stripe.
 
+[^ Back To Top ^](#Contents)
+
 ### The Product Management Page
+
+![Product Management Page](media/readme-imgs/management.png)
 
 The Product Management page is accessible only to admins. It features:
 
 * The Add Product form which admins can use to add products to the database. The form displays all fields of the Product Model apart from any fields related to the products rating. Products can only be rated by users on the Product Detail page.
 
+[^ Back To Top ^](#Contents)
+
 ### The Profile Page
+
+![Profile Page](media/readme-imgs/profile.png)
 
 The Profile page is where information about the user is stored. It features:
 
@@ -354,7 +385,11 @@ The Profile page is where information about the user is stored. It features:
 
 * A table which displays the user's order history, including the Order Number, Date, Items purchased, and the Oder Total. The Order number is a link which leads to a separate Order History page. 
 
+[^ Back To Top ^](#Contents)
+
 ### The Checkout Page
+
+![Checkout Page](media/readme-imgs/checkout.png)
 
 The Checkout page is where users can checkout securely using Stripe. It features:
 
@@ -364,7 +399,11 @@ The Checkout page is where users can checkout securely using Stripe. It features
 
 * A summary of the order in a table format which displays the item image, item name and quantity, subtotal and calculated Grand Total.
 
+[^ Back To Top ^](#Contents)
+
 ### The Checkout Success Page
+
+![Checkout Success Page](media/readme-imgs/success.png)
 
 Users are sent a confirmation email and are led to the Checkout Success page upon successful completion of an order. It features:
 
@@ -372,7 +411,11 @@ Users are sent a confirmation email and are led to the Checkout Success page upo
 
 * A detailed summary of the order including the product details, delivery details as well as billing information.
 
+[^ Back To Top ^](#Contents)
+
 ### Order History Page
+
+![Order History Page](media/readme-imgs/history.png)
 
 The Order History page is accessed via the Profile page by clicked on an Order Number. It displays a detailed summary of the respective order including the product details, delivery details as well as billing information.
 

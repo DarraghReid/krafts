@@ -1,11 +1,12 @@
 html {
     /* For h100 & vertical centering to work */
     height: 120vh;
+    width: 100vw;
     overflow-x: hidden;
 }
 
 body {
-    width: 100%;
+    min-width: 100%;
     min-height: 100%;
     color: #555;
     font-family: 'Raleway';
