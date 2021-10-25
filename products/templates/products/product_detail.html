@@ -155,32 +155,36 @@
         {% if request.user in product.rates.all %}
             <h4 class="text-center">You have already rated this product.</h4>
         {% else %}
-            <hr class="w-50">
-            <!-- ROW with one column for rating product -->
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-center mb-4"> Rate this product</h2>
-                    <div class="text-center stars m-0 p-0">
-                        <a class="mx-2 my-0">⭐</a>
-                        <a class="mx-2 my-0">⭐</a>
-                        <a class="mx-2 my-0">⭐</a>
-                        <a class="mx-2 my-0">⭐</a>
-                        <a class="mx-2 my-0">⭐</a>
+            {% if request.user.is_authenticated %}
+                <!-- ROW with one column for rating product -->
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-center mb-4"> Rate this product</h2>
+                        <div class="text-center stars m-0 p-0">
+                            <a class="mx-2 my-0">⭐</a>
+                            <a class="mx-2 my-0">⭐</a>
+                            <a class="mx-2 my-0">⭐</a>
+                            <a class="mx-2 my-0">⭐</a>
+                            <a class="mx-2 my-0">⭐</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Provide means to rate product only to those who have not yet rated the product -->
-            <!-- Rating form displaying rating field only -->
-            <form class="mt-3 mb-2" id="rate-form" action="{% url 'rate_product' product.id %}" method="POST">
-                {% csrf_token %}
-                {% for field in product_form %}
-                    {{ field.as_hidden}}
-                {% endfor %}
-                <a class="d-none btn btn-outline-black rounded-0" onclick="rateFormToggle()">Cancel</a>
-                <button class="d-none btn btn-black rounded-0" type="submit">Rate</button>
-            </form>
+                <!-- Provide means to rate product only to those who have not yet rated the product -->
+                <!-- Hidden rating form -->
+                <form class="mt-3 mb-2" id="rate-form" action="{% url 'rate_product' product.id %}" method="POST">
+                    {% csrf_token %}
+                    {% for field in product_form %}
+                        {{ field.as_hidden}}
+                    {% endfor %}
+                    <a class="d-none btn btn-outline-black rounded-0" onclick="rateFormToggle()">Cancel</a>
+                    <button class="d-none btn btn-black rounded-0" type="submit">Rate</button>
+                </form>
+                <hr class="w-50">
+            {% else %}
+                <h4 class="text-center"><a href="{% url 'account_login' %}">Sign in</a> to rate this product.</h4>
+                <hr class="w-50">
+            {% endif %}
         {% endif %}
-        <hr class="w-50">
         <!-- ROW with 2 columns for comments display and comment form -->
         <div class="row">
             <!-- Comments section heading-->
