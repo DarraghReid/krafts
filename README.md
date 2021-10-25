@@ -44,7 +44,7 @@
 
 # Krafts
 
-![Krafts](static/images/amiresponsive.png)
+![Krafts](media/readme-imgs/amiresponsive-krafts.png)
 
 View the live project [here](https://krafts-dreid.herokuapp.com/)
 
@@ -253,6 +253,12 @@ The create_or_update_user_profile() method in the profiles app's models file eit
 ## Features
 
 ### The Header.
+
+![Header Large](media/readme-imgs/header-lg.png)
+
+![Header Large](media/readme-imgs/header-md.png)
+
+![Header Large](media/readme-imgs/header-sm.png)
 
 The header is fixed to the top of all site pages. It features:
 
