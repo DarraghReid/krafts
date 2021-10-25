@@ -103,23 +103,27 @@ More on what each page does and how it functions will be discussed in the [Featu
     * Images were sourced from sites that provide images for free. The images displayed on the Home page and for the individual products were carefully chosen to reflect the handmade ethos of the site. The images are stored in the database in both url and file format.
 
 ## Wireframes
-* Wireframe of Home Page
-![Wireframe of Home Page](static/images/jj-wireframes.png)
+Below are rough wireframes for the main pages of the site.
+
+![Wireframes](media/wireframe.png)
 
 ### Differences Between Wireframes and Final Product
-* On the home screen, I decided to omit the sort by dropdown as I didn't feel it would contribute to the project according to the guidelines set out in the Assessment Handbook. Also, I had already included a dropdown in the Profile page where users are presented with a range of options.
 
-* Having dropped the dropdown, I decided I would include the number of user's who had liked a particular joke in the card display. This feature adds to the UX of the site.
+* The biggest visual difference between the wireframe and the latest version of the site, is the replacement of the product cards with the parallex category links on the Home page. The links are more reflective of the purpose of the Home page, which is to serve as an introduction to the site, rather than to be part of the shopping experience.
 
-* I had originally planned on manipulating the card to show the full joke, if the joke's characters exceeded the characters able to be displayed on the card. I felt a modal displaying the full joke would be a better design a lead to a better user experience. Bootstrap modals are a prominent feature throughout the site.
+* On the Products page, a notable inclusion is the side navigation element on medium screens upwards. It serves as an intuitive navigation with any active categories being hightlighted. This replaves the need for the active category links displayed at the top of the page on smaller screens.
 
-* As discussed above, the links to toggle between the user's uploaded jokes and the user's favourite jokes, were replaced with a dropdown menu with the additional option to sign out. I felt this was more of an intuitive layout that users would be used to from social media platforms.
+* On smaller screens, the main nav menu dropdown has been moved to the header in line with other menu items.
 
-* Icons were omitted from the forms. I had intentionally left them to do if I had time, as I didn't think they were very important. In the end, time didn't allow to include them.
+* The product cards include an "Add To Cart" button along with some other minor display alterations, including the star rating.
 
-* In sign in form, instead of a switch indicating whether the user was an adult or not, I opted for a calendar input. I sliced the information I needed from the user's DOB string and calculated their ages. Different features are available to users based on their age, as will be discussed in the [Features](#Features) section.
+* The filter toggle button was dropped in favaour of displaying the sorting dropdown as is.
 
-* The 404 and 500 error pages were created towards the end of the project. They were not included in the initial planning of the project.
+* On smaller to medium screens, the all menu items and links in the header and represented by icons, with no text on small screens, and minimal text on medium screens. The search bar is toggled with a search icon on these screen sizez.
+
+* Also, on the header, a progress bar was included to indicate to the user how close they are to qualifying for free delivery.
+
+* The Contact menu item was included in the header, while the "Clearance" navigation item was deemed unnecessary and removed.
 
 ## Database Design
 
