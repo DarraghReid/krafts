@@ -11,10 +11,17 @@
     * [Differences Between Wireframes and Final Product](#Differences-Between-Wireframes-and-Final-Product)
 * [Database Design](#Database-Design)
 * [Features](#Features)
-    * [Admin](#Admin)
-    * [General User](#General-User)
-    * [Under 18s User](#Under-18-User)
-    * [Signed out user](#Signed-Out-User)
+    * [The Header](#The-Header)
+    * [The Home Page](#The-Home-Page)
+    * [The Footer](#The-Footer)
+    * [The Products Page](#The-Products-Page)
+    * [The Product Detail Page](#The-Product-Detail-Page)
+    * [The Cart](#The-Cart)
+    * [The Product Management Page](#The-Product-Management-Page)
+    * [The Profile Page](#The-Profile-Page)
+    * [The Checkout Page](#The-Checkout-Page)
+    * [The Checkout Success Page](#The-Checkout-Success-Page)
+    * [The Order History Oage](#The-Order-History-Page)
 * [Potential Future Features](#Potential-Future-Features)
 * [Technologies Used](#Technologies-Used)
     * [Languages Used](#Languages-Used)
@@ -232,123 +239,123 @@ This site was created using a relational database to store its data. SQLite was 
 
 ## Features
 
-* The Header.
+### The Header.
 
-    The header is fixed to the top of all site pages. It features:
+The header is fixed to the top of all site pages. It features:
 
-    * The Krafts logo which links to the Home Page.
+* The Krafts logo which links to the Home Page.
 
-    * The search bar from which all users can enter key words to find specific products. The search bar appears as a regular search bar on larger screen, whereas on medium and smaller screens, it is toggled using a fontawsome search icon.
+* The search bar from which all users can enter key words to find specific products. The search bar appears as a regular search bar on larger screen, whereas on medium and smaller screens, it is toggled using a fontawsome search icon.
 
-    * The contact link which leads to the Contact page.
+* The contact link which leads to the Contact page.
 
-    * The My Account dropdown which contains links to Product Management for the Admin, Profile Page, as well as Sign Up/Log In/Sign Out links (depending on the status of the user at the time).
+* The My Account dropdown which contains links to Product Management for the Admin, Profile Page, as well as Sign Up/Log In/Sign Out links (depending on the status of the user at the time).
 
-    * The cart link which leads users to their Cart. Information regarding user actions as well as cart information, and success/error messages are displayed in a toast that appears to drop down from the cart link. The toast is colour coded based on the information that is being displayed. For example, green for success messages, red for error messages, aqua #17a2b8 for informative messages.
+* The cart link which leads users to their Cart. Information regarding user actions as well as cart information, and success/error messages are displayed in a toast that appears to drop down from the cart link. The toast is colour coded based on the information that is being displayed. For example, green for success messages, red for error messages, aqua #17a2b8 for informative messages.
 
-        The cart icon will also appear aqua #17a2b8 if there is an item present in the cart.
+    The cart icon will also appear aqua #17a2b8 if there is an item present in the cart.
 
-    * The main navigation menu which divides all products into categories and subcategories. All products can be accessed through the main navigation links. On smaller screens, these navigation links are accessed by a toggle dropdown button.
+* The main navigation menu which divides all products into categories and subcategories. All products can be accessed through the main navigation links. On smaller screens, these navigation links are accessed by a toggle dropdown button.
 
-    * The free delivery bar which informs users how close they are to qualifying for free delivery. The progress bar uses JavaScript to determine what percentage of the free delivery threshold the cart contents amounts to. The JavaScript code then sets the percentage width of the inner div of the progress bar to that percentage.
+* The free delivery bar which informs users how close they are to qualifying for free delivery. The progress bar uses JavaScript to determine what percentage of the free delivery threshold the cart contents amounts to. The JavaScript code then sets the percentage width of the inner div of the progress bar to that percentage.
 
-        The span that displays the free_delivery_delta is padded and located differently inside the progress bar depending on the width of the inner div using a combination of JavaScript and Jinja.
+    The span that displays the free_delivery_delta is padded and located differently inside the progress bar depending on the width of the inner div using a combination of JavaScript and Jinja.
 
-* The Home Page
+### The Home Page
 
-    The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's perpose. It includes:
+The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's perpose. It includes:
 
-    * The hero carousel which is comprosed of three images despicting various crafts to give an indication of the sites purpose. This Bootstrap carousel was surprisingly troublesome and time consuming and was difficult to make responsive. Eventually, the images were removed from the slider and were replaced with background images using CSS.
+* The hero carousel which is comprosed of three images despicting various crafts to give an indication of the sites purpose. This Bootstrap carousel was surprisingly troublesome and time consuming and was difficult to make responsive. Eventually, the images were removed from the slider and were replaced with background images using CSS.
 
-    * The category links which are image-based links that lead to the different product categories. The images were carefully chosed to refect their respective category. Again, the images were implemented as background images using css and have a parallex effect.
+* The category links which are image-based links that lead to the different product categories. The images were carefully chosed to refect their respective category. Again, the images were implemented as background images using css and have a parallex effect.
 
-* The Footer
+### The Footer
 
-    The footer acts as a simple navigation tool and displays contact and social media links. It includes:
+The footer acts as a simple navigation tool and displays contact and social media links. It includes:
 
-    * The Krafts logo which leads to the Home page.
+* The Krafts logo which leads to the Home page.
 
-    * The company address which doubles as a link to the Contact page.
+* The company address which doubles as a link to the Contact page.
 
-    * Social media links which lead to Facebook, Instagram and Twitter.
+* Social media links which lead to Facebook, Instagram and Twitter.
 
-* The Products Page
+### The Products Page
 
-    The products page is where all products are displayed based on search results, filters and sorting. It features:
+The products page is where all products are displayed based on search results, filters and sorting. It features:
 
-    * The side nav with which users can filter products by different categories and subcategories. The side nav is absent on smaller screens. The main nav is the only navigation on smaller screens, with current categories indicated at the top of the page by links.
+* The side nav with which users can filter products by different categories and subcategories. The side nav is absent on smaller screens. The main nav is the only navigation on smaller screens, with current categories indicated at the top of the page by links.
 
-    * The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD opperations. Clicking the card's image will lead to the respective product's Product Detail page.
+* The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD opperations. Clicking the card's image will lead to the respective product's Product Detail page.
 
-    * The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
+* The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
 
-* The Product Detail Page
+### The Product Detail Page
 
-    The Product Detail page allows user to view additional information about individual products and perform some actions. It features:
+The Product Detail page allows user to view additional information about individual products and perform some actions. It features:
 
-    * The same product information as displayed on the card with the addition of the "details" field of the Product model.
+* The same product information as displayed on the card with the addition of the "details" field of the Product model.
 
-    * A form to add the product to the cart that allows the user to select the quantity of the product either by typing or using increment and decrement buttons.
+* A form to add the product to the cart that allows the user to select the quantity of the product either by typing or using increment and decrement buttons.
 
-    * A Keep Shopping button that leads users back to the products page to continue shopping.
+* A Keep Shopping button that leads users back to the products page to continue shopping.
 
-    * Additional Edit and Delete buttons for admins to perform these CRUD opperations.
+* Additional Edit and Delete buttons for admins to perform these CRUD opperations.
 
-    * A rating form that allows users to give the product a rating out of 5. The form is hidden and is represented by 5 stars. Upon clicking a star, rating input of the Product form is updated and submitted using JavaScript. After the user has rated the product, the form is no longer accessible and is replaced with a message informing the user that they have already rated that product.
+* A rating form that allows users to give the product a rating out of 5. The form is hidden and is represented by 5 stars. Upon clicking a star, rating input of the Product form is updated and submitted using JavaScript. After the user has rated the product, the form is no longer accessible and is replaced with a message informing the user that they have already rated that product.
 
-    * A comments form which allows users to make comments about the this particular product. The comments form is prefilled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
+* A comments form which allows users to make comments about the this particular product. The comments form is prefilled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
 
-    * The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a perent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
+* The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a perent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
 
-        Users can also edit their own comments by clicking the Edit button which toggles the edit comment form. The reply form is also toggled when the reply button is clicked.
+    Users can also edit their own comments by clicking the Edit button which toggles the edit comment form. The reply form is also toggled when the reply button is clicked.
 
-* The Cart
+### The Cart
 
-    The cart displays all of the products the user has added to the cart and provides links to secure checkout. It features:
+The cart displays all of the products the user has added to the cart and provides links to secure checkout. It features:
 
-    * A table which organises all of the products in the cart into rows with colums separating the products by relevent fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall prive calculation of the quantity of a particular product.
+* A table which organises all of the products in the cart into rows with colums separating the products by relevent fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall prive calculation of the quantity of a particular product.
 
-    * Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in the settings file). Otherwise, delivery will be set at 10% of the sum total of their items.
+* Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in the settings file). Otherwise, delivery will be set at 10% of the sum total of their items.
 
-    * A Keep Shopping button that leads users back to the products page to continue shopping.
+* A Keep Shopping button that leads users back to the products page to continue shopping.
 
-    * A Secure Checkout button which leads users to the Checkout page where they can checkout securely using Stripe.
+* A Secure Checkout button which leads users to the Checkout page where they can checkout securely using Stripe.
 
-* The Product Management Page
+### The Product Management Page
 
-    The Product Management page is accessible only to admins. It features:
+The Product Management page is accessible only to admins. It features:
 
-    * The Add Product form which admins can use to add products to the database. The form displays all fields of the Product Model apart from any fields related to the products rating. Products can only be rated by users on the Product Detail page.
+* The Add Product form which admins can use to add products to the database. The form displays all fields of the Product Model apart from any fields related to the products rating. Products can only be rated by users on the Product Detail page.
 
-* The Profile Page
+### The Profile Page
 
-    The Profile page is where information about the user is stored. It features:
+The Profile page is where information about the user is stored. It features:
 
-    * A form in which the user's default delivery information is stored. This form is prefilled with the delivery information provided by the user during checkout and is stored in the database via the UserProfile model. It can be updated by the user on the Profile page.
+* A form in which the user's default delivery information is stored. This form is prefilled with the delivery information provided by the user during checkout and is stored in the database via the UserProfile model. It can be updated by the user on the Profile page.
 
-    * A table which displays the user's order history, including the Order Number, Date, Items purchased, and the Oder Total. The Order number is a link which leads to a separate Order History page. 
+* A table which displays the user's order history, including the Order Number, Date, Items purchased, and the Oder Total. The Order number is a link which leads to a separate Order History page. 
 
-* The Checkout Page
+### The Checkout Page
 
-    The Checkout page is where users can checkout securely using Stripe. It features:
+The Checkout page is where users can checkout securely using Stripe. It features:
 
-    * An OrderForm where users fill out delivery details which added to the database using the Order model.
+* An OrderForm where users fill out delivery details which added to the database using the Order model.
 
-        Included in this from is a payment field which is handled by Stripe.
+    Included in this from is a payment field which is handled by Stripe.
 
-    * A summary of the order in a table format which displays the item image, item name and quantity, subtotal and calculated Grand Total.
+* A summary of the order in a table format which displays the item image, item name and quantity, subtotal and calculated Grand Total.
 
-* The Checkout Success Page
+### The Checkout Success Page
 
-    Users are sent a confirmation email and are led to the Checkout Success page upon successful completion of an order. It features:
+Users are sent a confirmation email and are led to the Checkout Success page upon successful completion of an order. It features:
 
-    * A thank you message as well a message informing the user that a confirmation email has been sent to the email they input in the OrderForm. 
+* A thank you message as well a message informing the user that a confirmation email has been sent to the email they input in the OrderForm. 
 
-    * A detailed summary of the order including the product details, delivery details as well as billing information.
+* A detailed summary of the order including the product details, delivery details as well as billing information.
 
-* Order History Page
+### Order History Page
 
-        The Order History page is accessed via the Profile page by clicked on an Order Number. It displays a detailed summary of the respective order including the product details, delivery details as well as billing information.
+    The Order History page is accessed via the Profile page by clicked on an Order Number. It displays a detailed summary of the respective order including the product details, delivery details as well as billing information.
 
 ## Potential Future Features
 * Set Up Shop
