@@ -2,14 +2,18 @@
 * [Introduction](#Krafts)
 * [UX](#UX)
     * [User Stories](#User-Stories)
-        * [First Time User Goals](#First-Time-User-Goals)
-        * [Returning User Goals](#Returning-User-Goals)
-        * [Site Owner Goals](#Site-Owner-Goals)
 * [Structure](#Structure)
 * [Design](#Design)
 * [Wireframes](#Wireframes)
     * [Differences Between Wireframes and Final Product](#Differences-Between-Wireframes-and-Final-Product)
 * [Database Design](#Database-Design)
+    * [Product Model](#Product-Model)
+    * [Category Model](#Category-Model)
+    * [Comments Model](#Comments-Model)
+    * [Message Model](#Message-Model)
+    * [Order Model](#Order-Model)
+    * [OrderLineItem Model](#OrderLineItem-Model)
+    * [UserProfile Model](#UserProfile-Model)
 * [Features](#Features)
     * [The Header](#The-Header)
     * [The Home Page](#The-Home-Page)
@@ -78,6 +82,8 @@ Due to time contraints, the site is currently a single store ecommerce site offe
 ||Have an easy user experience|Manage my site without need for advanced computer skills|
 ||Facilitate the needs of customers|Retain custom and engage with customers when needed|
 
+[^ Back To Top ^](#Contents)
+
 
 ## Structure
 Krafts is a standard ecommerce store where users can browse a variety of products using an array or sorting, searching, and filtering methods. Users are met with a home screen from which they can get their particular user experience started easily. All areas of the site that are available to shoppers can be accessed via the fixed responsive navbar at the top of the page
@@ -91,6 +97,8 @@ Shoppers can also easily access the sites contact information, as well as send e
 The site owner has access to additional features including a Product Management page where they can add products to the site. As well as this, the site owner can edit and any product on the site via an additional edit and delete buttons displayed wherever a product is displayed.
 
 More on what each page does and how it functions will be discussed in the [Features](#Features) of this README.md file.
+
+[^ Back To Top ^](#Contents)
 
 ## Design
 * Colour Scheme
@@ -108,6 +116,8 @@ More on what each page does and how it functions will be discussed in the [Featu
 
 * Imagery
     * Images were sourced from sites that provide images for free. The images displayed on the Home page and for the individual products were carefully chosen to reflect the handmade ethos of the site. The images are stored in the database in both url and file format.
+
+[^ Back To Top ^](#Contents)
 
 ## Wireframes
 Below are rough wireframes for the main pages of the site.
@@ -132,110 +142,113 @@ Below are rough wireframes for the main pages of the site.
 
 * The Contact menu item was included in the header, while the "Clearance" navigation item was deemed unnecessary and removed.
 
+[^ Back To Top ^](#Contents)
+
 ## Database Design
 
 ![Database Design](/media/readme-imgs/dbdiagram.png)
 
 This site was created using a relational database to store its data. SQLite was used during the project's development, with the files being migrated to Postgress during deployment. The site's database models are discussed below.
 
-* Product Model
+### Product Model
 
-    The Product model is the most integral model in this project. It defines how each product featured on the site is stored in the database.
+The Product model is the most integral model in this project. It defines how each product featured on the site is stored in the database.
 
-    * The Product model is related to the Category model via a Foreign key. This ensures that each product is placed in a related category.
+* The Product model is related to the Category model via a Foreign key. This ensures that each product is placed in a related category.
 
-    * The 'sku' field is a CharField which is automatically generated each time a product is added to the database.
+* The 'sku' field is a CharField which is automatically generated each time a product is added to the database.
 
-    * The 'name', 'description', and 'price' fields (CharField, TextField, DecimalField) are all input by the admin while adding a product.
+* The 'name', 'description', and 'price' fields (CharField, TextField, DecimalField) are all input by the admin while adding a product.
 
-    * Images are uploaded in two formats; a URLField and ImageField ('image_url', 'image' fields) by the admin while adding a product.
+* Images are uploaded in two formats; a URLField and ImageField ('image_url', 'image' fields) by the admin while adding a product.
 
-    * The 'rating' field is an IntegerField that is updated each time a user rates a particular product. It is the sum total of every rate the product has received.
+* The 'rating' field is an IntegerField that is updated each time a user rates a particular product. It is the sum total of every rate the product has received.
 
-    * The 'rates' field is a ManyToManyField and is related to the User model and records all of the users (amount of rates) a product has received.
+* The 'rates' field is a ManyToManyField and is related to the User model and records all of the users (amount of rates) a product has received.
 
-    * That 'rating_average' is a DecimalField which is calculated by dividing the rating field by the rates field.
+* That 'rating_average' is a DecimalField which is calculated by dividing the rating field by the rates field.
 
-    This caculation is done in the rate_product() view in the products app's views file. In future versions of the site, I would opt to carry out this calculation using model methods.
+This caculation is done in the rate_product() view in the products app's views file. In future versions of the site, I would opt to carry out this calculation using model methods.
         
-* Category Model
+### Category Model
 
-    The Category model has the important job of sorting products into their respective categories. It as two fields.
+The Category model has the important job of sorting products into their respective categories. It as two fields.
 
-    * The 'name' field is a CharField representing the programmatic name of the category.
+* The 'name' field is a CharField representing the programmatic name of the category.
 
-    * The 'friendly_name' is a CharField used for front end representation of the categories.
+* The 'friendly_name' is a CharField used for front end representation of the categories.
 
-* Comments Model
+### Comments Model
 
-    The Comments model is used to store comments made by users under particular products.
+The Comments model is used to store comments made by users under particular products.
 
-    * The 'product' is a ForeignKey which relates the comment to its repective product.
+* The 'product' is a ForeignKey which relates the comment to its repective product.
 
-    * The 'name' field is a ForeignKey which relates the comment to the user who wrote the comment.
+* The 'name' field is a ForeignKey which relates the comment to the user who wrote the comment.
 
-    * The 'comment' field is a TextField which records the contents of the comment.
+* The 'comment' field is a TextField which records the contents of the comment.
 
-    * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the comment was made is automatically added.
+* The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the comment was made is automatically added.
 
-    * Finally, the 'parent' fields is a ForeignKey which relates the model to itself. By recording whether or not a comment is in reply to another comment, comments can be nested inside other comments in the comments section of the Product Detail page.
+* Finally, the 'parent' fields is a ForeignKey which relates the model to itself. By recording whether or not a comment is in reply to another comment, comments can be nested inside other comments in the comments section of the Product Detail page.
 
-        Two @property functions are defined below the Comments model in the products app's models file which determine whether a particular comment is a child or parent comment.
+    Two @property functions are defined below the Comments model in the products app's models file which determine whether a particular comment is a child or parent comment.
 
-* Message Model
+### Message Model
 
-    The Message model stores messages sent by users to the site owner. Any site user, including those who are not registered, can contact the site owner. Therefore, there is no ForeignKey attaching it to the User model.
+The Message model stores messages sent by users to the site owner. Any site user, including those who are not registered, can contact the site owner. Therefore, there is no ForeignKey attaching it to the User model.
 
-    * The 'full_name' field is a CharField which records the full name of the sender.
+* The 'full_name' field is a CharField which records the full name of the sender.
 
-    * The 'email' field is an EmailField and records the email address of the sender.
+* The 'email' field is an EmailField and records the email address of the sender.
 
-    * The 'message' field is a TextField and stores the contents of the sender's message.
+* The 'message' field is a TextField and stores the contents of the sender's message.
 
-* Order Model
+### Order Model
 
-    The Order model records each order made by a user.
+The Order model records each order made by a user.
 
-    * The 'order_number' CharField is automatically generated using the _generate_order_number() model method when an order is made.
+* The 'order_number' CharField is automatically generated using the _generate_order_number() model method when an order is made.
 
-    * The 'user_profile' ForeignKey relates the order to the user making the order. It is not a required field, which allows for non-registered users to make orders.
+* The 'user_profile' ForeignKey relates the order to the user making the order. It is not a required field, which allows for non-registered users to make orders.
 
-    * CharFields 'full_name', 'phone_number', 'postcode', 'town_or_city', 'street_address1', 'street_address1', and 'county' are input by the user when making an order.
+* CharFields 'full_name', 'phone_number', 'postcode', 'town_or_city', 'street_address1', 'street_address1', and 'county' are input by the user when making an order.
 
-    * The 'email' (EmailField) and 'country' (CountryField) fields are also input by the user when making an order.
+* The 'email' (EmailField) and 'country' (CountryField) fields are also input by the user when making an order.
 
-    * The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the order was made is automatically added.
+* The 'date' field is a DateTimeField with an auto_now_add parameter set to True, ensuring that the date and time the order was made is automatically added.
 
-    * The 'delivery_cost', 'order_total', and 'grand_total' CharFields are calculated using the update_total() model method when order is saved.
+* The 'delivery_cost', 'order_total', and 'grand_total' CharFields are calculated using the update_total() model method when order is saved.
 
-    * The 'original_cart' TextField records the original cart that created order to allow duplicate orders to be added.
+* The 'original_cart' TextField records the original cart that created order to allow duplicate orders to be added.
 
-    * The 'stripe_pid' CharField is a unique payment id that allows for duplicate orders to be added.
+* The 'stripe_pid' CharField is a unique payment id that allows for duplicate orders to be added.
 
-* OrderLineItem Model
+### OrderLineItem Model
 
-    The OrderLineItem model creates an order line item for each cart item and is then then attached to the order.
+The OrderLineItem model creates an order line item for each cart item and is then then attached to the order.
 
-    * The 'order' ForeignKey relates the order line item to its respective order.
+* The 'order' ForeignKey relates the order line item to its respective order.
 
-    * The 'product' ForeignKey records the specific product the line item is being created for via the Product model.
+* The 'product' ForeignKey records the specific product the line item is being created for via the Product model.
 
-    * The 'quantity' IntegerField records the quantity of a particular order product.
+* The 'quantity' IntegerField records the quantity of a particular order product.
 
-    * The 'lineitem_total' DecimalField is automatically calculated when the line item is saved using the save() model method.
+* The 'lineitem_total' DecimalField is automatically calculated when the line item is saved using the save() model method.
 
-* UserProfile Model
+### UserProfile Model
 
-    The UserProfile model records the default delivery information and order history of each user.
+The UserProfile model records the default delivery information and order history of each user.
 
-    * The 'user' OneToOneField relates the user profile to the user.
+* The 'user' OneToOneField relates the user profile to the user.
 
-    * The 'default_phone_number', 'default_street_address1', 'default_street_address2', 'defaul_town_or_city', 'county', and 'postcode' are optional CharFields.
+* The 'default_phone_number', 'default_street_address1', 'default_street_address2', 'defaul_town_or_city', 'county', and 'postcode' are optional CharFields.
 
-    * The 'default_country' CountryField is also optional.
+* The 'default_country' CountryField is also optional.
 
-    The create_or_update_user_profile() method in the profiles app's models file either creates or updates a user's profile each time a user object is saved or updated.
+The create_or_update_user_profile() method in the profiles app's models file either creates or updates a user's profile each time a user object is saved or updated.
 
+[^ Back To Top ^](#Contents)
 
 ## Features
 
@@ -355,7 +368,9 @@ Users are sent a confirmation email and are led to the Checkout Success page upo
 
 ### Order History Page
 
-    The Order History page is accessed via the Profile page by clicked on an Order Number. It displays a detailed summary of the respective order including the product details, delivery details as well as billing information.
+The Order History page is accessed via the Profile page by clicked on an Order Number. It displays a detailed summary of the respective order including the product details, delivery details as well as billing information.
+
+[^ Back To Top ^](#Contents)
 
 ## Potential Future Features
 * Set Up Shop
@@ -379,6 +394,8 @@ Users are sent a confirmation email and are led to the Checkout Success page upo
 * Pagination
 
     Pagination is another feature that didn't make the cut for this project. In future versions of the site, users will have access to pagination links at the bottom of the Products page which will reduce scrolling on larger search results.
+
+[^ Back To Top ^](#Contents)
 
 ## Technologies Used 
 
@@ -469,6 +486,8 @@ Users are sent a confirmation email and are led to the Checkout Success page upo
 
 * [Am I Responsive](http://ami.responsivedesign.is/)
     * Am I Responsive was used to produce the image displaying the website on different screen sizes at the beginning of this document.
+
+[^ Back To Top ^](#Contents)
 
 ## Testing
 Information on testing can be found in a separate [TESTING.md](/TESTING.md) file.
@@ -653,6 +672,8 @@ To do this, follow these steps:
 
     -pip install -r requirements.txt
 
+[^ Back To Top ^](#Contents)
+
 ## Credits
 
 ### Code
@@ -679,3 +700,5 @@ A variety of online material was consulted in the making of this product, from p
 ### Acknowledgements
 
 I would like to thank the slack community for their assistance, tutor support for their patience and extensive knowledge, as well as my mentor Aaron Sinnott for his sound advice and insights.
+
+[^ Back To Top ^](#Contents)
