@@ -131,7 +131,8 @@ The results were as follows:
 |FOOTER|Click all links in the footer to navigate to their respective destinations|All links lead to their correct destinations||PASS|Depending on screen size, footer may appear to float. This is documented in the Remaining Bugs section of this file.|
 |PRODUCTS PAGE|Observe the page on larger screens|1. The product cards should be displayed in rows of 4||PASS||
 |||2. The side nav should be visible and fixed||PASS||
-|||3. The filter selector box should appear in the correct location||PASS||
+|||3. The filter selector box should appear in the top right of the products container||PASS||
+|||4. A link to the home page, followed by a search results count should appeasr on the top left of the products container||PASS||
 ||Toggle the filter selector box|The selector box should drop down the correct sorting options||PASS||
 ||Click each sorting option in the selector box|Appropriately filtered products in the correct order should be displayed in the products container||PASS||
 ||Click each category in the side nav|1. All subcategories of clicked category should be highlighted in the side nav||PASS||
@@ -145,7 +146,7 @@ The results were as follows:
 ||Click the "Edit" icon of any product to navigate to the Edit Product Page.|The "Edit" icon should lead to the Edit Product page||PASS||
 ||Click the "Delete" icon of any product.|A modal requesting confirmation of deletion should appear||PASS||
 ||Click the "Delete" button of the modal.|The product should be deleted and a success confirmation toast should be displayed under the cart icon||PASS||
-||Observe the page on medium screen|||PASS||
+||Observe the page on medium screen|The products cards should be displayed in rows of 2 or 3.||PASS||
 |PRODUCT DETAIL PAGE||||||
 |CART|||||||
 |PRODUCT MANAGEMENT PAGE||||||
