@@ -132,7 +132,7 @@ The results were as follows:
 |PRODUCTS PAGE|Observe the page on larger screens|1. The product cards should be displayed in rows of 4||PASS||
 |||2. The side nav should be visible and fixed||PASS||
 |||3. The filter selector box should appear in the top right of the products container||PASS||
-|||4. A link to the home page, followed by a search results count should appeasr on the top left of the products container||PASS||
+|||4. A link to the home page, followed by a search results count should appear on the top left of the products container||PASS||
 ||Toggle the filter selector box|The selector box should drop down the correct sorting options||PASS||
 ||Click each sorting option in the selector box|Appropriately filtered products in the correct order should be displayed in the products container||PASS||
 ||Click each category in the side nav|1. All subcategories of clicked category should be highlighted in the side nav||PASS||
@@ -146,18 +146,64 @@ The results were as follows:
 ||Click the "Edit" icon of any product to navigate to the Edit Product Page.|The "Edit" icon should lead to the Edit Product page||PASS||
 ||Click the "Delete" icon of any product.|A modal requesting confirmation of deletion should appear||PASS||
 ||Click the "Delete" button of the modal.|The product should be deleted and a success confirmation toast should be displayed under the cart icon||PASS||
-||Observe the page on medium screen|The products cards should be displayed in rows of 2 or 3.||PASS||
-|PRODUCT DETAIL PAGE||||||
-|CART|||||||
+||Observe the page on medium screen|The product cards should be displayed in rows of 2 or 3.||PASS||
+||Observe the page on small screen|1. The product cards should be stacked vertically.||PASS||
+|||2. The filter selector box should appear at the top of the products container, with the search result count displayed directly beneath it||PASS||
+|PRODUCT DETAIL PAGE|Observe the Product Detail page of any particular product on medium and larger screens|1. The product image and product details & actions should appear inline in two columns||PASS||
+|||2. The product deatails column should includ the product's name, price, category, rating (represented by stars), and description||PASS||
+|||3. An input form to ajust the quantity of the product should appear directly under the product description||PASS||
+|||4. "Add To Cart" and "Keep Shopping" buttons should appear directly under the quantity input form, stacked virtically||PASS||
+|||3. "Edit This Product" and "Delete" this product should be displayed directly under the "Add To Cart" and "Keep Shopping" buttons only to admin users||PASS||
+|||4. A rating form, with inputs represented by stars, will be displayed directly under the row containing the product image and product details & actions buttons||PASS||
+|||5. The message "You have already rated this product" should appear in place of this form if the user has already rated this product"||PASS||
+|||6. A message instructing the user to sign in in order to to rate the product should appear in place of this form, should the user not be logged in.||PASS||
+|||7. A comment form with one input for users to write a comment, along "Cancel" and "Post" buttons beneath, should appear directly under the rating form.||PASS||
+|||8. A message instructing the user to sign in in order to comment on the product appear in place of the comment form, should the user not be loggin in||PASS||
+|||9. A comments section displaying all comments made about the product should appear directly under the comment form||PASS||
+|||10. Each comment should display the author's name, date and time of posting, as well as the comment itself||PASS||
+|||11. "Edit" and "Delete" buttons should appear in the top right of the comment if the user is also the author of the comment||PASS||
+|||12. A "Reply" button should appear at the bottom of the comment only to admin users.||PASS||
+|||13. Replies by admin users are nested and indented beneath the comments they are in reply to.||PASS||
+|||14. A message encouraging the user to be the first to comment on the product should appear in place of the comments section, should there not be any comments to display||PASS||
+||Observe the Product Detail page of any particular product on smaller screens|The product image and product details & actions should appear stacked virtically||PASS||
+||Change the product quantity by clicking the increment and decrement buttons on the of the input form|1. The quantity should not go below one, or above 99.||PASS| This has stopped working|
+||Change the product quantity to an invalid number by manually typing a specific quantity into the input box. Then attempt to add the product to the cart.|An error message should appear indicating the proper value range for the product.||PASS||
+||Add the product to the cart|1. A success toast should appear indicating that the product has been successfully added to the cart, with the cart summary below including the product that has just been added||PASS||
+||Rate the product by clicking of the stars in the rating form|1. The stars' opacity should change on hover||PASS||
+|||2. The product should appear in the cart||PASS||
+|||2. A success toast should appear informing the user they have successfully rated the product||PASS||
+|||3. The product's rating should be updated by the amount the user has rated it by||PASS||
+|||4. The product's average rating should be adjusted appropriatly||PASS||
+|||5. The rating form should be replaced by a message indicating the user has already rated the product||PASS||
+||Comment on the product|1. A success message informing the user that they have successfully commented on the product should appear in a success toast||PASS||
+|||2. The comment should appear at the top of the comment form as it should be the most recent comment||PASS||
+||Click the "Edit" button on the comment|An edit comment form should appear directly below the comment being edited.||PASS||
+||Edit the comment|1. A success toast should appear indicated that the comment has been successfully edited||PASS||
+||Edit the comment|The edited comment should appear at the top of the comments section||PASS||
+||Click the "Delete" button of the comment to delete it.|1. A success toast should appear indicating the comment has been successfully deleted||PASS||
+|||2. The comment should be removed from the comments section||PASS||
+||Click the reply button of any comment|A reply form should appear directly beneath the comment being replied to||PASS||
+||Reply to the comment|1. A success toast should appear indicating that the reply has successfully been posted||PASS||
+|||2. The reply should be nested and indented beneath the comments that has been replied to||PASS||
+|CART|Observe the Shopping Cart Page on large and medium screens|The products should be displayed in a tables, with the cart total, delivery information, grand total, and Keep Shopping & Secure checkout buttons displayed beneath||Pass||
+||Observe the table|The table should organise the products into 4 columns; Product Info for product image, name & sku, Price for product price, Quantity for a quantity input form displaying current product quantity and a means to adjust it, and Subtotal which displays the subtotal for a particular product ||PASS||
+||Change the product quantity by clicking the increment and decrement buttons on the of the input form|1. The quantity should not go below one, or above 99.||PASS||
+||Change the product quantity to an invalid number by manually typing a specific quantity into the input box and clicking "Update".|An error message should appear indicating the proper value range for the product.||PASS|This has stopped working|
+||Click the "Remove" button of any cart item|1. A success toast indicating that the item has been successfully removed should appear||PASS||
+|||2. The item should be removed from the cart||PASS||
+||Click the "Keep Shopping" and "Secure Checkout buttons to verify that they lead to their correact respective destinations|The "Keep Shopping" and "Secure Checkout" buttons should lead to their correct destinations||PASS||
 |PRODUCT MANAGEMENT PAGE||||||
 |PROFILE PAGE||||||
 |CHECKOUT PAGE||||||
 |CHECKOUT SUCCESS PAGE||||||
 |ORDER HISTORY PAGE||||||
+|SIGN IN PAGE||||||
+|SIGN UP PAGE||||||
 |SMALLER SCREEN FEATURES||||||
 
 
 After doing this, go back over and determine that certain features are available to certain user types
+Where rating is mentioned, ensure that, instead of a rating, "No rating" will appear for products that haven't be rated
 
 
 ### Features Specific to Smaller Screens

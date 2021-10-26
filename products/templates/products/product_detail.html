@@ -16,7 +16,7 @@
     <!-- White overlay to cover up cover image -->
     <div class="overlay"></div>
     <!-- Bootstrap grid -->
-    <div class="container-fluid">
+    <div class="container-fluid m-0">
         <!-- ROW with 2 columns for product image and details -->
         <div class="row">
             <!-- COl1: Product Image -->
@@ -154,6 +154,7 @@
         <hr class="w-50">
         {% if request.user in product.rates.all %}
             <h4 class="text-center">You have already rated this product.</h4>
+            <hr class="w-50">
         {% else %}
             {% if request.user.is_authenticated %}
                 <!-- ROW with one column for rating product -->
