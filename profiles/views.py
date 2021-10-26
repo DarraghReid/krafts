@@ -13,13 +13,13 @@ def profile(request):
     """ Display the user's profile. """
 
     # Get user's profile info
-    profile = get_object_or_404(UserProfile, user=request.user)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
 
     # If the request method is POST
     if request.method == 'POST':
         # Create new instance of UserProfileForm using POST data
         # to update profile instance above
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, instance=user_profile)
 
         # If form is valid
         if form.is_valid():
@@ -32,15 +32,16 @@ def profile(request):
         # If form is not valid
         else:
             # Display error message to the user
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
 
     # Otherwise
     else:
         # Populate form with profile info to send to template
-        form = UserProfileForm(instance=profile)
+        form = UserProfileForm(instance=user_profile)
 
     # Get user's orders to return to template
-    orders = profile.orders.all()
+    orders = user_profile.orders.all()
 
     # Get template to render
     template = 'profiles/profile.html'

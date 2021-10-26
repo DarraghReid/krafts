@@ -20,7 +20,8 @@ class ProductForm(forms.ModelForm):
         label="Image", required=False, widget=CustomClearableFileInput)
 
     # Set min and max values for rating field
-    rating = forms.IntegerField(initial=0, required=False, min_value=0, max_value=5)
+    rating = forms.IntegerField(
+        initial=0, required=False, min_value=0, max_value=5)
 
     # Override __intit__ method to customize category spelling
     def __init__(self, *args, **kwargs):
@@ -76,7 +77,8 @@ class CommentForm(forms.ModelForm):
         self.fields['comment'].label = False
         # Set form placeholder attributes to respective
         # value in placeholder dict above
-        self.fields['comment'].widget.attrs['placeholder'] = placeholders['comment']
+        self.fields['comment'].\
+            widget.attrs['placeholder'] = placeholders['comment']
         # Add 'border-black rounded-0' classes to match site styles
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'

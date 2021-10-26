@@ -146,7 +146,9 @@ def add_comment(request, product_id):
     # If form is not valid
     else:
         # Display error message to the user
-        messages.error(request, 'Failed to add comment. Please ensure the form is valid.')
+        messages.error(
+            request,
+            'Failed to add comment. Please ensure the form is valid.')
 
     # Redirect to new product's detail page using product's id
     return redirect(reverse('product_detail', args=[product.id]))
@@ -183,9 +185,11 @@ def reply_comment(request, product_id, comment_id):
     # If form is not valid
     else:
         # Display error message to the user
-        messages.error(request, 'Failed to add reply. Please ensure the form is valid.')
+        messages.error(
+            request,
+            'Failed to add reply. Please ensure the form is valid.')
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/product_detail.html')
 
 
 @login_required
@@ -215,7 +219,9 @@ def edit_comment(request, comment_id, product_id):
     # If the form is not valid
     else:
         # Display error message to user
-        messages.error(request, 'Failed to update comment. Please ensure the form is valid.')
+        messages.error(
+            request,
+            'Failed to update comment. Please ensure the form is valid.')
 
 
 @login_required
@@ -248,7 +254,9 @@ def add_product(request):
         # If form is not valid
         else:
             # Display error message to the user
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. Please ensure the form is valid.')
 
     # Otherwise
     else:
@@ -300,7 +308,9 @@ def edit_product(request, product_id):
         # If the form is not valid
         else:
             # Display error message to user
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update product. Please ensure the form is valid.')
     # If the request is not POST
     else:
         # Populate the form with product information
@@ -424,7 +434,9 @@ def rate_product(request, product_id):
     # If the form is not valid
     else:
         # Display error message to user
-        messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+        messages.error(
+            request,
+            'Failed to update product. Please ensure the form is valid.')
 
     # Redirect to new product's detail page using product's id
     return redirect(reverse('product_detail', args=[product.id]))

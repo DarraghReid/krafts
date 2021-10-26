@@ -61,7 +61,8 @@ class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     # Parent field indicates if comment is being replied to, or is in reply to
     parent = models.ForeignKey(
-        "self", related_name="+", on_delete=models.CASCADE, blank=True, null=True)
+        "self", related_name="+",
+        on_delete=models.CASCADE, blank=True, null=True)
 
     @property
     def children(self):
@@ -80,6 +81,7 @@ class Comment(models.Model):
         else:
             return False
 
-    # String method takes in Comment model, returns related product & user names
+    # String method takes in Comment model,
+    # returns related product & user names
     def __str__(self):
         return '%s' % (self.pk)
