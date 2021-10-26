@@ -454,6 +454,10 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+.bg-404 {
+    margin-top: 250px;
+}
+
 /* -------------------------------- Media Queries: width */
 
 /* Slightly larger container on xl screens */
