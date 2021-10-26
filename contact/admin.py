@@ -2,8 +2,10 @@ from django.contrib import admin
 from .models import Message
 
 
-# ModelAdmin is built in
 class MessageAdmin(admin.ModelAdmin):
+    """
+    Instruct admin what to display
+    """
     # list_display tuple tells admin which fields to display in admin
     list_display = (
         'full_name',

@@ -3,9 +3,9 @@ from django.contrib import messages
 # Django checks if user logged in before executing view
 # If not, user is redirected to login page
 from django.contrib.auth.decorators import login_required
+from checkout.models import Order
 from .models import UserProfile
 from .forms import UserProfileForm
-from checkout.models import Order
 
 
 @login_required
@@ -58,6 +58,9 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """
+    Retrieve and dispaly user's order history
+    """
     # Retrieve order
     order = get_object_or_404(Order, order_number=order_number)
 

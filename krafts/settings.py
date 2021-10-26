@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-import dj_database_url
 from pathlib import Path
+import dj_database_url
 if os.path.exists("env.py"):
     import env
 
@@ -81,7 +81,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # Add root templates directory and custom Allauth directory to template DIR setting
+            # Add root templates directory and custom
+            # Allauth directory to template DIR setting
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
@@ -89,13 +90,16 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                # Allow Django and Allauth to access http request object in templates
+                # Allow Django and Allauth to access
+                # http request object in templates
                 # (eg, access request.user in django templates)
-                # Required from Django by Allauth as Allauth templates use request object frequently
+                # Required from Django by Allauth as Allauth
+                # templates use request object frequently
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # To access noimage file in media folder for products with no image
+                # To access noimage file in media
+                # folder for products with no image
                 'django.template.context_processors.media',
                 'cart.contexts.cart_contents'
             ],
@@ -143,7 +147,8 @@ WSGI_APPLICATION = 'krafts.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# When app is runing on Heroku (DATABASE_URL environment variable defined there)
+# When app is runing on Heroku
+# (DATABASE_URL environment variable defined there)
 if 'DATABASE_URL' in os.environ:
     # Connect to Postrgres
     DATABASES = {
@@ -195,10 +200,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# Tuple telling Django where all static files are located (in the project level 'static' folder)
+# Tuple telling Django where all static files
+# are located (in the project level 'static' folder)
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-# Use static function in urls.py to add media url to list of urls so Django can see it
+# Use static function in urls.py to add media
+# url to list of urls so Django can see it
 MEDIA_URL = '/media/'
 # All uploaded media files go here
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -240,7 +247,8 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 
 # Set stripe currency to usd
 STRIPE_CURRENCY = 'usd'
-# Get STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY and STRIPE_WH_SECRET from environment,
+# Get STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY
+# and STRIPE_WH_SECRET from environment,
 # give them empty default values
 # Getting them from Gitpod environment keeps secret key safe from exposure
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')

@@ -7,8 +7,11 @@ from products.models import Product
 from profiles.models import UserProfile
 
 
-# Each order will be created according to this model, as input by user
 class Order(models.Model):
+    """
+    Create model order, as input by user
+    """
+
     # Order number automatically generated, should not be edited
     order_number = models.CharField(max_length=32, null=False, editable=False)
     # Foreign key to UserProfile model, not needed to make purchases
@@ -85,20 +88,39 @@ class Order(models.Model):
         return self.order_number
 
 
-# OrderLineItem created for each cart item, then attached to/updates Order
 class OrderLineItem(models.Model):
+    """
+    OrderLineItem created for each cart item, then attached to/updates Order
+    """
+
     # Line item's order. related_name allows access to line items from Order
     order = models.ForeignKey(
-        Order, null=False, blank=False,
-        on_delete=models.CASCADE, related_name='lineitems')
+        Order,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name='lineitems'
+    )
     # Line item's product, quantity, total cost
     product = models.ForeignKey(
-        Product, null=False, blank=False, on_delete=models.CASCADE)
-    quantity = models.IntegerField(null=False, blank=False, default=0)
+        Product,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE
+    )
+    quantity = models.IntegerField(
+        null=False,
+        blank=False,
+        default=0
+    )
     # Automatically calculated when line item is saved, should not be edited
     lineitem_total = models.DecimalField(
-        max_digits=6, decimal_places=2,
-        null=False, blank=False, editable=False)
+        max_digits=6,
+        decimal_places=2,
+        null=False,
+        blank=False,
+        editable=False
+    )
 
     def save(self, *args, **kwargs):
         """

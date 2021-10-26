@@ -3,7 +3,15 @@ from .models import Message
 
 
 class ContactForm(forms.ModelForm):
+    """
+    Form for users to contact site owner
+    """
+
     class Meta:
+        """
+        Give form information about model
+        """
+
         # Model that form is assossiated with
         model = Message
         # Fields to be rendered

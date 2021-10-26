@@ -1,16 +1,16 @@
+import json
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from .forms import Order, OrderForm
-from products.models import Product
-from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
-from .models import OrderLineItem
-from cart.contexts import cart_contents
 import stripe
-import json
+from cart.contexts import cart_contents
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
+from products.models import Product
+from .forms import Order, OrderForm
+from .models import OrderLineItem
 
 
 @require_POST
@@ -33,15 +33,19 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     # In case of error
-    except Exception as e:
+    except Exception as err:
         # Add error message
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         # Display error content & bad request status
-        return HttpResponse(content=e, status=400)
+        return HttpResponse(content=err, status=400)
 
 
 def checkout(request):
+    """
+    Get order form information
+    create an order in the database.
+    """
     # Get public and secret keys from settings
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY

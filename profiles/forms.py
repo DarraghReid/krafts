@@ -3,7 +3,14 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    Form to upload user profile information
+    """
     class Meta:
+        """
+        Give form information about the model/
+        what to display
+        """
         model = UserProfile
         # Render all fields except for user field
         exclude = ('user',)

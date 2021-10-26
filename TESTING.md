@@ -12,17 +12,18 @@
     * [Returning User Goals](#Returning-User-Goals)
     * [Site Owner Goals](#Site-Owner-Goals)
 * [Testing Features](#Testing-Features)
-    * [Features Available to Adult Users, Underage Users, and Admin Users](#Base-Template-Features)
-        * [Base Template Features](#Base-Template-Features)
-        * [Home Page Features](#Home-Page-Features)
-        * [Profile Page Features](#Profile-Page-Features)
-        * [Add Joke Page Features](#Add-Joke-Page-Features)
-        * [Edit Joke Page Features](#Edit-Joke-Page-Features)
-        * [Sign In Page Features](#Sign-In-Page-Features)
-    * [Features Specific to Admin](#Features-Specific-to-Admin)
-    * [Features Specific to Not Signed In Users](#Features-Specific-to-Not-Signed-In-Users)
-    * [Features Specific to Smaller Screens](#Features-Specific-to-Smaller-Screens)
-    * [Other Features](#Other-Features)
+    * [Header](#Header)
+    * [Home Page](#HOME-PAGE)
+    * [Products Page](#PRODUCTS-PAGE)
+    * [Product Detail Page](#PRODUCT-DETAIL-PAGE)
+    * [Product Management Page](#PRODUCT-MANAGEMENT-PAGE)
+    * [Profile Page](#PROFILE-PAGE)
+    * [Checkout Page](#CHECKOUT-PAGE)
+    * [Checkout Success Page](#CHECKOUT-SUCCESS-PAGE)
+    * [Order History Page](#ORDER-HISTORY-PAGE)
+    * [Sign In Page](#SIGN-IN-PAGE)
+    * [Sign Up Page](#SIGN-UP-PAGE)
+    * [Verify Account Page](#VERIFY-ACCOUNT-PAGE)
 * [Site Responsiveness](#Site-Responsiveness)
 * [User Testing](#User-Testing)
     * [Known Bugs and Issues Section](#known-bugs-and-issues)
@@ -113,7 +114,11 @@ The results were as follows:
 ## Testing Features
 
 ### Features Available To All Users
-||Test here||image|PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### HEADER
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |HEADER|Toggle all dropdown menu items|All dropdown items should toggle their respective menu items|image|PASS||
@@ -123,12 +128,26 @@ The results were as follows:
 |||3. The success toast should pop down from cart icon displaying a success message and cart summary||PASS||
 |||4. The progress bar and free delivery delta should update in proportion to the price of the item||PASS|The progress bar occasionally collapses. If this happens, hard reload the page and it should reappear|
 ||Enter a key word into the search bar|Products with the key word in their description and/or name should be displayed on the Products page|image|PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### HOME PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
 |HOME PAGE|Observer the carousel|1. The carousel should auto slide||PASS||
 |||2. The carousel can be controled by clicking the navigation bars at the bottom||PASS||
 |||3. The correct text and images are displayed||PASS||
 ||Click each image-based category link to navigate to their respective destinations|The category links should lead to their correct destinations||PASS||
 ||Scroll to the bottom of the page|The category links should have a parallex effect||PASS||
 |FOOTER|Click all links in the footer to navigate to their respective destinations|All links lead to their correct destinations||PASS|Depending on screen size, footer may appear to float. This is documented in the Remaining Bugs section of this file.|
+
+
+[^ Back To Top ^](#Contents)
+
+### PRODUCTS PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
 |PRODUCTS PAGE|Observe the page on larger screens|1. The product cards should be displayed in rows of 4||PASS||
 |||2. The side nav should be visible and fixed||PASS||
 |||3. The filter selector box should appear in the top right of the products container||PASS||
@@ -149,8 +168,15 @@ The results were as follows:
 ||Observe the page on medium screen|The product cards should be displayed in rows of 2 or 3.||PASS||
 ||Observe the page on small screen|1. The product cards should be stacked vertically.||PASS||
 |||2. The filter selector box should appear at the top of the products container, with the search result count displayed directly beneath it||PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### PRODUCT DETAIL PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
 |PRODUCT DETAIL PAGE|Observe the Product Detail page of any particular product on medium and larger screens|1. The product image and product details & actions should appear inline in two columns||PASS||
-|||2. The product deatails column should includ the product's name, price, category, rating (represented by stars), and description||PASS||
+|||2. The product deatails column should includ the product's name, price, category, rating (represented by stars/"no rating" if the product has received any ratings), and description||PASS||
 |||3. An input form to ajust the quantity of the product should appear directly under the product description||PASS||
 |||4. "Add To Cart" and "Keep Shopping" buttons should appear directly under the quantity input form, stacked virtically||PASS||
 |||3. "Edit This Product" and "Delete" this product should be displayed directly under the "Add To Cart" and "Keep Shopping" buttons only to admin users||PASS||
@@ -185,6 +211,13 @@ The results were as follows:
 ||Click the reply button of any comment|A reply form should appear directly beneath the comment being replied to||PASS||
 ||Reply to the comment|1. A success toast should appear indicating that the reply has successfully been posted||PASS||
 |||2. The reply should be nested and indented beneath the comments that has been replied to||PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### CART
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
 |CART|Observe the Shopping Cart Page on large and medium screens|The products should be displayed in a tables, with the cart total, delivery information, grand total, and Keep Shopping & Secure checkout buttons displayed beneath||Pass||
 ||Observe the table|The table should organise the products into 4 columns; Product Info for product image, name & sku, Price for product price, Quantity for a quantity input form displaying current product quantity and a means to adjust it, and Subtotal which displays the subtotal for a particular product ||PASS||
 ||Change the product quantity by clicking the increment and decrement buttons on the of the input form|1. The quantity should not go below one, or above 99.||PASS||
@@ -192,49 +225,112 @@ The results were as follows:
 ||Click the "Remove" button of any cart item|1. A success toast indicating that the item has been successfully removed should appear||PASS||
 |||2. The item should be removed from the cart||PASS||
 ||Click the "Keep Shopping" and "Secure Checkout buttons to verify that they lead to their correact respective destinations|The "Keep Shopping" and "Secure Checkout" buttons should lead to their correct destinations||PASS||
-|PRODUCT MANAGEMENT PAGE||||||
-|PROFILE PAGE||||||
-|CHECKOUT PAGE||||||
-|CHECKOUT SUCCESS PAGE||||||
-|ORDER HISTORY PAGE||||||
-|SIGN IN PAGE||||||
-|SIGN UP PAGE||||||
-|SMALLER SCREEN FEATURES||||||
 
 
-After doing this, go back over and determine that certain features are available to certain user types
-Where rating is mentioned, ensure that, instead of a rating, "No rating" will appear for products that haven't be rated
+[^ Back To Top ^](#Contents)
+
+### PRODUCT MANAGEMENT PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|PRODUCT MANAGEMENT PAGE: Add|Observe the Product Management page for adding a product|The Add A Product form should be correcly formatted, with the correct fields displayed appropriately, required fields marked, any the the appropriate fields autofilled.||PASS||
+||Add a product|1. A success toast should appear indicating that the product has been successfully added.||PASS||
+|||2. The product's individual Product Detail page should be redirected to||PASS||
+|Add a product with invalid details||1. The form should not submit||PASS||
+|||2. A tooltip should appear instructing to fill in any required field that was left blank||PASS||
+|||3. In the case of invalid information being input, an error toast should appear indicating that adding the product had failed, and instructing to check that the form is valid||PASS||
+|PRODUCT MANAGEMENT PAGE: Edit|Observe the Product Management page for editing a product|1. The form should be autofilled with the details of the product being editd||PASS||
+|||2. An information toast should appear indicating which product is being edited||PASS||
+||Edit the product|1. The product's Product Detail page should be redirected to||PASS||
+|||2. A success toast should appear indicating that the product has been successfully updated.||PASS||
+|||3. The update made to the product should appear in the product's details.||PASS||
 
 
-### Features Specific to Smaller Screens
-![Your Jokes](static/images/jj-small-screens.jpeg)
-1. Click the burger icon to validate that the navigation links drop down.
-2. Validate that the dropdown menu displays the same menu items and the menu on larger screens.
-3. Validate that all menu items work correctly
+[^ Back To Top ^](#Contents)
 
-### Other Features
-![Pagination](static/images/jj-pagination.png)
-1. Validate that, if there are more than 8 items to be displayed, they will be paginated, with a maximum of 8 items being displayed at a time.
-2. Hover over all joke-action icons and validate that they rotate.
-3. Hover over all links and validate that they slightly decrease in size.
-4. Hover over all buttons and validate that they change colour.
-5. Enter invalid URL and verify that:
-    * A 404 page displays
-    * The laughing emoji link brings the user back home
-    * The logos in the header and footer bring the user back home
-    * All menu items in the nav bar work.
-    * All links in the footer work
-6. Validate that 500 page works by:
-    * Setting debug to False in app.py
-    * Returning 1 / 0 in get_jokes() view
-    * Navigating to page where function is used and validate that:
-        * A 500 page displays
-        * The laughing emoji link brings the user back home
-        * The logos in the header and footer bring the user back home
-        * All menu items in the nav bar work
-        * All links in the footer work
+### PROFILE PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|PROFILE PAGE|Observe the Profile page of an empty profile.|1. The Default Delivery Information form should be correctly rendered and empty.||PASS||
+|||2. The Order History table is empty ||PASS||
+|||3. The Default Delivery form and Order History table are displayed inline on larger and medium screen, and stacked vertically on smaller screens. ||PASS||
+||Make an order and check the "Save Delivery Information checkbox|The profile Default Delivery Information form should be pre-filled with the delivery details provided during checkout||PASS||
+||Edit the Default Delivery form and submit|A success toast should appear indicating that the profile has been updated successfully||PASS||
+||Observe the Profile page of a profile with saved information and an order history.|1. The Default Delivery Information form should be correctly rendered and pre-filled.||PASS||
+|||2. The Order History table displayed past orders in the correct format.||PASS||
 
-The above tests were carried out on both smaller and larger screens and resulted in a pass.
+
+[^ Back To Top ^](#Contents)
+
+### CHECKOUT PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|CHECKOUT PAGE|Observe the checkout page with an empty profile|1. The checkout form should render empty||PASS||
+|||2. The order summary should display the product image, name, quantity, subtotal, along witht the order total, delivery cost (if any) and the grand total.||PASS||
+|||3. The order summary and checkout form should be displayed inline on medium and large screen, and stacked vertically on smaller screens.||PASS||
+||Submit a valid order|1. A success toast should appear indicating that the order has been successfully places, display the order number, and inform that a confirmation email has been sent to the email entered during checkout||PASS||
+|||2. The page should redirect to the Checkout Success page||PASS||
+|||3. A confirmation email should be sent to the email provided in the checkout form||PASS||
+||Submit an invalid order|1. A tootip should indicate if a field has been left black||PASS||
+|||2. An incorrect card number should show up in red, with a message below the card number input indicating that the card details are invalid.||PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### CHECKOUT SUCCESS PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|CHECKOUT SUCCESS PAGE|Observe the Checkout Success page|1. A thank you message followed by a messesage indicating that a confirmation email has been sent to the email provided durint checkout||PASS||
+|||2. An order summary containing all of the appropriate order details is displayed, followed by a "Back To Shop" button||PASS||
+||Click the "Back To Shop" button to navigate to the Products page|The "Back To Shop" button should navigate to the Products page||PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### ORDER HISTORY PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|ORDER HISTORY PAGE|Observe the Order History page|It should be a replica of the Checkout Success page of the particular order that was clicked||PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### SIGN IN PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|SIGN IN PAGE|Observe the Sign In page|1. The sign in form should be correctly rendered with all the correct fields displayed, including a "Remember Me" checkbox.||PASS||
+|||2. "Sign In" and "Home" buttons should appear below the form||PASS||
+|||3. A "Forgot password" link should appear below the "Sign In" and "Home" buttons||PASS||
+|||4. A link to sign up should appear above the form||PASS||
+||Click the sign up link to navigate to the Sign Up form|The link should navigate to the Sign Up form||PASS||
+||Click the "Forgot password?" link|The link should navigate to the Password Reset form||PASS||
+||Sign into an account|The page should redirect to the Home Page||PASS||
+||Enter invalid information into the Sign In form|An error indicating that an incorrect username and/or password has been entered||PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### SIGN UP PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|SIGN UP PAGE|Observe the Sign Up page|1. The sign up form should be correctly rendered with all the correct fields displayed.||PASS||
+|||2. "Sign Up" and "Back To Login" buttons should appear below the form||PASS||
+|||4. A link to Sign In should appear above the form||PASS||
+||Click the Sign In link to navigate to the Sign In form|The link should navigate to the Sign In form||PASS||
+||Click the "Back To Login" button|The button should navigate to the Sign In form||PASS||
+||Register an account|The page should redirect to the Accounts page where it is indicated that an email from which the user can verify their account has been sent to the email provided during registration||PASS||
+||Enter invalid information into the Sign Up form|An error indicating that an incorrect username and/or password has been entered||PASS||
+
+
+[^ Back To Top ^](#Contents)
+
+### VERYIFY ACCOUNT PAGE
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|VERIFY ACCOUNT|Observe the accounts/confirm email page|A message instructing to press the confirm button to verify the email provided during registration should be visible||PASS||
+||Click the "Confirm" button|1. The page should be redirected to the Sign In page||PASS||
+|||2. A success toast should appear indicating that the email has been confirmed||PASS||
+
+
 
 ## Site Responsiveness
 

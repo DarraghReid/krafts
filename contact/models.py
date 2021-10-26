@@ -3,6 +3,10 @@ from django.db import models
 
 # Each message will be added according to this model
 class Message(models.Model):
+    """
+    A model for Messages
+    """
+
     # Name of user sending message
     full_name = models.CharField(max_length=254, null=False, blank=False)
     # User's email address

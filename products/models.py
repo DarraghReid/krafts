@@ -18,8 +18,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    # Model method returns friendly name
     def get_friendly_name(self):
+        """
+        Model method returns friendly name
+        """
         return self.friendly_name
 
 

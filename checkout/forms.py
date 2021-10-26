@@ -3,7 +3,13 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Form for users to submit order information
+    """
     class Meta:
+        """
+        Give form information about the model
+        """
         # Model that form is assossiated with
         model = Order
         # Fields to be rendered

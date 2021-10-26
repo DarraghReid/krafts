@@ -2,16 +2,20 @@ from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
-# Add/edit line items in admin from inside Order model
 class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    Add/edit line items in admin from inside Order model
+    """
     # Access OrderLineItem (see inlines var in OrderAdmin below)
     model = OrderLineItem
     # lineitem_total not to be edited
     readonly_fields = ('lineitem_total',)
 
 
-# Admin interface for orders
 class OrderAdmin(admin.ModelAdmin):
+    """
+    Admin interface for orders
+    """
     # Access OrderLineItem from OrderAdmin interface in Admin
     inlines = (OrderLineItemAdminInline,)
 

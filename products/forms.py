@@ -7,8 +7,10 @@ class ProductForm(forms.ModelForm):
     """ Create Product form using Django instead of directly in the HTML.
         ProductForm to be imported and rendered in views.py """
 
-    # Meta class defines model and fields
     class Meta:
+        """
+        Meta class defines model and fields
+        """
         # Tell form which model it is associated with
         model = Product
         # Tell form which fields is should render:
@@ -51,8 +53,11 @@ class CommentForm(forms.ModelForm):
         'rows': '3',
     }))
 
-    # Meta class defines model and fields
     class Meta:
+        """
+        Meta class defines model and fields
+        """
+
         # Tell form which model it is associated with
         model = Comment
         # Tell form which fields is should render:

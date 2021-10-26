@@ -29,8 +29,10 @@ class UserProfile(models.Model):
     default_country = CountryField(
         blank_label='Country', null=True, blank=True)
 
-    # String method returns username
     def __str__(self):
+        """
+        String method returns username
+        """
         return self.user.username
 
 

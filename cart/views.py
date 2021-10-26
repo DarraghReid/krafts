@@ -104,10 +104,10 @@ def remove_from_cart(request, item_id):
         # Return http response if successfully removed
         return HttpResponse(status=200)
 
-    except Exception as e:
+    except Exception as err:
         # Inform user if there has been an error removing the item
         messages.error(
-            request, f'Error removing { product.name }: {e}')
+            request, f'Error removing { product.name }: {err}')
 
         # Return any exception as 500 error
         return HttpResponse(status=500)
