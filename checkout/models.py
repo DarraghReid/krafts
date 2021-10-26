@@ -58,7 +58,8 @@ class Order(models.Model):
         # If the order_total lower than FREE_DELIVERY_THRESHOLD
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             # Delivery cost - add STANDARD_DELIVERY_PERCENTAGE to order_total
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.delivery_cost = self.order_total * \
+                settings.STANDARD_DELIVERY_PERCENTAGE / 100
         # Otherwise, there is no delivery cost
         else:
             self.delivery_cost = 0
@@ -88,13 +89,16 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     # Line item's order. related_name allows access to line items from Order
     order = models.ForeignKey(
-        Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+        Order, null=False, blank=False,
+        on_delete=models.CASCADE, related_name='lineitems')
     # Line item's product, quantity, total cost
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     # Automatically calculated when line item is saved, should not be edited
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """

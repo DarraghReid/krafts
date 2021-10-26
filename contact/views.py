@@ -30,16 +30,15 @@ def contact(request):
             subject = 'Message Received'
 
             # Confirmation of receipt of message
-            confirmation_message = f"""Dear {sender},
-            Thank you for contacting us!
-            One of our team will be in contact with you shortly shortly.
-            Your message:
-            '{message}'
-            Kind Regards,
-            Krafts.
-            """
+            confirmation_message = (f'Dear {sender}, '
+                                    'Thank you for contacting us! '
+                                    'One of our team will be in '
+                                    'contact with you shortly shortly. '
+                                    f'Your message: "{message}" '
+                                    'Kind Regards, Krafts.')
 
-            # Send email to user informing them that their message has been sent
+            # Send email to user informing them
+            # that their message has been sent
             send_mail(
                 subject,
                 confirmation_message,
@@ -53,7 +52,8 @@ def contact(request):
         # If form is not valid
         else:
             # Display error message to the user
-            messages.error(request, 'Failed to send message. Please ensure the you have provided all the necessary information.')
+            messages.error(request, 'Failed to send message. Please ensure the'
+                           'you have provided all the necessary information.')
 
     # Otherwise
     else:

@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -218,7 +219,7 @@ def checkout_success(request, order_number):
         # Save order
         order.save()
 
-        ## Save the user's info:
+        # Save the user's info:
         # If save info box was checked, keys match user profile model
         if save_info:
             # Compile user's profile data from order
