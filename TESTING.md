@@ -119,6 +119,9 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### HEADER
+![Header Large](media/readme-imgs/header-lg.png)
+![Header Medium](media/readme-imgs/header-md.png)
+![Header Small](media/readme-imgs/header-sm.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |HEADER|Toggle all dropdown menu items|All dropdown items should toggle their respective menu items|image|PASS||
@@ -133,6 +136,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### HOME PAGE
+![Home Page](media/testing-imgs/home.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |HOME PAGE|Observer the carousel|1. The carousel should auto slide||PASS||
@@ -146,6 +150,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### PRODUCTS PAGE
+![Products Page](media/testing-imgs/products.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |PRODUCTS PAGE|Observe the page on larger screens|1. The product cards should be displayed in rows of 4||PASS||
@@ -173,6 +178,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### PRODUCT DETAIL PAGE
+![Product Detail Page](media/readme-imgs/detail1.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |PRODUCT DETAIL PAGE|Observe the Product Detail page of any particular product on medium and larger screens|1. The product image and product details & actions should appear inline in two columns||PASS||
@@ -192,7 +198,7 @@ The results were as follows:
 |||13. Replies by admin users are nested and indented beneath the comments they are in reply to.||PASS||
 |||14. A message encouraging the user to be the first to comment on the product should appear in place of the comments section, should there not be any comments to display||PASS||
 ||Observe the Product Detail page of any particular product on smaller screens|The product image and product details & actions should appear stacked virtically||PASS||
-||Change the product quantity by clicking the increment and decrement buttons on the of the input form|1. The quantity should not go below one, or above 99.||PASS| This has stopped working|
+||Change the product quantity by clicking the increment and decrement buttons on the of the input form|The quantity should not go below one, or above 99.||PASS| This has stopped working|
 ||Change the product quantity to an invalid number by manually typing a specific quantity into the input box. Then attempt to add the product to the cart.|An error message should appear indicating the proper value range for the product.||PASS||
 ||Add the product to the cart|1. A success toast should appear indicating that the product has been successfully added to the cart, with the cart summary below including the product that has just been added||PASS||
 ||Rate the product by clicking of the stars in the rating form|1. The stars' opacity should change on hover||PASS||
@@ -216,6 +222,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### CART
+![Cart](media/testing-imgs/cart.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |CART|Observe the Shopping Cart Page on large and medium screens|The products should be displayed in a tables, with the cart total, delivery information, grand total, and Keep Shopping & Secure checkout buttons displayed beneath||Pass||
@@ -230,6 +237,8 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### PRODUCT MANAGEMENT PAGE
+![Product Management Page](media/testing-imgs/p-management.png)
+![Product Management Page](media/testing-imgs/management-edit.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |PRODUCT MANAGEMENT PAGE: Add|Observe the Product Management page for adding a product|The Add A Product form should be correcly formatted, with the correct fields displayed appropriately, required fields marked, any the the appropriate fields autofilled.||PASS||
@@ -248,6 +257,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### PROFILE PAGE
+![Profile Page](media/testing-imgs/profile.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |PROFILE PAGE|Observe the Profile page of an empty profile.|1. The Default Delivery Information form should be correctly rendered and empty.||PASS||
@@ -262,6 +272,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### CHECKOUT PAGE
+![Checkout Page](media/testing-imgs/checkout.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |CHECKOUT PAGE|Observe the checkout page with an empty profile|1. The checkout form should render empty||PASS||
@@ -277,6 +288,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### CHECKOUT SUCCESS PAGE
+![Checkout Success Page](media/testing-imgs/success.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |CHECKOUT SUCCESS PAGE|Observe the Checkout Success page|1. A thank you message followed by a messesage indicating that a confirmation email has been sent to the email provided durint checkout||PASS||
@@ -287,6 +299,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### ORDER HISTORY PAGE
+![Order History Page](media/testing-imgs/order-history2.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |ORDER HISTORY PAGE|Observe the Order History page|It should be a replica of the Checkout Success page of the particular order that was clicked||PASS||
@@ -295,6 +308,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### SIGN IN PAGE
+![Sign In Page](media/testing-imgs/signin.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |SIGN IN PAGE|Observe the Sign In page|1. The sign in form should be correctly rendered with all the correct fields displayed, including a "Remember Me" checkbox.||PASS||
@@ -310,6 +324,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### SIGN UP PAGE
+![Sign Up Page](media/testing-imgs/signup.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |SIGN UP PAGE|Observe the Sign Up page|1. The sign up form should be correctly rendered with all the correct fields displayed.||PASS||
@@ -324,6 +339,7 @@ The results were as follows:
 [^ Back To Top ^](#Contents)
 
 ### VERYIFY ACCOUNT PAGE
+![Verify Account Page](media/testing-imgs/verify.png)
 |**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
 |:----|:----|:----|:----|:----|:----|
 |VERIFY ACCOUNT|Observe the accounts/confirm email page|A message instructing to press the confirm button to verify the email provided during registration should be visible||PASS||
@@ -334,9 +350,9 @@ The results were as follows:
 
 ## Site Responsiveness
 
-![Responsive](static/images/amiresponsive.png)
+![Responsive](media/readme-images/amiresponsive-krafts.png)
 
-[JustJokes](http://just-jokes.herokuapp.com/get_jokes) was tested across a range of devices and internet browsers to assess the responsiveness of the site. The site was also tested on all available devices in Google Dev Tools to ensure it was visually appropriate on all screen sizes.
+[Krafts](https://krafts-dreid.herokuapp.com/) was tested across a range of devices and internet browsers to assess the responsiveness of the site. The site was also tested on all available devices in Google Dev Tools to ensure it was visually appropriate on all screen sizes.
 
 The site was tested on the following devices: 
 
@@ -356,117 +372,27 @@ And on the following browsers:
 
 ## User Testing
 
-The site was tested by various peers and family members throughout the building process. Known bug were confirmed and some new ones pointed out. Appreciation was expressed for the functionality of the site.
+The site was tested by various peers and family members throughout the building process. Known bug were confirmed and some new ones pointed out.
 
 ## Known Bugs and Issues
-* When trying to implement a search engine for jokes, I would get the following error: 'Cursor' has no len()
-I realised that I had to convert the jokes retrieved from the database to a list using list()
+* Django auto sets a secret key in settings.py. When I made my first commit and push, this secret key was therefore exposed. To rectify this, I created an env.py file and set the secret key there as an environment variable, then accessed it from settings.py.
 
-* Upon implementing the Bootstrap modal on each card element to display the full joke, I discovered that, no matter what card was selected, the modal would always display the joke of the first card (which was the chicken joke). I tried various methods to rectify this.
-![Responsive](static/images/modal-ids.png)
+* Upon adding reply functionality to the comments model, bugs started to appear that would take a whole day to resolve. I had initially intended to use one view (product_detail) for all comment functionality. I modified the url to include the comment.id of the comment being replied to (the parent comment) so I could use it inside the view and submit it in the form. 
 
-    I started by setting the id of the modal and the data-target of the Expand button, to the joke id ( {{joke._id}} ). I thought this would help as I assumed that the problem stemmed from each modal having an identical ID. However, this did not work.
+I changed the comments form to display all fields (instead of only the comment field) while I was working on implementing the functionality. I commented out the if statement that dealt with hiding the other fields. However, nothing changed -  the comment field was still the only one rendering. I figured I had made mistakes in the view and the url, so I changed them back to before I had added the reply functionality.
 
-    I then attempted to rectify the issue by using variables inside the jinga for loop. I wrote {% set modal_description = joke.joke_description %} and used these variables in the both the modal and card to ensure that both the modal and card details would always be the same. Unfortunately, this produced the same result.
+The problem remained. I ended up undoing all changes in all files that were related to the reply functionality. I compared my code from previous commits to the current code, and they were identical. Still, only the comment field would appear and the form would not submit. I was presented with the error “context referenced before assignment”. It seemed as though the context in my view wasn’t being read. However, the context (and the form and product inside it) would print to the terminal without issue. It would just not display on the template.
 
-    To examine the problem further, I used the JavaScript and the chrome console to see if I could spot the problem. Interestingly, when I used JavaScript to console.log() the contents of both card and modal, the text of both the card and the modal were always identical.
+I deleted the whole comment model and rebuilt it, and built a separate view for adding comments (instead of using the product_detail view), but the problem was still present. The only thing that I hadn’t done was rewrite the if statement that rendered the fields in the comment form. Instead of commenting out the code that dealt with hiding certain fields, I deleted the code entirely. This commented out code was the source of the whole issue, it seems. Everything worked fine after that.
 
-    I didn’t understand why the modal presented to the user displayed different information to what was printed to the console.
+* The carousel on the Home page cause a lot of issues with responsiveness. Eventually, they had to be removed and replaced with background images with css.
 
-    I then used JavaScript to set the innerHTML of the modal elements to the innerHTML of the card elements. Again, everything was displaying fine on the console, but not on the modal on the screen.
-
-    To my surprise, when I built my own modal from scratch, the same problem occurred! Each modal would still display the text from the first joke, no matter what joke had been selected.
-
-    The next step I took was to insert an onclick event listener directly into the button element that triggered the modal. It called the displayModal() function I had created before, but I passed in the jinja values from the for-loop. When I assigned the values of the modal to the values of the jinja values, and logged them to the console, I saw that the chicken joke would log to the console perfectly. Every other joke would get the error: “Uncaught SyntaxError: Invalid or unexpected token”
-
-    I then thought the problem then lay with the jokes themselves. Upon inspection in MongoDB, the chicken joke was the only joke that was written on one line. I edited the fish joke to ensure it was also all on one line. When I refreshed the page, the fish joke logged to the console and was successfully inserted into the modal.
-
-    I then reinstated the Bootstrap modal to see if it would work on the newly formatted jokes. Alas, it had the same issues as before. Only the chicken joke was displayed on the modal, no matter what card was clicked.
-
-    I decided I would combine the Bootstrap modal with my onclick function, to see if I could could pass the card’s jinja values into the modal. This worked with the jokes that had been reformatted in MongoDB. However, if an unformatted joke was clicked, the modal would display the last correctly formatted joke that had been clicked.
-
-![Responsive](static/images/modal-full-insert.png)
-![Responsive](static/images/modal-js-insert.png)
-
-    I decided that I would include a note for the user in the Add Joke form, telling them to ensure that their joke is one line only. This is a remaining bug that will have to be addressed in future versions.
-
-    Just when I thought I was done with the problem, after I created the “add to favourites” functionality, I discovered that modals of the favourited jokes were not displaying any information other than the user who posted the joke. I speculated that the cause could be the duplication of ids on the "jokes" for loop and "fav_jokes" for loop on the one profile page.
-
-    After addressing that, our friend, the chicken, once again appeared on every modal, and only the title. I went about changing the names of the "fav_jokes" modal classes and updating the displayModal() function to target them as well as the "jokes" modal classes. The problem was solved. 
-
-
-* Another major problem I had occurred after I had implemented the age restrictions. I changed the names and ages of two accounts I had created to reflect an over 18 user and and under 18 user, for testing purposes. When trying to log back in with these user details (I hadn’t changed passwords) I was greeted with errors. 
-
-    I manually typed in the url for the sign up page and created a new account for an adult. When I was logged in, everything was displaying correctly. I attempted to add a few jokes to my favourites. The first 4 went fine, until I got to the 5th where I got an error: “TypeError: 'NoneType' object is not subscriptable”. 
-
-    I pressed the back arrow and went to my profile. The jokes that seemed to be successfully favourited were not in my profile. I tried to favourite them again. I started with the first 4 and each time the flash said “joke already favourited”. I tried with the next few and got the same errors as before. I saw that the jokes that didn’t caused the error were all in the database (under the previous account I had been using, under the old name). 
-
-    The variables in the add_fav() view must have been read, otherwise the flash telling me that the jokes has already been favourited would not be displayed. I noticed that the joke_teller and joke_favouriter of these jokes were the two accounts whose details I changed. I changed the usernames back and was able to log in with them. 
-
-    However, the problem remained. Getting more familiar with how to problem solve, I printed the values of both "joke" and "already_favd" variables to see which one was giving the error. I realised that already_favd was None because it didn’t exist in the database at the time of favouriting. Although, this wasn’t a problem when I first wrote the code and was adding jokes into the user_favourites collection. Nonetheless, I changed my if statements from 'if jokes[“joke_description”] ==  already_favd[“joke_description”]' to 'if already_favd', and the system was back working.
-
-
-* Another issue occurred when I implemented the “like” functionality. I wanted to ensure that users could only like a joke once. Thinking this would be a quick feature to implement, I created two like buttons for each card. One would display if the user hadn’t liked the joke, and the other would be hidden. If the user liked the joke, the like would be recorded in the database and a JavaScript function would swap the buttons. If the second button was pressed, the like would be removed from the database the the JS function would swap the buttons back.
-
-* This didn’t work. I spent a long time trying to figure out why, redesigning the functions, redoing the HTML, etc. When logging the event listeners of the buttons to the console, nothing was showing up. I changed the event listener to be on the document, rather than on the buttons, and set the event.target.classname to the buttons.
-
-* This proved slightly more useful, as the event would log to the console, but only for a split second. I realised this was because of the "redirect" return statement in the like_joke() view in app.py. It reloaded the page every time the like button was clicked. I supposed that the script.js function didn’t have time to carry out its functionality before the page was loaded. I decided to redesign by like_joke() view and simply inform users if they had already liked the joke. Eventually, it was redesigned again to its current state, where pressing the "Like" button a second time would reverse the "liking" process.
-
-* I had initially designed the add_fav() view to add the joke, along with the user’s name as an identifier, to a new collection named “user_favourites”. This system seemed to be working fine while I continued building the project. However, upon logging in under another user, I realised that this would just add multiple versions of the same joke to the collection, each with its own “favouriter”. This resulted in the user being told they had already liked the joke, when they hadn’t. 
-
-    I had since created the like_joke() view with a more effective method, by adding a “liked_by” field to the jokes collection, which was an array of users who had liked the joke. So, I decided to re-do the add_fav() view using a similar method. This turned out to be a bigger undertaking than expected, and resulted in me having to update several other functions accordingly.
-
-* Calculating the user’s age proved to be a major challenge. I painstakingly designed my own method of calculating wether the user was over 18 or not. It didn’t work effectively. Then, I discovered datetime, and the rest is history!
-
-* Another issue I was having was passing variables between views. I couldn’t seem to call views inside other views to get their values. One particular value that I needed in multiple views was the user’s age. I decided to created an external function with no decorators that only returned the user’s age. I was able to call this function and assign it to variables inside other functions to access the user’s age.
-
-* Implementing age restrictions was another task that proved bigger than expected, and multiple other views had to be updated to accommodate it
-
-    Implementing the age restrictions caused errors, also. For example, jinja if statements had to be modified because they were now causing errors if there was no user in session. This is because the age restriction were based off the user’s age. If there was no user, the if statements (eg: if user.age >= 18) would cause errors.
-
-
-* A big bug arose while validating my code. When put through the validator, 85 errors appeared concerning duplicate IDs. I went through the code and gave new names to the data-targets and corresponding modal IDs to ensure each one was unique. This didn’t rectify the issue. I then realised the issue came from the fact that there were multiple cards on the html page, rather than any issues with my code.
-
-![Responsive](static/images/modal-ids.png)
-
-I went about adding the joke id to each of the data targets and corresponding modal IDs with jinja, like I had done earlier in the project (as mentioned above). This resulted in the modals not working. Upon inspection in Chrome, I could see that the data targets and ids were perfectly fine, but the modals were still not displaying. 
-
-![Responsive](static/images/modal-id-dev.png)
-
-
-After a considerable amount of time experimenting with the code, I found that, even though the jinja joke IDs were displaying on the html, the modals would not respond. I would even copy and paste the jinja IDs directly from the dev tools and paste it into my own code. If I did this, it would work. However, I obviously could not do this for every joke on the webpage.
-
-A friend suggested I move the modals outside of the for loop. This way, there would only be one modal and I would not have to worry about duplicate ids. This worked fantastic for the expand modal, which displayed the full joke. However, when it came to the delete modal, more time consuming issues arose. 
-    
-Nothing would display on the modals. A separate onclick function was written for the delete modal, almost identical to the one for the expand function, with the additional parameter of “id”. “Id” was for the url_for "href" that passed the joke id to python for it to be deleted.
-
-Nothing would display on the modal, however, only the “posted by”, which seemed to display whether I inserted it into the modal or not. The HTML message that was written jokes.html would also display. I tried creating the elements within the Javascript. I created all the h and p elements needed, appended the correct content, and then inserted them into the modal. This worked. However, it would duplicate the code every time I would click the delete icon. After three clicks, there would be three jokes displayed on the modal, etc.
-
-After much experimenting, I decided to move it back to its original position in the for loop, only to find that it was displaying incorrect information. It was just displaying the joke title multiple times, instead of the other details. 
-    
-I moved it back outside the loop and decided that I didn’t need to display the joke on the modal. I only needed the confirmation message and include the delete button. I redesigned the javascript function to take in the joke's id, create the url_for('delete_joke') href, and insert it into the modal. Again, it looked fine on dev tools, but would lead to a 404 error. 
-
-The see full jokes were working fine outside the loop, so I decided to move the delete modals back inside the loop, again. However, this time I kept them outside of the card, but still inside the loop. Before they had been placed directly under the button that triggered. Then, I removed the onclick functions and reinstated all the jinja variables. I also put {{joke._id}} back as the data-target of the button and matching modal ID. Finally, the bug was solved.
-
-Modals and chickens are now my enemies.
-
+* The side nav would not scroll when implemented. To counter this shortcoming, I made the navbar responsive so that all options in the navbar are visible on all screen sizes.
 
 
 ## Remaining Bugs and Issues
-* With the project now complete, I can see I could have reduced both my HTML and Python code by writing my views more efficiently. For example, in get_jokes():
+* The quantity input form in the Cart allows product quantities to be updated with negative values and values above 99 to be entered, if typed. If time allowed, this would most likely be a simple fix.
 
-    if user >= 18:
-        jokes = mongo.db.jokes.find()
-    elif user < 18:
-        jokes = mongo.db.jokes.find({for_children: "on"})
+* The footer may rise above the bottoms of the screen on tablets. A similar issue was experience in MS3, though the issue was completely resolved then. The same method doesn't seem to have worked with this project. Again, with time to spare, this would probably be an easy fix.
 
-    Would have saved me writing so much HTML code, and shortened the get_jokes() view itself.
-
-    That said, the code that I have written works. Future versions will have more condensed code.
-
-
-* As mentioned above, jokes that are not uploaded to the database on one line, don't display correctly on the modals. While I find a fix for this, users are asked to upload jokes on one line, only.
-
-* The reloading of the pages after clicking the "Like" or "Add to favourites" buttons isn't great user experience. It leads to users having to scroll back to where they previously were. Future versions would ensure the page doesn't reload when clicking joke action buttons.
-
-* Currently the calendar in the sign up form will submit without a value. This could potentially be a problem as the age restriction aspect of this site is very central to the code. Future versions would find a better alternative to this calendar.
+* When inspecting the site in Google Dev Tools, on larger displays, the header seems to be wider than the rest of the body. None of the fixes I tried to implement seemed to help. I does not happen on any laptop that the site has been tested on.

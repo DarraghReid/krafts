@@ -96,7 +96,7 @@
                         {% endif %}
                         <!-- Shown to all authenticated users -->
                         <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
                     {% else %}
                         <!-- Shown only to logged out/unauthenticated users -->
                         <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>

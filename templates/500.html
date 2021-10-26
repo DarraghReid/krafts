@@ -1,0 +1,30 @@
+<!-- 404 page extends from base.html -->
+{% extends "base.html" %}
+<!-- Load static files -->
+{% load static %}
+
+{% block content %}
+    <div class="bg-404 d-flex justify-content-center align-items-center">
+        <div class="card h-100 border-black">
+            <!-- No image -->
+            <div class="img-container">
+                <a href="{% url 'home' %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.pn" alt="No image">
+                </a>
+            </div>
+            <!-- Card body -->
+            <div class="card-body pb-0">
+                <p class="mb-0">Sorry! We're resolving this issue!</p>
+            </div>
+            <!-- Card footer -->
+            <div class="card-footer bg-white p-0 border-0 text-left">
+                <!-- Error display -->
+                <p class="lead my-2 text-left font-weight-bold">Server: 500 - Internal Server Error</p>
+                <!-- Return Home btn -->
+                <div class="col-12">
+                    <a href="{% url 'home' %}" type="submit" class="btn btn-black rounded-0 text-uppercase w-100">Retun Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} 
