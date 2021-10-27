@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="bg-404 d-flex justify-content-center align-items-center">
-        <div class="card h-100 border-black">
+        <div class="card border-black">
             <!-- No image -->
             <div class="img-container border-black">
                 <a href="{% url 'home' %}">
@@ -21,7 +21,7 @@
                 <!-- Error display -->
                 <p class="lead my-2 text-center font-weight-bold">Server: 500 - Internal Server Error</p>
                 <!-- Return Home btn -->
-                <div class="col-12">
+                <div class="col-12 bg-black">
                     <a href="{% url 'home' %}" type="submit" class="btn btn-black rounded-0 text-uppercase w-100">Return Home</a>
                 </div>
             </div>

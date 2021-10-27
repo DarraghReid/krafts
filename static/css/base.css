@@ -454,7 +454,7 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-.bg-404 {
+.bg-404 .card {
     margin-top: 250px;
 }
 

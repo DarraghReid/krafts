@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
     // Prevent value of input from exceeding min/max
     function handleEnableDisable(itemId) {
 
@@ -27,7 +27,7 @@
     $('.qty_input').change(function() {
         let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
-    })
+    });
 
     // Add click event to increment button to increment quantity
     $('.increment-qty').click(function(e) {

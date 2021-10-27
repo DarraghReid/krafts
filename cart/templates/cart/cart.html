@@ -166,14 +166,14 @@
 {% block postloadjs %}
 {{ block.super }}
 <!-- Back to top button functionality -->
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function(e){
         window.scrollTo(0,0);
     })
 </script>
 
 {% include 'products/includes/quantity_input_script.html' %}
-<script type="text/javascript">
+<script>
     // Update qty on click
     // Get click event on update link
     $('.update-link').click(function(e) {
@@ -181,7 +181,7 @@
         let form = $(this).prev('.update-form');
         // Call the form's submit method
         form.submit();
-    })
+    });
 
     // Remove item and reload on click
     // Post data to url, reload page upon response to display updated cart
@@ -204,7 +204,7 @@
          .done(function() {
              location.reload();
          });
-    })
+    });
 </script>
 
 {% endblock %}

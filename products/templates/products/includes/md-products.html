@@ -143,9 +143,9 @@
                                                 {% endif %}
                                                 <!-- If the product has a rating, display in following format -->
                                                 {% if product.rating_average %}
-                                                    <small class="text-muted">
-                                                        <div class="star-rating m-2" data-value="{{ product.rating_average }}"></div>
-                                                    </small>
+                                                    <div class="text-muted">
+                                                        <small class="star-rating m-2" data-value="{{ product.rating_average }}"></small>
+                                                    </div>
                                                 {% else %}
                                                 <!-- Otherwise, inform customer the product has no rating -->
                                                     <small class="text-muted">

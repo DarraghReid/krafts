@@ -6,7 +6,7 @@ let countrySelected = $('#id_default_country').val();
 if(!countrySelected) {
     // Colour is grey
     $('#id_default_country').css('color', '#aab7c4');
-};
+}
 // Capture change event
 $('#id_default_country').change(function() {
     // Get value of box upon change

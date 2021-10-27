@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
     // Toggle the reply comment form when reply link is clicked
     function replyFormToggle(parent_id) {
         // Get the reply comment form
@@ -32,7 +32,7 @@
     // Toggle/style the rate form when rate button is clicked
     function rateFormToggle() {
         // Get the rate form
-        let rateForm = document.getElementById("rate-form")
+        let rateForm = document.getElementById("rate-form");
 
         // If the form is currently displaying, hide it
         if (rateForm.classList.contains('d-none')) {
@@ -45,7 +45,7 @@
 
         // Ensure input value is set to 0
         // Get form rating input
-        let rating_input = document.getElementById("id_rating")
+        let rating_input = document.getElementById("id_rating");
 
         // Set rating input to 0
         rating_input.value = 0;

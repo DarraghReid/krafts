@@ -2,7 +2,7 @@
 
 <!-- Main page header with logo, search bar, account/cart links-->
 <!-- Only to be displayed on medium screens up -->
-<div class="bg-white pt-lg-2 d-none d-md-block" id="topnav">
+<div class="bg-white pt-lg-2 d-none d-md-block" id="topnav-md">
 
     <!-- COLs stacked horizontally -->
     <!-- COL 1: Logo left aligned -->
@@ -24,14 +24,14 @@
             <!-- LI 1: Search Button -->
             <li class="list-inline-item m-0">
                 <!-- When clicked, search bar below will appear -->
-                <a class="d-lg-none text-black nav-link d-block" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="d-lg-none text-black nav-link d-block" href="#" id="mobile-search-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <div><i class="fas fa-search fa-lg"></i></div>
                         <p class="my-0 d-none d-sm-block">Search</p>
                     </div>
                 </a>
                 <!-- Search bar appears when above link is clicked -->
-                <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+                <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search-md">
                     <!-- Search query is get parameter in url, accessed in all_products view -->
                     <form class="form" method="GET" action="{% url 'products' %}">
                         <div class="input-group w-100">
@@ -66,7 +66,7 @@
             <!-- LI 3: Contact -->
             <li class="list-inline-item dropdown m-0">
                 <!-- Link leads to contact page -->
-                <a class="text-black nav-link" href="{% url 'contact' %}" id="user-options">
+                <a class="text-black nav-link" href="{% url 'contact' %}">
                     <div class="text-center">
                         <div class="icon">
                             <i class="fas fa-phone-alt fa-lg"></i>
@@ -81,7 +81,7 @@
             <!-- LI 4: Account link -->
             <li class="list-inline-item dropdown m-0">
                 <!-- Link triggers Bootstrap dropdown below -->
-                <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="flase">
+                <a class="text-black nav-link" href="#" id="user-options-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <div>
                             <i class="fas fa-user fa-lg"></i>
@@ -92,7 +92,7 @@
                     </div>
                 </a>
                 <!-- Account menu dropdown, triggered by "My Account" link above -->
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                <div class="dropdown-menu border-0" aria-labelledby="user-options-md">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <!-- Only show if user is both authenticated and a superuser -->
@@ -138,10 +138,10 @@
     <ul class="list-inline text-center mb-1 w-auto mx-auto">
         <li class="inline list-inline-item nav-item dropdown">
             <!-- Link triggers dropdown of sorting links -->
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link-md">
                 <!-- '?' attaches sort & direction parameters to products url, accessed in get_products view -->
                 <!-- Sort paramaters are fields on product model -->
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
@@ -153,10 +153,10 @@
 
         <li class="inline list-inline-item nav-item dropdown">
             <!-- Link triggers dropdown of pottery options -->
-            <a class="logo-font font-weight-bold nav-link text-black " href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black " href="#" id="clothing-link-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 POTTERY
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+            <div class="dropdown-menu border-0" aria-labelledby="clothing-link-md">
                 <a href="{% url 'products' %}?category=jugs" class="dropdown-item">JUGS</a>
                 <a href="{% url 'products' %}?category=cups_mugs" class="dropdown-item">CUPS &amp; MUGS</a>
                 <a href="{% url 'products' %}?category=vases" class="dropdown-item">VASES</a>
@@ -167,10 +167,10 @@
 
         <li class="inline list-inline-item nav-item dropdown">
             <!-- Link triggers dropdown of furniture options -->
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="homeware-link-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 FURNITURE
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
+            <div class="dropdown-menu border-0" aria-labelledby="homeware-link-md">
                 <a href="{% url 'products' %}?category=tables" class="dropdown-item">TABLES</a>
                 <a href="{% url 'products' %}?category=chairs" class="dropdown-item">CHAIRS</a>
                 <a href="{% url 'products' %}?category=cabinets" class="dropdown-item">CABINETS</a>
@@ -180,10 +180,10 @@
 
         <li class="inline list-inline-item nav-item dropdown">
             <!-- Link triggers dropdown of jewellery options -->
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="jewellery-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="jewellery-link-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 JEWELLERY
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="jewellery-link">
+            <div class="dropdown-menu border-0" aria-labelledby="jewellery-link-md">
                 <a href="{% url 'products' %}?category=necklaces" class="dropdown-item">NECKLACES</a>
                 <a href="{% url 'products' %}?category=bracelets" class="dropdown-item">BRACELETS</a>
                 <a href="{% url 'products' %}?category=necklaces,bracelets" class="dropdown-item">All JEWELLERY</a>

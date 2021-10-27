@@ -115,9 +115,9 @@
                                             {% endif %}
                                             <!-- If the product has a rating, display in following format -->
                                             {% if product.rating_average %}
-                                                <small class="text-muted">
-                                                    <div class="star-rating m-2" data-value="{{ product.rating_average }}"></div>
-                                                </small>
+                                                <div class="text-muted">
+                                                    <small class="star-rating m-2" data-value="{{ product.rating_average }}"></small>
+                                                </div>
                                             {% else %}
                                             <!-- Otherwise, inform customer the product has no rating -->
                                                 <small class="text-muted">
@@ -223,14 +223,14 @@
     {% include 'products/includes/rating.html' %}
 
     <!-- Back to top button functionality -->
-    <script type="text/javascript">
+    <script>
         $('.btt-link').click(function(e){
             window.scrollTo(0,0);
-        })
+        });
     </script>
 
     <!-- Selector box functionality -->
-    <script type="text/javascript">
+    <script>
         // Capture change even from sort selector
         $('#sort-selector').change(function() {
             // Set selector equal to this
@@ -264,7 +264,7 @@
                 // Replace location
                 window.location.replace(currentUrl);
             }
-        })
+        });
 
         // initialise Bootstrap tooltip functionality
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

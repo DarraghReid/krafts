@@ -24,6 +24,8 @@
     * [Sign In Page](#SIGN-IN-PAGE)
     * [Sign Up Page](#SIGN-UP-PAGE)
     * [Verify Account Page](#VERIFY-ACCOUNT-PAGE)
+    * [404 page](#404-PAGE)
+    * [500 page](#500-PAGE)
 * [Site Responsiveness](#Site-Responsiveness)
 * [User Testing](#User-Testing)
     * [Known Bugs and Issues Section](#known-bugs-and-issues)
@@ -43,22 +45,18 @@ The W3C Markup Validator warned me that the flash section doesn't have a heading
 
 
 ### W3C CSS Validator Services
-CSS code from style.css passed through the [W3C CSS Validator Services](https://jigsaw.w3.org/css-validator/) without issue.
-![W3C CSS Validator Services](static/images/css-validation.png)
+All CSS code from all CSS passed through the [W3C CSS Validator Services](https://jigsaw.w3.org/css-validator/) without issue.
+![W3C CSS Validator Services](media/testing-imgs/css1.png)
 
 
 ### JSHint
-[JSHint](https://jshint.com/) flagged 10 warnings, which related to use of ES6 syntax:
-![JSHint](static/images/jshint-validation.png)
-
-It also noted that the Bootstrap tooltip initialisation code included an undefined variable and an unused variable.
-
-Finally, it marked by displayModal function as unused, perhaps because it is called inside the HTML using an onclick attribute.
+[JSHint](https://jshint.com/)
+All Javascript code, including those within script tags in html file, passed through the JSHint validator without any major issues. Any issues flagged related to ES6 syntax.
 
 
 ### Pep8 Online
-Python code from app.py passed through [Pep8 Online](http://pep8online.com/) without issue
-![Pep8 Online](static/images/pep8-validation.png)
+All Python code from .py files passed through [Pep8 Online](http://pep8online.com/) without issue, apart from 4 errors in settings.py relating to lines too long.
+![Pep8 Online](media/testing-imgs/pep8.png)
 
 
 ### Lighthouse
@@ -112,9 +110,6 @@ The results were as follows:
 ||Facilitate the needs of customers|Retain custom and engage with customers when needed||The ease of navigation is sure to provide a positive user experient to all customers. Customers are easily accommodated to explore, view and purchase products. They can also easily interact with products via rating and commenting, and can readily contact the site owner via the contact form.|
 
 ## Testing Features
-
-### Features Available To All Users
-
 
 [^ Back To Top ^](#Contents)
 
@@ -347,6 +342,22 @@ The results were as follows:
 |||2. A success toast should appear indicating that the email has been confirmed||PASS||
 
 
+### 404 Page
+![Verify Account Page](media/testing-imgs/404.png)
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|404 Page|Enter an invalid url|1. The page should redirect to the 404 error page||PASS||
+|||2. The 404 error page should consist of a single card element with detail of the error and a button offering a route back to the home page||PASS||
+||Click the "Return Home" button|The page should redirect to the Home Page||PASS||
+
+
+### 500 Page
+![Verify Account Page](media/testing-imgs/500.png)
+|**Feature**|**Test Description**|**Expected Restult/s**|**Image**|**PASS/FAIL**|**Comments**|
+|:----|:----|:----|:----|:----|:----|
+|404 Page|Enter an invalid url|1. The page should redirect to the 404 error page||PASS||
+|||2. The 404 error page should consist of a single card element with detail of the error and a button offering a route back to the home page||PASS||
+||Click the "Return Home" button|The page should redirect to the Home Page||PASS||
 
 ## Site Responsiveness
 
