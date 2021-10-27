@@ -471,3 +471,5 @@ I deleted the whole comment model and rebuilt it, and built a separate view for 
 * The code to prevent the increment and decrement buttons from increasing or decreasing item quantities beyong specified values has ceased to work. This could be due to code refactoring done while correcting HTML validation errors. Time does not allow to revisit the issue.
 
 * The progress bar can collapse at times. This is usually resolved by refreshing the page.
+
+* An 90 minutes prior to submission of this project, the local version of the site and was still unresponsive at the time of submission. Both Tutor Support recommended submission, regardless due to the fact that the deployed site appears to be functioning at the time of submission.
