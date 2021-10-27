@@ -472,4 +472,6 @@ I deleted the whole comment model and rebuilt it, and built a separate view for 
 
 * The progress bar can collapse at times. This is usually resolved by refreshing the page.
 
+* The footer may appear to float on longer screens, although the issue seems to have resolved at the time of submission.
+
 * An 90 minutes prior to submission of this project, the local version of the site and was still unresponsive at the time of submission. Both Tutor Support recommended submission, regardless due to the fact that the deployed site appears to be functioning at the time of submission.
