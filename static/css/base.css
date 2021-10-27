@@ -24,7 +24,7 @@ body {
 }
 
 #qty-input {
-    max-width: 20px;
+    min-width: 20px;
 }
 
 .logo-font {

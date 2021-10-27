@@ -48,6 +48,11 @@
 
 View the live project [here](https://krafts-dreid.herokuapp.com/)
 
+Admin Sign In Info:
+Username: admin
+Password: admin
+email: admin.admin@admin.com
+
 This website was created for Code Institute's Milestone 4 Project as part of the Diploma in Full Stack Web Development. The purpose of this project is to demonstrate the student's knowledge and skills acquired throughout the course. This includes skills in languages such as HTML, CSS, JavaScript and Python as well as other technologies as outlined in the [Technologies Used](#Technologies-Used) section. The focus of this project is to demonstrate the student's ability incorporate these front and back end skills into a Full Stack project.
 This project marks the developer's first time using the Django framework.
 

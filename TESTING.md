@@ -264,7 +264,6 @@ The results were as follows:
 |||13. Replies by admin users are nested and indented beneath the comments they are in reply to.||PASS||
 |||14. A message encouraging the user to be the first to comment on the product should appear in place of the comments section, should there not be any comments to display||PASS||
 ||Observe the Product Detail page of any particular product on smaller screens|The product image and product details & actions should appear stacked vertically||PASS||
-||Change the product quantity by clicking the increment and decrement buttons on the of the input form|The quantity should not go below one, or above 99.||PASS| This has stopped working|
 ||Change the product quantity to an invalid number by manually typing a specific quantity into the input box. Then attempt to add the product to the cart.|An error message should appear indicating the proper value range for the product.||PASS||
 ||Add the product to the cart|1. A success toast should appear indicating that the product has been successfully added to the cart, with the cart summary below including the product that has just been added||PASS||
 ||Rate the product by clicking of the stars in the rating form|1. The stars' opacity should change on hover||PASS||
@@ -294,7 +293,7 @@ The results were as follows:
 |CART|Observe the Shopping Cart Page on large and medium screens|The products should be displayed in a tables, with the cart total, delivery information, grand total, and Keep Shopping & Secure checkout buttons displayed beneath||Pass||
 ||Observe the table|The table should organise the products into 4 columns; Product Info for product image, name & sku, Price for product price, Quantity for a quantity input form displaying current product quantity and a means to adjust it, and Subtotal which displays the subtotal for a particular product ||PASS||
 ||Change the product quantity by clicking the increment and decrement buttons on the of the input form|1. The quantity should not go below one, or above 99.||PASS||
-||Change the product quantity to an invalid number by manually typing a specific quantity into the input box and clicking "Update".|An error message should appear indicating the proper value range for the product.||PASS|This has stopped working|
+||Change the product quantity to an invalid number by manually typing a specific quantity into the input box and clicking "Update".|An error message should appear indicating the proper value range for the product.||FAIL|This control seems to have stopped working. See [Remaining Bugs and Issues Section](#Remaining-Bugs-and-Issues) for more details|
 ||Click the "Remove" button of any cart item|1. A success toast indicating that the item has been successfully removed should appear||PASS||
 |||2. The item should be removed from the cart||PASS||
 ||Click the "Keep Shopping" and "Secure Checkout buttons to verify that they lead to their correct respective destinations|The "Keep Shopping" and "Secure Checkout" buttons should lead to their correct destinations||PASS||
@@ -478,3 +477,7 @@ I deleted the whole comment model and rebuilt it, and built a separate view for 
 * The footer may rise above the bottoms of the screen on tablets. A similar issue was experience in MS3, though the issue was completely resolved then. The same method doesn't seem to have worked with this project. Again, with time to spare, this would probably be an easy fix.
 
 * When inspecting the site in Google Dev Tools, on larger displays, the header seems to be wider than the rest of the body. None of the fixes I tried to implement seemed to help. I does not happen on any laptop that the site has been tested on.
+
+* The code to prevent the increment and decrement buttons from increasing or decreasing item quantities beyong specified values has ceased to work. This could be due to code refactoring done while correcting HTML validation errors. Time does not allow to revisit the issue.
+
+* The progress bar can collapse at times. This is usually resolved by refreshing the page.
