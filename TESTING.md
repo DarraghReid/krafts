@@ -38,10 +38,13 @@
 [Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the site's performance.
 
 ### W3C Markup Validator
-More information about issues that arose when validating my HTML can be found in the [Bugs section](#known-bugs-and-issues). As of writing, all errors have been resolved, and each HTML page passes through the validator without any errors. However, they do come with the following warning: 
-![W3C Markup Validator](static/images/heading-warning.png)
+The ![W3C Markup Validator](static/images/heading-warning.png) flagged multiple issues. Many of these issued turned out to stem from ie=edge being typed instead of IE=edge. However, more errors stemmed from how the code was designed to be responsive. 
 
-The W3C Markup Validator warned me that the flash section doesn't have a heading. The flash section extends from the base template. Therefore, all pages came with this warning, when validated. I inserted a heading into the flash section. However, the warning remained.
+Throughout the development of the site, includes were heavily depended upon to break up code that was meant from different screen sizes. The same elements were written in different files, but styled differently for different screen sizes. This resulted in duplicate ids appearing in the validator. It took a lot of work to find and rename these duplicate ids.
+
+The other warnings that were repeatedly present were related to the "text/javascript" type attribute of the script element being unnecessary. These were also removed.
+
+All HTML code now passes through the validator without issue.
 
 
 ### W3C CSS Validator Services
