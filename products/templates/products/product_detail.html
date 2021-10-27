@@ -83,9 +83,9 @@
                                             </button>
                                         </div>
                                         <!-- Quantity selector -->
-                                        <input id="qty-input" type="number" class="form-control qty-input w-25 border border-black" 
+                                        <input id="qty-input" type="number" class="form-control qty-input w-25 border border-black id_qty_{{ product.id }}" 
                                             name="quantity" value="1" min="1" max="99" 
-                                            data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                            data-item_id="{{ product.id }}">
                                         <!-- Increment button -->
                                         <div class="input-group-append">
                                             <button class="increment-qty btn rounded-0" 

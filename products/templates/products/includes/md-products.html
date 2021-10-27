@@ -48,11 +48,11 @@
             
                     <li class="nav-item">
                         <!-- Jewellery header -->
-                        <a href="{% url 'products' %}?category=necklaces,bracelets" class="logo-font font-weight-bold nav-link text-black" id="jewellery-link-md" aria-haspopup="true" aria-expanded="false">
+                        <a href="{% url 'products' %}?category=necklaces,bracelets" class="logo-font font-weight-bold nav-link text-black" id="jewellery-link-products" aria-haspopup="true" aria-expanded="false">
                             JEWELLERY
                         </a>
                         <!-- Jewellary links -->
-                        <div class="border-0" aria-labelledby="jewellery-link-md">
+                        <div class="border-0" aria-labelledby="jewellery-link-products">
                             <a href="{% url 'products' %}?category=necklaces" class="dropdown-item {% for c in current_categories %}{% if c.name == 'necklaces' %}bg-black text-white{% endif %}{% endfor %}">NECKLACES</a>
                             <a href="{% url 'products' %}?category=bracelets" class="dropdown-item {% for c in current_categories %}{% if c.name == 'bracelets' %}bg-black text-white{% endif %}{% endfor %}">BRACELETS</a>
                         </div>
