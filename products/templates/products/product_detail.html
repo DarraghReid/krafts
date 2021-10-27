@@ -52,6 +52,7 @@
                     </p>
                     {% endif %}
                     <!-- If the product has a rating, display in following format -->
+                    <!-- For credits for rating display, see README -->
                     {% if product.rating %}
                     <div class="star-rating my-2" data-value="{{ product.rating_average }}"></div>
                     {% else %}
@@ -171,7 +172,7 @@
                     </div>
                 </div>
                 <!-- Provide means to rate product only to those who have not yet rated the product -->
-                <!-- Hidden rating form -->
+                <!-- Hidden rating form. For credits, see README -->
                 <form class="mt-3 mb-2" id="rate-form" action="{% url 'rate_product' product.id %}" method="POST">
                     {% csrf_token %}
                     {% for field in product_form %}
@@ -187,6 +188,7 @@
             {% endif %}
         {% endif %}
         <!-- ROW with 2 columns for comments display and comment form -->
+        <!-- For credit for comments section and comment form, see README -->
         <div class="row">
             <!-- Comments section heading-->
             <h2 class="col-10 offset-lg-1">Comments</h2>

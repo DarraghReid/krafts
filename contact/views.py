@@ -30,6 +30,7 @@ def contact(request):
             subject = 'Message Received'
 
             # Confirmation of receipt of message
+            # For credit for this confirmation_email, see README
             confirmation_message = (f'Dear {sender}, '
                                     'Thank you for contacting us! '
                                     'One of our team will be in '

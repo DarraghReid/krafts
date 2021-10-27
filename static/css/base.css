@@ -1,5 +1,5 @@
+/* Ensure html is extra long to ensure footer doesn't float up */
 html {
-    /* For h100 & vertical centering to work */
     height: 120vh;
     width: 100vw;
     overflow-x: hidden;
@@ -27,9 +27,7 @@ body {
     min-width: 20px;
 }
 
-.logo-font {
-    text-transform: uppercase;
-}
+/* -------------------------------- Site wide styles */
 
 .main-logo-link {
     width: fit-content;
@@ -70,14 +68,20 @@ body {
     border: 1px solid black !important;
 }
 
-.delete-edit a:first-child {
-    border-right: 1px solid black !important;
-
+.logo-font {
+    text-transform: uppercase;
 }
 
 .bg-black {
     background: #000 !important;
 }
+
+.delete-edit a:first-child {
+    border-right: 1px solid black !important;
+
+}
+
+/* -------------------------------- Progress Bar */
 
 #progress-bar {
     height: 80%;
@@ -101,9 +105,6 @@ body {
     color: white;
 }
 
-#free-delivery {
-}
-
 .overlay {
     width: 100%;
     height: 100%;
@@ -114,6 +115,7 @@ body {
     z-index: -1;
 }
 
+/* -------------------------------- Carousel */
 .carousel-item {
     max-height: 58vh;
     min-height: 58vh;
@@ -139,6 +141,7 @@ body {
     font-weight: 100;
 } 
 
+/* -------------------------------- Category Parallax */
 .image-link {
     height: 180px;
     background: maroon;
@@ -219,6 +222,7 @@ body {
     opacity: 100%;
 }
 
+/* Reply button */
 .reply {
     cursor: pointer;
 }
@@ -266,6 +270,7 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
+/* Fixed back to top button, raised over footer */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -274,6 +279,7 @@ a.category-badge > span.badge:hover {
     right: 10px;
 }
 
+/* Ensure side nav is not covered by footer */ 
 #products-menu {
     margin-top: -75px;
 }
@@ -296,6 +302,7 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+/* -------------------------------- Toasts */
 .message-container {
     position: fixed;
     top: 72px;

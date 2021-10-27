@@ -210,7 +210,7 @@ The results were as follows:
 |||3. The correct text and images are displayed||PASS||
 ||Click each image-based category link to navigate to their respective destinations|The category links should lead to their correct destinations||PASS||
 ||Scroll to the bottom of the page|The category links should have a parallax effect||PASS||
-|FOOTER|Click all links in the footer to navigate to their respective destinations|All links lead to their correct destinations||PASS|Depending on screen size, footer may appear to float. This is documented in the Remaining Bugs section of this file.|
+|FOOTER|Click all links in the footer to navigate to their respective destinations|All links lead to their correct destinations||PASS||
 
 
 [^ Back To Top ^](#Contents)
@@ -465,8 +465,6 @@ I deleted the whole comment model and rebuilt it, and built a separate view for 
 
 ## Remaining Bugs and Issues
 * The quantity input form in the Cart allows product quantities to be updated with negative values and values above 99 to be entered, if typed. If time allowed, this would most likely be a simple fix.
-
-* The footer may rise above the bottoms of the screen on tablets. A similar issue was experience in MS3, though the issue was completely resolved then. The same method doesn't seem to have worked with this project. Again, with time to spare, this would probably be an easy fix.
 
 * When inspecting the site in Google Dev Tools, on larger displays, the header seems to be wider than the rest of the body. None of the fixes I tried to implement seemed to help. I does not happen on any laptop that the site has been tested on.
 

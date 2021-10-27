@@ -738,7 +738,7 @@ A variety of online material was consulted in the making of this product, from p
 
 * [This Stackoverflow Post](https://stackoverflow.com/questions/59147127/django-how-to-auto-generate-a-unique-number-string-for-a-model-attribute/59148235#59148235) was helpful in figuring out how to generate the product Sku upon adding a product.
 
-* [This Codemy.com video](https://www.youtube.com/watch?v=xNqnHmXIuzU) was a good source of information for sending email congirmation when I was building the Contact app.
+* [This Codemy.com video](https://www.youtube.com/watch?v=xNqnHmXIuzU) was a good source of information for sending email confirmation when I was building the Contact app.
 
 * The comments section, model and functionality was built after consulting information provided in the following videos by [Codemy.com](https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw) and [Legion Script](https://www.youtube.com/channel/UCF7k5gX55WvJ-SFXGsPsLTg) :
     * [Build A Blog Comments Section](https://www.youtube.com/watch?v=hZrlh4qU4eQ)
