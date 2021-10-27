@@ -38,55 +38,95 @@
 [Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the site's performance.
 
 ### W3C Markup Validator
-The ![W3C Markup Validator](static/images/heading-warning.png) flagged multiple issues. Many of these issued turned out to stem from ie=edge being typed instead of IE=edge. However, more errors stemmed from how the code was designed to be responsive. 
+
+The [W3C Markup Validator](https://validator.w3.org/) flagged multiple issues. Many of these issued turned out to stem from ie=edge being typed instead of IE=edge. However, more errors stemmed from how the code was designed to be responsive. 
 
 Throughout the development of the site, includes were heavily depended upon to break up code that was meant from different screen sizes. The same elements were written in different files, but styled differently for different screen sizes. This resulted in duplicate ids appearing in the validator. It took a lot of work to find and rename these duplicate ids.
 
 The other warnings that were repeatedly present were related to the "text/javascript" type attribute of the script element being unnecessary. These were also removed.
 
-All HTML code now passes through the validator without issue.
+All HTML templates now pass through the validator without issue, and display the as the below image
+
+![W3C Markup Validator](media/testing-imgs/homeval.png)
 
 
 ### W3C CSS Validator Services
+
 All CSS code from all CSS passed through the [W3C CSS Validator Services](https://jigsaw.w3.org/css-validator/) without issue.
 ![W3C CSS Validator Services](media/testing-imgs/css1.png)
 
 
 ### JSHint
+
 [JSHint](https://jshint.com/)
-All Javascript code, including those within script tags in html file, passed through the JSHint validator without any major issues. Any issues flagged related to ES6 syntax.
+All Javascript code, including those within script tags in html file, passed through the JSHint validator without any major issues. Any issues flagged related to ES6 syntax, as can be seen in the above below.
+
+![JSHint](media/testing-imgs/hint.png)
 
 
 ### Pep8 Online
+
 All Python code from .py files passed through [Pep8 Online](http://pep8online.com/) without issue, apart from 4 errors in settings.py relating to lines too long.
 ![Pep8 Online](media/testing-imgs/pep8.png)
 
 
 ### Lighthouse
-jokes.html, profile.html, users.html, add_joke.html, edit_joke.html, sign_in.html, and sign_up.html were all tested for performance using [Lighthouse](https://developers.google.com/web/tools/lighthouse).
+The main templates of this site were all tested for performance using [Lighthouse](https://developers.google.com/web/tools/lighthouse).
 The results were as follows:
 
 #### Home Page
-![Home Page](static/images/lighthouse-home.png)
+
+![Home Page](media/testing-imgs/home-lh.png)
+
+
+#### Products Page
+
+![Products Page](media/testing-imgs/products-lh.png)
+
 
 #### Profile Page
-![Profile Page](static/images/lighthouse-profile.png)
 
-#### Users Page
-![Users Page](static/images/lighthouse-users.png)
+![Profile Page](media/testing-imgs/profile-lh.png)
 
-#### Add Joke Page
-![Add Joke Page](static/images/lighthouse-add-joke.png)
 
-#### Edit Joke Page
-![Edit Joke Page](static/images/lighthouse-edit-joke.png)
+#### Product Management Page
+
+![Product Management Page](media/testing-imgs/product-management-lh.png)
+
+
+#### Contact Page
+
+![Contact Page](media/testing-imgs/contact-lh.png)
+
+
+#### Cart
+
+![Cart](media/testing-imgs/cart-lh.png)
+
+
+#### Checkout Page
+
+![Checkout Page](media/testing-imgs/checkout-lh.png)
+
+
+#### Checkout Success Page
+
+![Checkout Success Page](media/testing-imgs/success-lh.png)
+
+
+#### Product Detail Page
+
+![Product Detail Page](media/testing-imgs/detail-lh.png)
+
 
 #### Sign In Page
-![Sign In Page](static/images/lighthouse-sign-in.png)
+
+![Sign In Page](media/testing-imgs/signin-lh.png)
+
 
 #### Sign Up Page
+![Sign Up Page](media/testing-imgs/signup-lh.png)
 
-![Sign Up Page](static/images/lighthouse-sign-up.png)
 
 ## Testing User Stories
 |**As a...**|**I want to...**|**So I can...**|**Image**|**RESULT**|
