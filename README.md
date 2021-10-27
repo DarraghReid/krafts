@@ -554,7 +554,7 @@ This project was created by using the following steps:
 1. Log in to [GitHub](https://github.com/).
 2. In the Repositories section, click the green "New" button.
 3. Under "Repository template", select "Code-Institute-Org/gitpod-full-template".
-4. Enter repository name (just_jokes).
+4. Enter repository name (krafts).
 5. Click "Create repository".
 6. When re-directed, select the green "Gitpod" button to open workspace. Only do this step once; open workspace from [Gitpod Workspaces](https://gitpod.io/workspaces/) in future. 
 
@@ -582,7 +582,7 @@ This project was deployed to Deployment to Heroku using the following steps:
 
 3. Connect Heroku to Github
     * Click on the "Deploy" tab, select "GitHub", and then "Connect to GitHub".
-    * When a prompt appears to find a github repository to connect to, enter the repo name created on Github ("just_jokes" in this case)
+    * When a prompt appears to find a github repository to connect to, enter the repo name created on Github ("krafts" in this case)
     * Click search, and click the connect button if the correct repository has been found.
 
 5. Add Heroku Postgres Database

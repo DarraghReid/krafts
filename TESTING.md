@@ -423,7 +423,7 @@ The results were as follows:
 
 ## Site Responsiveness
 
-![Responsive](media/readme-images/amiresponsive-krafts.png)
+![Responsive](media/testing-imgs/responsive.png)
 
 [Krafts](https://krafts-dreid.herokuapp.com/) was tested across a range of devices and internet browsers to assess the responsiveness of the site. The site was also tested on all available devices in Google Dev Tools to ensure it was visually appropriate on all screen sizes.
 
