@@ -22,11 +22,11 @@
             
                     <li class="nav-item ">
                         <!-- Pottery header -->
-                        <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="abc logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
+                        <a href="{% url 'products' %}?category=jugs,cups_mugs,vases" class="abc logo-font font-weight-bold nav-link text-black" id="pottery-link-md" aria-haspopup="true" aria-expanded="false">
                             POTTERY
                         </a>
                         <!-- Pottery links -->
-                        <div class="border-0" aria-labelledby="clothing-link">
+                        <div class="border-0" aria-labelledby="pottery-link-md">
                             <a href="{% url 'products' %}?category=jugs" class="abc dropdown-item {% for c in current_categories %}{% if c.name == 'jugs' %}bg-black text-white{% endif %}{% endfor %}">JUGS</a>
                             <a href="{% url 'products' %}?category=cups_mugs" class="abc dropdown-item {% for c in current_categories %}{% if c.name == 'cups_mugs' %}bg-black text-white{% endif %}{% endfor %}">CUPS &amp; MUGS</a>
                             <a href="{% url 'products' %}?category=vases" class="abc dropdown-item {% for c in current_categories %}{% if c.name == 'vases' %}bg-black text-white{% endif %}{% endfor %}">VASES</a>
@@ -35,11 +35,11 @@
             
                     <li class="nav-item">
                         <!-- Furniture header -->
-                        <a href="{% url 'products' %}?category=tables,chairs,cabinets" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
+                        <a href="{% url 'products' %}?category=tables,chairs,cabinets" class="logo-font font-weight-bold nav-link text-black" id="furniture-link-md" aria-haspopup="true" aria-expanded="false">
                             FURNITURE
                         </a>
                         <!-- Furniture links -->
-                        <div class="border-0" aria-labelledby="homeware-link">
+                        <div class="border-0" aria-labelledby="furniture-link-md">
                             <a href="{% url 'products' %}?category=tables" class="dropdown-item {% for c in current_categories %}{% if c.name == 'tables' %}bg-black text-white{% endif %}{% endfor %}">TABLES</a>
                             <a href="{% url 'products' %}?category=chairs" class="dropdown-item {% for c in current_categories %}{% if c.name == 'chairs' %}bg-black text-white{% endif %}{% endfor %}">CHAIRS</a>
                             <a href="{% url 'products' %}?category=cabinets" class="dropdown-item {% for c in current_categories %}{% if c.name == 'cabinets' %}bg-black text-white{% endif %}{% endfor %}">CABINETS</a>
@@ -48,11 +48,11 @@
             
                     <li class="nav-item">
                         <!-- Jewellery header -->
-                        <a href="{% url 'products' %}?category=necklaces,bracelets" class="logo-font font-weight-bold nav-link text-black" id="specials-link" aria-haspopup="true" aria-expanded="false">
+                        <a href="{% url 'products' %}?category=necklaces,bracelets" class="logo-font font-weight-bold nav-link text-black" id="jewellery-link-md" aria-haspopup="true" aria-expanded="false">
                             JEWELLERY
                         </a>
                         <!-- Jewellary links -->
-                        <div class="border-0" aria-labelledby="specials-link">
+                        <div class="border-0" aria-labelledby="jewellery-link-md">
                             <a href="{% url 'products' %}?category=necklaces" class="dropdown-item {% for c in current_categories %}{% if c.name == 'necklaces' %}bg-black text-white{% endif %}{% endfor %}">NECKLACES</a>
                             <a href="{% url 'products' %}?category=bracelets" class="dropdown-item {% for c in current_categories %}{% if c.name == 'bracelets' %}bg-black text-white{% endif %}{% endfor %}">BRACELETS</a>
                         </div>
@@ -72,7 +72,7 @@
                         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                             <div class="sort-select-wrapper w-50">
                                 <!-- Displayed option based on current_sorting variable passed from all_products view -->
-                                <select id="sort-selector" class="custom-select custom-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                <select class="sort-selector custom-select custom-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                     <option value="reset" {% if current_sorting == 'None_None'%}selected{% endif %}>Sort by...</option>
                                     <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                     <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -193,9 +193,9 @@
                                             <div class="form-row">
                                                 <!-- COL1: Hidden input group with default value of 1 -->
                                                 <div class="col-12 d-none">
-                                                    <input type="number" class="form-control qty-input" 
+                                                    <input type="number" class="form-control qty-input d_qty_{{ product.id }}" 
                                                         name="quantity" value="1" min="1" max="99" 
-                                                        data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                                        data-item_id="{{ product.id }}">
                                                 </div>
 
                                                 <!-- COL2: Submit button -->

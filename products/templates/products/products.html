@@ -44,7 +44,7 @@
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <!-- Displayed option based on current_sorting variable passed from all_products view -->
-                            <select id="sort-selector" class="custom-select custom-select-sm border border-0 border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <select class="sort-selector custom-select custom-select-sm border border-0 border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None'%}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -165,9 +165,9 @@
                                         <div class="form-row">
                                             <!-- COL1: Hidden input group with default value of 1 -->
                                             <div class="col-12 d-none">
-                                                <input type="number" class="form-control qty-input" 
+                                                <input type="number" class="form-control qty-input id_qty_{{ product.id }}" 
                                                     name="quantity" value="1" min="1" max="99" 
-                                                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                                    data-item_id="{{ product.id }}">
                                             </div>
 
                                             <!-- COL2: Submit button -->
@@ -232,7 +232,7 @@
     <!-- Selector box functionality -->
     <script>
         // Capture change even from sort selector
-        $('#sort-selector').change(function() {
+        $('.sort-selector').change(function() {
             // Set selector equal to this
             let selector = $(this);
             // Set currentUrl equal to URL object with current window's location

@@ -3,7 +3,7 @@
     function handleEnableDisable(itemId) {
 
         // Get current value of input based on id attribute
-        let currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        let currentValue = parseInt($(`.id_qty_${itemId}`).val());
 
         // Disable minus button if value is less than 2
         minusDisabled = currentValue < 2;
