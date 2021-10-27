@@ -53,7 +53,7 @@ This project marks the developer's first time using the Django framework.
 
 The purpose of this site is to provide users with a means to purchase hand crafted products. The original idea for the site was for artists to create their own store on the site, with users being able to browse products and also browse individual stores.
 
-Due to time contraints, the site is currently a single store ecommerce site offering handmade products of different categories which facilitates the shopping experience from start to finish. Shelved features as well as potential other features can be found in the [Potential Future Features](#Potential-Future-Features) section.
+Due to time constraints, the site is currently a single store ecommerce site offering handmade products of different categories which facilitates the shopping experience from start to finish. Shelved features as well as potential other features can be found in the [Potential Future Features](#Potential-Future-Features) section.
 
 ## UX
 ### User Stories
@@ -74,7 +74,7 @@ Due to time contraints, the site is currently a single store ecommerce site offe
 ||View my purchase history|Keep track of my purchases|
 ||Comment on products|Express my opinion or inquire about different products|
 ||Rate products|Express my opinion on different products|
-||Contact the site owner|Exporess concers and make inquiries|
+||Contact the site owner|Express concerns and make inquiries|
 ||View my cart prior to checkout|review my order|
 ||Receive confirmation of purchases|Keep account of my purchases|
 ||Easily know free delivery threshold|Know how much I need to spend to qualify for free delivery|
@@ -90,7 +90,7 @@ Krafts is a standard ecommerce store where users can browse a variety of product
 
 Potential shoppers can access products filtered how they please in a single products page. They can further explore individual products in a product detail page, on which they can also rate and comment on the products.
 
-Shoppers are also provided with a cart in which they can store items for purchase as well as adjust quantities of certain products. They are also provided with a Profile page wherecan also review and update their shipping as well as view their order history.
+Shoppers are also provided with a cart in which they can store items for purchase as well as adjust quantities of certain products. They are also provided with a Profile page where they can also review and update their shipping as well as view their order history.
 
 Shoppers can also easily access the sites contact information, as well as send emails directly from the Contact page
 
@@ -104,11 +104,11 @@ More on what each page does and how it functions will be discussed in the [Featu
 * Colour Scheme
     * The colour scheme of this site was kept very simple so as to keep emphasis on the primary purpose of the store; to browse and purchase products.
 
-        The primary colours used are black and white for a simple contrast that does not distract from the prominance of the product images. An aqua colour #17a2b8 was used to indicate information about the purchase to users. It is used on the cart icon in the header to indicate the presence of item in the cart, as well as in the progress bar to indicate to users how close they are to the free delivery threshold.
+        The primary colours used are black and white for a simple contrast that does not distract from the prominence of the product images. An aqua colour #17a2b8 was used to indicate information about the purchase to users. It is used on the cart icon in the header to indicate the presence of item in the cart, as well as in the progress bar to indicate to users how close they are to the free delivery threshold.
 
         For admins, simple blue and red text is used to indicate their additional features, such as editing and deleting products and comments. Editing and deleting comments is also available to registered users. 
         
-        A dull grey is used for headings and placeholders, while default Boostrap colours are used for the custom toasts feature in the message container
+        A dull grey is used for headings and placeholders, while default Bootstrap colours are used for the custom toasts feature in the message container
 
 
 * Typography
@@ -128,7 +128,7 @@ Below are rough wireframes for the main pages of the site.
 
 * The biggest visual difference between the wireframe and the latest version of the site, is the replacement of the product cards with the parallex category links on the Home page. The links are more reflective of the purpose of the Home page, which is to serve as an introduction to the site, rather than to be part of the shopping experience.
 
-* On the Products page, a notable inclusion is the side navigation element on medium screens upwards. It serves as an intuitive navigation with any active categories being hightlighted. This replaves the need for the active category links displayed at the top of the page on smaller screens.
+* On the Products page, a notable inclusion is the side navigation element on medium screens upwards. It serves as an intuitive navigation with any active categories being highlighted. This replaces the need for the active category links displayed at the top of the page on smaller screens.
 
 * On smaller screens, the main nav menu dropdown has been moved to the header in line with other menu items.
 
@@ -136,7 +136,7 @@ Below are rough wireframes for the main pages of the site.
 
 * The filter toggle button was dropped in favaour of displaying the sorting dropdown as is.
 
-* On smaller to medium screens, the all menu items and links in the header and represented by icons, with no text on small screens, and minimal text on medium screens. The search bar is toggled with a search icon on these screen sizez.
+* On smaller to medium screens, the all menu items and links in the header and represented by icons, with no text on small screens, and minimal text on medium screens. The search bar is toggled with a search icon on these screen sisez.
 
 * Also, on the header, a progress bar was included to indicate to the user how close they are to qualifying for free delivery.
 
@@ -168,7 +168,7 @@ The Product model is the most integral model in this project. It defines how eac
 
 * That 'rating_average' is a DecimalField which is calculated by dividing the rating field by the rates field.
 
-This caculation is done in the rate_product() view in the products app's views file. In future versions of the site, I would opt to carry out this calculation using model methods.
+This calculation is done in the rate_product() view in the products app's views file. In future versions of the site, I would opt to carry out this calculation using model methods.
         
 ### Category Model
 
@@ -182,7 +182,7 @@ The Category model has the important job of sorting products into their respecti
 
 The Comments model is used to store comments made by users under particular products.
 
-* The 'product' is a ForeignKey which relates the comment to its repective product.
+* The 'product' is a ForeignKey which relates the comment to its respective product.
 
 * The 'name' field is a ForeignKey which relates the comment to the user who wrote the comment.
 
@@ -288,11 +288,11 @@ The header is fixed to the top of all site pages. It features:
 
 ![Category Links](media/readme-imgs/category-links.png)
 
-The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's perpose. It includes:
+The home page is designed to be an intuitive introduction to the site where the user immediately learns the site's purpose. It includes:
 
-* The hero carousel which is comprosed of three images despicting various crafts to give an indication of the sites purpose. This Bootstrap carousel was surprisingly troublesome and time consuming and was difficult to make responsive. Eventually, the images were removed from the slider and were replaced with background images using CSS.
+* The hero carousel which is comprised of three images depicting various crafts to give an indication of the sites purpose. This Bootstrap carousel was surprisingly troublesome and time consuming and was difficult to make responsive. Eventually, the images were removed from the slider and were replaced with background images using CSS.
 
-* The category links which are image-based links that lead to the different product categories. The images were carefully chosed to refect their respective category. Again, the images were implemented as background images using css and have a parallex effect.
+* The category links which are image-based links that lead to the different product categories. The images were carefully chosen to reflect their respective category. Again, the images were implemented as background images using css and have a parallax effect.
 
 [^ Back To Top ^](#Contents)
 
@@ -318,7 +318,7 @@ The products page is where all products are displayed based on search results, f
 
 * The side nav with which users can filter products by different categories and subcategories. The side nav is absent on smaller screens. The main nav is the only navigation on smaller screens, with current categories indicated at the top of the page by links.
 
-* The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD opperations. Clicking the card's image will lead to the respective product's Product Detail page.
+* The Product card which display introductory information about the products. These are Bootstrap cards and display the product image, name, price, category and average rating (represented by stars). An "Add to cart" button at the bottom of the card adds the respective product the the cart. Additional edit and delete links on the cards allow Admins to perform these CRUD operations. Clicking the card's image will lead to the respective product's Product Detail page.
 
 * The filter selector box which allows user to filter products base on name, price, rating and category, including in reverse order.
 
@@ -337,13 +337,13 @@ The Product Detail page allows user to view additional information about individ
 
 * A Keep Shopping button that leads users back to the products page to continue shopping.
 
-* Additional Edit and Delete buttons for admins to perform these CRUD opperations.
+* Additional Edit and Delete buttons for admins to perform these CRUD operations.
 
 * A rating form that allows users to give the product a rating out of 5. The form is hidden and is represented by 5 stars. Upon clicking a star, rating input of the Product form is updated and submitted using JavaScript. After the user has rated the product, the form is no longer accessible and is replaced with a message informing the user that they have already rated that product.
 
-* A comments form which allows users to make comments about the this particular product. The comments form is prefilled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
+* A comments form which allows users to make comments about the this particular product. The comments form is pre-filled with the user's and the product's information, with only the comment field of the from displayed and filled by the user. Upon submission, the comment is recorded in the Comments model in the database.
 
-* The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a perent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
+* The comments section where users can see comments left by themselves and other users, and where Admins can reply to comments. The Comment model has a parent field that is a foreign key to itself. It indicates if the comment is being reply to, or is in reply to another comment. The comments that are in reply to other comments and referred to as "child comments" and are nested under the comments they are in reply to.
 
     Users can also edit their own comments by clicking the Edit button which toggles the edit comment form. The reply form is also toggled when the reply button is clicked.
 
@@ -355,7 +355,7 @@ The Product Detail page allows user to view additional information about individ
 
 The cart displays all of the products the user has added to the cart and provides links to secure checkout. It features:
 
-* A table which organises all of the products in the cart into rows with colums separating the products by relevent fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall prive calculation of the quantity of a particular product.
+* A table which organises all of the products in the cart into rows with columns separating the products by relevant fields. These fields include Product Info, Price, Qty (quantity), and subtotal, which is an overall price calculation of the quantity of a particular product.
 
 * Grand total calculator which calculates the total to be payed by a customer based on the free delivery requirements. Delivery will be free if the sum total of their items is greater than the free delivery threshold (currently set at 50 in the settings file). Otherwise, delivery will be set at 10% of the sum total of their items.
 
@@ -381,7 +381,7 @@ The Product Management page is accessible only to admins. It features:
 
 The Profile page is where information about the user is stored. It features:
 
-* A form in which the user's default delivery information is stored. This form is prefilled with the delivery information provided by the user during checkout and is stored in the database via the UserProfile model. It can be updated by the user on the Profile page.
+* A form in which the user's default delivery information is stored. This form is pre-filled with the delivery information provided by the user during checkout and is stored in the database via the UserProfile model. It can be updated by the user on the Profile page.
 
 * A table which displays the user's order history, including the Order Number, Date, Items purchased, and the Oder Total. The Order number is a link which leads to a separate Order History page. 
 
@@ -424,17 +424,17 @@ The Order History page is accessed via the Profile page by clicked on an Order N
 ## Potential Future Features
 * Set Up Shop
 
-    As mentioned previously, the original idea of the site was to allow artists to set up their own virtual store to sell their products. Future versions of this site would allow sellers to have a distint user status where tabs to access and upload their own products are available to them.
+    As mentioned previously, the original idea of the site was to allow artists to set up their own virtual store to sell their products. Future versions of this site would allow sellers to have a distinct user status where tabs to access and upload their own products are available to them.
 
 * Rating System
 
-    Upon completion of the rating system, I realised I had designed it in such a way that users cannot modify their ratings. This is becasue, upon submition of a rating, the rating gets added to the rating field in the Product model, which is then divided by the number of times the product has been rated to get the average rating.
+    Upon completion of the rating system, I realised I had designed it in such a way that users cannot modify their ratings. This is because, upon submission of a rating, the rating gets added to the rating field in the Product model, which is then divided by the number of times the product has been rated to get the average rating.
 
     Future versions of the site would have a separate Review model, with the Products model as foreign key, where users can create, edit and delete a review/rating of a product. Future versions of the site would also ensure that only users who have purchased the product can review it.
 
 * Messages Tab
 
-    Due to time contraints, plans to implement a messages tab in the user's profile were shelved. In future versions of the site, users will be able to access and track all of their previous correspondance with the site owner.
+    Due to time constraints, plans to implement a messages tab in the user's profile were shelved. In future versions of the site, users will be able to access and track all of their previous correspondence with the site owner.
 
 * Save For Later
 
