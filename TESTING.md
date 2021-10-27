@@ -418,15 +418,7 @@ The results were as follows:
 |:----|:----|:----|:----|:----|:----|
 |404 Page|Enter an invalid url|1. The page should redirect to the 404 error page||PASS||
 |||2. The 404 error page should consist of a single card element with detail of the error and a button offering a route back to the home page||PASS||
-||Click the "Return Home" button|The page should redirect to the Home Page||PASS||
-
-
-### 500 Page
-![Verify Account Page](media/testing-imgs/500.png)
-|**Feature**|**Test Description**|**Expected Results/s**|**Image**|**PASS/FAIL**|**Comments**|
-|:----|:----|:----|:----|:----|:----|
-|500 Page|Enter an invalid url|1. The page should redirect to the 404 error page||PASS||
-|||2. The 404 error page should consist of a single card element with detail of the error and a button offering a route back to the home page||PASS||
+||Click the "Return Home" button|The page should redirect to the Home Page||PASS|500, 404 pages are identical to 500|
 ||Click the "Return Home" button|The page should redirect to the Home Page||PASS||
 
 ## Site Responsiveness
