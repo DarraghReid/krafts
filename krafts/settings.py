@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['krafts-dreid.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['krafts-dreid.herokuapp.com', '8000-darraghreid-krafts-458oqwyrxnm.ws-eu116.gitpod.io', 'localhost']
 
 
 # Application definition
@@ -221,7 +221,7 @@ if 'USE_AWS' in os.environ:
     }
 
 # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'krafts-dreid'
+    AWS_STORAGE_BUCKET_NAME = 'krafts-bucket'
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
