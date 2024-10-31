@@ -267,13 +267,17 @@ if 'DEVELOPMENT' in os.environ:
     DEFAULT_FROM_EMAIL = 'krafts@example.com'
 # Otherwise, send confirmation emails
 else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = True
-    EMAIL_PORT = 587
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    # print("EMAIL_HOST_USER:", os.environ.get('EMAIL_HOST_USER'))
+    # print("EMAIL_HOST_PASS:", os.environ.get('EMAIL_HOST_PASS'))
+    # print("SENDGRID_API_KEY:", os.environ.get('SENDGRID_API_KEY'))
+    # Load your SendGrid API key from environment variables
+    SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+
+    # Configure the email backend to use SendGrid
+    EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+    SENDGRID_SANDBOX_MODE_IN_DEBUG = False  # Set to True if you want to test without sending emails
+    SENDGRID_ECHO_TO_STDOUT = False  # Optional: Set to True to print messages to the console for debugging
+    DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')  # or any default email address you'd like to use
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
